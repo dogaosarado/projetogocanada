@@ -1,0 +1,3978 @@
+[
+  {
+    "id": "mcgill",
+    "name": "McGill",
+    "programs": [
+      {
+        "name": "Bioresource Engineering (M.Sc.A.): Integrated Food and Bioprocessing (IFB)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/bioresource-engineering-msca-integrated-food-and-bioprocessing-ifb"
+      },
+      {
+        "name": "Bioresource Engineering (M.Sc.A.): Environmental Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/bioresource-engineering-msca-environmental"
+      },
+      {
+        "name": "Bioresource Engineering (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/bioresource-engineering-msc"
+      },
+      {
+        "name": "Animal Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/animal-science-phd"
+      },
+      {
+        "name": "Entomology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/entomology-phd"
+      },
+      {
+        "name": "Renewable Resources (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/renewable-resources-phd"
+      },
+      {
+        "name": "Parasitology (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/parasitology-msc"
+      },
+      {
+        "name": "Human Nutrition (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/human-nutrition-phd"
+      },
+      {
+        "name": "Biotechnology (M.Sc.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/biotechnology-msca"
+      },
+      {
+        "name": "Food Science & Agricultural Chemistry (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/food-science-agricultural-chemistry-phd"
+      },
+      {
+        "name": "English (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/english-ma"
+      },
+      {
+        "name": "Jewish Studies (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/jewish-studies-ma-non-thesis"
+      },
+      {
+        "name": "Art History (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/art-history-phd"
+      },
+      {
+        "name": "Medical Sociology (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/medical-sociology-ma-non-thesis"
+      },
+      {
+        "name": "Public Policy (MPP)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/public-policy-mpp"
+      },
+      {
+        "name": "Russian and Slavic Studies (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/russian-phd"
+      },
+      {
+        "name": "Economics (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/economics-ma"
+      },
+      {
+        "name": "Islamic Studies (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/islamic-studies-phd"
+      },
+      {
+        "name": "Political Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/political-science-phd"
+      },
+      {
+        "name": "Langue et littérature françaises (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/langue-et-litterature-francaises-phd"
+      },
+      {
+        "name": "Oral Medicine (Grad. Dip.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/oral-medicine-grad-dip"
+      },
+      {
+        "name": "Dental Sciences (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/dental-sciences-msc"
+      },
+      {
+        "name": "Oral Health Sciences (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/oral-health-sciences-phd"
+      },
+      {
+        "name": "Dental Sciences (M.Sc.) - Non-Thesis",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/dental-sciences-msc-non-thesis"
+      },
+      {
+        "name": "School/Applied Child Psychology (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/schoolapplied-child-psychology-ma-non-thesis"
+      },
+      {
+        "name": "Pédagogie de l'immersion française (Cert. Ed. Sup.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/pedagogie-de-limmersion-francaise-cert-ed-sup"
+      },
+      {
+        "name": "Educational Psychology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/educational-psychology-phd"
+      },
+      {
+        "name": "Teaching English as a Second Language (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/teaching-english-second-language-grad-cert"
+      },
+      {
+        "name": "Kinesiology Sciences (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/kinesiology-sciences-phd"
+      },
+      {
+        "name": "Educational Leadership (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/educational-leadership-grad-cert"
+      },
+      {
+        "name": "School/Applied Child Psychology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/schoolapplied-child-psychology-phd"
+      },
+      {
+        "name": "Educational Psychology (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/educational-psychology-ma"
+      },
+      {
+        "name": "Counselling Psychology (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/counselling-psychology-ma-non-thesis"
+      },
+      {
+        "name": "Education and Society (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/education-and-society-ma-non-thesis"
+      },
+      {
+        "name": "Urban Planning (M.U.P.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/urban-planning-mup"
+      },
+      {
+        "name": "Aerospace Engineering (M.Eng.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/aerospace-engineering-meng-non-thesis"
+      },
+      {
+        "name": "Architecture (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/architecture-phd"
+      },
+      {
+        "name": "Civil Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/civil-engineering-phd"
+      },
+      {
+        "name": "Electrical Engineering (M.Eng.) - Applied Artificial Intelligence",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/electrical-engineering-meng-applied-artificial-intelligence"
+      },
+      {
+        "name": "Civil Engineering (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/civil-engineering-msc"
+      },
+      {
+        "name": "Materials Engineering (M.Eng.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/materials-engineering-meng-non-thesis"
+      },
+      {
+        "name": "Urban Planning, Policy, & Design (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/urban-planning-policy-design-phd"
+      },
+      {
+        "name": "Materials Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/materials-engineering-phd"
+      },
+      {
+        "name": "Civil Engineering (M.Eng.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/civil-engineering-meng-non-thesis"
+      },
+      {
+        "name": "Law (LL.M.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/law-llm"
+      },
+      {
+        "name": "Air & Space Law (D.C.L.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/air-space-law-dcl"
+      },
+      {
+        "name": "Air & Space Law (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/air-space-law-grad-cert-0"
+      },
+      {
+        "name": "Law (D.C.L.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/law-dcl"
+      },
+      {
+        "name": "Comparative Law (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/comparative-law-grad-cert"
+      },
+      {
+        "name": "Air & Space Law (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/air-space-law-grad-cert"
+      },
+      {
+        "name": "Law (LL.M. Non-Thesis)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/law-llm-non-thesis"
+      },
+      {
+        "name": "Healthcare Management (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/healthcare-management-grad-cert"
+      },
+      {
+        "name": "Analytics (M.M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/analytics-mma"
+      },
+      {
+        "name": "Retailing (M.M.R.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/retailing-mmr"
+      },
+      {
+        "name": "McGill-HEC Montréal Executive MBA (EMBA)",
+        "degree_type": "MBA",
+        "url": "https://www.mcgill.ca/gradapplicants/program/mcgill-hec-montreal-executive-mba-emba"
+      },
+      {
+        "name": "Business Administration (M.B.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/business-administration-mba"
+      },
+      {
+        "name": "Management (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/management-phd"
+      },
+      {
+        "name": "International Masters for Health Leadership (I.M.H.L.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/health-leadership-imhl"
+      },
+      {
+        "name": "Global Manufacturing and Supply Chain Management (M.M.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/manufacturing-management-mm"
+      },
+      {
+        "name": "Professional Accounting (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/professional-accounting-grad-cert"
+      },
+      {
+        "name": "Finance (M.M.F.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/finance-mmf"
+      },
+      {
+        "name": "Public Health (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/public-health-msc-non-thesis"
+      },
+      {
+        "name": "Rehabilitation Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/rehabilitation-science-phd"
+      },
+      {
+        "name": "Pathology (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/pathology-msc"
+      },
+      {
+        "name": "Pharmacology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/pharmacology-phd"
+      },
+      {
+        "name": "Biostatistics (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/biostatistics-msc-non-thesis"
+      },
+      {
+        "name": "Adult Care Nurse Practitioner (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/adult-care-nurse-practitioner-grad-cert"
+      },
+      {
+        "name": "Oncology (Grad. Dip.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/oncology-grad-dip"
+      },
+      {
+        "name": "Otolaryngology (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/otolaryngology-msc"
+      },
+      {
+        "name": "Primary Care Nurse Practitioner (Grad. Dip.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/primary-care-nurse-practitioner-grad-dip"
+      },
+      {
+        "name": "Epidemiology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/epidemiology-phd"
+      },
+      {
+        "name": "Performance: Conducting (M.Mus.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/performance-conducting-mmus"
+      },
+      {
+        "name": "Music (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/music-phd"
+      },
+      {
+        "name": "Music: Music Education (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/music-music-education-ma"
+      },
+      {
+        "name": "Performance (Grad. Dip.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/performance-grad-dip"
+      },
+      {
+        "name": "Performance: Piano (M.Mus.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/performance-piano-mmus"
+      },
+      {
+        "name": "Performance: Orchestral Instruments, Guitar (M.Mus.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/performance-orchestral-instruments-guitar-mmus"
+      },
+      {
+        "name": "Performance: Collaborative Piano (M.Mus.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/performance-collaborative-piano-mmus"
+      },
+      {
+        "name": "Music: Musicology (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/music-musicology-ma"
+      },
+      {
+        "name": "Music: Composition (M.Mus.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/music-composition-mmus"
+      },
+      {
+        "name": "Performance: Opera and Voice (M.Mus.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/performance-opera-and-voice-mmus"
+      },
+      {
+        "name": "Biology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/biology-phd"
+      },
+      {
+        "name": "Psychology (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/psychology-msc"
+      },
+      {
+        "name": "Atmospheric & Oceanic Sciences (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/atmospheric-oceanic-sciences-phd"
+      },
+      {
+        "name": "Psychology (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/psychology-ma"
+      },
+      {
+        "name": "Earth & Planetary Sciences (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/earth-planetary-sciences-phd"
+      },
+      {
+        "name": "Earth & Planetary Sciences (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/earth-planetary-sciences-msc"
+      },
+      {
+        "name": "Physics (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/physics-phd"
+      },
+      {
+        "name": "Atmospheric & Oceanic Sciences (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/atmospheric-oceanic-sciences-msc"
+      },
+      {
+        "name": "Chemistry (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/chemistry-msc"
+      },
+      {
+        "name": "Mathematics & Statistics (M.A.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/mathematics-statistics-ma"
+      },
+      {
+        "name": "Neuroscience (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/neuroscience-phd"
+      },
+      {
+        "name": "Ad Hoc Biophysics PhD Program",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/ad-hoc-biophysics-phd-program"
+      },
+      {
+        "name": "Biological and Biomedical Engineering - Biomanufacturing (M.Eng.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/biological-and-biomedical-engineering-biomfg-meng-non-thesis"
+      },
+      {
+        "name": "Quantitative Life Sciences (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/quantitative-life-sciences-phd"
+      },
+      {
+        "name": "Biological and Biomedical Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/biological-and-biomedical-engineering-phd"
+      },
+      {
+        "name": "Biological and Biomedical Engineering (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/biological-and-biomedical-engineering-msc"
+      },
+      {
+        "name": "Neuroscience (M.Sc.)",
+        "degree_type": "Unknown",
+        "url": "https://www.mcgill.ca/gradapplicants/program/neuroscience-msc"
+      },
+      {
+        "name": "PhD in Interdisciplinary Cancer Sciences Program (ICSP)",
+        "degree_type": "PhD",
+        "url": "https://www.mcgill.ca/gradapplicants/program/interdisciplinary-cancersciences-phd-program"
+      },
+      {
+        "name": "Graduate Certificate in Public Administration and Governance",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-public-administration-and-governance"
+      },
+      {
+        "name": "Graduate Certificate in Human Resources Management",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-human-resources-management"
+      },
+      {
+        "name": "Graduate Certificate in Advanced Human Resources Management",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-advanced-human-resources-management"
+      },
+      {
+        "name": "Graduate Certificate in Data Analysis for Complex Systems",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-data-analysis-complex-systems"
+      },
+      {
+        "name": "Graduate Certificate in Entrepreneurship",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-entrepreneurship-0"
+      },
+      {
+        "name": "Graduate Certificate in Advanced Business Management",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-advanced-business-management"
+      },
+      {
+        "name": "Graduate Diploma in Legal Translation (Grad. Dip.)",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-diploma-legal-translation-grad-dip"
+      },
+      {
+        "name": "Graduate Certificate in Marketing",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-marketing"
+      },
+      {
+        "name": "Graduate Certificate in Advanced Marketing",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-advanced-marketing"
+      },
+      {
+        "name": "Graduate Certificate in Financial Analysis (Grad. Cert.)",
+        "degree_type": "Certificate",
+        "url": "https://www.mcgill.ca/gradapplicants/program/graduate-certificate-financial-analysis"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "concordia",
+    "name": "Concordia",
+    "programs": [
+      {
+        "name": "Adult Education (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/adult-education.html"
+      },
+      {
+        "name": "Aerospace Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/aerospace-engineering-meng.html"
+      },
+      {
+        "name": "Applied Artificial Intelligence (Microprogram)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/applied-ai-microprogram.html"
+      },
+      {
+        "name": "Applied Linguistics (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/applied-linguistics.html"
+      },
+      {
+        "name": "Art Education (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/art-education-ma.html"
+      },
+      {
+        "name": "Art Education (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/art-education-phd.html"
+      },
+      {
+        "name": "Art History (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/art-history-ma.html"
+      },
+      {
+        "name": "Art History (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/art-history-phd.html"
+      },
+      {
+        "name": "Art Therapy, Creative Arts Therapies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/art-therapy.html"
+      },
+      {
+        "name": "Biology (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/biology-msc.html"
+      },
+      {
+        "name": "Biology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/biology-phd.html"
+      },
+      {
+        "name": "Building Engineering (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/building-engineering-certificate.html"
+      },
+      {
+        "name": "Building Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/building-engineering-masc.html"
+      },
+      {
+        "name": "Building Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/building-engineering-meng.html"
+      },
+      {
+        "name": "Building Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/building-engineering-phd.html"
+      },
+      {
+        "name": "Business Administration (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/business-administration-phd.html"
+      },
+      {
+        "name": "Business Analytics and Technology Management (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/business-analytics-and-technology-management-msc.html"
+      },
+      {
+        "name": "Chartered Professional Accountancy (CPA) (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/chartered-professional-accountancy.html"
+      },
+      {
+        "name": "Chemical Engineering (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/chemical-engineering-certificate.html"
+      },
+      {
+        "name": "Chemical Engineering (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/chemical-engineering-diploma.html"
+      },
+      {
+        "name": "Chemical Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/chemical-engineering-masc.html"
+      },
+      {
+        "name": "Chemical Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/chemical-engineering-phd.html"
+      },
+      {
+        "name": "Chemistry (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/chemistry-msc.html"
+      },
+      {
+        "name": "Chemistry (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/chemistry-phd.html"
+      },
+      {
+        "name": "Child Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/child-studies-ma.html"
+      },
+      {
+        "name": "Cinematic Arts (MFA)",
+        "degree_type": "MFA",
+        "url": "https://www.concordia.ca/academics/graduate/cinematic-arts.html"
+      },
+      {
+        "name": "Civil Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/civil-engineering-masc.html"
+      },
+      {
+        "name": "Civil Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/civil-engineering-meng.html"
+      },
+      {
+        "name": "Civil Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/civil-engineering-phd.html"
+      },
+      {
+        "name": "Communication (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/communication-phd.html"
+      },
+      {
+        "name": "Communication Studies (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/communication-studies-diploma.html"
+      },
+      {
+        "name": "Community Economic Development (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/community-economic-development.html"
+      },
+      {
+        "name": "Computer Science (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/computer-science-diploma.html"
+      },
+      {
+        "name": "Computer Science (MApCompSc)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/computer-science-mcompsci-applied.html"
+      },
+      {
+        "name": "Computer Science (MCompSc)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/computer-science-mcompsc.html"
+      },
+      {
+        "name": "Computer Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/computer-science-phd.html"
+      },
+      {
+        "name": "Construction Engineering and Management (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/construction-engineering.html"
+      },
+      {
+        "name": "Curatorial Studies (Microprogram)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/curatorial-studies-microprogram.html"
+      },
+      {
+        "name": "Curatorial Studies and Practices (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/curatorial-studies-certificate.html"
+      },
+      {
+        "name": "Design (MDes)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/design.html"
+      },
+      {
+        "name": "Digital Innovation in Journalism Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/digital-innovation-in-journalism-studies-ma.html"
+      },
+      {
+        "name": "Drama Therapy, Creative Arts Therapies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/drama-therapy.html"
+      },
+      {
+        "name": "DÃ©veloppement Ã©conomique communautaire (dipl. 2e c.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/developpement-economique-communautaire.html"
+      },
+      {
+        "name": "Economics (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/economics-diploma.html"
+      },
+      {
+        "name": "Economics (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/economics-ma.html"
+      },
+      {
+        "name": "Economics (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/economics-phd.html"
+      },
+      {
+        "name": "Education (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/education-phd.html"
+      },
+      {
+        "name": "Educational Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/educational-studies.html"
+      },
+      {
+        "name": "Educational Technology (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/educational-technology-ma.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/electrical-engineering-masc.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/electrical-engineering-meng.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/electrical-engineering-phd.html"
+      },
+      {
+        "name": "English (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/english-ma.html"
+      },
+      {
+        "name": "English Literature (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/english-phd.html"
+      },
+      {
+        "name": "Environmental Assessment (DEA) (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/environmental-assessment.html"
+      },
+      {
+        "name": "Environmental Assessment (MEnv)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/environmental-assessment-menv.html"
+      },
+      {
+        "name": "Environmental Engineering (Grad.Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/environmental-engineering-certificate.html"
+      },
+      {
+        "name": "Environmental Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/environmental-engineering.html"
+      },
+      {
+        "name": "Film and Moving Image Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/film-studies-ma.html"
+      },
+      {
+        "name": "Film and Moving Image Studies (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/film-moving-image-studies.html"
+      },
+      {
+        "name": "Finance (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/finance-msc.html"
+      },
+      {
+        "name": "Geography, Urban and Environmental Studies (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/geography-urban-environmental-msc.html"
+      },
+      {
+        "name": "Geography, Urban and Environmental Studies (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/geography-urban-environmental-phd.html"
+      },
+      {
+        "name": "Health and Exercise Science (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/exercise-science-msc.html"
+      },
+      {
+        "name": "Health and Exercise Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/health-exercise-science-phd.html"
+      },
+      {
+        "name": "History (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/history-ma.html"
+      },
+      {
+        "name": "History (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/history-phd.html"
+      },
+      {
+        "name": "Human Systems Intervention (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/human-systems-intervention.html"
+      },
+      {
+        "name": "Humanities (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/humanities-doctoral-program.html"
+      },
+      {
+        "name": "Individualized Program (MA, MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/individualized-program-ma-msc.html"
+      },
+      {
+        "name": "Individualized Program (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/individualized-program-phd.html"
+      },
+      {
+        "name": "Industrial Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/industrial-engineering-masc.html"
+      },
+      {
+        "name": "Industrial Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/industrial-engineering-meng.html"
+      },
+      {
+        "name": "Industrial Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/industrial-engineering-phd.html"
+      },
+      {
+        "name": "Information and Systems Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/information-systems-engineering-phd.html"
+      },
+      {
+        "name": "Information Systems Security (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/information-systems-masc.html"
+      },
+      {
+        "name": "Information Systems Security (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/information-systems-meng.html"
+      },
+      {
+        "name": "Instructional Technology (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/instructional-technology.html"
+      },
+      {
+        "name": "Journalism (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/journalism-diploma.html"
+      },
+      {
+        "name": "Judaic Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/judaic-studies.html"
+      },
+      {
+        "name": "Management (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/management-msc.html"
+      },
+      {
+        "name": "Marketing (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/marketing-msc.html"
+      },
+      {
+        "name": "Mathematics and Statistics (MA, MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/mathematics-statistics-mamsc.html"
+      },
+      {
+        "name": "Mathematics and Statistics (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/mathematics-statistics-phd.html"
+      },
+      {
+        "name": "MBA",
+        "degree_type": "MBA",
+        "url": "https://www.concordia.ca/academics/graduate/business-administration-mba.html"
+      },
+      {
+        "name": "MBA (Executive)",
+        "degree_type": "MBA",
+        "url": "https://www.concordia.ca/academics/graduate/executive-mba.html"
+      },
+      {
+        "name": "MBA (Investment Management)",
+        "degree_type": "MBA",
+        "url": "https://www.concordia.ca/academics/graduate/mba-with-complete-cfa-integration.html"
+      },
+      {
+        "name": "Mechanical Engineering (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/mechanical-engineering-certificate.html"
+      },
+      {
+        "name": "Mechanical Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/mechanical-engineering-masc.html"
+      },
+      {
+        "name": "Mechanical Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/mechanical-engineering-meng.html"
+      },
+      {
+        "name": "Mechanical Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/mechanical-engineering-phd.html"
+      },
+      {
+        "name": "Media Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/media-studies.html"
+      },
+      {
+        "name": "Music Therapy (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/music-therapy-diploma.html"
+      },
+      {
+        "name": "Music Therapy, Creative Arts Therapies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/music-therapy.html"
+      },
+      {
+        "name": "Nanoscience and Nanotechnology (MSc, MASc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/nanoscience-and-nanotechnology-msc-masc.html"
+      },
+      {
+        "name": "Philosophy (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/philosophy-ma.html"
+      },
+      {
+        "name": "Physics (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/physics-msc.html"
+      },
+      {
+        "name": "Physics (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/physics-phd.html"
+      },
+      {
+        "name": "Play Therapy (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/play-therapy-certificate.html"
+      },
+      {
+        "name": "Political Science (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/political-science-ma.html"
+      },
+      {
+        "name": "Political Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/political-science.html"
+      },
+      {
+        "name": "Psychology (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/psychology-ma.html"
+      },
+      {
+        "name": "Psychology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/psychology-phd.html"
+      },
+      {
+        "name": "Public Policy and Public Administration (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/public-policy-administration.html"
+      },
+      {
+        "name": "Quality Systems Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/quality-systems-masc.html"
+      },
+      {
+        "name": "Quality Systems Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/quality-systems-meng.html"
+      },
+      {
+        "name": "Religion (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/religion-phd.html"
+      },
+      {
+        "name": "Religions and Cultures (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/religion-ma.html"
+      },
+      {
+        "name": "Social and Cultural Analysis (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/social-cultural-phd.html"
+      },
+      {
+        "name": "Social and Cultural Anthropology (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/social-cultural-ma.html"
+      },
+      {
+        "name": "Sociology (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/sociology-ma.html"
+      },
+      {
+        "name": "Software Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/software-engineering-masc.html"
+      },
+      {
+        "name": "Software Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/software-engineering-meng.html"
+      },
+      {
+        "name": "Software Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/software-engineering-phd.html"
+      },
+      {
+        "name": "Studio Arts (MFA)",
+        "degree_type": "MFA",
+        "url": "https://www.concordia.ca/academics/graduate/studio-arts-mfa.html"
+      },
+      {
+        "name": "Supply Chain Management (MSCM)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/supply-chain-management.html"
+      },
+      {
+        "name": "Sustainability Perspectives (Microprogram)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/sustainability-microprogram.html"
+      },
+      {
+        "name": "Teacher Certification: Preschool and Elementary Teaching (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/teacher-certification-preschool-elementary.html"
+      },
+      {
+        "name": "Teacher Certification: Teaching English as a Second Language (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/teacher-certification-tesl.html"
+      },
+      {
+        "name": "Technologies de la traduction (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/technologies-traduction-certificat.html"
+      },
+      {
+        "name": "Theological Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/theological-studies-ma.html"
+      },
+      {
+        "name": "Traduction (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/traduction.html"
+      },
+      {
+        "name": "Traductologie (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/traductologie-ma.html"
+      },
+      {
+        "name": "Visual Journalism (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/visual-journalism-diploma.html"
+      },
+      {
+        "name": "Youth Work (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/youth-work.html"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "ualberta",
+    "name": "uAlberta",
+    "programs": [
+      {
+        "name": "Skip to main content",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/index.html#main"
+      },
+      {
+        "name": "Graduate Programs",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/index.html"
+      },
+      {
+        "name": "Accounting",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-accounting-business.html"
+      },
+      {
+        "name": "Adapted Physical Activity",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-certificate-in-adapted-physical-activity.html"
+      },
+      {
+        "name": "Administration et leadership scolaires (School Administration and Leadership)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/certificat-detudes-superieures-en-administration-et-leadership-scolaire-faculte-saint-jean.html"
+      },
+      {
+        "name": "Administration scolaire (School Administration)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/certificat-superieur-integre-en-administration-scolaire-faculte-saint-jean.html"
+      },
+      {
+        "name": "Agriculture, Food, and Nutritional Science",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-agriculture-agricultural-food-and-nutritional-science.html"
+      },
+      {
+        "name": "Agriculture, Food, and Nutritional Science",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-agricultural-food-and-nutritional-science.html"
+      },
+      {
+        "name": "Agriculture, Food, and Nutritional Science",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-agricultural-food-and-nutritional-science.html"
+      },
+      {
+        "name": "AI and Health",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/online-graduate-certificate-in-ai-and-health.html"
+      },
+      {
+        "name": "Ancient Societies and Cultures",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-in-ancient-societies-and-cultures-history-classics-and-religion.html"
+      },
+      {
+        "name": "Anthropology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-anthropology.html"
+      },
+      {
+        "name": "Anthropology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-anthropology.html"
+      },
+      {
+        "name": "Art or Design",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-design-and-master-of-fine-arts-art-and-design.html"
+      },
+      {
+        "name": "Biochemistry",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-biochemistry.html"
+      },
+      {
+        "name": "Biochemistry",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-biochemistry.html"
+      },
+      {
+        "name": "Biological Sciences",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-biological-sciences.html"
+      },
+      {
+        "name": "Biological Sciences",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-biological-sciences.html"
+      },
+      {
+        "name": "Biomedical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-biomedical-engineering.html"
+      },
+      {
+        "name": "Biomedical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-biomedical-engineering.html"
+      },
+      {
+        "name": "Business – Strategy, Entrepreneurship & Management (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-business-with-a-specialization-in-strategy-entrepreneurship-and-management.html"
+      },
+      {
+        "name": "Business – Marketing (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-business-with-a-specialization-in-marketing.html"
+      },
+      {
+        "name": "Business – Operations & Information Systems (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-business-with-a-specialization-in-operations-and-information-systems.html"
+      },
+      {
+        "name": "Business",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-business.html"
+      },
+      {
+        "name": "Business – Accounting (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-business-with-a-specialization-in-accounting.html"
+      },
+      {
+        "name": "Business – Finance (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-business-with-a-specialization-in-finance.html"
+      },
+      {
+        "name": "Business Administration (Executive)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/executive-master-of-business-administration-business.html"
+      },
+      {
+        "name": "Business Administration",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-business.html"
+      },
+      {
+        "name": "Business Administration (Fast Track)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/fast-track-master-of-business-administration-for-business-graduates-business.html"
+      },
+      {
+        "name": "Business Administration – Finance (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-with-specialization-in-finance-business.html"
+      },
+      {
+        "name": "Business Administration – International Business (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-with-specialization-in-international-business-business.html"
+      },
+      {
+        "name": "Business Administration – Public Policy and Management (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-with-specialization-in-public-policy-and-management-business.html"
+      },
+      {
+        "name": "Business Administration – Sustainability (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-with-specialization-in-sustainability-business.html"
+      },
+      {
+        "name": "Business Administration – Innovation and Entrepreneurship (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-with-specialization-in-innovation-and-entrepreneurship-business.html"
+      },
+      {
+        "name": "Business Administration – Natural Resources, Energy and the Environment (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-with-specialization-in-natural-resources-energy-and-the-environment-business.html"
+      },
+      {
+        "name": "Business Administration and Agriculture, Food, and Nutritional Science (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-agriculture-combined-program-agricultural-food-and-nutritional-science.html"
+      },
+      {
+        "name": "Business Administration and Chemical Materials Engineering (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-engineering-combined-degrees-program-chemical-and-materials-engineering.html"
+      },
+      {
+        "name": "Business Administration and Civil and Environmental Engineering (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-engineering-combined-degrees-program-civil-and-environmental-engineering.html"
+      },
+      {
+        "name": "Business Administration and Electrical and Computer Engineering (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-engineering-combined-degrees-program-electrical-and-computer-engineering.html"
+      },
+      {
+        "name": "Business Administration and Library and Information Studies (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-library-and-information-studies-combined-program-library-and-information-studies.html"
+      },
+      {
+        "name": "Business Administration and Mechanical Engineering (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-engineering-combined-degrees-program-mechanical-engineering.html"
+      },
+      {
+        "name": "Business Administration and Medicine (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-medicine-master-of-business-administration-combined-program-business.html"
+      },
+      {
+        "name": "Business Administration and Occupational Therapy (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-science-occupational-therapy-combined-program-occupational-therapy.html"
+      },
+      {
+        "name": "Business Administration and Pharmacy (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-doctor-of-pharmacy-combined-degrees-program-business.html"
+      },
+      {
+        "name": "Business Administration and Physical Therapy (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-science-physical-therapy-combined-program-physical-therapy.html"
+      },
+      {
+        "name": "Business Administration and Renewable Resources (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-agriculture-combined-program-renewable-resources.html"
+      },
+      {
+        "name": "Business Administration and Renewable Resources (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-forestry-combined-program-renewable-resources.html"
+      },
+      {
+        "name": "Business Administration and Resource Economics and Environmental Sociology (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-of-agriculture-combined-degrees-program-resource-economics-and-environmental-sociology.html"
+      },
+      {
+        "name": "Business Administration, Urban and Regional Planning",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-business-administration-master-in-urban-and-regional-planning-combined-program-business.html"
+      },
+      {
+        "name": "Business Fundamentals",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/post-masters-certificate-in-business-fundamentals-business.html"
+      },
+      {
+        "name": "Cell Biology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-cell-biology.html"
+      },
+      {
+        "name": "Cell Biology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-cell-biology.html"
+      },
+      {
+        "name": "Chemical and Materials Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-chemical-and-materials-engineering.html"
+      },
+      {
+        "name": "Chemical and Materials Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-chemical-and-materials-engineering.html"
+      },
+      {
+        "name": "Chemical and Materials Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-engineering-chemical-and-materials-engineering.html"
+      },
+      {
+        "name": "Chemistry",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-chemistry.html"
+      },
+      {
+        "name": "Chemistry",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-chemistry.html"
+      },
+      {
+        "name": "Civil and Environmental Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-civil-and-environmental-engineering.html"
+      },
+      {
+        "name": "Civil and Environmental Engineering (research area of Construction Engineering and Management)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-engineering-civil-and-environmental-engineering-construction-engineering-and-management.html"
+      },
+      {
+        "name": "Civil and Environmental Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-civil-and-environmental-engineering.html"
+      },
+      {
+        "name": "Civil and Environmental Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-engineering-civil-and-environmental-engineering.html"
+      },
+      {
+        "name": "Classical Archaeology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-classical-archaeology-history-classics-and-religion.html"
+      },
+      {
+        "name": "Classical Archaeology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-in-classical-archaeology-history-classics-and-religion.html"
+      },
+      {
+        "name": "Classical Languages",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-classical-languages-history-classics-and-religion.html"
+      },
+      {
+        "name": "Classical Languages",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-in-classical-languages-history-classics-and-religion.html"
+      },
+      {
+        "name": "Climate Change and Health",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-embedded-certificate-in-climate-change-and-health-public-health.html"
+      },
+      {
+        "name": "Coaching",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-certificate-in-coaching.html"
+      },
+      {
+        "name": "Communicable Diseases",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-embedded-certificate-in-communicable-diseases-public-health.html"
+      },
+      {
+        "name": "Communications and Technology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-in-communications-and-technology.html"
+      },
+      {
+        "name": "Community Engagement",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-in-community-engagement.html"
+      },
+      {
+        "name": "Community-Based Research and Evaluation",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-embedded-certificate-in-community-based-research-and-evaluation.html"
+      },
+      {
+        "name": "Computing Science",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-computing-science.html"
+      },
+      {
+        "name": "Computing Science – Statistical Machine Learning (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-computing-science-with-specialization-in-statistical-machine-learning-computing-science.html"
+      },
+      {
+        "name": "Computing Science",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-computing-science.html"
+      },
+      {
+        "name": "Computing Science - Multimedia (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-in-computing-science-with-a-specialization-in-multimedia-computing-science.html"
+      },
+      {
+        "name": "Computing Science – Statistical Machine Learning (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-in-computing-science-with-a-specialization-in-statistical-machine-learning-computing-science.html"
+      },
+      {
+        "name": "Data Science",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-embedded-certificate-in-data-science-mathematical-and-statistical-sciences.html"
+      },
+      {
+        "name": "Data Science and Artificial Intelligence",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-certificate-in-data-science-and-artificial-intelligence.html"
+      },
+      {
+        "name": "Design (Art and Design)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-design-art-and-design.html"
+      },
+      {
+        "name": "Digital Humanities",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-digital-humanities.html"
+      },
+      {
+        "name": "Digital Humanities and Library Information Studies (Combined Program)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-master-of-library-and-information-studies-digital-humanities.html"
+      },
+      {
+        "name": "Drama – Directing (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-fine-arts-with-a-specialization-in-directing-drama.html"
+      },
+      {
+        "name": "Drama – Theatre Practice (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-fine-arts-with-a-specialization-in-theatre-practice-drama.html"
+      },
+      {
+        "name": "Drama",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-drama.html"
+      },
+      {
+        "name": "Drama – Design (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-fine-arts-with-a-specialization-in-design-drama.html"
+      },
+      {
+        "name": "Drama – Theatre Voice Pedagogy (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-fine-arts-with-a-specialization-in-theatre-voice-pedagogy-drama.html"
+      },
+      {
+        "name": "Earth and Atmospheric Sciences",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-earth-and-atmospheric-sciences-and-master-of-science-earth-and-atmospheric-sciences.html"
+      },
+      {
+        "name": "Earth and Atmospheric Sciences",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-earth-and-atmospheric-sciences.html"
+      },
+      {
+        "name": "East Asian Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-east-asian-studies.html"
+      },
+      {
+        "name": "Economics",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-economics.html"
+      },
+      {
+        "name": "Economics",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-economics.html"
+      },
+      {
+        "name": "Economics – Environmental and Natural Resource Economics (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-with-a-specialization-in-environmental-and-natural-resource-economics-economics.html"
+      },
+      {
+        "name": "Economics – Economics and Finance (specialization)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-with-a-specialization-in-economics-and-finance-economics.html"
+      },
+      {
+        "name": "Education Policy Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-educational-policy-studies.html"
+      },
+      {
+        "name": "Education Policy Studies (with a focus in Social Justice and International Studies)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-with-a-specialization-in-social-justice-and-international-studies-in-education-educational-policy-studies.html"
+      },
+      {
+        "name": "Education Policy Studies (with a focus in Indigenous Peoples Education)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-with-a-specialization-in-indigenous-peoples-education-educational-policy-studies.html"
+      },
+      {
+        "name": "Education Policy Studies (with a focus in Studies in Educational Leadership)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-with-a-specialization-in-studies-in-educational-leadership-educational-policy-studies.html"
+      },
+      {
+        "name": "Education Policy Studies (with a focus in Adult, Community and Higher Education)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-with-a-specialization-in-adult-community-and-higher-education-educational-policy-studies.html"
+      },
+      {
+        "name": "Educational Psychology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-educational-psychology.html"
+      },
+      {
+        "name": "Educational Psychology",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-educational-psychology.html"
+      },
+      {
+        "name": "Educational Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-educational-studies-online.html"
+      },
+      {
+        "name": "Educational Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-certificate-in-educational-studies-education.html"
+      },
+      {
+        "name": "Educational Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-educational-studies.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-electrical-and-computer-engineering.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-engineering-electrical-and-computer-engineering.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-electrical-and-computer-engineering.html"
+      },
+      {
+        "name": "Elementary Education",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-elementary-education.html"
+      },
+      {
+        "name": "Elementary Education",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-elementary-education.html"
+      },
+      {
+        "name": "Elementary Education (with a focus in Curriculum and Pedagogy)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-education-with-a-specialization-in-curriculum-and-pedagogy-elementary-education.html"
+      },
+      {
+        "name": "English",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctor-of-philosophy-in-english-english-and-film-studies.html"
+      },
+      {
+        "name": "English",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-in-english-english-and-film-studies.html"
+      },
+      {
+        "name": "Epidemiology & Applied Biostatistics",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-embedded-certificate-in-epidemiology-and-applied-biostatistics-public-health.html"
+      },
+      {
+        "name": "Études en langue et culture (Language and Culture Studies)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/maitrise-en-sciences-de-leducation-etudes-en-langue-et-culture-faculte-saint-jean.html"
+      },
+      {
+        "name": "Études interdisciplinaires canadiennes (Interdisciplinary Canadian Studies)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/maitrise-en-arts-en-etudes-interdisciplinaires-canadiennes-faculte-saint-jean.html"
+      },
+      {
+        "name": "Études transdisciplinaires (Transdisciplinary Studies)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/doctorat-en-etudes-transdisciplinaires-faculte-saint-jean.html"
+      },
+      {
+        "name": "Family Ecology and Practice",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-science-in-family-ecology-and-practice-human-ecology.html"
+      },
+      {
+        "name": "Financial Management",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-financial-management-business.html"
+      },
+      {
+        "name": "Fine Arts (Art and Design)",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-fine-arts-art-and-design.html"
+      },
+      {
+        "name": "Gender and Social Justice Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-arts-in-gender-and-social-justice-studies-womens-and-gender-studies.html"
+      },
+      {
+        "name": "General Public Health",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/master-of-public-health-in-general-public-health-course-based.html"
+      },
+      {
+        "name": "Global Health Equity",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-embedded-certificate-in-global-health-equity-public-health.html"
+      },
+      {
+        "name": "Health Economic Evaluation",
+        "degree_type": "Unknown",
+        "url": "https://www.ualberta.ca/en/graduate-programs/graduate-embedded-certificate-in-health-economic-evaluation-public-health.html"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "usask",
+    "name": "USask",
+    "programs": [
+      {
+        "name": "Anthropology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/anthropology.php"
+      },
+      {
+        "name": "Accounting",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/accounting.php"
+      },
+      {
+        "name": "Agricultural Economics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/agricultural-economics.php"
+      },
+      {
+        "name": "Animal and Poultry Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/animal-poultry-science.php"
+      },
+      {
+        "name": "Applied Microbiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/applied-microbiology.php"
+      },
+      {
+        "name": "Archaeology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/archaeology.php"
+      },
+      {
+        "name": "Biology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biology.php"
+      },
+      {
+        "name": "Biological Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biological-engineering.php"
+      },
+      {
+        "name": "Biomedical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biomedical-engineering.php"
+      },
+      {
+        "name": "Biostatistics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biostatistics.php"
+      },
+      {
+        "name": "Business Administration",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/business-administration.php"
+      },
+      {
+        "name": "Chemical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/chemical-engineering.php"
+      },
+      {
+        "name": "Chemistry",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/chemistry.php"
+      },
+      {
+        "name": "Civil Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/civil-engineering.php"
+      },
+      {
+        "name": "Community and Population Health Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/community-population-health-sciences.php"
+      },
+      {
+        "name": "Computer Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/computer-science.php"
+      },
+      {
+        "name": "Corrections",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/corrections.php"
+      },
+      {
+        "name": "Curriculum Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/curriculum-studies.php"
+      },
+      {
+        "name": "Economics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/economics.php"
+      },
+      {
+        "name": "Educational Administration",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-administration.php"
+      },
+      {
+        "name": "Educational Foundations",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-foundations.php"
+      },
+      {
+        "name": "Educational Psychology and Special Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-psychology-special-education.php"
+      },
+      {
+        "name": "Educational Technology and Design",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-technology-design.php"
+      },
+      {
+        "name": "Electrical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/electrical-computer-engineering.php"
+      },
+      {
+        "name": "English",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/english.php"
+      },
+      {
+        "name": "Environment and Sustainability",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/environment-sustainability.php"
+      },
+      {
+        "name": "Epidemiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/epidemiology.php"
+      },
+      {
+        "name": "Studio Art",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/studio-art.php"
+      },
+      {
+        "name": "Food Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/food-science.php"
+      },
+      {
+        "name": "French",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/french.php"
+      },
+      {
+        "name": "Geography",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/geography.php"
+      },
+      {
+        "name": "Geological Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/geological-sciences.php"
+      },
+      {
+        "name": "Health Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/health-sciences.php"
+      },
+      {
+        "name": "History",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/history.php"
+      },
+      {
+        "name": "Indigenous Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/indigenous-studies.php"
+      },
+      {
+        "name": "Interdisciplinary Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/interdisciplinary-studies.php"
+      },
+      {
+        "name": "Kinesiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/kinesiology.php"
+      },
+      {
+        "name": "Large Animal Clinical Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/large-animal-clinical-sciences.php"
+      },
+      {
+        "name": "Law",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/law.php"
+      },
+      {
+        "name": "Mathematics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/mathematics.php"
+      },
+      {
+        "name": "Mechanical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/mechanical-engineering.php"
+      },
+      {
+        "name": "Music",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/music.php"
+      },
+      {
+        "name": "Nursing",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/nursing.php"
+      },
+      {
+        "name": "Nutrition",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/nutrition.php"
+      },
+      {
+        "name": "Pharmacy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/pharmacy.php"
+      },
+      {
+        "name": "Physical Therapy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/physical-therapy.php"
+      },
+      {
+        "name": "Physics and Engineering Physics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/physics-engineering-physics.php"
+      },
+      {
+        "name": "Plant Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/plant-sciences.php"
+      },
+      {
+        "name": "Political Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/political-studies.php"
+      },
+      {
+        "name": "Psychology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/psychology.php"
+      },
+      {
+        "name": "Public Administration",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/public-administration.php"
+      },
+      {
+        "name": "Public Health",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/public-health.php"
+      },
+      {
+        "name": "Public Policy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/public-policy.php"
+      },
+      {
+        "name": "Religion and Culture",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/religion-culture.php"
+      },
+      {
+        "name": "Small Animal Clinical Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/small-animal-clinical-sciences.php"
+      },
+      {
+        "name": "Sociology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/sociology.php"
+      },
+      {
+        "name": "Soil Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/soil-science.php"
+      },
+      {
+        "name": "Toxicology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/toxicology.php"
+      },
+      {
+        "name": "Vaccinology and Immunotherapeutics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/vaccinology-immunotherapeutics.php"
+      },
+      {
+        "name": "Veterinary Biomedical Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/veterinary-biomedical-sciences.php"
+      },
+      {
+        "name": "Veterinary Microbiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/veterinary-microbiology.php"
+      },
+      {
+        "name": "Veterinary Pathology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/veterinary-pathology.php"
+      },
+      {
+        "name": "Writing",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/writing.php"
+      },
+      {
+        "name": "Women's, Gender, and Sexualities Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/womens-gender-sexualities-studies.php"
+      },
+      {
+        "name": "Water Security",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/water-security.php"
+      },
+      {
+        "name": "Teaching English to Speakers of Other Languages",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/teaching-english.php"
+      },
+      {
+        "name": "Education (Cross-departmental)",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/education.php"
+      },
+      {
+        "name": "Applied Economics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/applied-economics.php"
+      },
+      {
+        "name": "Field Epidemiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/field-epidemiology.php"
+      },
+      {
+        "name": "Educational Leadership",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-leadership.php"
+      },
+      {
+        "name": "Small Animal Rotating Veterinary Internship",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/small-animal-rotating-veterinary-internship.php"
+      },
+      {
+        "name": "Small Animal Specialty Veterinary Internship",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/small-animal-specialty-veterinary-internship.php"
+      },
+      {
+        "name": "Health Professions Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/health-professions-education.php"
+      },
+      {
+        "name": "Quality Teaching in Health Professions Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/quality-teaching-health-professions-education.php"
+      },
+      {
+        "name": "Improving Teaching and Learning in Health Professions Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/improving-teaching-learning-health-professions-education.php"
+      },
+      {
+        "name": "Anatomy, Physiology and Pharmacology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/anatomy-physiology-pharmacology.php"
+      },
+      {
+        "name": "Sustainability",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/sustainability.php"
+      },
+      {
+        "name": "Biochemistry, Microbiology and Immunology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biochemistry-microbiology-immunology.php"
+      },
+      {
+        "name": "Sustainability Solutions",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/sustainability-solutions.php"
+      },
+      {
+        "name": "Governance Foundations for Sustainability",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/governance-foundations-for-sustainability.php"
+      },
+      {
+        "name": "Water Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/water-science.php"
+      },
+      {
+        "name": "Sustainable Water Management",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/sustainable-water-management.php"
+      },
+      {
+        "name": "Community Energy Planning and Finance",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/community-energy-planning-finance.php"
+      },
+      {
+        "name": "Energy Transitions",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/energy-transitions.php"
+      },
+      {
+        "name": "Water Resources",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/water-resources.php"
+      },
+      {
+        "name": "Food and Bioproduct Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/food-and-bioproduct-sciences.php"
+      },
+      {
+        "name": "Indigenous Land-Based Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/indigenous-land-based-education.php"
+      },
+      {
+        "name": "Social Economy, Cooperatives, and the Nonprofit Sector",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/social-economy-cooperatives-and-the-non-profit-sector.php"
+      },
+      {
+        "name": "Music Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/music-education.php"
+      },
+      {
+        "name": "Scholarship of Teaching and Learning",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/scholarship-of-teaching-and-learning.php"
+      },
+      {
+        "name": "Veterinary Diagnostic Pathology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/veterinary-diagnostic-pathology.php"
+      },
+      {
+        "name": "Indigenous Nation-Building",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/indigenous-nation-building.php"
+      },
+      {
+        "name": "Linguistics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/linguistics.php"
+      },
+      {
+        "name": "Hydrology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/hydrology.php"
+      },
+      {
+        "name": "Leadership",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/leadership.php"
+      },
+      {
+        "name": "Environmental Planning",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/environmental-planning.php"
+      },
+      {
+        "name": "Precision Oral and Systemic Health",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/precision-oral-systemic-health.php"
+      },
+      {
+        "name": "Substance Use Health and Wellbeing",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/substance-use-health-and-wellbeing.php"
+      },
+      {
+        "name": "Physician Assistant Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/physician-assistant-studies.php"
+      },
+      {
+        "name": "Statistics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/statistics.php"
+      },
+      {
+        "name": "Financial Management",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/financial-management.php"
+      },
+      {
+        "name": "Management",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/management.php"
+      },
+      {
+        "name": "Speech Language Pathology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/speech-language-pathology.php"
+      },
+      {
+        "name": "Chemical Risk Assessment",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/chemical-risk-assessment.php"
+      },
+      {
+        "name": "Clinical Pharmacy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/clinical-pharmacy.php"
+      },
+      {
+        "name": "Occupational Therapy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/occupational-therapy.php"
+      },
+      {
+        "name": "Applied Computing",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/applied-computing.php"
+      },
+      {
+        "name": "Public Policy Research",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/public-policy-research.php"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "uregina",
+    "name": "uRegina",
+    "programs": [
+      {
+        "name": "University of Regina master of administration, masters degree in leadership, master of administration in leadership, madmin Master's Degree Administration in Leadership",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-administration-leadership.html"
+      },
+      {
+        "name": "University of Regina Master of Education in Adult Education and Human Resource Development, masters in Adult Education and Human Resource Development, master of education, graduate programs in education Master's Degree Adult Education and Human Resource Development (MEd)",
+        "degree_type": "MEd",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-adult-education-human-resource-development.html"
+      },
+      {
+        "name": "University of Regina advanced manufacturing, manufacturing engineer, manufacturing engineer jobs, master of engineering, graduate certificate, masters of applied science, process engineer, manufacturing industry Graduate Certificate Advanced Manufacturing",
+        "degree_type": "MEng",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-advanced-manufacturing.html"
+      },
+      {
+        "name": "University of Regina aging studies, study of aging, masters in gerontology, master's degree in aging studies, aging studies graduate programs, aging, gerontology, seniors Master's Degree Aging Studies (MA, MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-aging-studies.html"
+      },
+      {
+        "name": "University of Regina ai programming, artificial intelligence jobs, ai jobs, masters of engineering, ai engineer, ai certification Graduate Certificate Artificial Intelligence in Engineering",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-artificial-intelligence-engineering.html"
+      },
+      {
+        "name": "University of Regina biology graduate programs, molecular biology graduate programs, master's degree biology, biology phd programs, masters in biology Doctorate Degree Biology (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-biology.html"
+      },
+      {
+        "name": "University of Regina EMBA, executive MBA Master's Degree Business Administration (EMBA)",
+        "degree_type": "MBA",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-executive-business-administration.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Business Administration (MBA)",
+        "degree_type": "MBA",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-business-administration.html"
+      },
+      {
+        "name": "University of Regina carbon capture utilization and storage, clean energy masters, master of engineering, carbon capture and storage, carbon capture technology, saskatchewan carbon capture, ccus technology Certificate (1 - 2 Years) Carbon Capture, Utilization and Storage",
+        "degree_type": "MEng",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-carbon-capture-utilization-storage.html"
+      },
+      {
+        "name": "University of Regina msc chemistry, graduate programs chemistry, master of science chemistry, biochemistry graduate programs, master of science biochemistry, biochemistry phd programs Master's Degree Chemistry and Biochemistry (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-chemistry-biochemistry.html"
+      },
+      {
+        "name": "University of Regina psychology, pychology Doctorate Degree Clinical Psychology (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-phd-clinical-psychology.html"
+      },
+      {
+        "name": "Saskatchewan PolytechnicUniversity of Regina nurse practitioner, how to become a nurse practitioner, nurse practitioner program, university of regina nurse practitioner program, masters in nursing Master's Degree Collaborative Nurse Practitioner Program (CNPP)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/nursing/master-nurse-practitioner.html"
+      },
+      {
+        "name": "University of Regina masters in computer science, master degree in computer and data science, master of science human-centred computing, master of science computer science, cs Master's Degree Computer Science (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-computer-science.html"
+      },
+      {
+        "name": "University of Regina earth sciences geology graduate programs, master of science geology, geology masters programs, phd geology Doctorate Degree Earth Sciences (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-earth-sciences.html"
+      },
+      {
+        "name": "University of Regina phd in education, phd education canada, phd programs in education, phd education part time, phd in education mentored program Doctorate Degree Education (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/education/phd-education.html"
+      },
+      {
+        "name": "University of Regina educational psychology, masters in educational psychology, master of education in counselling psychology, educational psychology masters, masters degree in educational psychology Master's Degree Educational Psychology (MEd)",
+        "degree_type": "MEd",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-educational-psychology.html"
+      },
+      {
+        "name": "University of Regina educational technology and media, media and technology in education, master's certificate in educational technology and media, master's certificate in education, graduate programs in education Graduate Certificate Educational Technology and Media (MCert.)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-cert-educational-technology-media.html"
+      },
+      {
+        "name": "University of Regina electronic, systems, engineering, applied research, applied science, Master's Degree Electronic Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-electronic-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina energy systems engineering, energy engineering, nuclear engineering, energy engineer jobs, master of engineering, graduate certificate, masters of applied science, doctor of philosophy Master's Degree Energy Systems Engineering",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-energy-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina management engineering, engineering business, engineering business certificate, engineering leadership, masters of engineering, engineering project manager, engineering economics, financial decision making for engineers Graduate Certificate Engineering Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-engineering-management.html"
+      },
+      {
+        "name": "University of Regina english graduate programs, english and creative writing graduate programs, master's degree in English, master's degree in creative writing Master's Degree English and Creative Writing (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-english-creative-writing.html"
+      },
+      {
+        "name": "University of Regina environmental systems, geotechnical engineering, pollution control, water resources, sustainability, wastewater treatment Master's Degree Environmental Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-environmental-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina Edii, equity diversity and inclusion, equity diversity inclusion indigenization, certificate in equity diversity inclusion indigenization, equity diversity inclusion indigenization u of r Graduate Certificate Equity, Diversity, Inclusion and Indigenization",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/grad-cert-equity-diversity-inclusion-indigenization.html"
+      },
+      {
+        "name": "University of Regina psychology, pychology Master's Degree Experimental and Applied Psychology (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-phd-experimental-applied-psychology.html"
+      },
+      {
+        "name": "University of Regina mfa, master of fine arts, mfa in film, mfa in media production, master of fine arts in media production Master's Degree Film Production (MFA)",
+        "degree_type": "MFA",
+        "url": "https://www.uregina.ca/academics/programs/map/master-film-production.html"
+      },
+      {
+        "name": "University of Regina media studies, film studies, master's degree media studies, master's degree film studies, media studies graduate programs Master's Degree Film Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/map/master-film-studies.html"
+      },
+      {
+        "name": "University of Regina francaise, Éducation éducation français francais French french Français Francais Études francophones et interculturelles / French: Certificat / Certificate Mineure / Minor Majeure / Major Maîtrise / Master’s Doctorat / Doctorate Certificate in French as a Second Language Mineure bilingue en études africaines Bilingual minor in African Studies Cheminement intégré en droit et en études francophones et interculturelles Baccalauréat collaboratif en sciences infirmières (SCBScN), french, francaise, French and francophone studies, french and francophone intercultural studies, master’s degree in french, french graduate programs, la cité regina Doctorate Degree French and Francophone Intercultural Studies (MCert, MA, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/la-cite-universitaire-francophone/master-phd-french-francophone-intercultural-studies.html"
+      },
+      {
+        "name": "University of Regina geothermal engineering, geothermal energy, masters in geothermal engineering, geothermal Saskatchewan, renewable energy masters, master of engineering Graduate Certificate Geothermal Engineering",
+        "degree_type": "MEng",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-geothermal-engineering.html"
+      },
+      {
+        "name": "University of Regina Graduate Certificate Graduate Studies",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/graduate/grad-studies.html"
+      },
+      {
+        "name": "University of Regina history, history graduate programs, master of arts history, master's degree in history Master's Degree History (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/masters-arts-history.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Human Resource Management (MHRM)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-human-resource-management.html"
+      },
+      {
+        "name": "University of Regina HRM Graduate Certificate Human Resource Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-cert-human-resource-management.html"
+      },
+      {
+        "name": "University of Regina Human Resources Administration in Education, master's certificate in Human Resources Administration in Education, master's certificate in education, graduate programs in education Certificate (1 - 2 Years) Master's Certificate in Human Resources Administration in Education",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-human-resources-administration.html"
+      },
+      {
+        "name": "University of Regina master of indigenous education, master of indigenous education degree, indigenous education graduate programs, indigenous education programs Master's Degree Indigenous Education (MIEd)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-indigenous-education.html"
+      },
+      {
+        "name": "University of Regina indigenous language education, master of indigenous language education, master of indigenous language education degree, indigenous language education graduate programs Master's Degree Indigenous Language Education (MILEd)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-indigenous-language-education.html"
+      },
+      {
+        "name": "First Nations University of CanadaUniversity of Regina masters of indigenous social work, indigenous social work, social work with indigenous communities, indigenous social work u of r Master's Degree Indigenous Social Work",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/social-work/master-indigenous-social-work.html"
+      },
+      {
+        "name": "University of Regina industrial systems engineering, air wuality, environment, groundwater contamination, hazardous waste, transportation, wastewater Master's Degree Industrial Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-industrial-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina master of kinesiology, kinesiology masters programs, master's degree in kinesiology, kinesiology graduate programs Master's Degree Kinesiology (MKin)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/khs/masters-kinesiology.html"
+      },
+      {
+        "name": "University of Regina kinesiology and health studies, kinesiology and health studies graduate programs, master of science kinesiology and health studies, phd programs kinesiology and health studies Doctorate Degree Kinesiology and Health Studies (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/khs/master-phd-kinesiology-health-studies.html"
+      },
+      {
+        "name": "University of Regina labour relations, master's certificate labour relations, u of r labour relations, kenneth levene labour relations, labour relations graduate programs Certificate (1 - 2 Years) Labour Relations (MCert.)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-cert-labour-relations.html"
+      },
+      {
+        "name": "University of Regina teaching english to speakers of other languages, tesol, master's certificate in Teaching English to Speakers of Other Languages, master's certificate in education, graduate programs in education Graduate Certificate Master’s Certificate in Teaching English to Speakers of Other Languages (TESOL)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-cert-teaching-english-tesol.html"
+      },
+      {
+        "name": "University of Regina Math, mathematics, statistics, science, stats, actuarial, financial, data science, algebra, number theory, analysis, geometry, topology, probability Math graduate programs, mathematics graduate programs, math and stats graduate programs, mathematics and statistics graduate programs, master degree in mathematics, master’s degree in statistics, PhD in mathematics, PhD in statistics Master's Degree Mathematics and Statistics (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-mathematics-statistics.html"
+      },
+      {
+        "name": "University of Regina mfa degree, media and artistic research graduate programs, fine arts graduate programs, fine arts interdisciplinary graduate programs, phd in fine arts, practice based phd fine arts, phd in fine arts interdisciplinary studies Master's Degree Media and Artistic Research (MA, MFA, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/map/master-phd-media-artistic-research.html"
+      },
+      {
+        "name": "University of Regina Conducting, masters of music conducting, master of music choral conducting, masters in music wind band conducting, master of music Master's Degree Music - Conducting (MMus)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/map/master-music-conducting.html"
+      },
+      {
+        "name": "University of Regina master of music, masters degree music, music performance graduate programs, mmus degree, mmus Master's Degree Master of Music (MMus) in Performance (Orchestral instruments), Master of Music (MMus) in Performance (Keyboard instruments)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/map/master-music-performance-instruments.html"
+      },
+      {
+        "name": "University of Regina master of music, master of music in voice performance, master of music voice programs, masters degree music, mmus degree, mmus Master's Degree Music Performance – Voice (MMus)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/map/master-music-performance-voice.html"
+      },
+      {
+        "name": "University of Regina master of arts in music, music graduate programs, musicology graduate programs, music theory graduate programs, master of arts in musicology, master of arts in music theory Master's Degree Musicology and Music Theory (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/map/master-musicology-music-theory.html"
+      },
+      {
+        "name": "University of Regina masters in nursing, masters of nursing, saskatchewan masters of nursing, nursing leadership and management, leadership in nursing, nursing continuing education Master's Degree Nursing (Course-based)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/nursing/master-nursing-course-based.html"
+      },
+      {
+        "name": "University of Regina phd in nursing, nursing leadership and management, leadership in nursing, doctor of nursing program Doctorate Degree PhD in Nursing",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/nursing/phd-nursing-education-special-case.html"
+      },
+      {
+        "name": "University of Regina organization studies, organization studies graduate programs, master of science organization studies, u of r organization studies, organizational studies Master's Degree Organization Studies",
+        "degree_type": "MSc",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-organization-studies.html"
+      },
+      {
+        "name": "University of Regina organizational leadership, master's certificate, master's certificate organizational leadership, u of r organizational leadership, kenneth levene organizational leadership Certificate (1 - 2 Years) Organizational Leadership (MCert.)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-organizational-leadership.html"
+      },
+      {
+        "name": "University of Regina petroleum, engineer, engineering, reservoir, oil and gas, carbon capture Doctorate Degree Petroleum Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-petroleum-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina physics graduate programs, theoretical physics graduate programs, experimental subatomic physics programs, masters in physics, master degree theoretical physics Master's Degree Physics (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-physics.html"
+      },
+      {
+        "name": "University of Regina process systems, engineering, engineer, renewable energy, petroleum refining, greenhouse gas emissions Doctorate Degree Process Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-process-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina project management, project management graduate programs, master's certificate, master's certificate in project management, u of r project management Certificate (1 - 2 Years) Project Management (MCert.)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-project-management.html"
+      },
+      {
+        "name": "University of SaskatchewanUniversity of Regina Doctorate Degree Public Policy and Administration",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/johnson-shoyama-graduate-school/jsgs.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Religious Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/masters-religious-studies.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Social Work (MSW)",
+        "degree_type": "MSW",
+        "url": "https://www.uregina.ca/academics/programs/social-work/master-social-work.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Sociology and Social Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-sociology-social-studies.html"
+      },
+      {
+        "name": "University of Regina software, systems, engineering, engineer, development, applied software, full-stack development, artificial intelligence, internet of things Doctorate Degree Software Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-software-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina master's degree, masters, PhD, doctoral studies, doctorate, interdisciplinary studies, special case, custom graduate programs, unique graduate degree, anthropology, economics, geography, interdisciplinary studies, linguistics, philosophy, women's studies, gender studies, theatre, nursing Master's Degree Special Case or Interdisciplinary Program (MA, MFA, MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/graduate/special-case-interdisciplinary.html"
+      },
+      {
+        "name": "University of Regina master of education in teaching learning and leadership, master of education degree, masters degree in educational leadership, master's degree in education Master's Degree Teaching, Learning and Leadership",
+        "degree_type": "MEd",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-education-teaching-learning-leadership.html"
+      },
+      {
+        "name": "University of Regina mfa, mfa degree, mfa visual arts, master of fine arts visual arts, visual arts graduate programs Master's Degree Visual Arts (MFA)",
+        "degree_type": "MFA",
+        "url": "https://www.uregina.ca/academics/programs/map/master-visual-arts.html"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "uwo",
+    "name": "UWO",
+    "programs": [
+      {
+        "name": "Artem Uvarov",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=235"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=265"
+      },
+      {
+        "name": "Master of Health Sciences",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=318"
+      },
+      {
+        "name": "Master of Clinical Science",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=273"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=5"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=7"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=8"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=9"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=274"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=275"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=13"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=14"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=15"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=16"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=17"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=18"
+      },
+      {
+        "name": "Master of Engineering Science",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=19"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=20"
+      },
+      {
+        "name": "Master of Business Administration",
+        "degree_type": "MBA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=87"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=24"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=319"
+      },
+      {
+        "name": "Master of Engineering Science",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=25"
+      },
+      {
+        "name": "Master of Engineering",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=26"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=27"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=1"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=2"
+      },
+      {
+        "name": "Master of Engineering Science",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=28"
+      },
+      {
+        "name": "Master of Engineering",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=29"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=30"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=31"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=32"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=321"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=33"
+      },
+      {
+        "name": "Master of Clinical Science",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=34"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=35"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=36"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=37"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=38"
+      },
+      {
+        "name": "Master of Data Analytics",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=272"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=236"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=317"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=42"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=43"
+      },
+      {
+        "name": "Master of Professional Education",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=117"
+      },
+      {
+        "name": "Doctor of Education",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=115"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=44"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=45"
+      },
+      {
+        "name": "Master of Engineering Science",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=39"
+      },
+      {
+        "name": "Master of Engineering",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=40"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=41"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=237"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=290"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=46"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=47"
+      },
+      {
+        "name": "Master of Environment and Sustainability",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=48"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=238"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=50"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=51"
+      },
+      {
+        "name": "Master of Clinical Science",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=52"
+      },
+      {
+        "name": "Master of Financial Economics",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=55"
+      },
+      {
+        "name": "Master of Science in Foods and Nutrition",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=56"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=57"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=58"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=301"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=302"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=59"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=60"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=61"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=62"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=64"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=65"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=67"
+      },
+      {
+        "name": "Master of Health Sciences",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=320"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=287"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=133"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=136"
+      },
+      {
+        "name": "Master of Health Information Science",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=68"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=69"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=70"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=71"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=72"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=73"
+      },
+      {
+        "name": "Doctor of Health Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=329"
+      },
+      {
+        "name": "Master of Media in Journalism and Communication",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=263"
+      },
+      {
+        "name": "Master of Kinesiology",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=322"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=75"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=76"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=77"
+      },
+      {
+        "name": "Master of Laws",
+        "degree_type": "LLM",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=78"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=79"
+      },
+      {
+        "name": "Master of Studies in Law",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=80"
+      },
+      {
+        "name": "Master of Library and Information Science",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=81"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=82"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=83"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=315"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=325"
+      },
+      {
+        "name": "Master of Management",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=304"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=88"
+      },
+      {
+        "name": "Master of Management of Applied Science",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=248"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=84"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=85"
+      },
+      {
+        "name": "Master of Engineering Science",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=92"
+      },
+      {
+        "name": "Master of Engineering",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=93"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=94"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=95"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=96"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=21"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=23"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=286"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=327"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=89"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=91"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=239"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=240"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=241"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=99"
+      },
+      {
+        "name": "Master of Music",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=101"
+      },
+      {
+        "name": "Doctor of Musical Arts",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=98"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=102"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=288"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=103"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=104"
+      },
+      {
+        "name": "Master of Engineering",
+        "degree_type": "MEng",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=105"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=328"
+      },
+      {
+        "name": "Master of Nursing",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=106"
+      },
+      {
+        "name": "Master of Science in Nursing",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=107"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=108"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=109"
+      },
+      {
+        "name": "Master of Clinical Dentistry",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=110"
+      },
+      {
+        "name": "Master of Clinical Science",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=111"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=112"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=113"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=289"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=118"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=119"
+      },
+      {
+        "name": "Master of Physical Therapy",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=125"
+      },
+      {
+        "name": "Master of Physician Assistant Studies",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=330"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=122"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=123"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=120"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=121"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=242"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=126"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=127"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=324"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=129"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=130"
+      },
+      {
+        "name": "Master of Public Administration",
+        "degree_type": "Master",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=131"
+      },
+      {
+        "name": "Graduate Diploma",
+        "degree_type": "Certificate",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=269"
+      },
+      {
+        "name": "Master of Public Health",
+        "degree_type": "MPH",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=114"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=246"
+      },
+      {
+        "name": "Master of Social Work",
+        "degree_type": "MSW",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=139"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=137"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=138"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=140"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=141"
+      },
+      {
+        "name": "Master of Science",
+        "degree_type": "MSc",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=142"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=144"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=145"
+      },
+      {
+        "name": "Collaborative Specialization",
+        "degree_type": "Unknown",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=244"
+      },
+      {
+        "name": "Master of Arts",
+        "degree_type": "MA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=146"
+      },
+      {
+        "name": "Master of Fine Arts",
+        "degree_type": "MFA",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=147"
+      },
+      {
+        "name": "Doctor of Philosophy",
+        "degree_type": "PhD",
+        "url": "https://grad.uwo.ca/admissions/programs/program.cfm?p=148"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "memorial",
+    "name": "Memorial",
+    "programs": [
+      {
+        "name": "Anthropology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/anthropology/"
+      },
+      {
+        "name": "Applied Literary Arts",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/applied-literary-arts/"
+      },
+      {
+        "name": "Archaeology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/archaeology/"
+      },
+      {
+        "name": "Arctic and Subarctic Futures",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/arctic-and-subarctic-futures/"
+      },
+      {
+        "name": "Arts & Education",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/arts-and-education/"
+      },
+      {
+        "name": "Classics",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/classics/"
+      },
+      {
+        "name": "Economics",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/economics/"
+      },
+      {
+        "name": "English",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/english/"
+      },
+      {
+        "name": "Environmental Policy",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/environmental-policy/"
+      },
+      {
+        "name": "Ethnomusicology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/ethnomusicology/"
+      },
+      {
+        "name": "Folklore",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/folklore/"
+      },
+      {
+        "name": "French Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/french-studies/"
+      },
+      {
+        "name": "Gender Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/gender-studies/"
+      },
+      {
+        "name": "Geography",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/geography/"
+      },
+      {
+        "name": "German Language and Literature",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/german-language-and-literature/"
+      },
+      {
+        "name": "History",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/history/"
+      },
+      {
+        "name": "Humanities",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/humanities/"
+      },
+      {
+        "name": "Linguistics",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/linguistics/"
+      },
+      {
+        "name": "Music",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/music/"
+      },
+      {
+        "name": "Philosophy",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/philosophy/"
+      },
+      {
+        "name": "Political Science",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/political-science/"
+      },
+      {
+        "name": "Sociology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/sociology/"
+      },
+      {
+        "name": "Aquaculture",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/sustainable-aquaculture/"
+      },
+      {
+        "name": "Artificial Intelligence",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/artificial-intelligence/"
+      },
+      {
+        "name": "Cognitive and Behavioural Ecology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/cognitive-and-behavioural-ecology/"
+      },
+      {
+        "name": "Computer Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/engineering-and-applied-science/"
+      },
+      {
+        "name": "Data Science",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/data-science/"
+      },
+      {
+        "name": "Employment Relations",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/employment-relations/"
+      },
+      {
+        "name": "Environmental Science",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/environmental-science/"
+      },
+      {
+        "name": "Interdisciplinary",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/interdisciplinary-phd/"
+      },
+      {
+        "name": "Marine Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/marine-studies/"
+      },
+      {
+        "name": "Water Resource Management",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/marine-studies/#:~:text=Memorials%20graduate%20diploma%20in%20Marine%20Studies%20(Aquaculture)"
+      },
+      {
+        "name": "Maritime Management",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/maritime-management/"
+      },
+      {
+        "name": "Scientific Computing",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/scientific-computing/"
+      },
+      {
+        "name": "Software Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/software-engineering/"
+      },
+      {
+        "name": "Technology Management",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/technology-management-online/"
+      },
+      {
+        "name": "Theoretical Physics",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/theoretical-physics/"
+      },
+      {
+        "name": "Business Administration",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/business-administration/"
+      },
+      {
+        "name": "Education",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/education/"
+      },
+      {
+        "name": "Health Ethics",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/health-ethics/"
+      },
+      {
+        "name": "Human Kinetics and Recreation",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/human-kinetics-and-recreation/"
+      },
+      {
+        "name": "Management",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/master-of-management/"
+      },
+      {
+        "name": "Management",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/management/"
+      },
+      {
+        "name": "Medicine",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/medicine/"
+      },
+      {
+        "name": "Public Health",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/public-health/"
+      },
+      {
+        "name": "Nursing",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/nursing/"
+      },
+      {
+        "name": "Pharmacy",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/pharmacy/"
+      },
+      {
+        "name": "Psychology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/psychology-psyd/"
+      },
+      {
+        "name": "Social Work",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/social-work/"
+      },
+      {
+        "name": "Biochemistry",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/biochemistry/"
+      },
+      {
+        "name": "Biology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/biology/"
+      },
+      {
+        "name": "Bioscience of Health and Disease",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/bioscience-of-health-and-disease/"
+      },
+      {
+        "name": "Chemistry",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/chemistry/"
+      },
+      {
+        "name": "Computer Science",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/computer-science/"
+      },
+      {
+        "name": "Earth Sciences",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/earth-sciences/"
+      },
+      {
+        "name": "Marine Biology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/marine-biology/"
+      },
+      {
+        "name": "Mathematics",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/mathematics-and-statistics/"
+      },
+      {
+        "name": "Physical Oceanography",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/physics-and-physical-oceanography/"
+      },
+      {
+        "name": "Psychology",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/psychology/"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "unb",
+    "name": "UNB",
+    "programs": [
+      {
+        "name": "Tme",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/tme.html"
+      },
+      {
+        "name": "Math",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/math.html"
+      },
+      {
+        "name": "English",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/english.html"
+      },
+      {
+        "name": "Biology Sj",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/biology-sj.html"
+      },
+      {
+        "name": "Forestry Environmental Management",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/forestry-environmental-management.html"
+      },
+      {
+        "name": "Electrical",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/electrical.html"
+      },
+      {
+        "name": "Economics",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/economics.html"
+      },
+      {
+        "name": "Civil",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/civil.html"
+      },
+      {
+        "name": "Biomedical",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/biomedical.html"
+      },
+      {
+        "name": "Mahsr",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/mahsr.html"
+      },
+      {
+        "name": "Political Science",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/political-science.html"
+      },
+      {
+        "name": "History",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/history.html"
+      },
+      {
+        "name": "Psychology Sj",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/psychology-sj.html"
+      },
+      {
+        "name": "Anthropology",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/anthropology.html"
+      },
+      {
+        "name": "Biology Fr",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/biology-fr.html"
+      },
+      {
+        "name": "Computer Science",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/computer-science.html"
+      },
+      {
+        "name": "Interdisciplinary",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/interdisciplinary.html"
+      },
+      {
+        "name": "Comp Exams",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/comp-exams.html"
+      },
+      {
+        "name": "Earth Sciences",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/earth-sciences.html"
+      },
+      {
+        "name": "Physics",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/physics.html"
+      },
+      {
+        "name": "Psychology Fr",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/psychology-fr.html"
+      },
+      {
+        "name": "Business Sj",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/business-sj.html"
+      },
+      {
+        "name": "Quantitative Investment Management",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/quantitative-investment-management.html"
+      },
+      {
+        "name": "Nursing",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/nursing.html"
+      },
+      {
+        "name": "Education",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/education.html"
+      },
+      {
+        "name": "Kinesiology",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/kinesiology.html"
+      },
+      {
+        "name": "Mechanical",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/mechanical.html"
+      },
+      {
+        "name": "Interdisciplinary Supervisors",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/interdisciplinary-supervisors.html"
+      },
+      {
+        "name": "Gge",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/gge.html"
+      },
+      {
+        "name": "Chemistry",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/chemistry.html"
+      },
+      {
+        "name": "Sociology",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/sociology.html"
+      },
+      {
+        "name": "Business Fr",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/business-fr.html"
+      },
+      {
+        "name": "Graduate Administrators",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/graduate-administrators.html"
+      },
+      {
+        "name": "Meldi",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/meldi.html"
+      },
+      {
+        "name": "Chemical",
+        "degree_type": "Unknown",
+        "url": "https://www.unb.ca/gradstudies/programs/chemical.html"
+      }
+    ],
+    "needs_manual_review": false
+  }
+]

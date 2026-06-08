@@ -1,0 +1,2409 @@
+[
+  {
+    "id": "mcgill",
+    "name": "McGill",
+    "programs": [],
+    "needs_manual_review": true
+  },
+  {
+    "id": "concordia",
+    "name": "Concordia",
+    "programs": [
+      {
+        "name": "Adult Education (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/adult-education.html"
+      },
+      {
+        "name": "Aerospace Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/aerospace-engineering-meng.html"
+      },
+      {
+        "name": "Applied Artificial Intelligence (Microprogram)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/applied-ai-microprogram.html"
+      },
+      {
+        "name": "Applied Linguistics (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/applied-linguistics.html"
+      },
+      {
+        "name": "Art Education (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/art-education-ma.html"
+      },
+      {
+        "name": "Art Education (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/art-education-phd.html"
+      },
+      {
+        "name": "Art History (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/art-history-ma.html"
+      },
+      {
+        "name": "Art History (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/art-history-phd.html"
+      },
+      {
+        "name": "Art Therapy, Creative Arts Therapies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/art-therapy.html"
+      },
+      {
+        "name": "Biology (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/biology-msc.html"
+      },
+      {
+        "name": "Biology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/biology-phd.html"
+      },
+      {
+        "name": "Building Engineering (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/building-engineering-certificate.html"
+      },
+      {
+        "name": "Building Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/building-engineering-masc.html"
+      },
+      {
+        "name": "Building Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/building-engineering-meng.html"
+      },
+      {
+        "name": "Building Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/building-engineering-phd.html"
+      },
+      {
+        "name": "Business Administration (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/business-administration-phd.html"
+      },
+      {
+        "name": "Business Analytics and Technology Management (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/business-analytics-and-technology-management-msc.html"
+      },
+      {
+        "name": "Chartered Professional Accountancy (CPA) (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/chartered-professional-accountancy.html"
+      },
+      {
+        "name": "Chemical Engineering (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/chemical-engineering-certificate.html"
+      },
+      {
+        "name": "Chemical Engineering (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/chemical-engineering-diploma.html"
+      },
+      {
+        "name": "Chemical Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/chemical-engineering-masc.html"
+      },
+      {
+        "name": "Chemical Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/chemical-engineering-phd.html"
+      },
+      {
+        "name": "Chemistry (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/chemistry-msc.html"
+      },
+      {
+        "name": "Chemistry (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/chemistry-phd.html"
+      },
+      {
+        "name": "Child Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/child-studies-ma.html"
+      },
+      {
+        "name": "Cinematic Arts (MFA)",
+        "degree_type": "MFA",
+        "url": "https://www.concordia.ca/academics/graduate/cinematic-arts.html"
+      },
+      {
+        "name": "Civil Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/civil-engineering-masc.html"
+      },
+      {
+        "name": "Civil Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/civil-engineering-meng.html"
+      },
+      {
+        "name": "Civil Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/civil-engineering-phd.html"
+      },
+      {
+        "name": "Communication (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/communication-phd.html"
+      },
+      {
+        "name": "Communication Studies (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/communication-studies-diploma.html"
+      },
+      {
+        "name": "Community Economic Development (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/community-economic-development.html"
+      },
+      {
+        "name": "Computer Science (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/computer-science-diploma.html"
+      },
+      {
+        "name": "Computer Science (MApCompSc)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/computer-science-mcompsci-applied.html"
+      },
+      {
+        "name": "Computer Science (MCompSc)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/computer-science-mcompsc.html"
+      },
+      {
+        "name": "Computer Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/computer-science-phd.html"
+      },
+      {
+        "name": "Construction Engineering and Management (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/construction-engineering.html"
+      },
+      {
+        "name": "Curatorial Studies (Microprogram)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/curatorial-studies-microprogram.html"
+      },
+      {
+        "name": "Curatorial Studies and Practices (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/curatorial-studies-certificate.html"
+      },
+      {
+        "name": "Design (MDes)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/design.html"
+      },
+      {
+        "name": "Digital Innovation in Journalism Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/digital-innovation-in-journalism-studies-ma.html"
+      },
+      {
+        "name": "Drama Therapy, Creative Arts Therapies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/drama-therapy.html"
+      },
+      {
+        "name": "DÃ©veloppement Ã©conomique communautaire (dipl. 2e c.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/developpement-economique-communautaire.html"
+      },
+      {
+        "name": "Economics (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/economics-diploma.html"
+      },
+      {
+        "name": "Economics (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/economics-ma.html"
+      },
+      {
+        "name": "Economics (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/economics-phd.html"
+      },
+      {
+        "name": "Education (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/education-phd.html"
+      },
+      {
+        "name": "Educational Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/educational-studies.html"
+      },
+      {
+        "name": "Educational Technology (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/educational-technology-ma.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/electrical-engineering-masc.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/electrical-engineering-meng.html"
+      },
+      {
+        "name": "Electrical and Computer Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/electrical-engineering-phd.html"
+      },
+      {
+        "name": "English (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/english-ma.html"
+      },
+      {
+        "name": "English Literature (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/english-phd.html"
+      },
+      {
+        "name": "Environmental Assessment (DEA) (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/environmental-assessment.html"
+      },
+      {
+        "name": "Environmental Assessment (MEnv)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/environmental-assessment-menv.html"
+      },
+      {
+        "name": "Environmental Engineering (Grad.Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/environmental-engineering-certificate.html"
+      },
+      {
+        "name": "Environmental Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/environmental-engineering.html"
+      },
+      {
+        "name": "Film and Moving Image Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/film-studies-ma.html"
+      },
+      {
+        "name": "Film and Moving Image Studies (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/film-moving-image-studies.html"
+      },
+      {
+        "name": "Finance (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/finance-msc.html"
+      },
+      {
+        "name": "Geography, Urban and Environmental Studies (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/geography-urban-environmental-msc.html"
+      },
+      {
+        "name": "Geography, Urban and Environmental Studies (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/geography-urban-environmental-phd.html"
+      },
+      {
+        "name": "Health and Exercise Science (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/exercise-science-msc.html"
+      },
+      {
+        "name": "Health and Exercise Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/health-exercise-science-phd.html"
+      },
+      {
+        "name": "History (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/history-ma.html"
+      },
+      {
+        "name": "History (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/history-phd.html"
+      },
+      {
+        "name": "Human Systems Intervention (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/human-systems-intervention.html"
+      },
+      {
+        "name": "Humanities (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/humanities-doctoral-program.html"
+      },
+      {
+        "name": "Individualized Program (MA, MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/individualized-program-ma-msc.html"
+      },
+      {
+        "name": "Individualized Program (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/individualized-program-phd.html"
+      },
+      {
+        "name": "Industrial Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/industrial-engineering-masc.html"
+      },
+      {
+        "name": "Industrial Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/industrial-engineering-meng.html"
+      },
+      {
+        "name": "Industrial Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/industrial-engineering-phd.html"
+      },
+      {
+        "name": "Information and Systems Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/information-systems-engineering-phd.html"
+      },
+      {
+        "name": "Information Systems Security (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/information-systems-masc.html"
+      },
+      {
+        "name": "Information Systems Security (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/information-systems-meng.html"
+      },
+      {
+        "name": "Instructional Technology (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/instructional-technology.html"
+      },
+      {
+        "name": "Journalism (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/journalism-diploma.html"
+      },
+      {
+        "name": "Judaic Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/judaic-studies.html"
+      },
+      {
+        "name": "Management (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/management-msc.html"
+      },
+      {
+        "name": "Marketing (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/marketing-msc.html"
+      },
+      {
+        "name": "Mathematics and Statistics (MA, MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/mathematics-statistics-mamsc.html"
+      },
+      {
+        "name": "Mathematics and Statistics (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/mathematics-statistics-phd.html"
+      },
+      {
+        "name": "MBA",
+        "degree_type": "MBA",
+        "url": "https://www.concordia.ca/academics/graduate/business-administration-mba.html"
+      },
+      {
+        "name": "MBA (Executive)",
+        "degree_type": "MBA",
+        "url": "https://www.concordia.ca/academics/graduate/executive-mba.html"
+      },
+      {
+        "name": "MBA (Investment Management)",
+        "degree_type": "MBA",
+        "url": "https://www.concordia.ca/academics/graduate/mba-with-complete-cfa-integration.html"
+      },
+      {
+        "name": "Mechanical Engineering (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/mechanical-engineering-certificate.html"
+      },
+      {
+        "name": "Mechanical Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/mechanical-engineering-masc.html"
+      },
+      {
+        "name": "Mechanical Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/mechanical-engineering-meng.html"
+      },
+      {
+        "name": "Mechanical Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/mechanical-engineering-phd.html"
+      },
+      {
+        "name": "Media Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/media-studies.html"
+      },
+      {
+        "name": "Music Therapy (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/music-therapy-diploma.html"
+      },
+      {
+        "name": "Music Therapy, Creative Arts Therapies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/music-therapy.html"
+      },
+      {
+        "name": "Nanoscience and Nanotechnology (MSc, MASc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/nanoscience-and-nanotechnology-msc-masc.html"
+      },
+      {
+        "name": "Philosophy (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/philosophy-ma.html"
+      },
+      {
+        "name": "Physics (MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.concordia.ca/academics/graduate/physics-msc.html"
+      },
+      {
+        "name": "Physics (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/physics-phd.html"
+      },
+      {
+        "name": "Play Therapy (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/play-therapy-certificate.html"
+      },
+      {
+        "name": "Political Science (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/political-science-ma.html"
+      },
+      {
+        "name": "Political Science (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/political-science.html"
+      },
+      {
+        "name": "Psychology (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/psychology-ma.html"
+      },
+      {
+        "name": "Psychology (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/psychology-phd.html"
+      },
+      {
+        "name": "Public Policy and Public Administration (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/public-policy-administration.html"
+      },
+      {
+        "name": "Quality Systems Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/quality-systems-masc.html"
+      },
+      {
+        "name": "Quality Systems Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/quality-systems-meng.html"
+      },
+      {
+        "name": "Religion (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/religion-phd.html"
+      },
+      {
+        "name": "Religions and Cultures (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/religion-ma.html"
+      },
+      {
+        "name": "Social and Cultural Analysis (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/social-cultural-phd.html"
+      },
+      {
+        "name": "Social and Cultural Anthropology (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/social-cultural-ma.html"
+      },
+      {
+        "name": "Sociology (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/sociology-ma.html"
+      },
+      {
+        "name": "Software Engineering (MASc)",
+        "degree_type": "MASc",
+        "url": "https://www.concordia.ca/academics/graduate/software-engineering-masc.html"
+      },
+      {
+        "name": "Software Engineering (MEng)",
+        "degree_type": "MEng",
+        "url": "https://www.concordia.ca/academics/graduate/software-engineering-meng.html"
+      },
+      {
+        "name": "Software Engineering (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.concordia.ca/academics/graduate/software-engineering-phd.html"
+      },
+      {
+        "name": "Studio Arts (MFA)",
+        "degree_type": "MFA",
+        "url": "https://www.concordia.ca/academics/graduate/studio-arts-mfa.html"
+      },
+      {
+        "name": "Supply Chain Management (MSCM)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/supply-chain-management.html"
+      },
+      {
+        "name": "Sustainability Perspectives (Microprogram)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/sustainability-microprogram.html"
+      },
+      {
+        "name": "Teacher Certification: Preschool and Elementary Teaching (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/teacher-certification-preschool-elementary.html"
+      },
+      {
+        "name": "Teacher Certification: Teaching English as a Second Language (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/teacher-certification-tesl.html"
+      },
+      {
+        "name": "Technologies de la traduction (Grad. Cert.)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/technologies-traduction-certificat.html"
+      },
+      {
+        "name": "Theological Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/theological-studies-ma.html"
+      },
+      {
+        "name": "Traduction (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/traduction.html"
+      },
+      {
+        "name": "Traductologie (MA)",
+        "degree_type": "MA",
+        "url": "https://www.concordia.ca/academics/graduate/traductologie-ma.html"
+      },
+      {
+        "name": "Visual Journalism (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/visual-journalism-diploma.html"
+      },
+      {
+        "name": "Youth Work (GrDip)",
+        "degree_type": "Unknown",
+        "url": "https://www.concordia.ca/academics/graduate/youth-work.html"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "ualberta",
+    "name": "uAlberta",
+    "programs": [],
+    "needs_manual_review": true
+  },
+  {
+    "id": "usask",
+    "name": "USask",
+    "programs": [
+      {
+        "name": "Anthropology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/anthropology.php"
+      },
+      {
+        "name": "Accounting",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/accounting.php"
+      },
+      {
+        "name": "Agricultural Economics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/agricultural-economics.php"
+      },
+      {
+        "name": "Animal and Poultry Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/animal-poultry-science.php"
+      },
+      {
+        "name": "Applied Microbiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/applied-microbiology.php"
+      },
+      {
+        "name": "Archaeology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/archaeology.php"
+      },
+      {
+        "name": "Biology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biology.php"
+      },
+      {
+        "name": "Biological Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biological-engineering.php"
+      },
+      {
+        "name": "Biomedical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biomedical-engineering.php"
+      },
+      {
+        "name": "Biostatistics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biostatistics.php"
+      },
+      {
+        "name": "Business Administration",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/business-administration.php"
+      },
+      {
+        "name": "Chemical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/chemical-engineering.php"
+      },
+      {
+        "name": "Chemistry",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/chemistry.php"
+      },
+      {
+        "name": "Civil Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/civil-engineering.php"
+      },
+      {
+        "name": "Community and Population Health Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/community-population-health-sciences.php"
+      },
+      {
+        "name": "Computer Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/computer-science.php"
+      },
+      {
+        "name": "Corrections",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/corrections.php"
+      },
+      {
+        "name": "Curriculum Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/curriculum-studies.php"
+      },
+      {
+        "name": "Economics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/economics.php"
+      },
+      {
+        "name": "Educational Administration",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-administration.php"
+      },
+      {
+        "name": "Educational Foundations",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-foundations.php"
+      },
+      {
+        "name": "Educational Psychology and Special Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-psychology-special-education.php"
+      },
+      {
+        "name": "Educational Technology and Design",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-technology-design.php"
+      },
+      {
+        "name": "Electrical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/electrical-computer-engineering.php"
+      },
+      {
+        "name": "English",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/english.php"
+      },
+      {
+        "name": "Environment and Sustainability",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/environment-sustainability.php"
+      },
+      {
+        "name": "Epidemiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/epidemiology.php"
+      },
+      {
+        "name": "Studio Art",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/studio-art.php"
+      },
+      {
+        "name": "Food Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/food-science.php"
+      },
+      {
+        "name": "French",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/french.php"
+      },
+      {
+        "name": "Geography",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/geography.php"
+      },
+      {
+        "name": "Geological Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/geological-sciences.php"
+      },
+      {
+        "name": "Health Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/health-sciences.php"
+      },
+      {
+        "name": "History",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/history.php"
+      },
+      {
+        "name": "Indigenous Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/indigenous-studies.php"
+      },
+      {
+        "name": "Interdisciplinary Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/interdisciplinary-studies.php"
+      },
+      {
+        "name": "Kinesiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/kinesiology.php"
+      },
+      {
+        "name": "Large Animal Clinical Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/large-animal-clinical-sciences.php"
+      },
+      {
+        "name": "Law",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/law.php"
+      },
+      {
+        "name": "Mathematics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/mathematics.php"
+      },
+      {
+        "name": "Mechanical Engineering",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/mechanical-engineering.php"
+      },
+      {
+        "name": "Music",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/music.php"
+      },
+      {
+        "name": "Nursing",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/nursing.php"
+      },
+      {
+        "name": "Nutrition",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/nutrition.php"
+      },
+      {
+        "name": "Pharmacy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/pharmacy.php"
+      },
+      {
+        "name": "Physical Therapy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/physical-therapy.php"
+      },
+      {
+        "name": "Physics and Engineering Physics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/physics-engineering-physics.php"
+      },
+      {
+        "name": "Plant Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/plant-sciences.php"
+      },
+      {
+        "name": "Political Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/political-studies.php"
+      },
+      {
+        "name": "Psychology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/psychology.php"
+      },
+      {
+        "name": "Public Administration",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/public-administration.php"
+      },
+      {
+        "name": "Public Health",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/public-health.php"
+      },
+      {
+        "name": "Public Policy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/public-policy.php"
+      },
+      {
+        "name": "Religion and Culture",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/religion-culture.php"
+      },
+      {
+        "name": "Small Animal Clinical Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/small-animal-clinical-sciences.php"
+      },
+      {
+        "name": "Sociology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/sociology.php"
+      },
+      {
+        "name": "Soil Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/soil-science.php"
+      },
+      {
+        "name": "Toxicology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/toxicology.php"
+      },
+      {
+        "name": "Vaccinology and Immunotherapeutics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/vaccinology-immunotherapeutics.php"
+      },
+      {
+        "name": "Veterinary Biomedical Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/veterinary-biomedical-sciences.php"
+      },
+      {
+        "name": "Veterinary Microbiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/veterinary-microbiology.php"
+      },
+      {
+        "name": "Veterinary Pathology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/veterinary-pathology.php"
+      },
+      {
+        "name": "Writing",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/writing.php"
+      },
+      {
+        "name": "Women's, Gender, and Sexualities Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/womens-gender-sexualities-studies.php"
+      },
+      {
+        "name": "Water Security",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/water-security.php"
+      },
+      {
+        "name": "Teaching English to Speakers of Other Languages",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/teaching-english.php"
+      },
+      {
+        "name": "Education (Cross-departmental)",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/education.php"
+      },
+      {
+        "name": "Applied Economics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/applied-economics.php"
+      },
+      {
+        "name": "Field Epidemiology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/field-epidemiology.php"
+      },
+      {
+        "name": "Educational Leadership",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/educational-leadership.php"
+      },
+      {
+        "name": "Small Animal Rotating Veterinary Internship",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/small-animal-rotating-veterinary-internship.php"
+      },
+      {
+        "name": "Small Animal Specialty Veterinary Internship",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/small-animal-specialty-veterinary-internship.php"
+      },
+      {
+        "name": "Health Professions Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/health-professions-education.php"
+      },
+      {
+        "name": "Quality Teaching in Health Professions Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/quality-teaching-health-professions-education.php"
+      },
+      {
+        "name": "Improving Teaching and Learning in Health Professions Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/improving-teaching-learning-health-professions-education.php"
+      },
+      {
+        "name": "Anatomy, Physiology and Pharmacology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/anatomy-physiology-pharmacology.php"
+      },
+      {
+        "name": "Sustainability",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/sustainability.php"
+      },
+      {
+        "name": "Biochemistry, Microbiology and Immunology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/biochemistry-microbiology-immunology.php"
+      },
+      {
+        "name": "Sustainability Solutions",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/sustainability-solutions.php"
+      },
+      {
+        "name": "Governance Foundations for Sustainability",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/governance-foundations-for-sustainability.php"
+      },
+      {
+        "name": "Water Science",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/water-science.php"
+      },
+      {
+        "name": "Sustainable Water Management",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/sustainable-water-management.php"
+      },
+      {
+        "name": "Community Energy Planning and Finance",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/community-energy-planning-finance.php"
+      },
+      {
+        "name": "Energy Transitions",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/energy-transitions.php"
+      },
+      {
+        "name": "Water Resources",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/water-resources.php"
+      },
+      {
+        "name": "Food and Bioproduct Sciences",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/food-and-bioproduct-sciences.php"
+      },
+      {
+        "name": "Indigenous Land-Based Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/indigenous-land-based-education.php"
+      },
+      {
+        "name": "Social Economy, Cooperatives, and the Nonprofit Sector",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/social-economy-cooperatives-and-the-non-profit-sector.php"
+      },
+      {
+        "name": "Music Education",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/music-education.php"
+      },
+      {
+        "name": "Scholarship of Teaching and Learning",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/scholarship-of-teaching-and-learning.php"
+      },
+      {
+        "name": "Veterinary Diagnostic Pathology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/veterinary-diagnostic-pathology.php"
+      },
+      {
+        "name": "Indigenous Nation-Building",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/indigenous-nation-building.php"
+      },
+      {
+        "name": "Linguistics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/linguistics.php"
+      },
+      {
+        "name": "Hydrology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/hydrology.php"
+      },
+      {
+        "name": "Leadership",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/leadership.php"
+      },
+      {
+        "name": "Environmental Planning",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/environmental-planning.php"
+      },
+      {
+        "name": "Precision Oral and Systemic Health",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/precision-oral-systemic-health.php"
+      },
+      {
+        "name": "Substance Use Health and Wellbeing",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/substance-use-health-and-wellbeing.php"
+      },
+      {
+        "name": "Physician Assistant Studies",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/physician-assistant-studies.php"
+      },
+      {
+        "name": "Statistics",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/statistics.php"
+      },
+      {
+        "name": "Financial Management",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/financial-management.php"
+      },
+      {
+        "name": "Management",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/management.php"
+      },
+      {
+        "name": "Speech Language Pathology",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/speech-language-pathology.php"
+      },
+      {
+        "name": "Chemical Risk Assessment",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/chemical-risk-assessment.php"
+      },
+      {
+        "name": "Clinical Pharmacy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/clinical-pharmacy.php"
+      },
+      {
+        "name": "Occupational Therapy",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/occupational-therapy.php"
+      },
+      {
+        "name": "Applied Computing",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/applied-computing.php"
+      },
+      {
+        "name": "Public Policy Research",
+        "degree_type": "Unknown",
+        "url": "https://grad.usask.ca/programs/public-policy-research.php"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "uregina",
+    "name": "uRegina",
+    "programs": [
+      {
+        "name": "University of Regina business certificates, international business, creativity, entrepreneurs Bachelor's Degree Accounting",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/accounting.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeFirst Nations University of CanadaUniversity of Regina actuarial science, what is actuarial science, actuarial science degree, bachelor of actuarial science, actuarial science program Bachelor's Degree Actuarial Science",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/actuarial-science.html"
+      },
+      {
+        "name": "University of Regina administration certificate, certificate in business administration, certificate in administration u of r, certificate in administration level one, certificate in administration level two Certificate (1 - 2 Years) Administration",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/administration.html"
+      },
+      {
+        "name": "First Nations University of Canada business diploma, business administration diploma, diploma in business, first nations university of Canada, indigenous governance Diploma (2 Years) Administration (FNUniv)",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/dip-administration-fnuniv.html"
+      },
+      {
+        "name": "University of Regina master of administration, masters degree in leadership, master of administration in leadership, madmin Master's Degree Administration in Leadership",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-administration-leadership.html"
+      },
+      {
+        "name": "University of Regina Master of Education in Adult Education and Human Resource Development, masters in Adult Education and Human Resource Development, master of education, graduate programs in education Master's Degree Adult Education and Human Resource Development (MEd)",
+        "degree_type": "MEd",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-adult-education-human-resource-development.html"
+      },
+      {
+        "name": "University of Regina Professional development, online certificate, advanced leadership, leadership certification, leadership training, leadership skills development, leadership coaching, leadership training for managers, emotional intelligence, emotional intelligence course, continuing education, CCE, certification in advanced leadership, leadership, sask, microcredential, EQ, EQi Professional Development Advanced Leadership",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/advanced-leadership.html"
+      },
+      {
+        "name": "University of Regina advanced manufacturing, manufacturing engineer, manufacturing engineer jobs, master of engineering, graduate certificate, masters of applied science, process engineer, manufacturing industry Graduate Certificate Advanced Manufacturing",
+        "degree_type": "MEng",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-advanced-manufacturing.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaCampion CollegeFirst Nations University of Canada advanced art studio, ceramics, drawing, painting, photography, printmaking, sculpture, visual arts, visual art certificate Certificate (1 - 2 Years) Advanced Studio Art",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-advanced-studio-art.html"
+      },
+      {
+        "name": "University of Regina aging studies, study of aging, masters in gerontology, master's degree in aging studies, aging studies graduate programs, aging, gerontology, seniors Master's Degree Aging Studies (MA, MSc)",
+        "degree_type": "MSc",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-aging-studies.html"
+      },
+      {
+        "name": "University of Regina Animation, what is animation, 2D animation, 3D animation, stop motion animation, animation certificate, animation courses Certificate (1 - 2 Years) Animation",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-animation.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeUniversity of ReginaFirst Nations University of Canada Bachelor's Degree Anthropology",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/anthropology.html"
+      },
+      {
+        "name": "First Nations University of CanadaLuther CollegeUniversity of ReginaCampion College Art history, curatorial studies, art curator, art history degree, art history courses Bachelor's Degree Art History and Curatorial Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/art-history-curatorial-studies.html"
+      },
+      {
+        "name": "University of Regina ai programming, artificial intelligence jobs, ai jobs, masters of engineering, ai engineer, ai certification Graduate Certificate Artificial Intelligence in Engineering",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-artificial-intelligence-engineering.html"
+      },
+      {
+        "name": "University of Regina Professional Development Artificial Intelligence: Machine Learning Solutions",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/artificial-intelligence.html"
+      },
+      {
+        "name": "University of Regina arts education, artist, teach art, teaching, teach, teacher, teaches, arts, fine arts, visual arts, drama, literature, after degree, elementary education, drama education, theatre, gallery, museum After Degree (2 Years) Arts Education",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/arts-education.html"
+      },
+      {
+        "name": "University of ReginaLuther CollegeCampion CollegeFirst Nations University of Canada sound design, audio designer, creative technology, video game music, audio production, audio tools Certificate (1 - 2 Years) Audio Recording and Sound Design",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-audio-recording-sound-design.html"
+      },
+      {
+        "name": "University of Regina française, Éducation, éducation, french, française, Éducation, éducation, french, francaise Bachelor's Degree Baccalauréat en éducation française au secondaire",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/baccalaureat-education-francaise-secondaire.html"
+      },
+      {
+        "name": "University of Regina française, Éducation, éducation, french, française, Éducation, éducation, french, francaise After Degree (2 Years) Baccalauréat en éducation française au secondaire après diplôme",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/baccalaureat-education-francaise-secondaire-apres-diplome.html"
+      },
+      {
+        "name": "University of Regina française, Éducation, éducation, french, francaise Bachelor's Degree Baccalauréat en éducation française élémentaire",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/baccalaureat-education-francaise-elementaire.html"
+      },
+      {
+        "name": "University of Regina française, Éducation, éducation, french, francaise After Degree (2 Years) Baccalauréat en éducation française élémentaire après diplôme",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/baccalaureat-education-francaise-elementaire-apres-diplome.html"
+      },
+      {
+        "name": "University of Regina Bachelor of Social Work Bilingual, BSW Bilingual Option, Social Work degree English French, Accredited social work program, Francophone careers, Bilingual social worker training, Social work practicum, Community support worker, Case manager, Family support worker Bachelor's Degree Bachelor of Social Work – Bilingual Option",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/social-work/social-work-bilingual.html"
+      },
+      {
+        "name": "University of ReginaSaskatoon Campus - University of Regina Bachelor of Social Work After Degree, BSW After Degree, social work degree Saskatchewan, University of Regina social work, accelerated social work program, social work practicum After Degree (2 Years) Bachelor of Social Work After Degree",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/social-work/social-work-after-degree.html"
+      },
+      {
+        "name": "Luther CollegeFirst Nations University of CanadaCampion CollegeUniversity of Regina Biology degree, biology major, bachelor of science in biology, biology undergraduate, biology program, biology geography combined degree Bachelor's Degree Biology",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/biology.html"
+      },
+      {
+        "name": "University of Regina biology graduate programs, molecular biology graduate programs, master's degree biology, biology phd programs, masters in biology Doctorate Degree Biology (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-biology.html"
+      },
+      {
+        "name": "University of Regina business administration diploma, business programs, business school, marketing diploma, accounting diploma, finance diploma, human resources diploma, business management diploma Diploma (2 Years) Business Administration",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/dip-business-administration.html"
+      },
+      {
+        "name": "University of Regina business certificates, international business, creativity, entrepreneurs, Ideation, Creativity and Entrepreneurship (ICE) Bachelor's Degree Business Administration",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/business-administration.html"
+      },
+      {
+        "name": "University of Regina EMBA, executive MBA Master's Degree Business Administration (EMBA)",
+        "degree_type": "MBA",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-executive-business-administration.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Business Administration (MBA)",
+        "degree_type": "MBA",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-business-administration.html"
+      },
+      {
+        "name": "University of Regina Professional development, online certificate, business analysis, data analytics training, business analyst training course, IIBA, continuing education, CCE, certification in business analysis, business analysis sask, certified business analysis professional, BA certification, CBAP certification, business analysis program, CDU Professional Development Business Analysis",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/business-analysis.html"
+      },
+      {
+        "name": "University of Regina Professional development, online certificate, continuing education, CCE, certification in leadership, sask, digital microcredential, microcertificate, communications, communication, writing Professional Development Business Communications",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/business-communications.html"
+      },
+      {
+        "name": "University of Regina carbon capture utilization and storage, clean energy masters, master of engineering, carbon capture and storage, carbon capture technology, saskatchewan carbon capture, ccus technology Certificate (1 - 2 Years) Carbon Capture, Utilization and Storage",
+        "degree_type": "MEng",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-carbon-capture-utilization-storage.html"
+      },
+      {
+        "name": "University of Regina Professional development, online certificate, change management and innovation, innovation, leadership innovation, organizational change, change management, continuing education, CCE, certification in innovation, certification in change management, sask, microcredential, lean, process, process mapping Professional Development Change Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/change-management-innovation.html"
+      },
+      {
+        "name": "First Nations University of CanadaCampion CollegeLuther CollegeUniversity of Regina Chemical technology, chemical technology program, chemical technology degree, chem tech Bachelor's Degree Chemical Technology",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/chemical-technology.html"
+      },
+      {
+        "name": "First Nations University of CanadaLuther CollegeCampion CollegeUniversity of Regina Chemistry degree, biochemistry degree, bachelor of science in chemistry, bachelor of science in biochemistry Bachelor's Degree Chemistry and Biochemistry",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/chemistry-biochemistry.html"
+      },
+      {
+        "name": "University of Regina msc chemistry, graduate programs chemistry, master of science chemistry, biochemistry graduate programs, master of science biochemistry, biochemistry phd programs Master's Degree Chemistry and Biochemistry (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-chemistry-biochemistry.html"
+      },
+      {
+        "name": "University of ReginaLuther CollegeFirst Nations University of CanadaCampion College Chinese language certificate, study Chinese Canada, University of Regina Chinese program, learn Chinese culture, Mandarin certificate Canada Certificate (1 - 2 Years) Chinese Language and Culture",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-chinese.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaCampion CollegeFirst Nations University of Canada Bachelor's Degree Classical and Medieval Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/classical-medieval.html"
+      },
+      {
+        "name": "University of Regina psychology, pychology Doctorate Degree Clinical Psychology (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-phd-clinical-psychology.html"
+      },
+      {
+        "name": "Saskatchewan PolytechnicUniversity of Regina nurse practitioner, how to become a nurse practitioner, nurse practitioner program, university of regina nurse practitioner program, masters in nursing Master's Degree Collaborative Nurse Practitioner Program (CNPP)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/nursing/master-nurse-practitioner.html"
+      },
+      {
+        "name": "Campion CollegeFirst Nations University of CanadaLuther CollegeUniversity of Regina Computer science, computer science degree, bachelor of science computer science, computer science programs, software systems development, cs, software, math Bachelor's Degree Computer Science",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/computer-science.html"
+      },
+      {
+        "name": "Northlands CollegeUniversity of ReginaLuther CollegeCampion CollegeFirst Nations University of Canada Computer science, diploma in computer science, computer science degree, bachelor of science computer science, computer science programs, cs Diploma (2 Years) Computer Science",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/science/computer-science-diplomas.html"
+      },
+      {
+        "name": "University of Regina masters in computer science, master degree in computer and data science, master of science human-centred computing, master of science computer science, cs Master's Degree Computer Science (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-computer-science.html"
+      },
+      {
+        "name": "University of Regina arts, crafts, theatre, music, acting, animation, instruments, singing, drawing Camps and Youth Programs Conservatory Creative Camps",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/camps-youth/camps-creative.html"
+      },
+      {
+        "name": "Campion CollegeUniversity of ReginaFirst Nations University of CanadaLuther College film school, sound design, art school, ceramics, theatre classes, digital media, graphic design, photography classes, creative jobs, printmaking, visual arts, art certificate Certificate (1 - 2 Years) Creative Practice",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-creative-practice.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeFirst Nations University of CanadaUniversity of Regina Diploma (2 Years) Creative Technologies",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/creative-technologies.html"
+      },
+      {
+        "name": "University of ReginaLuther CollegeFirst Nations University of CanadaCampion College criminology degree, criminology program Canada, criminal justice studies, University of Regina criminology, justice studies degree, criminology careers Diploma (2 Years) Criminology",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/criminology.html"
+      },
+      {
+        "name": "Campion CollegeUniversity of ReginaLuther CollegeFirst Nations University of Canada arts administration Curator Art Director  Preparator Art Galleries Museums  Archives archivist Bachelor's Degree Cultures of Display",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/cultures-display.html"
+      },
+      {
+        "name": "University of Regina Professional development, online certificate, continuing education, CCE, certification in leadership, sask, digital microcredential, microcertificate, leadership, PDU Professional Development Custom Training",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/custom-training.html"
+      },
+      {
+        "name": "Luther CollegeFirst Nations University of CanadaCampion CollegeUniversity of Regina Data science, what is data science, data science degree, data science programs, Bachelor of Science degree, bachelor's degree in data science, data science internship Bachelor's Degree Data Science",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/data-science.html"
+      },
+      {
+        "name": "Campion CollegeFirst Nations University of CanadaUniversity of ReginaLuther College design degree, bachelor of design degree, bachelor of design, post diploma design degree Bachelor's Degree Design",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/design.html"
+      },
+      {
+        "name": "Luther CollegeCampion CollegeFirst Nations University of CanadaUniversity of Regina theatre creation, screenwriter, screenwriting, scriptwriting, stage hand, comedian,comedy, acting, design, stage, drama, performing arts, performance, perform, plays, playwriting, theatre production, stage production, acting classes, theatre classes, theatre course, acting courses, Bachelor's Degree Devised Performance and Theatre Creation (BFA)",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/devised-performance-theatre-creation.html"
+      },
+      {
+        "name": "University of Regina business programs, business school, marketing diploma, digital marketing programs, digital marketing diploma, digital marketing certificate, digital marketing jobs Diploma (2 Years) Digital Marketing",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/dip-digital-marketing.html"
+      },
+      {
+        "name": "University of Regina business programs, business school, marketing diploma, digital marketing programs, digital marketing diploma, digital marketing certificate, digital marketing jobs Certificate (1 - 2 Years) Digital Marketing",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/cert-digital-marketing.html"
+      },
+      {
+        "name": "University of Regina arts, crafts, theatre, music, acting, animation, instruments, singing, drawing Camps and Youth Programs Early Learning - Music",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/camps-youth/early-learning-music-arts.html"
+      },
+      {
+        "name": "University of Regina earth sciences geology graduate programs, master of science geology, geology masters programs, phd geology Doctorate Degree Earth Sciences (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-earth-sciences.html"
+      },
+      {
+        "name": "University of ReginaFirst Nations University of CanadaCampion CollegeLuther College Bachelor's Degree Economics",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/economics.html"
+      },
+      {
+        "name": "University of Regina française, Éducation, éducation, french, française, Éducation, éducation, french, francaise Certificate (1 - 2 Years) Education",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/education/cert-education.html"
+      },
+      {
+        "name": "University of Regina phd in education, phd education canada, phd programs in education, phd education part time, phd in education mentored program Doctorate Degree Education (PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/education/phd-education.html"
+      },
+      {
+        "name": "Northwest CollegeUniversity of Regina Bachelor's Degree Education Elementary Pre-K-8",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/education-elementary-pre-k-to-8.html"
+      },
+      {
+        "name": "University of Regina educational psychology, masters in educational psychology, master of education in counselling psychology, educational psychology masters, masters degree in educational psychology Master's Degree Educational Psychology (MEd)",
+        "degree_type": "MEd",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-educational-psychology.html"
+      },
+      {
+        "name": "University of Regina educational technology and media, media and technology in education, master's certificate in educational technology and media, master's certificate in education, graduate programs in education Graduate Certificate Educational Technology and Media (MCert.)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-cert-educational-technology-media.html"
+      },
+      {
+        "name": "University of Regina professional development, online certificate, continuing education, CCE, certification in communications, sask, microcredential Professional Development Effective Communication",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/effective-communication.html"
+      },
+      {
+        "name": "University of Regina Bachelor's Degree Electronic Systems Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/engineering/electronic-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina electronic, systems, engineering, applied research, applied science, Master's Degree Electronic Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-electronic-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina saskpoly, saskpolytech Bachelor's Degree Elementary Teacher Education",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/elementary-teacher-education.html"
+      },
+      {
+        "name": "Yukon UniversityUniversity of Regina Bachelor's Degree Elementary Teacher Education - YNTEP",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/elementary-teacher-education-yntep.html"
+      },
+      {
+        "name": "University of Regina energy, energy systems engineering, energy systems engineering technology, what is energy systems engineering, energy systems engineering degree, energy engineering courses, sustainability, climate action, climate change, petroleum engineering, renewable energy, clean energy, petroleum Bachelor's Degree Energy Systems Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/engineering/energy-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina energy systems engineering, energy engineering, nuclear engineering, energy engineer jobs, master of engineering, graduate certificate, masters of applied science, doctor of philosophy Master's Degree Energy Systems Engineering",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-energy-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina management engineering, engineering business, engineering business certificate, engineering leadership, masters of engineering, engineering project manager, engineering economics, financial decision making for engineers Graduate Certificate Engineering Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-engineering-management.html"
+      },
+      {
+        "name": "University of ReginaFirst Nations University of CanadaCampion CollegeLuther College Literaturer Classic english literature English lit English literature Creative writing opprotunity Creative writing opportunity English majors English lit degree English lit major Writing major Writing degree Major in literature English learning Pop culture literature Dystopia novel studies Distopian fiction Fantasy novel studies Gothic novel Gothic literature Modern poetry Reading and writing classes Novel studies Classic literature Lit genre studies Fantasy literature Fantacy literature Modern literature classes Modern fiction Fiction lit classes Literature review Classical fiction Contemporary novel studies Bachelor's Degree English",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/english.html"
+      },
+      {
+        "name": "University of ReginaLuther CollegeCampion CollegeFirst Nations University of Canada Literaturer Classic english literature English lit English literature Creative writing opprotunity Creative writing opportunity English majors English lit degree English lit major Writing major Writing degree Major in literature English learning Pop culture literature Dystopia novel studies Distopian fiction Fantasy novel studies Gothic novel Gothic literature Modern poetry Reading and writing classes Novel studies Classic literature Lit genre studies Fantasy literature Fantacy literature Modern literature classes Modern fiction Fiction lit classes Literature review Classical fiction Contemporary novel studies Bachelor's Degree English - Creative Writing",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/english-creative-writing.html"
+      },
+      {
+        "name": "University of Regina english graduate programs, english and creative writing graduate programs, master's degree in English, master's degree in creative writing Master's Degree English and Creative Writing (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-english-creative-writing.html"
+      },
+      {
+        "name": "University of Regina ESL, TESOL, EAP, ELP, Language Proficiency, English Proficiency, Duo Lingo, Academic English, Accredited, Direct Entry, English Levels, CAEL, TESL English as a Second Language (ESL) English for Academic Purposes",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/english-second-language/esl-english-academic-purposes.html"
+      },
+      {
+        "name": "First Nations University of CanadaLuther CollegeUniversity of ReginaCampion College Environmental biology, environmental biology degree, BSc environmental biology, environmental biology jobs, best schools for environmental biology Bachelor's Degree Environmental Biology",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/environmental-biology.html"
+      },
+      {
+        "name": "University of Regina Bachelor's Degree Environmental Systems Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/engineering/environmental-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina environmental systems, geotechnical engineering, pollution control, water resources, sustainability, wastewater treatment Master's Degree Environmental Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-environmental-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina Edii, equity diversity and inclusion, equity diversity inclusion indigenization, certificate in equity diversity inclusion indigenization, equity diversity inclusion indigenization u of r Graduate Certificate Equity, Diversity, Inclusion and Indigenization",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/grad-cert-equity-diversity-inclusion-indigenization.html"
+      },
+      {
+        "name": "University of Regina francaise, Éducation éducation français francais French french Français Francais Études francophones et interculturelles / French: Certificat / Certificate Mineure / Minor Majeure / Major Maîtrise / Master’s Doctorat / Doctorate Certificate in French as a Second Language Mineure bilingue en études africaines Bilingual minor in African Studies Cheminement intégré en droit et en études francophones et interculturelles Baccalauréat collaboratif en sciences infirmières (SCBScN), french, francaise Bachelor's Degree Études francophones et interculturelles",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/la-cite-universitaire-francophone/la-cite.html"
+      },
+      {
+        "name": "University of Regina psychology, pychology Master's Degree Experimental and Applied Psychology (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-phd-experimental-applied-psychology.html"
+      },
+      {
+        "name": "University of Regina Bursary, International, Culture, Canadian Experience, Cultural, Immersion, French English as a Second Language (ESL) Explore",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/english-second-language/esl-explore.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Extended Studies in Aboriginal Education",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/extended-studies-aboriginal-education.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Extended Studies in First Nations Language",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/extended-studies-first-nations-language.html"
+      },
+      {
+        "name": "University of Regina Certificate in Inclusive Education, Extended Studies Inclusive Education Saskatchewan, Inclusive Education Certificate University of Regina, Inclusive classroom training Saskatchewan, Professional development inclusive education teachers, Additional qualification inclusive education Saskatchewan, Inclusive learning environments training, Special education inclusive classroom certificate, U of R Certificate Inclusive Education Certificate (1 - 2 Years) Extended Studies in Inclusive Education",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/extended-studies-inclusive-education.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaFirst Nations University of CanadaCampion College Film production, film, filmmaking, jobs in film production, film production certificate, film production classes Certificate (1 - 2 Years) Film Production",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-film-production.html"
+      },
+      {
+        "name": "Campion CollegeUniversity of ReginaFirst Nations University of CanadaLuther College Film production, filmmaking, film production degree, film degree, jobs in film production, film school Bachelor's Degree Film Production",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/film-production.html"
+      },
+      {
+        "name": "University of Regina mfa, master of fine arts, mfa in film, mfa in media production, master of fine arts in media production Master's Degree Film Production (MFA)",
+        "degree_type": "MFA",
+        "url": "https://www.uregina.ca/academics/programs/map/master-film-production.html"
+      },
+      {
+        "name": "Campion CollegeFirst Nations University of CanadaLuther CollegeUniversity of Regina film studies, film industry, history of film, film theory, jobs in film studies, what is film studies Bachelor's Degree Film Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/film-studies.html"
+      },
+      {
+        "name": "University of Regina media studies, film studies, master's degree media studies, master's degree film studies, media studies graduate programs Master's Degree Film Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/map/master-film-studies.html"
+      },
+      {
+        "name": "University of Regina business certificates, international business, creativity, entrepreneurs Bachelor's Degree Finance",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/finance.html"
+      },
+      {
+        "name": "University of Regina forensic psychology, forensic psychology certificate, forensic psychology Canada, forensic and legal psychology, forensic psychology sask Certificate (1 - 2 Years) Forensic Psychology",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-forensic-psychology.html"
+      },
+      {
+        "name": "Campion CollegeUniversity of ReginaLuther CollegeFirst Nations University of Canada foundations of science certificate, diploma in general science, science diploma, science u of r Certificate (1 - 2 Years) Science",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/science/science.html"
+      },
+      {
+        "name": "University of Regina francaise, Éducation éducation français francais French french Français Francais Études francophones et interculturelles / French: Certificat / Certificate Mineure / Minor Majeure / Major Maîtrise / Master’s Doctorat / Doctorate Certificate in French as a Second Language Mineure bilingue en études africaines Bilingual minor in African Studies Cheminement intégré en droit et en études francophones et interculturelles Baccalauréat collaboratif en sciences infirmières (SCBScN), french, francaise, French and francophone studies, french and francophone intercultural studies, master’s degree in french, french graduate programs, la cité regina Doctorate Degree French and Francophone Intercultural Studies (MCert, MA, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/la-cite-universitaire-francophone/master-phd-french-francophone-intercultural-studies.html"
+      },
+      {
+        "name": "University of Regina juris doctor, law school, bachelor's degree in French, university in French, french universities in Canada, francophone universities in Canada, bachelor of arts in French, bachelor of arts degree in french Pathway French and Francophone Intercultural Studies and Law",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/la-cite-universitaire-francophone/french-francophone-intercultural-studies-law.html"
+      },
+      {
+        "name": "University of Regina bachelor's degree in French, university in French, french universities in Canada, francophone universities in Canada, bachelor of arts in French, bachelor of arts degree in french Bachelor's Degree French as a Second Language",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/la-cite-universitaire-francophone/ba-french-second-language.html"
+      },
+      {
+        "name": "University of Regina management, business certificates, international business, creativity, entrepreneurs Bachelor's Degree General Business Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/general-business-studies.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaCampion CollegeFirst Nations University of Canada Geography degree, bachelor of geography, geography and environmental studies, environmental studies, bachelor of environmental studies, environmental studies degree, environment, environmental, geography, Geography Environmental Studies Environmental Geography Geomorphology Land forms Biogeography Meteorology Hydrology Water Physical geography Human geography Urban geography Urban planning GI Science Geomatics GIS GPS Global positioning system Geographic Information systems Remote sensing Satellite image Cartography Geovisualization Mapping Maps Map Climate Change Weather Climate Environment Natural hazard Regional geography  Political geography Demographics Cultural geography Natural resources Place Space Scale Regional geography Earth sciences Geoscience Geographer Urban Planner Economic geography Bachelor's Degree Geography and Environmental Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/geography-environmental-studies.html"
+      },
+      {
+        "name": "First Nations University of CanadaLuther CollegeUniversity of ReginaCampion College Geology courses, bachelor of geology, bachelor of science in geology, bachelor in geoscience, environmental geoscience program, environmental geoscience degree, environment, environmental Bachelor's Degree Geology and Environmental Geoscience",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/geology-environmental-geoscience.html"
+      },
+      {
+        "name": "University of Regina geothermal engineering, geothermal energy, masters in geothermal engineering, geothermal Saskatchewan, renewable energy masters, master of engineering Graduate Certificate Geothermal Engineering",
+        "degree_type": "MEng",
+        "url": "https://www.uregina.ca/academics/programs/engineering/master-cert-geothermal-engineering.html"
+      },
+      {
+        "name": "University of ReginaCampion CollegeFirst Nations University of CanadaLuther College German certificate German Deutsche German language German literature International languages Additional language language learning language and culture cultural literacy language skills language requirement  Translation Certificate (1 - 2 Years) German Language and Culture",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-german-language-culture.html"
+      },
+      {
+        "name": "University of Regina kinesiology  Biomechanics  Exercise psychology  Sport psychology   Exercise physiology  Motor learning  Anatomy   strength and conditioning  sport science  exercise science  disability   therapeutic recreation  adapted movement  parasport  disability sport  rehabilitation  motor control  older adults  gerontology  physical activity  leisure  leisure activity seniors Bachelor's Degree Gerontology",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/khs/gerontology.html"
+      },
+      {
+        "name": "University of Regina Graduate Certificate Graduate Studies",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/graduate/grad-studies.html"
+      },
+      {
+        "name": "University of Regina guitar, piano, woodwinds, choir, choral, ensemble, orchestra, strings, violin, cello, voice, brass Camps and Youth Programs Group Music Programs",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/camps-youth/group-music-programs.html"
+      },
+      {
+        "name": "University of ReginaCampion College health humanities, medical humanities, health studies, social science and medicine, humanities and healthcare Certificate (1 - 2 Years) Health and Medical Humanities",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/health-medical-humanities.html"
+      },
+      {
+        "name": "University of Regina kinesiology  Biomechanics  Exercise psychology  Sport psychology   Exercise physiology  Motor learning  Anatomy   strength and conditioning  sport science  exercise science human movement  indigenous sport  sport sociology  health studies  health psychology  health care  health issues  disability   therapeutic recreation  adapted movement  parasport  disability sport  rehabilitation  motor control  athletic therapy  fitness training  lifestyle management  physical activity  nutrition  sport nutrition older adults  gerontology  physical activity  leisure  leisure activity Bachelor's Degree Health Promotion",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/khs/health-promotion.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeFirst Nations University of CanadaUniversity of Regina kinesiology  human movement  indigenous sport  sport sociology  health studies  health psychology  health care  health issues Bachelor's Degree Health Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/khs/health-studies.html"
+      },
+      {
+        "name": "University of Regina Professional development, online certificate, continuing education, CCE, certification in leadership, sask, digital microcredential, microcertificate, leadership, PDU Professional Development High Impact Leadership",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/high-impact-leadership.html"
+      },
+      {
+        "name": "Luther CollegeCampion CollegeFirst Nations University of CanadaUniversity of Regina Bachelor's Degree History",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/history.html"
+      },
+      {
+        "name": "University of Regina history, history graduate programs, master of arts history, master's degree in history Master's Degree History (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/masters-arts-history.html"
+      },
+      {
+        "name": "First Nations University of Canada hospitality and tourism management; hospitality and tourism industry; hospitality, tourism and gaming management; certificate in hospitality, tourism and gaming management; why study tourism and hospitality management; study hospitality tourism sask Certificate (1 - 2 Years) Hospitality, Tourism and Gaming Entertainment Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/hospitality-tourism-gaming-entertainment-management.html"
+      },
+      {
+        "name": "University of Regina kinesiology  Biomechanics  Exercise psychology  Sport psychology   Exercise physiology  Motor learning  Anatomy   strength and conditioning  sport science  exercise science human movement  indigenous sport  sport sociology  health studies  health psychology  health care  health issues  disability   therapeutic recreation  adapted movement  parasport  disability sport  rehabilitation  motor control athletic therapy  fitness training  lifestyle management  physical activity  nutrition  sport nutrition  older adults  gerontology  physical activity  leisure  leisure activity athletics athletic athlete athletes coach coaching personal trainer exercise therapist Bachelor's Degree Human Kinetics",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/khs/human-kinetics.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Human Resource Management (MHRM)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-human-resource-management.html"
+      },
+      {
+        "name": "University of Regina Human Resources, HR, HRM, HR Management, hr, hr management, human resources, business certificates, international business, creativity, entrepreneurs Bachelor's Degree Human Resource Management",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/human-resource-management.html"
+      },
+      {
+        "name": "University of Regina HRM Graduate Certificate Human Resource Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-cert-human-resource-management.html"
+      },
+      {
+        "name": "University of Regina Human Resources Administration in Education, master's certificate in Human Resources Administration in Education, master's certificate in education, graduate programs in education Certificate (1 - 2 Years) Master's Certificate in Human Resources Administration in Education",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-human-resources-administration.html"
+      },
+      {
+        "name": "University of Regina ideation creativity and entrepreneurship, certificate in ideation creativity and entrepreneurship, business certificate, university of regina business certificate, u of r business certificates, hill business certificate, hill entrepreneurship, hill ideation, hill creativity Certificate (1 - 2 Years) Ideation, Creativity and Entrepreneurship",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/cert-ideation-creativity-entrepreneurship.html"
+      },
+      {
+        "name": "First Nations University of Canada doula training Canada, doula, indigenous birthing practices,  indigenous pregnancy and childbirth, indigenous birth support worker,  perinatal support worker Certificate (1 - 2 Years) Indigenous Birth Worker Certificate",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/khs/indigenous-birth-support-worker-certificate.html"
+      },
+      {
+        "name": "First Nations University of Canada Diploma (2 Years) Indigenous Communication Arts",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/dip-indigenous-communication-arts.html"
+      },
+      {
+        "name": "First Nations University of Canada indigenous economic development, economic development in indigenous communities, indigenous economic development canada, certificate in indigenous economic development, study indigenous economic development Certificate (1 - 2 Years) Indigenous Economic Development",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/indigenous-economic-development.html"
+      },
+      {
+        "name": "University of Regina master of indigenous education, master of indigenous education degree, indigenous education graduate programs, indigenous education programs Master's Degree Indigenous Education (MIEd)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-indigenous-education.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Indigenous Environmental Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/indigenous-environmental-management.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Indigenous Fine Arts",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-indigenous-fine-arts.html"
+      },
+      {
+        "name": "First Nations University of Canada Bachelor's Degree Indigenous Fine Arts",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/indigenous-fine-arts.html"
+      },
+      {
+        "name": "First Nations University of Canada indigenous health practices, indigenous health, indigenous mental health, indigenous health studies, indigenous health courses Certificate (1 - 2 Years) Indigenous Health Practice",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/khs/cert-indigenous-health-practice.html"
+      },
+      {
+        "name": "First Nations University of Canada journalism certificate, communications certificate, first nations university of Canada,  Indigenous radio Canada, Indigenous media, journalism schools in canada Certificate (1 - 2 Years) Indigenous Journalism and Communication",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-indigenous-journalism-communications.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Indigenous Language",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/indigenous-language.html"
+      },
+      {
+        "name": "University of Regina indigenous language education, master of indigenous language education, master of indigenous language education degree, indigenous language education graduate programs Master's Degree Indigenous Language Education (MILEd)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-indigenous-language-education.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Indigenous Language Guardianship",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/indigenous-language-guardianship.html"
+      },
+      {
+        "name": "University of ReginaCampion CollegeFirst Nations University of CanadaLuther College Bachelor's Degree Indigenous Languages",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/indigenous-language-literature.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Indigenous Literatures in English",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-indigenous-literatures.html"
+      },
+      {
+        "name": "First Nations University of Canada indigenous management, certificate in indigenous management, indigenous governance, indigenous band administration, indigenous economic development Certificate (1 - 2 Years) Indigenous Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/indigenous-management.html"
+      },
+      {
+        "name": "First Nations University of CanadaUniversity of Regina masters of indigenous social work, indigenous social work, social work with indigenous communities, indigenous social work u of r Master's Degree Indigenous Social Work",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/social-work/master-indigenous-social-work.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Indigenous Social Work (Qualifying)",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/social-work/indigenous-social-work.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaFirst Nations University of CanadaCampion College Bachelor's Degree Indigenous Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/indigenous-studies.html"
+      },
+      {
+        "name": "University of ReginaFirst Nations University of Canada Bachelor's Degree Indigenous Teacher Education",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/indigenous-teacher-education.html"
+      },
+      {
+        "name": "University of Regina Bachelor's Degree Industrial Systems Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/engineering/industrial-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina industrial systems engineering, air wuality, environment, groundwater contamination, hazardous waste, transportation, wastewater Master's Degree Industrial Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-industrial-systems-engineering.html"
+      },
+      {
+        "name": "Luther CollegeCampion CollegeFirst Nations University of CanadaUniversity of Regina Certificate (1 - 2 Years) Intercultural Leadership",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-intercultural-leadership.html"
+      },
+      {
+        "name": "University of Regina international business, international business course, international business certificate, business certificate, university of regina business certificate, hill business certificate, hill international business Certificate (1 - 2 Years) International Business",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/cert-international-business.html"
+      },
+      {
+        "name": "Campion CollegeUniversity of ReginaFirst Nations University of CanadaLuther College Certificate (1 - 2 Years) International Studies",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/international-studies.html"
+      },
+      {
+        "name": "University of ReginaCampion CollegeFirst Nations University of CanadaLuther College Japanese certificate Japanese Japanese language Japanese culture Japanese literature Japanese manga International languages Additional language language learning language and culture cultural literacy language skills language requirement  Translation Certificate (1 - 2 Years) Japanese Language and Culture",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-japanese.html"
+      },
+      {
+        "name": "Campion CollegeFirst Nations University of CanadaLuther CollegeUniversity of Regina Journalism, news media, communications, journalism degree, journalism bachelor degree, journalism schools in Canada Bachelor's Degree Journalism, News Media, and Communication",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/journalism-news-media-communication.html"
+      },
+      {
+        "name": "University of Regina master of kinesiology, kinesiology masters programs, master's degree in kinesiology, kinesiology graduate programs Master's Degree Kinesiology (MKin)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/khs/masters-kinesiology.html"
+      },
+      {
+        "name": "University of Regina kinesiology and health studies, kinesiology and health studies graduate programs, master of science kinesiology and health studies, phd programs kinesiology and health studies Doctorate Degree Kinesiology and Health Studies (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/khs/master-phd-kinesiology-health-studies.html"
+      },
+      {
+        "name": "University of Regina labour relations, master's certificate labour relations, u of r labour relations, kenneth levene labour relations, labour relations graduate programs Certificate (1 - 2 Years) Labour Relations (MCert.)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-cert-labour-relations.html"
+      },
+      {
+        "name": "University of Regina Bursary, International, Culture, Canadian Experience, Cultural, Immersion, Summer, Winter English as a Second Language (ESL) Language and Culture",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/english-second-language/esl-language-culture.html"
+      },
+      {
+        "name": "University of Regina Government of Canada, TESL, CLB, LARC, LINC, Funded English as a Second Language (ESL) Language Instruction for Newcomers to Canada",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/english-second-language/esl-language-instruction-newcomers-canada.html"
+      },
+      {
+        "name": "University of Regina Professional leadership, leadership skills, leadership training, leadership development, leadership coaching, leadership training for managers, emotional intelligence, emotional intelligence course, leadership development courses, online certificate, continuing education, CCE, certification in professional leadership, professional leadership sask, microcredential Professional Development Leadership",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/leadership.html"
+      },
+      {
+        "name": "Northlands CollegeUniversity of ReginaFirst Nations University of CanadaCampion CollegeLuther College diploma, certificate, arts, arts certificate, liberal arts certificate, arts diploma, liberal arts diploma Certificate (1 - 2 Years) Liberal Arts",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/cert-dip-liberal-arts.html"
+      },
+      {
+        "name": "University of Regina local government administration, certificate in local government administration, local government administration certificate, certificate in local government administration sask, LGA , Municipal Administration, Rural Municipality, Urban Certificate (1 - 2 Years) Local Government Administration / Advanced Local Government Administration",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/local-government-administration.html"
+      },
+      {
+        "name": "University of Regina Professional development, online certificate, project management, PMP, PMI, CAPM, continuing education, CCE, certification in project management, project management sask, microcredential Professional Development Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/management.html"
+      },
+      {
+        "name": "University of Regina business certificates, international business, creativity, entrepreneurs Bachelor's Degree Marketing",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/hill/marketing.html"
+      },
+      {
+        "name": "University of Regina teaching english to speakers of other languages, tesol, master's certificate in Teaching English to Speakers of Other Languages, master's certificate in education, graduate programs in education Graduate Certificate Master’s Certificate in Teaching English to Speakers of Other Languages (TESOL)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-cert-teaching-english-tesol.html"
+      },
+      {
+        "name": "First Nations University of CanadaUniversity of ReginaCampion CollegeLuther College Bachelor of Science mathematics, applied mathematics degree, math major, math careers, computer science, statistics Bachelor's Degree Mathematics",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/mathematics.html"
+      },
+      {
+        "name": "University of Regina Math, mathematics, statistics, science, stats, actuarial, financial, data science, algebra, number theory, analysis, geometry, topology, probability Math graduate programs, mathematics graduate programs, math and stats graduate programs, mathematics and statistics graduate programs, master degree in mathematics, master’s degree in statistics, PhD in mathematics, PhD in statistics Master's Degree Mathematics and Statistics (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-mathematics-statistics.html"
+      },
+      {
+        "name": "University of Regina mfa degree, media and artistic research graduate programs, fine arts graduate programs, fine arts interdisciplinary graduate programs, phd in fine arts, practice based phd fine arts, phd in fine arts interdisciplinary studies Master's Degree Media and Artistic Research (MA, MFA, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/map/master-phd-media-artistic-research.html"
+      },
+      {
+        "name": "Campion CollegeFirst Nations University of CanadaLuther CollegeUniversity of Regina film school, sound design, art school, ceramics, theatre classes near me, digital media, graphic design in my passion, photography classes near me, creative jobs, printmaking, visual arts Certificate (1 - 2 Years) Media, Art, and Performance",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-media-art-performance.html"
+      },
+      {
+        "name": "First Nations University of CanadaLuther CollegeUniversity of ReginaCampion College medical laboratory science, medical laboratory science program, Bachelor of Science in Medical Laboratory Science, Bachelor of Medical Laboratory Science, lab science, lab tech Bachelor's Degree Medical Laboratory Science",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/medical-laboratory-science.html"
+      },
+      {
+        "name": "University of ReginaFirst Nations University of CanadaLuther CollegeCampion College Medical radiation technology, medical radiation technologist, medical radiation technologist programs, medical radiation technologist education Bachelor's Degree Medical Radiation Technology",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/medical-radiation-technology.html"
+      },
+      {
+        "name": "University of Regina flamenco, modern, contemporary, group, performance, ballroom, hip hop Camps and Youth Programs Movement and Dance at the Conservatory",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/camps-youth/movement-dance.html"
+      },
+      {
+        "name": "University of Regina History, museum, certificate, studies, heritage, historical, heritage studies, museum studies, museums and heritage studies, museum jobs, history jobs, history certificate, museum certificate, heritage jobs, arts, art studies Certificate (1 - 2 Years) Museum and Heritage Studies",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-museum-heritage-studies.html"
+      },
+      {
+        "name": "University of ReginaCampion CollegeFirst Nations University of CanadaLuther College music history, professional musician, musician, jazz, choral conducting, music composition, opera, vocalist, performer, composer, producer, sound designer Bachelor's Degree Music",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/music.html"
+      },
+      {
+        "name": "University of Regina Conducting, masters of music conducting, master of music choral conducting, masters in music wind band conducting, master of music Master's Degree Music - Conducting (MMus)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/map/master-music-conducting.html"
+      },
+      {
+        "name": "University of Regina professional musician, music performer, music composer, music history, music performance, music theory, conducting, music composition, music arranger, music producer, music copyist, music librarian, music publishing, sound and video editor Bachelor's Degree Music (Performance, Comprehensive, Composition, History)",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/music-performance-comprehensive-composition-history.html"
+      },
+      {
+        "name": "University of Regina music instructor, music instruction, choral instruction, vocal techniques, music teacher, music educator Bachelor's Degree Music Education",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/music-education.html"
+      },
+      {
+        "name": "University of Regina master of music, masters degree music, music performance graduate programs, mmus degree, mmus Master's Degree Master of Music (MMus) in Performance (Orchestral instruments), Master of Music (MMus) in Performance (Keyboard instruments)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/map/master-music-performance-instruments.html"
+      },
+      {
+        "name": "University of Regina master of music, master of music in voice performance, master of music voice programs, masters degree music, mmus degree, mmus Master's Degree Music Performance – Voice (MMus)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/map/master-music-performance-voice.html"
+      },
+      {
+        "name": "University of Regina sing, dance, act, actor, stage performance, triple threat Camps and Youth Programs Musical Theatre and Drama",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/camps-youth/musical-theatre-drama.html"
+      },
+      {
+        "name": "University of Regina master of arts in music, music graduate programs, musicology graduate programs, music theory graduate programs, master of arts in musicology, master of arts in music theory Master's Degree Musicology and Music Theory (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/map/master-musicology-music-theory.html"
+      },
+      {
+        "name": "University of ReginaLuther College nonprofit sector leadership and innovation, non-profit sector leadership and innovation certificate, non-profit sector leadership and innovation, u of r non profit management certificate Certificate (1 - 2 Years) Nonprofit Sector Leadership and Innovation",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/nonprofit-sector-leadership-innovation.html"
+      },
+      {
+        "name": "Gabriel Dumont InstituteUniversity of Regina Indigenous teacher education, northern Saskatchewan teacher education, Bachelor of Education Indigenous program, NSITEP, Indigenous education degree, teaching degree Saskatchewan After Degree (2 Years) Northern Saskatchewan Indigenous Teacher Education Program",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/northern-saskatchewan-indigenous-teacher-education.html"
+      },
+      {
+        "name": "University of Regina masters in nursing, masters of nursing, saskatchewan masters of nursing, nursing leadership and management, leadership in nursing, nursing continuing education Master's Degree Nursing (Course-based)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/nursing/master-nursing-course-based.html"
+      },
+      {
+        "name": "University of Regina phd in nursing, nursing leadership and management, leadership in nursing, doctor of nursing program Doctorate Degree PhD in Nursing",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/nursing/phd-nursing-education-special-case.html"
+      },
+      {
+        "name": "University of Regina masters in nursing, masters of nursing, saskatchewan masters of nursing, nursing educator, nursing continuing education, nursing education Graduate Certificate Graduate Certificate in Nursing Education",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/nursing/grad-cert-nursing-education.html"
+      },
+      {
+        "name": "University of Regina masters in nursing, masters of nursing, saskatchewan masters of nursing, nursing leadership and management, leadership in nursing, nursing continuing education Graduate Certificate Nursing Leadership",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/nursing/grad-cert-nursing-leadership.html"
+      },
+      {
+        "name": "University of ReginaSaskatchewan Polytechnic nursing programs, registered nurse programs, bachelors of science in nursing, nursing career path, nursing jobs After Degree (2 Years) After Degree Nursing Program (ADNP)",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/nursing/nursing-after-degree.html"
+      },
+      {
+        "name": "University of Regina Certificate in Nursing Readiness, Nursing Readiness Certificate Saskatchewan, University of Regina Nursing Readiness, Pre-nursing certificate Regina, Nursing pathway program Saskatchewan, Nursing preparation courses Canada, Nursing prerequisites Saskatchewan, Health sciences certificate program, Nursing readiness online courses, SCBScN preparation program, Start your nursing career Saskatchewan, Nursing program admission requirements Saskatchewan Certificate (1 - 2 Years) Nursing Readiness",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/nursing-readiness-cert.html"
+      },
+      {
+        "name": "University of Regina teaching jobs in Saskatchewan, elementary teaching program, teaching degree Saskatchewan, after degree program education, after degree program, online bachelor degree Canada, bachelor of education after degree After Degree (2 Years) Online Bachelor of Education (Elementary)",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/online-bachelor-education-elementary.html"
+      },
+      {
+        "name": "University of Regina organization studies, organization studies graduate programs, master of science organization studies, u of r organization studies, organizational studies Master's Degree Organization Studies",
+        "degree_type": "MSc",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-organization-studies.html"
+      },
+      {
+        "name": "University of Regina organizational leadership, master's certificate, master's certificate organizational leadership, u of r organizational leadership, kenneth levene organizational leadership Certificate (1 - 2 Years) Organizational Leadership (MCert.)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-organizational-leadership.html"
+      },
+      {
+        "name": "University of Regina petroleum, engineer, engineering, reservoir, oil and gas, carbon capture Doctorate Degree Petroleum Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-petroleum-systems-engineering.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeFirst Nations University of CanadaUniversity of Regina Bachelor's Degree Philosophy",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/philosophy.html"
+      },
+      {
+        "name": "First Nations University of CanadaUniversity of ReginaCampion CollegeLuther College Bachelor's Degree Philosophy, Politics and Economics",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/philosophy-politics-economics.html"
+      },
+      {
+        "name": "University of Regina kinesiology  human movement  indigenous sport  sport sociology  health studies  health psychology  health care  health issues phys ed physed coach coaching personal trainer exercise therapist Bachelor's Degree Physical Education and Physical Literacy",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/khs/physical-education-literacy.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaFirst Nations University of CanadaCampion College Physics major, physics degree, bachelor of science in physics, applied physics Bachelor's Degree Physics",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/physics.html"
+      },
+      {
+        "name": "University of Regina physics graduate programs, theoretical physics graduate programs, experimental subatomic physics programs, masters in physics, master degree theoretical physics Master's Degree Physics (MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/science/master-phd-physics.html"
+      },
+      {
+        "name": "First Nations University of CanadaCampion CollegeUniversity of ReginaLuther College police studies degree, policing program Canada, law enforcement degree, policing education University of Regina, criminal justice policing Bachelor's Degree Police Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/police-studies.html"
+      },
+      {
+        "name": "University of ReginaCampion CollegeFirst Nations University of CanadaLuther College political, politics, politic, law, public service, government, business, diplomat, diplomatic service, philosophy, international, international relations Bachelor's Degree Political Science",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/political-science.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaFirst Nations University of CanadaCampion College Certificate (1 - 2 Years) Politics and International Governance",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-politics-international-governance.html"
+      },
+      {
+        "name": "Luther CollegeCampion CollegeUniversity of ReginaFirst Nations University of Canada Social Media Influencer Blogger Vlogger     Podcaster     Artist     Freelance Writer     Content Creator     Reviewer Art Critic Food Critic  Popular Media Critic Bachelor's Degree Pop Culture",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/pop-culture.html"
+      },
+      {
+        "name": "University of Regina guitar, piano, woodwinds, choir, choral, ensemble, orchestra, strings, violin, cello, voice, brass Camps and Youth Programs Private Music Lessons",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/camps-youth/private-music-lessons.html"
+      },
+      {
+        "name": "University of Regina process systems, engineering, engineer, renewable energy, petroleum refining, greenhouse gas emissions Doctorate Degree Process Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-process-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina Professional development, online certificate, project management, PMP, PMI, CAPM, continuing education, CCE, certification in project management, project management sask, microcredential Professional Development Project Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/project-management.html"
+      },
+      {
+        "name": "University of Regina project management, project management graduate programs, master's certificate, master's certificate in project management, u of r project management Certificate (1 - 2 Years) Project Management (MCert.)",
+        "degree_type": "Master",
+        "url": "https://www.uregina.ca/academics/programs/bus-admin/levene/master-project-management.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeUniversity of ReginaFirst Nations University of Canada Abnormal  Abnormal psychology  Accredited  Adult  Aging  antisocial  Anxiety  Behavior  Behaviors  Behaviour  Behavioural medicine  Behaviours  Brain  Canadian psychological association  CBT  Certificate in psy  Certificate in psych  Certificate in psychology  Child  childhood  children  Clinical psychology  Cognition  Cognitive  Cognitive Behavioural Therapy  counsel  counsell  counselling  counselling  counsellor  Cross-Cultural Psychopathology  deception  Depression  Development  development  Disorder  Disorders  Dispositional Mindfulness  Emotion  Emotions  Experiment  Experimental psychology  Experiments  Fear  Fear of the Unknown  First Responders  forensic  forensic psychology  Health  Health psychology  honesty  Human behaviour  Humans  Intelligence  Intolerance of Uncertainty  Language  law  Learning  legal  legal psychology  lifespan  lying  Major in psy  Major in psych  Major in psychology  Memory  Mental disorders  Mental health  Mental Health Literacy  Mental illness  Mind  Mindfulness-Based Interventions  Minor in psy  Minor in psych  Minor in psychology  moral  moral development  morality  Motivation  Neurons  Neuropsychology  Pain  People  Perception  Personality  prosocial  Psyc  Psyc 101  Psyc 102  Psych  Psych 101  Psych 102  psychiatry  Psychodynamics  Psychologist  Psychology  Psychotherapy  Psycologist  Psycology  Public Safety Personnel  Relationships  research  research assistant  research opportunities  research opportunity  research volunteer  Self-Compassion  shrink  Social psychology  Stress  therapist  Therapy  Thinking  Trauma  truth  Understand humans  Understand people  Understanding humans  Understanding people Bachelor's Degree Psychology",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/psychology.html"
+      },
+      {
+        "name": "University of SaskatchewanUniversity of Regina Doctorate Degree Public Policy and Administration",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/johnson-shoyama-graduate-school/jsgs.html"
+      },
+      {
+        "name": "University of Regina what is public relations, comms mgmt, PR, public relations and communications, public relations certificate, advanced certificate in public relations and communications, why study public relations, public relations programs Certificate (1 - 2 Years) Public Relations / Advanced Public Relations and Communications Management",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/public-relations.html"
+      },
+      {
+        "name": "University of Regina queer, trans, gender, 2SLGBTQI+, two spirit, sexuality Certificate (1 - 2 Years) Certificate in Queer, Trans, and Gender Studies",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/queer-trans-gender-studies.html"
+      },
+      {
+        "name": "First Nations University of Canada Certificate (1 - 2 Years) Reconciliation Studies",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/cce/reconciliation-studies.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaCampion CollegeFirst Nations University of Canada Religious Studies, Religious Studies degree, Religious Studies University of Regina, BA in Religious Studies, MA in Religious Studies, Religious Studies major, Careers with a Religious Studies degree, Study religion academically, Religion and culture, University of Regina programs Bachelor's Degree Religious Studies",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/religious-studies.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Religious Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/masters-religious-studies.html"
+      },
+      {
+        "name": "First Nations University of CanadaCampion CollegeLuther CollegeUniversity of Regina Bachelor's Degree Resource and Environmental Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/resource-environmental-studies.html"
+      },
+      {
+        "name": "University of Regina Accessibility, physical, disabilities, universal design Professional Development Rick Hansen Foundation Accessibility Certification",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/rick-hansen-accessibility.html"
+      },
+      {
+        "name": "Saskatoon Campus - University of ReginaUniversity of ReginaSaskatchewan Polytechnic nursing programs, registered nurse programs, bachelors of science in nursing, nursing career path, nursing jobs Bachelor's Degree Saskatchewan Collaborative Bachelor of Science in Nursing (SCBScN)",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/nursing/nursing.html"
+      },
+      {
+        "name": "Saskatchewan PolytechnicUniversity of ReginaSaskatoon Campus - University of Regina nursing programs, registered nurse programs, bachelors of science in nursing, nursing career path, nursing jobs Pathway Saskatchewan Collaborative Bachelor of Science in Nursing (SCBScN) - LPN to BScN Pathway",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/nursing/nursing-lpn-bcscn-pathway.html"
+      },
+      {
+        "name": "Saskatoon Campus - University of ReginaUniversity of ReginaSaskatchewan Polytechnic nursing programs, registered nurse programs, bachelors of science in nursing, nursing career path, nursing jobs Pathway Saskatchewan Collaborative Bachelor of Science in Nursing (SCBScN) - RPN to BScN Pathway",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/nursing/nursing-rpn-bcscn-pathway.html"
+      },
+      {
+        "name": "University of ReginaSaskatchewan Polytechnic nursing programs, registered nurse programs, bachelors of science in nursing, nursing career path, nursing jobs Bachelor's Degree Saskatchewan Collaborative Bachelor of Science in Nursing (SCBScN) – Bilingual Option",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/nursing/nursing-bilingual.html"
+      },
+      {
+        "name": "Gabriel Dumont InstituteUniversity of Regina Bachelor's Degree Elementary Teacher Education - SUNTEP",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/elementary-teacher-education-suntep.html"
+      },
+      {
+        "name": "University of Regina After Degree (2 Years) Secondary Teacher Education",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/education/secondary-teacher-education.html"
+      },
+      {
+        "name": "Northwest CollegeUniversity of ReginaNorthlands CollegeSaskatoon Campus - University of Regina Bachelor's Degree Social Work",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/social-work/social-work.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Social Work (MSW)",
+        "degree_type": "MSW",
+        "url": "https://www.uregina.ca/academics/programs/social-work/master-social-work.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeUniversity of ReginaFirst Nations University of Canada Bachelor's Degree Sociology",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/sociology.html"
+      },
+      {
+        "name": "University of Regina Master's Degree Sociology and Social Studies (MA)",
+        "degree_type": "MA",
+        "url": "https://www.uregina.ca/academics/programs/arts/master-sociology-social-studies.html"
+      },
+      {
+        "name": "University of Regina Bachelor's Degree Software Systems Engineering",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/engineering/software-systems-engineering.html"
+      },
+      {
+        "name": "University of Regina software, systems, engineering, engineer, development, applied software, full-stack development, artificial intelligence, internet of things Doctorate Degree Software Systems Engineering (MASc, MEng, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/engineering/masters-phd-software-systems-engineering.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeFirst Nations University of CanadaUniversity of Regina Spanish certificate Spanish Spanish language Spanish culture Spanish literature Hispanic International languages Additional language language learning language and culture cultural literacy language skills language requirement  Translation Certificate (1 - 2 Years) Spanish Language and Hispanic Cultures",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-spanish-language-hispanic-culture.html"
+      },
+      {
+        "name": "University of Regina master's degree, masters, PhD, doctoral studies, doctorate, interdisciplinary studies, special case, custom graduate programs, unique graduate degree, anthropology, economics, geography, interdisciplinary studies, linguistics, philosophy, women's studies, gender studies, theatre, nursing Master's Degree Special Case or Interdisciplinary Program (MA, MFA, MSc, PhD)",
+        "degree_type": "PhD",
+        "url": "https://www.uregina.ca/academics/programs/graduate/special-case-interdisciplinary.html"
+      },
+      {
+        "name": "University of Regina kinesiology  human movement  indigenous sport  sport sociology  health studies  health psychology  health care  health issues  disability   therapeutic recreation  adapted movement  parasport  disability sport  rehabilitation  motor control  recreation  leadership  sport management  recreation leadership   sport administration  professional sport  amateur sport  older adults  gerontology  physical activity  leisure  leisure activity sport business business athletics athletic athlete athletes coach coaching Bachelor's Degree Sport and Recreation Management",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/khs/sport-recreation-management.html"
+      },
+      {
+        "name": "Luther CollegeCampion CollegeUniversity of ReginaFirst Nations University of Canada statistics degree, Bachelor of Science in statistics, statistician degree, statistics degree jobs, math, economics Bachelor's Degree Statistics",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/science/statistics.html"
+      },
+      {
+        "name": "Campion CollegeFirst Nations University of CanadaLuther CollegeUniversity of Regina professional musician orchestra After Degree (2 Years) String Performance Post-Baccalaureate",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/dip-string-performance-post-baccalaureate.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of Regina certificate in sustainability, sustainability certifications, sustainability courses, 17 sustainable development goals Certificate (1 - 2 Years) Sustainability",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/arts/cert-sustainability.html"
+      },
+      {
+        "name": "University of Regina master of education in teaching learning and leadership, master of education degree, masters degree in educational leadership, master's degree in education Master's Degree Teaching, Learning and Leadership",
+        "degree_type": "MEd",
+        "url": "https://www.uregina.ca/academics/programs/education/masters-education-teaching-learning-leadership.html"
+      },
+      {
+        "name": "Luther CollegeFirst Nations University of CanadaUniversity of ReginaCampion College bachelor of arts, theatre jobs, careers in theatre, theatre degree, acting programs, theatre programs, drama degree Bachelor's Degree Theatre and Drama Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/theatre-drama-studies.html"
+      },
+      {
+        "name": "University of Regina kinesiology   Biomechanics  Exercise psychology  Sport psychology   Exercise physiology  Motor learning  Anatomy   strength and conditioning  sport science  exercise science human movement  indigenous sport  sport sociology  health studies  health psychology  health care  health issues  disability   therapeutic recreation  adapted movement  parasport  disability sport  rehabilitation  motor control  athletic therapy  fitness training  lifestyle management  physical activity  nutrition  sport nutrition Bachelor's Degree Therapeutic Recreation",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/khs/therapeutic-recreation.html"
+      },
+      {
+        "name": "University of Regina continuing education, CCE, saskatchewan school boards association, Regina school board, Saskatoon school board, Saskatchewan Teachers’ Federation, Secondary school jobs, Elementary school teacher career, secondary school teacher career, trauma informed teaching program, trauma informed teaching courses, trauma-informed teaching, supporting students affected by trauma, trauma-informed classroom strategies, trauma-informed practices, creating a trauma-sensitive classroom, how to help students with trauma in the classroom, signs of trauma in students, trauma-informed strategies for teachers, supporting indigenous youth in the classroom, how can educators support indigenous students, teaching refugee students, supporting refugee youth in the classroom, creating a safe classroom, creating a safe learning environment, online Professional Development Trauma-Informed/Sensitive Pedagogies and Practices",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/professional-development/trauma-informed-sensitive-pedagogies-practices.html"
+      },
+      {
+        "name": "University of Regina Baccalauréat en travail social – Option bilingue, BTS – Option bilingue, Diplôme en travail social français et anglais, programme d’étude en travail social accrédité, carrières en français, formation bilingue en travail social, stage en travail social, travailleuse sociale/travailleur social, responsable de cas, intervenante/intervenant en soutien familial Bachelor's Degree Travail Social – Option Bilingue",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/social-work/travail-social-option-bilingue.html"
+      },
+      {
+        "name": "First Nations University of CanadaCampion CollegeLuther CollegeUniversity of Regina user experience design, ux design course, ux course, ux design certificate, user experience design certificate Certificate (1 - 2 Years) User Experience Design",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-user-experience-design.html"
+      },
+      {
+        "name": "Campion CollegeFirst Nations University of CanadaUniversity of ReginaLuther College Ceramics, drawing, intermedia, photo-based media, photography, printmaking, sculpture, studio program, art practice, design, art, artist, web designer, videographer, video editor, photographer, photography, graphic designer, graphic designer, designer, digital media, art director, copywriter, layout artist, mechanical artist, fashion designer, illustrator, fashion art director, animator, animation, interior designer, photographer Certificate (1 - 2 Years) Visual Arts",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-visual-arts.html"
+      },
+      {
+        "name": "Campion CollegeUniversity of ReginaFirst Nations University of CanadaLuther College Visual arts, what is visual arts, visual arts degree, art programs Bachelor's Degree Visual Arts (BA)",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/visual-arts-ba.html"
+      },
+      {
+        "name": "Campion CollegeLuther CollegeUniversity of ReginaFirst Nations University of Canada Visual arts, fine arts, bachelor of fine arts, fine arts degree, photography courses, painting courses Bachelor's Degree Visual Arts (BFA)",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/map/visual-arts-bfa.html"
+      },
+      {
+        "name": "University of Regina mfa, mfa degree, mfa visual arts, master of fine arts visual arts, visual arts graduate programs Master's Degree Visual Arts (MFA)",
+        "degree_type": "MFA",
+        "url": "https://www.uregina.ca/academics/programs/map/master-visual-arts.html"
+      },
+      {
+        "name": "Campion CollegeUniversity of ReginaFirst Nations University of CanadaLuther College Ceramics, drawing, intermedia, photo-based media, photography, printmaking, sculpture, studio program, art practice, design, art, artist, web designer, videographer, video editor, photographer, photography, graphic designer, graphic designer, designer, digital media, art director, copywriter, layout artist, mechanical artist, fashion designer, illustrator, fashion art director, animator, animation, interior designer, photographer, professional artists, grant writing, arts grant writing Certificate (1 - 2 Years) Visual Arts Post-Baccalaureate",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-visual-arts-post-baccalaureate.html"
+      },
+      {
+        "name": "Luther CollegeUniversity of ReginaFirst Nations University of CanadaCampion College graphic design, media communications, advertising techniques, web design courses, visual identity design, creative technology Certificate (1 - 2 Years) Visual Communication Design",
+        "degree_type": "Certificate",
+        "url": "https://www.uregina.ca/academics/programs/map/cert-visual-communication-design.html"
+      },
+      {
+        "name": "University of ReginaLuther CollegeCampion CollegeFirst Nations University of Canada women's studies After Degree (2 Years) Women's and Gender Studies",
+        "degree_type": "Unknown",
+        "url": "https://www.uregina.ca/academics/programs/arts/women-gender-studies.html"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "uwo",
+    "name": "UWO",
+    "programs": [],
+    "needs_manual_review": true
+  },
+  {
+    "id": "memorial",
+    "name": "Memorial",
+    "programs": [
+      {
+        "name": "Humanities and Social Sciences",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/humanities-and-social-sciences/"
+      },
+      {
+        "name": "Interdisciplinary",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/interdisciplinary/"
+      },
+      {
+        "name": "Professional Programs",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/professional-programs/"
+      },
+      {
+        "name": "Sciences",
+        "degree_type": "Unknown",
+        "url": "https://www.mun.ca/become/graduate/programs-and-courses/sciences/"
+      }
+    ],
+    "needs_manual_review": false
+  },
+  {
+    "id": "unb",
+    "name": "UNB",
+    "programs": [],
+    "needs_manual_review": true
+  }
+]
