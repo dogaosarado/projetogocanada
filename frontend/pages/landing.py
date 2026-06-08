@@ -1,15 +1,14 @@
 # pages/landing.py
 
 from nicegui import ui
+from services.api import create_lead
 
 
 TIERS = [
     {
         "name": "Básico",
         "price": "R$ 250",
-        "universities": 2,
-        "departments": 1,
-        "professors": None,
+        "tier_key": "basico",
         "features": [
             "2 universidades",
             "1 departamento por universidade",
@@ -21,9 +20,7 @@ TIERS = [
     {
         "name": "Intermediário",
         "price": "R$ 400",
-        "universities": 3,
-        "departments": 1,
-        "professors": 1,
+        "tier_key": "intermediario",
         "features": [
             "3 universidades",
             "1 departamento por universidade",
@@ -36,9 +33,7 @@ TIERS = [
     {
         "name": "Avançado",
         "price": "R$ 800",
-        "universities": 4,
-        "departments": 1,
-        "professors": 2,
+        "tier_key": "avancado",
         "features": [
             "4 universidades",
             "1 departamento por universidade",
@@ -51,6 +46,8 @@ TIERS = [
 
 
 def landing_page() -> None:
+    selected_tier = {"value": None}
+
     with ui.column().classes("w-full min-h-screen bg-stone-50"):
 
         # header
@@ -69,16 +66,19 @@ def landing_page() -> None:
                 "Pesquisa especializada sobre universidades, programas e professores "
                 "para que você possa focar no que importa: sua candidatura."
             ).classes("text-stone-500 text-lg max-w-xl mb-10")
-            ui.button("Ver planos", on_click=lambda: ui.run_javascript("document.getElementById('planos').scrollIntoView({behavior:'smooth'})")).classes(
-                "bg-amber-600 text-white rounded-xl px-8 py-3 text-lg hover:bg-amber-700"
-            )
+            ui.button(
+                "Ver planos",
+                on_click=lambda: ui.run_javascript(
+                    "document.getElementById('planos').scrollIntoView({behavior:'smooth'})"
+                ),
+            ).classes("bg-amber-600 text-white rounded-xl px-8 py-3 text-lg hover:bg-amber-700")
 
         # tiers
         with ui.column().classes("w-full items-center py-16 px-4 bg-white").props('id="planos"'):
             ui.label("Escolha seu plano").classes("text-3xl font-bold text-stone-800 mb-2 text-center")
-            ui.label("Após o pagamento via Pix, você receberá acesso ao formulário.").classes(
-                "text-stone-500 mb-10 text-center"
-            )
+            ui.label(
+                "Selecione o plano ideal e preencha seus dados para começar."
+            ).classes("text-stone-500 mb-10 text-center")
 
             with ui.row().classes("gap-6 flex-wrap justify-center"):
                 for tier in TIERS:
@@ -100,12 +100,63 @@ def landing_page() -> None:
 
                         for feature in tier["features"]:
                             ui.html(f'<div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:4px;"><span style="color:#d97706; flex-shrink:0; margin-top:2px;">✓</span><span style="color:#57534e; font-size:0.875rem; line-height:1.4;">{feature}</span></div>')
+
                         ui.space()
+
+                        def make_handler(t=tier["tier_key"]):
+                            def handler():
+                                selected_tier["value"] = t
+                                ui.run_javascript(
+                                    "document.getElementById('cadastro').scrollIntoView({behavior:'smooth'})"
+                                )
+                            return handler
 
                         ui.button(
                             "Quero este plano",
-                            on_click=lambda: ui.navigate.to("/login"),
+                            on_click=make_handler(),
                         ).classes("w-full mt-2 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700")
+
+        # formulário de interesse
+        with ui.column().classes("w-full items-center py-16 px-4").props('id="cadastro"'):
+            ui.label("Comece agora").classes("text-3xl font-bold text-stone-800 mb-2 text-center")
+            ui.label(
+                "Preencha seus dados e entraremos em contato com suas credenciais de acesso."
+            ).classes("text-stone-500 mb-8 text-center")
+
+            with ui.card().classes("w-full max-w-md p-8 shadow-lg rounded-2xl bg-white"):
+                name_input = ui.input("Nome completo").classes("w-full")
+                email_input = ui.input("Email").classes("w-full mt-3")
+
+                tier_select = ui.select(
+                    {"basico": "Básico — R$ 250", "intermediario": "Intermediário — R$ 400", "avancado": "Avançado — R$ 800"},
+                    label="Plano",
+                    value="basico",
+                ).classes("w-full mt-3")
+
+                error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
+                error_msg.set_visibility(False)
+
+                def handle_interest():
+                    if not name_input.value.strip():
+                        error_msg.text = "Informe seu nome."
+                        error_msg.set_visibility(True)
+                        return
+                    if not email_input.value.strip():
+                        error_msg.text = "Informe seu email."
+                        error_msg.set_visibility(True)
+                        return
+
+                    tier_val = selected_tier["value"] or tier_select.value
+                    result = create_lead(name_input.value, email_input.value, tier_val)
+                    if result:
+                        ui.navigate.to("/interesse")
+                    else:
+                        error_msg.text = "Erro ao cadastrar. Tente novamente."
+                        error_msg.set_visibility(True)
+
+                ui.button("Enviar", on_click=handle_interest).classes(
+                    "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
+                )
 
         # novidades
         with ui.column().classes("w-full items-center py-16 px-4"):

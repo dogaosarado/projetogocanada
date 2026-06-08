@@ -58,3 +58,15 @@ def submit_request(token: str, payload: dict) -> dict | None:
         return None
     except Exception:
         return None
+
+def create_lead(name: str, email: str, tier: str) -> dict | None:
+    try:
+        response = httpx.post(
+            f"{API_URL}/admin/leads",
+            json={"name": name, "email": email, "tier": tier},
+        )
+        if response.status_code == 201:
+            return response.json()
+        return None
+    except Exception:
+        return None

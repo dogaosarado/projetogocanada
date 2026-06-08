@@ -9,12 +9,62 @@ from app.exceptions import NotFoundException
 from app.models.user import User
 from app.schemas.user import UserResponse, UserTierUpdate
 from app.schemas.auth import LoginRequest
+from pydantic import EmailStr
+from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel, EmailStr
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
 
 class UserCreate(LoginRequest):
     tier: str
+
+class LeadCreate(BaseModel):
+    name: str
+    email: EmailStr
+    tier: str
+
+@router.post("/leads", status_code=201)
+def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
+    from app.core.security import hash_password
+    from app.models.user import TierEnum
+    import secrets
+
+    exists = db.query(User).filter(User.email == body.email).first()
+    if exists:
+        raise HTTPException(status_code=409, detail="Email já cadastrado.")
+
+    temp_password = secrets.token_urlsafe(12)
+
+    db_user = User(
+        email=body.email,
+        hashed_password=hash_password(temp_password),
+        tier=TierEnum(body.tier),
+        is_active=False,
+    )
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+
+    import resend
+    from app.core.config import settings
+    resend.api_key = settings.resend_api_key
+
+    resend.Emails.send({
+        "from": "GoCanada <onboarding@resend.dev>",
+        "to": settings.consultant_email,
+        "subject": f"[GoCanada] Novo interesse — {body.name} ({body.tier})",
+        "html": f"""
+        <h2>Novo cliente interessado</h2>
+        <p><strong>Nome:</strong> {body.name}</p>
+        <p><strong>Email:</strong> {body.email}</p>
+        <p><strong>Plano:</strong> {body.tier}</p>
+        <p>Acesse o painel admin para ativar a conta após confirmação do pagamento.</p>
+        <p><strong>Senha temporária:</strong> {temp_password}</p>
+        """
+    })
+
+    return {"message": "Cadastro realizado. Entraremos em contato em breve."}
 
 @router.get("/users", response_model=list[UserResponse])
 def list_users(

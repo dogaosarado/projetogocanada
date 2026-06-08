@@ -6,6 +6,11 @@ from pages.login import login_page
 from pages.form import form_page
 from pages.confirmation import confirmation_page
 from pages.admin import admin_page
+from pages.interest import interest_page
+
+@ui.page("/interesse")
+def interesse():
+    interest_page()
 
 @ui.page("/admin")
 def admin():
