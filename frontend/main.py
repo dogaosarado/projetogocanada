@@ -31,10 +31,13 @@ def confirmacao():
     confirmation_page()
 
 
+import os
+
 ui.run(
     title="GoCanada",
-    port=8080,
+    port=int(os.getenv("PORT", 8080)),
     storage_secret="gocanada-secret-key-troca-isso",
     favicon="🍁",
     dark=False,
+    host="0.0.0.0",
 )
