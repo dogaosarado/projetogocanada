@@ -81,6 +81,7 @@ def landing_page() -> None:
             ).classes("text-stone-500 mb-10 text-center")
 
             with ui.row().classes("gap-6 flex-wrap justify-center"):
+                tier_select_ref = {"widget": None}
                 for tier in TIERS:
                     highlight = tier.get("highlight", False)
                     card_classes = (
@@ -106,6 +107,8 @@ def landing_page() -> None:
                         def make_handler(t=tier["tier_key"]):
                             def handler():
                                 selected_tier["value"] = t
+                                if tier_select_ref["widget"]:
+                                    tier_select_ref["widget"].value = t
                                 ui.run_javascript(
                                     "document.getElementById('cadastro').scrollIntoView({behavior:'smooth'})"
                                 )
@@ -132,6 +135,7 @@ def landing_page() -> None:
                     label="Plano",
                     value="basico",
                 ).classes("w-full mt-3")
+                tier_select_ref["widget"] = tier_select
 
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
                 error_msg.set_visibility(False)
