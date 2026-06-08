@@ -34,9 +34,7 @@ def form_page() -> None:
                 f"Plano {tier.capitalize()} — selecione até {max_universities} universidade(s)"
             ).classes("text-stone-500 mb-6")
 
-            selections_container = ui.column().classes("w-full gap-6")
-
-            with selections_container:
+            with ui.column().classes("w-full gap-6"):
                 for i in range(max_universities):
                     selected = {
                         "university": None,
@@ -48,18 +46,21 @@ def form_page() -> None:
 
                     with ui.card().classes("w-full p-4 bg-stone-50 rounded-xl"):
                         ui.label(f"Universidade {i + 1}").classes(
-                            "text-stone-600 font-medium mb-2"
+                            "text-stone-600 font-medium mb-3"
                         )
 
                         dept_select = ui.select(
                             options={},
-                            label="Programa",
-                        ).classes("w-full mt-2").props("menu-anchor='bottom left'")
+                            label="Programa de pós-graduação",
+                        ).classes("w-full mt-3")
+                        dept_select.set_visibility(False)
 
-                        custom_input = ui.input("Digite o programa").classes("w-full mt-2")
+                        custom_input = ui.input(
+                            placeholder="Não encontrou o departamento desejado? Escreva aqui."
+                        ).classes("w-full mt-3")
                         custom_input.set_visibility(False)
 
-                        def make_univ_handler(sel, ds, ci, idx):
+                        def make_univ_handler(sel, ds, ci):
                             def handler(e):
                                 sel["university"] = e.value
                                 sel["department"] = None
@@ -67,48 +68,42 @@ def form_page() -> None:
                                 sel["is_custom"] = False
                                 depts = university_map.get(e.value, [])
                                 options = {d["name"]: d["name"] for d in depts}
-                                options["Outro (digitar manualmente)"] = "__custom__"
                                 ds.options = options
                                 ds.value = None
                                 ds.set_visibility(True)
-                                ci.set_visibility(False)
+                                ci.set_visibility(True)
                                 ds.update()
                             return handler
 
-                        def make_dept_handler(sel, ci, univ_getter):
+                        def make_dept_handler(sel, ci):
                             def handler(e):
-                                if e.value == "__custom__":
-                                    sel["department"] = None
-                                    sel["url"] = None
-                                    sel["is_custom"] = True
-                                    ci.set_visibility(True)
-                                else:
-                                    sel["is_custom"] = False
-                                    sel["department"] = e.value
-                                    ci.set_visibility(False)
-                                    univ = sel.get("university")
-                                    depts = university_map.get(univ, [])
-                                    match = next(
-                                        (d for d in depts if d["name"] == e.value), None
-                                    )
-                                    sel["url"] = match["url"] if match else None
+                                if not e.value:
+                                    return
+                                sel["is_custom"] = False
+                                sel["department"] = e.value
+                                univ = sel.get("university")
+                                depts = university_map.get(univ, [])
+                                match = next(
+                                    (d for d in depts if d["name"] == e.value), None
+                                )
+                                sel["url"] = match["url"] if match else None
                             return handler
 
                         def make_custom_handler(sel):
                             def handler(e):
-                                sel["department"] = e.value
-                                sel["url"] = None
+                                if e.value.strip():
+                                    sel["department"] = e.value.strip()
+                                    sel["url"] = None
+                                    sel["is_custom"] = True
                             return handler
 
-                        univ_select = ui.select(
+                        ui.select(
                             options=university_names,
                             label="Universidade",
-                            on_change=make_univ_handler(selected, dept_select, custom_input, i),
+                            on_change=make_univ_handler(selected, dept_select, custom_input),
                         ).classes("w-full")
 
-                        dept_select.on_value_change(
-                            make_dept_handler(selected, custom_input, lambda s=selected: s.get("university"))
-                        )
+                        dept_select.on_value_change(make_dept_handler(selected, custom_input))
                         custom_input.on_value_change(make_custom_handler(selected))
 
             ui.separator().classes("my-4")
@@ -127,7 +122,7 @@ def form_page() -> None:
                     if s.get("university") and s.get("department")
                 ]
                 if not filled:
-                    error_label.text = "Selecione ao menos uma universidade e um programa."
+                    error_label.text = "Selecione ao menos uma universidade e um departamento."
                     error_label.set_visibility(True)
                     return
 
