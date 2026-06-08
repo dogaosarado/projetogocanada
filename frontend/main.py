@@ -7,6 +7,8 @@ from pages.form import form_page
 from pages.confirmation import confirmation_page
 from pages.admin import admin_page
 from pages.interest import interest_page
+import os
+print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
 
 @ui.page("/interesse")
 def interesse():
