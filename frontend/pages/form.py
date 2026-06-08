@@ -33,34 +33,6 @@ def form_page() -> None:
             ui.label(
                 f"Plano {tier.capitalize()} — selecione até {max_universities} universidade(s)"
             ).classes("text-stone-500 mb-6")
-            ui.html('''
-<svg width="100%" viewBox="0 0 680 200" role="img" style="margin: 16px 0;">
-<defs>
-<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</marker>
-</defs>
-<rect x="40" y="60" width="130" height="56" rx="8" stroke-width="0.5" fill="#FAEEDA" stroke="#854F0B"/>
-<text font-family="sans-serif" font-size="14" font-weight="500" x="105" y="83" text-anchor="middle" dominant-baseline="central" fill="#633806">Seus dados</text>
-<text font-family="sans-serif" font-size="12" x="105" y="101" text-anchor="middle" dominant-baseline="central" fill="#854F0B">Nome, email e plano</text>
-<line x1="170" y1="88" x2="196" y2="88" stroke="#BA7517" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect x="196" y="60" width="130" height="56" rx="8" stroke-width="0.5" fill="#FAEEDA" stroke="#854F0B"/>
-<text font-family="sans-serif" font-size="14" font-weight="500" x="261" y="83" text-anchor="middle" dominant-baseline="central" fill="#633806">Universidades</text>
-<text font-family="sans-serif" font-size="12" x="261" y="101" text-anchor="middle" dominant-baseline="central" fill="#854F0B">Programas de interesse</text>
-<line x1="326" y1="88" x2="352" y2="88" stroke="#BA7517" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect x="352" y="60" width="130" height="56" rx="8" stroke-width="0.5" fill="#FAEEDA" stroke="#854F0B"/>
-<text font-family="sans-serif" font-size="14" font-weight="500" x="417" y="83" text-anchor="middle" dominant-baseline="central" fill="#633806">Pagamento</text>
-<text font-family="sans-serif" font-size="12" x="417" y="101" text-anchor="middle" dominant-baseline="central" fill="#854F0B">Pix — rápido e seguro</text>
-<line x1="482" y1="88" x2="508" y2="88" stroke="#BA7517" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect x="508" y="60" width="132" height="56" rx="8" stroke-width="0.5" fill="#E1F5EE" stroke="#0F6E56"/>
-<text font-family="sans-serif" font-size="14" font-weight="500" x="574" y="83" text-anchor="middle" dominant-baseline="central" fill="#085041">Relatório</text>
-<text font-family="sans-serif" font-size="12" x="574" y="101" text-anchor="middle" dominant-baseline="central" fill="#0F6E56">Entregue por email</text>
-<text font-family="sans-serif" font-size="12" x="105" y="140" text-anchor="middle" fill="#888780">1</text>
-<text font-family="sans-serif" font-size="12" x="261" y="140" text-anchor="middle" fill="#888780">2</text>
-<text font-family="sans-serif" font-size="12" x="417" y="140" text-anchor="middle" fill="#888780">3</text>
-<text font-family="sans-serif" font-size="12" x="574" y="140" text-anchor="middle" fill="#888780">4</text>
-</svg>
-''')
 
             selections_container = ui.column().classes("w-full gap-6")
 
@@ -82,8 +54,7 @@ def form_page() -> None:
                         dept_select = ui.select(
                             options={},
                             label="Programa",
-                        ).classes("w-full mt-2")
-                        dept_select.set_visibility(False)
+                        ).classes("w-full mt-2").props("menu-anchor='bottom left'")
 
                         custom_input = ui.input("Digite o programa").classes("w-full mt-2")
                         custom_input.set_visibility(False)
