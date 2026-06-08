@@ -7,6 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 API_URL = os.getenv("API_URL", "http://localhost:8000")
+print(f"API_URL carregado: {API_URL}")
+
+API_URL = os.getenv("API_URL", "http://localhost:8000")
 
 def get_me(token: str) -> dict | None:
     try:
