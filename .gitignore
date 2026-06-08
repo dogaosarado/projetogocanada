@@ -1,0 +1,26 @@
+cd ~/projetogocanada
+cat > .gitignore << 'EOF'
+# venvs
+backend/.venv/
+frontend/.venv/
+
+# env files
+backend/.env
+frontend/.env
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# alembic versions não precisam ser ignorados — devem subir
+# dados de teste
+backend/test_body.json
+backend/test_request.ps1
+
+# os
+.DS_Store
+Thumbs.db
+EOF
