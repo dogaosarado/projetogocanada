@@ -49,7 +49,19 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
     import resend
     from app.core.config import settings
     resend.api_key = settings.resend_api_key
-
+    resend.Emails.send({
+    "from": "GoCanada <onboarding@resend.dev>",
+    "to": body.email,
+    "subject": "Recebemos seu cadastro — GoCanada",
+    "html": f"""
+    <h2>Olá, {body.name}!</h2>
+    <p>Recebemos seu interesse no plano <strong>{body.tier}</strong>.</p>
+    <p>Em breve você receberá um email com suas credenciais de acesso para preencher o formulário de universidades e programas.</p>
+    <p>Qualquer dúvida, responda este email.</p>
+    <br>
+    <p>Equipe GoCanada</p>
+    """
+})
     resend.Emails.send({
         "from": "GoCanada <onboarding@resend.dev>",
         "to": settings.consultant_email,
