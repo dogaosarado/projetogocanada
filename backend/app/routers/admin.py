@@ -1,5 +1,7 @@
 # app/routers/admin.py
 
+from app.models import user
+import resend
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
@@ -141,19 +143,20 @@ def update_user_tier(
     resend.api_key = settings.resend_api_key
 
     resend.Emails.send({
-        "from": "GoCanada <onboarding@resend.dev>",
-        "to": user.email,
-        "subject": "Sua conta GoCanada está ativa!",
-        "html": f"""
-        <h2>Bem-vindo ao GoCanada!</h2>
-        <p>Sua conta foi ativada com o plano <strong>{user.tier.value}</strong>.</p>
-        <p>Acesse o link abaixo para fazer login e preencher suas universidades e programas de interesse:</p>
-        <p><a href="https://gocanada-frontend.onrender.com/login">https://gocanada-frontend.onrender.com/login</a></p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p>Caso não lembre sua senha, entre em contato conosco.</p>
-        <br>
-        <p>Equipe GoCanada</p>
-        """
-    })
+    "from": "GoCanada <onboarding@resend.dev>",
+    "to": user.email,
+    "subject": "Sua conta GoCanada está ativa!",
+    "html": f"""
+    <h2>Sua conta foi ativada!</h2>
+    <p>Seu plano <strong>{user.tier.value}</strong> está ativo.</p>
+    <p>Acesse o link abaixo para fazer login:</p>
+    <p><a href="https://gocanada-frontend.onrender.com/login">Acessar GoCanada</a></p>
+    <p><strong>Email:</strong> {user.email}</p>
+    <p><strong>Senha:</strong> use a senha que você recebeu no email de cadastro inicial.</p>
+    <p>Caso não encontre, entre em contato respondendo este email.</p>
+    <br>
+    <p>Equipe GoCanada</p>
+    """
+})
 
     return user
