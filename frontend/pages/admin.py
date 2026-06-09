@@ -52,17 +52,6 @@ def activate_user(token: str, user_id: int, tier: str) -> dict | None:
     except Exception:
         return None
 
-def handle_delete(uid=user["id"]):
-    result = delete_user(token, uid)
-    if result:
-        ui.navigate.to("/admin")
-    else:
-        ui.notify("Erro ao deletar.", color="negative")
-
-ui.button("Deletar", on_click=handle_delete).classes(
-    "bg-red-500 text-white rounded-xl px-4 py-2 hover:bg-red-600"
-)
-
 def admin_page() -> None:
     if not is_logged_in():
         ui.navigate.to("/login")
@@ -152,7 +141,16 @@ def admin_page() -> None:
                                         else:
                                             msg.text = "Erro."
                                             msg.set_visibility(True)
+                                    def handle_delete(uid=user["id"]):
+                                        result = delete_user(token, uid)
+                                        if result:
+                                            ui.navigate.to("/admin")
+                                        else:
+                                            ui.notify("Erro ao deletar.", color="negative")
 
+                                    ui.button("Deletar", on_click=handle_delete).classes(
+                                        "bg-red-500 text-white rounded-xl px-4 py-2 hover:bg-red-600"
+                                    )
                                     ui.button("Ativar", on_click=handle_activate).classes(
                                         "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
                                     )
