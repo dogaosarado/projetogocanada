@@ -6,6 +6,7 @@ from services.api import get_me
 import httpx
 import os
 from dotenv import load_dotenv
+from services.api import delete_user
 
 load_dotenv()
 API_URL = os.getenv("API_URL", "http://localhost:8000")
@@ -51,6 +52,16 @@ def activate_user(token: str, user_id: int, tier: str) -> dict | None:
     except Exception:
         return None
 
+def handle_delete(uid=user["id"]):
+    result = delete_user(token, uid)
+    if result:
+        ui.navigate.to("/admin")
+    else:
+        ui.notify("Erro ao deletar.", color="negative")
+
+ui.button("Deletar", on_click=handle_delete).classes(
+    "bg-red-500 text-white rounded-xl px-4 py-2 hover:bg-red-600"
+)
 
 def admin_page() -> None:
     if not is_logged_in():

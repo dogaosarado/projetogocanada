@@ -94,6 +94,17 @@ def create_user(
 
     return db_user
 
+@router.delete("/users/{user_id}", status_code=204)
+def delete_user(
+    user_id: int,
+    db: Session = Depends(get_db),
+    _: User = Depends(get_admin_user),
+):
+    user = db.query(User).filter(User.id == user_id).first()
+    if user is None:
+        raise NotFoundException("Usuário")
+    db.delete(user)
+    db.commit()
 
 @router.patch("/users/{user_id}/tier", response_model=UserResponse)
 def update_user_tier(
@@ -112,5 +123,25 @@ def update_user_tier(
 
     db.commit()
     db.refresh(user)
+
+    import resend
+    from app.core.config import settings
+    resend.api_key = settings.resend_api_key
+
+    resend.Emails.send({
+        "from": "GoCanada <onboarding@resend.dev>",
+        "to": user.email,
+        "subject": "Sua conta GoCanada está ativa!",
+        "html": f"""
+        <h2>Bem-vindo ao GoCanada!</h2>
+        <p>Sua conta foi ativada com o plano <strong>{user.tier.value}</strong>.</p>
+        <p>Acesse o link abaixo para fazer login e preencher suas universidades e programas de interesse:</p>
+        <p><a href="https://gocanada-frontend.onrender.com/login">https://gocanada-frontend.onrender.com/login</a></p>
+        <p><strong>Email:</strong> {user.email}</p>
+        <p>Caso não lembre sua senha, entre em contato conosco.</p>
+        <br>
+        <p>Equipe GoCanada</p>
+        """
+    })
 
     return user

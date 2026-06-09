@@ -73,3 +73,13 @@ def create_lead(name: str, email: str, tier: str) -> dict | None:
         return None
     except Exception:
         return None
+
+def delete_user(token: str, user_id: int) -> bool:
+    try:
+        response = httpx.delete(
+            f"{API_URL}/admin/users/{user_id}",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        return response.status_code == 204
+    except Exception:
+        return False
