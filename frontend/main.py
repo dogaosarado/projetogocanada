@@ -8,6 +8,7 @@ from pages.confirmation import confirmation_page
 from pages.admin import admin_page
 from pages.interest import interest_page
 import os
+
 print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
 
 ui.add_head_html('''
@@ -44,8 +45,6 @@ def formulario():
 @ui.page("/confirmacao")
 def confirmacao():
     confirmation_page()
-
-import os
 
 ui.run(
     title="GoCanada",
