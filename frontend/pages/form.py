@@ -6,14 +6,6 @@ from services.api import get_universities, submit_request
 from state.user import logout
 
 
-ui.add_head_html('''
-<style>
-.q-menu {
-    z-index: 9999 !important;
-}
-</style>
-''')
-
 TIER_LIMITS = {
     "basico": 2,
     "intermediario": 3,

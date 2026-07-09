@@ -10,6 +10,14 @@ from pages.interest import interest_page
 import os
 print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
 
+ui.add_head_html('''
+<style>
+.q-menu {
+    z-index: 9999 !important;
+}
+</style>
+''', shared=True)
+
 @ui.page("/interesse")
 def interesse():
     interest_page()
@@ -37,6 +45,13 @@ def formulario():
 def confirmacao():
     confirmation_page()
 
+ui.add_head_html('''
+<style>
+.q-menu {
+    z-index: 9999 !important;
+}
+</style>
+''')
 
 import os
 
