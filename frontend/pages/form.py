@@ -3,6 +3,7 @@
 from nicegui import ui
 from state.user import get_token, get_tier, is_logged_in
 from services.api import get_universities, submit_request
+from state.user import logout
 
 
 TIER_LIMITS = {
@@ -141,3 +142,5 @@ def form_page() -> None:
             ui.button("Enviar pedido", on_click=handle_submit).classes(
                 "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
             )
+def add_logout_button():
+    ui.button('Sair', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')

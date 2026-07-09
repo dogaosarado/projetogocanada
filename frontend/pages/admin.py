@@ -7,6 +7,7 @@ import httpx
 import os
 from dotenv import load_dotenv
 from services.api import delete_user
+from state.user import logout
 
 load_dotenv()
 API_URL = os.getenv("API_URL", "http://localhost:8000")
@@ -154,3 +155,6 @@ def admin_page() -> None:
                                     ui.button("Ativar", on_click=handle_activate).classes(
                                         "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
                                     )
+
+def add_logout_button():
+    ui.button('Sair', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')
