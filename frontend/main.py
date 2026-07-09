@@ -13,7 +13,9 @@ print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
 
 ui.add_head_html('''
 <style>
-.q-menu {
+body > .q-menu,
+body > div[class*="q-menu"],
+.q-position-engine {
     z-index: 9999 !important;
 }
 </style>
