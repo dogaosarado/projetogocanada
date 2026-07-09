@@ -50,6 +50,11 @@ def form_page() -> None:
                         ui.label(f"Universidade {i + 1}").classes(
                             "text-stone-600 font-medium mb-3"
                         )
+                        ui.select(
+                            options=university_names,
+                            label="Universidade",
+                            on_change=make_univ_handler(selected, dept_select, custom_input),
+                        ).classes("w-full")
 
                         dept_select = ui.select(
                             options={},
@@ -98,12 +103,6 @@ def form_page() -> None:
                                     sel["url"] = None
                                     sel["is_custom"] = True
                             return handler
-
-                        ui.select(
-                            options=university_names,
-                            label="Universidade",
-                            on_change=make_univ_handler(selected, dept_select, custom_input),
-                        ).classes("w-full")
 
                         dept_select.on_value_change(make_dept_handler(selected, custom_input))
                         custom_input.on_value_change(make_custom_handler(selected))
