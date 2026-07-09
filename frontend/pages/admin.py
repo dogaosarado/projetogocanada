@@ -74,6 +74,7 @@ def admin_page() -> None:
                 ui.button("Voltar", on_click=lambda: ui.navigate.to("/")).classes(
                     "bg-stone-200 text-stone-700 rounded-xl px-4 py-2"
                 )
+                add_logout_button()
 
             # criar usuário
             ui.label("Novo cliente").classes("text-lg font-semibold text-stone-700 mb-2")

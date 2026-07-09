@@ -31,6 +31,7 @@ def form_page() -> None:
     with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
         with ui.card().classes("w-full max-w-2xl p-8 shadow-lg rounded-2xl bg-white"):
             ui.label("GoCanada").classes("text-2xl font-bold text-amber-700 mb-1")
+            add_logout_button()
             ui.label(
                 f"Plano {tier.capitalize()} — selecione até {max_universities} universidade(s)"
             ).classes("text-stone-500 mb-6")
