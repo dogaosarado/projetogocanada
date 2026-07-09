@@ -158,4 +158,4 @@ def admin_page() -> None:
                                     )
 
 def add_logout_button():
-    ui.button('Sair', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')
+    ui.button('Logoff', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')
