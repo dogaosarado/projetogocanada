@@ -45,14 +45,6 @@ def formulario():
 def confirmacao():
     confirmation_page()
 
-ui.add_head_html('''
-<style>
-.q-menu {
-    z-index: 9999 !important;
-}
-</style>
-''')
-
 import os
 
 ui.run(
