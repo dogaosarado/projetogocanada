@@ -6,6 +6,14 @@ from services.api import get_universities, submit_request
 from state.user import logout
 
 
+ui.add_head_html('''
+<style>
+.q-menu {
+    z-index: 9999 !important;
+}
+</style>
+''')
+
 TIER_LIMITS = {
     "basico": 2,
     "intermediario": 3,
@@ -144,4 +152,4 @@ def form_page() -> None:
                 "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
             )
 def add_logout_button():
-    ui.button('Sair', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')
+    ui.button('Logoff', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')
