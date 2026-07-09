@@ -13,10 +13,14 @@ print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
 
 ui.add_head_html('''
 <style>
+.q-menu,
+.q-position-engine,
 body > .q-menu,
-body > div[class*="q-menu"],
-.q-position-engine {
+.q-select__dialog {
     z-index: 9999 !important;
+}
+.q-card {
+    overflow: visible !important;
 }
 </style>
 ''', shared=True)
