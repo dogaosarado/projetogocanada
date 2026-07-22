@@ -52,8 +52,8 @@ def send_request_email(user: User, request: ConsultancyRequest) -> None:
     body = _build_email_body(user, request)
 
     resend.Emails.send({
-        "from": "GoCanada <contato@gocanadabr.com.br>",
+        "from": "GoCanadaBR <contato@gocanadabr.com.br>",
         "to": settings.consultant_email,
-        "subject": f"[GoCanada] Novo pedido — {user.email} ({request.tier})",
+        "subject": f"[GoCanadaBR] Novo pedido — {user.email} ({request.tier})",
         "html": body,
     })
