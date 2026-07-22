@@ -67,11 +67,14 @@ def create_lead(name: str, email: str, tier: str) -> dict | None:
         response = httpx.post(
             f"{API_URL}/admin/leads",
             json={"name": name, "email": email, "tier": tier},
+            timeout=15,
         )
+        print(f"create_lead status={response.status_code} body={response.text}")
         if response.status_code == 201:
             return response.json()
         return None
-    except Exception:
+    except Exception as e:
+        print(f"create_lead EXCEPTION: {type(e).__name__}: {e}")
         return None
 
 def delete_user(token: str, user_id: int) -> bool:
