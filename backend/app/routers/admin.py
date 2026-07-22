@@ -52,7 +52,7 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
     from app.core.config import settings
     resend.api_key = settings.resend_api_key
     resend.Emails.send({
-    "from": "GoCanada <onboarding@resend.dev>",
+    "from": "GoCanada <contato@gocanadabr.com.br>",
     "to": body.email,
     "subject": "Recebemos seu cadastro — GoCanada",
     "html": f"""
@@ -65,7 +65,7 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
     """
 })
     resend.Emails.send({
-        "from": "GoCanada <onboarding@resend.dev>",
+        "from": "GoCanada <contato@gocanadabr.com.br>",
         "to": settings.consultant_email,
         "subject": f"[GoCanada] Novo interesse — {body.name} ({body.tier})",
         "html": f"""
@@ -143,14 +143,14 @@ def update_user_tier(
     resend.api_key = settings.resend_api_key
 
     resend.Emails.send({
-    "from": "GoCanada <onboarding@resend.dev>",
+    "from": "GoCanada <contato@gocanadabr.com.br>",
     "to": user.email,
     "subject": "Sua conta GoCanada está ativa!",
     "html": f"""
     <h2>Sua conta foi ativada!</h2>
     <p>Seu plano <strong>{user.tier.value}</strong> está ativo.</p>
     <p>Acesse o link abaixo para fazer login:</p>
-    <p><a href="https://gocanada-frontend.onrender.com/login">Acessar GoCanada</a></p>
+    <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanada</a></p>
     <p><strong>Email:</strong> {user.email}</p>
     <p><strong>Senha:</strong> use a senha que você recebeu no email de cadastro inicial.</p>
     <p>Caso não encontre, entre em contato respondendo este email.</p>
