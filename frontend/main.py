@@ -55,7 +55,7 @@ def confirmacao():
 ui.run(
     title="GoCanada",
     port=int(os.getenv("PORT", 8080)),
-    storage_secret="gocanada-secret-key-troca-isso",
+    storage_secret=os.environ["STORAGE_SECRET"],
     favicon="🍁",
     dark=False,
     host="0.0.0.0",
