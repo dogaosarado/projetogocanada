@@ -1,5 +1,6 @@
 # pages/login.py
 
+from app.models.user import user
 from nicegui import ui, app
 from services.api import login, get_me
 from state.user import set_user
@@ -23,7 +24,7 @@ def login_page() -> None:
                     user = get_me(token)
                     print(f"USER FROM API: {user}")
                     if user:
-                        set_user(token=token, email=user["email"], tier=user["tier"])
+                        set_user(token=token, email=user["email"], tier=user["tier"], name=user.get("name"))
                         print(f"STORAGE AFTER SET: {app.storage.user}")
                         ui.navigate.to("/formulario")
                     else:

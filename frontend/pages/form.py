@@ -4,6 +4,7 @@ from nicegui import ui
 from state.user import get_token, get_tier, is_logged_in
 from services.api import get_universities, submit_request
 from state.user import logout
+from pages.layout import authenticated_header
 
 
 TIER_LIMITS = {
@@ -29,9 +30,9 @@ def form_page() -> None:
     selections = []
 
     with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
+        authenticated_header()
         with ui.card().classes("w-full max-w-2xl p-8 shadow-lg rounded-2xl bg-white"):
             ui.label("GoCanada").classes("text-2xl font-bold text-amber-700 mb-1")
-            add_logout_button()
             ui.label(
                 f"Plano {tier.capitalize()} — selecione até {max_universities} universidade(s)"
             ).classes("text-stone-500 mb-6")
@@ -146,5 +147,3 @@ def form_page() -> None:
             ui.button("Enviar pedido", on_click=handle_submit).classes(
                 "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
             )
-def add_logout_button():
-    ui.button('Logoff', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')

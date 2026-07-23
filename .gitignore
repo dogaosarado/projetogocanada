@@ -23,4 +23,4 @@ backend/test_request.ps1
 # os
 .DS_Store
 Thumbs.db
-EOF
+EOF.venv/
