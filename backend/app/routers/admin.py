@@ -16,6 +16,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, EmailStr
 from app.models.content import Meeting, Deadline
 from app.schemas.content import MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
+from app.models.request import ConsultancyRequest
+from app.models.content import Meeting, Deadline, ChecklistProgress
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
@@ -136,6 +138,12 @@ def delete_user(
     user = db.query(User).filter(User.id == user_id).first()
     if user is None:
         raise NotFoundException("Usuário")
+
+    db.query(ConsultancyRequest).filter(ConsultancyRequest.user_id == user_id).delete()
+    db.query(Meeting).filter(Meeting.user_id == user_id).delete()
+    db.query(Deadline).filter(Deadline.user_id == user_id).delete()
+    db.query(ChecklistProgress).filter(ChecklistProgress.user_id == user_id).delete()
+
     db.delete(user)
     db.commit()
 
