@@ -2,8 +2,7 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from app.routers import admin, auth, requests, universities
+from app.routers import admin, auth, requests, universities, blog, dashboard
 
 app = FastAPI(
     title="GoCanadaBR Consultoria",
@@ -23,6 +22,8 @@ app.include_router(auth.router)
 app.include_router(universities.router)
 app.include_router(requests.router)
 app.include_router(admin.router)
+app.include_router(blog.router)
+app.include_router(dashboard.router)
 
 
 @app.get("/health")
