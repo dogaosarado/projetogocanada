@@ -52,22 +52,22 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
     from app.core.config import settings
     resend.api_key = settings.resend_api_key
     resend.Emails.send({
-    "from": "GoCanada <contato@gocanadabr.com.br>",
+    "from": "GoCanadaBR <contato@gocanadabr.com.br>",
     "to": body.email,
-    "subject": "Recebemos seu cadastro — GoCanada",
+    "subject": "Recebemos seu cadastro — GoCanadaBR",
     "html": f"""
     <h2>Olá, {body.name}!</h2>
     <p>Recebemos seu interesse no plano <strong>{body.tier}</strong>.</p>
     <p>Em breve você receberá um email com suas credenciais de acesso para preencher o formulário de universidades e programas.</p>
     <p>Qualquer dúvida, responda este email.</p>
     <br>
-    <p>Equipe GoCanada</p>
+    <p>Equipe GoCanadaBR</p>
     """
 })
     resend.Emails.send({
-        "from": "GoCanada <contato@gocanadabr.com.br>",
+        "from": "GoCanadaBR <contato@gocanadabr.com.br>",
         "to": settings.consultant_email,
-        "subject": f"[GoCanada] Novo interesse — {body.name} ({body.tier})",
+        "subject": f"[GoCanadaBR] Novo interesse — {body.name} ({body.tier})",
         "html": f"""
         <h2>Novo cliente interessado</h2>
         <p><strong>Nome:</strong> {body.name}</p>
@@ -145,17 +145,17 @@ def update_user_tier(
     resend.Emails.send({
     "from": "GoCanada <contato@gocanadabr.com.br>",
     "to": user.email,
-    "subject": "Sua conta GoCanada está ativa!",
+    "subject": "Sua conta GoCanadaBR está ativa!",
     "html": f"""
     <h2>Sua conta foi ativada!</h2>
     <p>Seu plano <strong>{user.tier.value}</strong> está ativo.</p>
     <p>Acesse o link abaixo para fazer login:</p>
-    <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanada</a></p>
+    <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanadaBR</a></p>
     <p><strong>Email:</strong> {user.email}</p>
     <p><strong>Senha:</strong> use a senha que você recebeu no email de cadastro inicial.</p>
     <p>Caso não encontre, entre em contato respondendo este email.</p>
     <br>
-    <p>Equipe GoCanada</p>
+    <p>Equipe GoCanadaBR</p>
     """
 })
 
