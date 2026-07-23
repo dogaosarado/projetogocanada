@@ -1,6 +1,5 @@
 # pages/login.py
 
-from app.models.user import user
 from nicegui import ui, app
 from services.api import login, get_me
 from state.user import set_user
