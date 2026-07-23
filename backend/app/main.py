@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routers import admin, auth, requests, universities
 
 app = FastAPI(
-    title="GoCanada Consultoria",
+    title="GoCanadaBR Consultoria",
     version="1.0.0",
     docs_url="/docs" if True else None,
 )

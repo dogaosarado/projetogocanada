@@ -1,10 +1,10 @@
 # app/routers/admin.py
 
+from app.models.user import TierEnum
 from app.models import user
 import resend
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-
 from app.core.security import hash_password
 from app.deps import get_admin_user, get_db
 from app.exceptions import NotFoundException
@@ -14,6 +14,8 @@ from app.schemas.auth import LoginRequest
 from pydantic import EmailStr
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, EmailStr
+from app.models.content import Meeting, Deadline
+from app.schemas.content import MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
@@ -40,6 +42,7 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
 
     db_user = User(
         email=body.email,
+        name=body.name,
         hashed_password=hash_password(temp_password),
         tier=TierEnum(body.tier),
         is_active=False,
@@ -107,6 +110,22 @@ def create_user(
     db.refresh(db_user)
 
     return db_user
+
+@router.post("/users/{user_id}/meetings", response_model=MeetingResponse, status_code=201)
+def add_meeting(user_id: int, body: MeetingCreate, db: Session = Depends(get_db), _: User = Depends(get_admin_user)):
+    meeting = Meeting(user_id=user_id, **body.model_dump())
+    db.add(meeting)
+    db.commit()
+    db.refresh(meeting)
+    return meeting
+
+@router.post("/users/{user_id}/deadlines", response_model=DeadlineResponse, status_code=201)
+def add_deadline(user_id: int, body: DeadlineCreate, db: Session = Depends(get_db), _: User = Depends(get_admin_user)):
+    deadline = Deadline(user_id=user_id, **body.model_dump())
+    db.add(deadline)
+    db.commit()
+    db.refresh(deadline)
+    return deadline
 
 @router.delete("/users/{user_id}", status_code=204)
 def delete_user(
