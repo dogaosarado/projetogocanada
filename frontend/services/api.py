@@ -113,3 +113,22 @@ def toggle_checklist_item(token: str, item_key: str) -> dict | None:
     except Exception as e:
         print(f"toggle_checklist_item EXCEPTION: {type(e).__name__}: {e}")
         return None
+
+def get_posts() -> list:
+    try:
+        response = httpx.get(f"{API_URL}/blog")
+        if response.status_code == 200:
+            return response.json()
+        return []
+    except Exception:
+        return []
+
+
+def get_post(slug: str) -> dict | None:
+    try:
+        response = httpx.get(f"{API_URL}/blog/{slug}")
+        if response.status_code == 200:
+            return response.json()
+        return None
+    except Exception:
+        return None

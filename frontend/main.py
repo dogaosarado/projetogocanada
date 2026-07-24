@@ -8,6 +8,7 @@ from pages.confirmation import confirmation_page
 from pages.admin import admin_page
 from pages.interest import interest_page
 from pages.dashboard import dashboard_page
+from pages.blog import blog_list_page, blog_post_page
 import os
 
 print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
@@ -56,6 +57,14 @@ def confirmacao():
 @ui.page("/painel")
 def painel():
     dashboard_page()
+
+@ui.page("/blog")
+def blog():
+    blog_list_page()
+
+@ui.page("/blog/{slug}")
+def blog_post(slug: str):
+    blog_post_page(slug)
 
 ui.run(
     title="GoCanada",
