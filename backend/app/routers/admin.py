@@ -14,9 +14,9 @@ from app.schemas.auth import LoginRequest
 from pydantic import EmailStr
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, EmailStr
-from app.models.content import Meeting, Deadline, ChecklistProgress, MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
+from app.models.content import Meeting, Deadline, ChecklistProgress
+from app.schemas.content import MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
 from app.models.request import ConsultancyRequest
-
 router = APIRouter(prefix="/admin", tags=["admin"])
 
 
