@@ -1,6 +1,5 @@
 from nicegui import ui
-from state.user import get_name, is_logged_in, logout
-
+from state.user import get_name, is_logged_in, logout, get_is_active
 
 def authenticated_header() -> None:
     if not is_logged_in():
@@ -10,7 +9,12 @@ def authenticated_header() -> None:
         ui.label(f"Bem-vindo(a), {name}" if name else "Bem-vindo(a)").classes(
             "text-stone-700 font-medium"
         )
-        ui.button(
-            "Sair",
-            on_click=lambda: (logout(), ui.navigate.to("/login")),
-        ).props("flat color=negative")
+        with ui.row().classes("gap-3 items-center"):
+            if get_is_active():
+                ui.button("Painel", on_click=lambda: ui.navigate.to("/painel")).props(
+                    "flat color=amber"
+                )
+            ui.button(
+                "Sair",
+                on_click=lambda: (logout(), ui.navigate.to("/login")),
+            ).props("flat color=negative")
