@@ -10,6 +10,9 @@ def confirmation_page() -> None:
         authenticated_header()
         with ui.card().classes("w-full max-w-lg p-10 shadow-lg rounded-2xl bg-white text-center"):
             ui.icon("check_circle", size="4rem").classes("text-amber-600 mb-4")
+            ui.button("Voltar ao painel", on_click=lambda: ui.navigate.to("/painel")).classes(
+    "mt-4 bg-stone-200 text-stone-700 rounded-xl px-6 py-2 hover:bg-stone-300"
+)
             ui.label("Pedido enviado!").classes("text-2xl font-bold text-stone-800 mb-2")
             ui.label(
                 "Recebemos sua solicitação. O consultor irá pesquisar os professores "

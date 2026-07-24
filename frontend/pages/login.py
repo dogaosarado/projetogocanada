@@ -25,7 +25,7 @@ def login_page() -> None:
                     if user:
                         set_user(token=token, email=user["email"], tier=user["tier"], name=user.get("name"))
                         print(f"STORAGE AFTER SET: {app.storage.user}")
-                        ui.navigate.to("/formulario")
+                        ui.navigate.to("/painel")
                     else:
                         error_msg.text = "Erro ao buscar dados do usuário."
                         error_msg.set_visibility(True)
