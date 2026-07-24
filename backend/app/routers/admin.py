@@ -14,10 +14,8 @@ from app.schemas.auth import LoginRequest
 from pydantic import EmailStr
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, EmailStr
-from app.models.content import Meeting, Deadline
-from app.schemas.content import MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
+from app.models.content import Meeting, Deadline, ChecklistProgress, MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
 from app.models.request import ConsultancyRequest
-from app.models.content import Meeting, Deadline, ChecklistProgress
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
@@ -91,6 +89,29 @@ def list_users(
     _: User = Depends(get_admin_user),
 ):
     return db.query(User).order_by(User.created_at.desc()).all()
+
+@router.get("/users/{user_id}/detail")
+def get_user_detail(
+    user_id: int,
+    db: Session = Depends(get_db),
+    _: User = Depends(get_admin_user),
+):
+    user = db.query(User).filter(User.id == user_id).first()
+    if user is None:
+        raise NotFoundException("Usuário")
+
+    meetings = db.query(Meeting).filter(Meeting.user_id == user_id).order_by(Meeting.scheduled_at).all()
+    deadlines = db.query(Deadline).filter(Deadline.user_id == user_id).order_by(Deadline.due_date).all()
+
+    return {
+        "id": user.id,
+        "email": user.email,
+        "name": user.name,
+        "tier": user.tier.value,
+        "is_active": user.is_active,
+        "meetings": [MeetingResponse.model_validate(m) for m in meetings],
+        "deadlines": [DeadlineResponse.model_validate(d) for d in deadlines],
+    }
 
 @router.post("/users", response_model=UserResponse, status_code=201)
 def create_user(
