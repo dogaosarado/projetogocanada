@@ -53,6 +53,10 @@ def formulario():
 def confirmacao():
     confirmation_page()
 
+@ui.page("/painel")
+def painel():
+    dashboard_page()
+
 ui.run(
     title="GoCanada",
     port=int(os.getenv("PORT", 8080)),
@@ -61,7 +65,3 @@ ui.run(
     dark=False,
     host="0.0.0.0",
 )
-
-@ui.page("/painel")
-def painel():
-    dashboard_page()
