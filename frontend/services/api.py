@@ -86,3 +86,30 @@ def delete_user(token: str, user_id: int) -> bool:
         return response.status_code == 204
     except Exception:
         return False
+
+def get_dashboard(token: str) -> dict | None:
+    try:
+        response = httpx.get(
+            f"{API_URL}/me/dashboard",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return response.json()
+        return None
+    except Exception as e:
+        print(f"get_dashboard EXCEPTION: {type(e).__name__}: {e}")
+        return None
+
+
+def toggle_checklist_item(token: str, item_key: str) -> dict | None:
+    try:
+        response = httpx.patch(
+            f"{API_URL}/me/checklist/{item_key}",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return response.json()
+        return None
+    except Exception as e:
+        print(f"toggle_checklist_item EXCEPTION: {type(e).__name__}: {e}")
+        return None
