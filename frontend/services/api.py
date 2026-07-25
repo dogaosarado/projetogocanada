@@ -101,18 +101,52 @@ def get_dashboard(token: str) -> dict | None:
         return None
 
 
-def toggle_checklist_item(token: str, item_key: str) -> dict | None:
+def get_application_detail(token: str, application_id: int) -> dict | None:
     try:
-        response = httpx.patch(
-            f"{API_URL}/me/checklist/{item_key}",
+        response = httpx.get(
+            f"{API_URL}/me/applications/{application_id}",
             headers={"Authorization": f"bearer {token}"},
         )
         if response.status_code == 200:
             return response.json()
         return None
     except Exception as e:
-        print(f"toggle_checklist_item EXCEPTION: {type(e).__name__}: {e}")
+        print(f"get_application_detail EXCEPTION: {type(e).__name__}: {e}")
         return None
+
+
+def toggle_application_checklist_item(token: str, application_id: int, item_key: str) -> dict | None:
+    try:
+        response = httpx.patch(
+            f"{API_URL}/me/applications/{application_id}/checklist/{item_key}",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return response.json()
+        return None
+    except Exception as e:
+        print(f"toggle_application_checklist_item EXCEPTION: {type(e).__name__}: {e}")
+        return None
+
+
+def change_password(token: str, current_password: str, new_password: str) -> tuple[bool, str]:
+    try:
+        response = httpx.post(
+            f"{API_URL}/auth/change-password",
+            json={"current_password": current_password, "new_password": new_password},
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return True, response.json().get("message", "Senha atualizada.")
+        try:
+            detail = response.json().get("detail", "Erro ao trocar senha.")
+        except Exception:
+            detail = "Erro ao trocar senha."
+        return False, detail
+    except Exception as e:
+        print(f"change_password EXCEPTION: {type(e).__name__}: {e}")
+        return False, "Erro de conexão."
+
 
 def get_posts() -> list:
     try:
@@ -128,6 +162,87 @@ def get_post(slug: str) -> dict | None:
     try:
         response = httpx.get(f"{API_URL}/blog/{slug}")
         if response.status_code == 200:
+            return response.json()
+        return None
+    except Exception:
+        return None
+
+
+def get_all_posts_admin(token: str) -> list:
+    try:
+        response = httpx.get(
+            f"{API_URL}/blog/admin/all",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return response.json()
+        return []
+    except Exception:
+        return []
+
+
+def create_post_admin(token: str, title: str, slug: str, body_html: str, published: bool) -> dict | None:
+    try:
+        response = httpx.post(
+            f"{API_URL}/blog/admin",
+            json={"title": title, "slug": slug, "body_html": body_html, "published": published},
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 201:
+            return response.json()
+        return None
+    except Exception as e:
+        print(f"create_post_admin EXCEPTION: {type(e).__name__}: {e}")
+        return None
+
+
+def update_post_admin(token: str, post_id: int, **fields) -> dict | None:
+    try:
+        response = httpx.patch(
+            f"{API_URL}/blog/admin/{post_id}",
+            json=fields,
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return response.json()
+        return None
+    except Exception as e:
+        print(f"update_post_admin EXCEPTION: {type(e).__name__}: {e}")
+        return None
+
+
+def delete_post_admin(token: str, post_id: int) -> bool:
+    try:
+        response = httpx.delete(
+            f"{API_URL}/blog/admin/{post_id}",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        return response.status_code == 204
+    except Exception:
+        return False
+
+
+def get_application_admin_detail(token: str, application_id: int) -> dict | None:
+    try:
+        response = httpx.get(
+            f"{API_URL}/admin/applications/{application_id}/detail",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return response.json()
+        return None
+    except Exception:
+        return None
+
+
+def add_deadline_to_application(token: str, application_id: int, label: str, due_date: str) -> dict | None:
+    try:
+        response = httpx.post(
+            f"{API_URL}/admin/applications/{application_id}/deadlines",
+            json={"label": label, "due_date": due_date},
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 201:
             return response.json()
         return None
     except Exception:

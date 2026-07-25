@@ -74,6 +74,9 @@ def admin_page() -> None:
                 ui.button("Voltar", on_click=lambda: ui.navigate.to("/")).classes(
                     "bg-stone-200 text-stone-700 rounded-xl px-4 py-2"
                 )
+                ui.button("Gerenciar Blog", on_click=lambda: ui.navigate.to("/admin/blog")).classes(
+                    "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
+                )
                 add_logout_button()
 
             # criar usuário
@@ -156,6 +159,9 @@ def admin_page() -> None:
                                     ui.button("Ativar", on_click=handle_activate).classes(
                                         "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
                                     )
+                                    ui.button("Ver detalhes", on_click=lambda uid=user["id"]: ui.navigate.to(f"/admin/users/{uid}")).classes(
+    "bg-stone-600 text-white rounded-xl px-4 py-2 hover:bg-stone-700"
+)
 
 def add_logout_button():
     ui.button('Logoff', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')

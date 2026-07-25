@@ -7,6 +7,11 @@ class UserTierUpdate(BaseModel):
     tier: TierEnum
 
 
+class PasswordChange(BaseModel):
+    current_password: str
+    new_password: str
+
+
 class UserResponse(BaseModel):
     id: int
     email: EmailStr

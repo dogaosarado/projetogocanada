@@ -52,9 +52,29 @@ class ChecklistItemResponse(BaseModel):
     completed: bool
 
 
+class ApplicationSummary(BaseModel):
+    id: int
+    university: str
+    department: str
+    url: Optional[str] = None
+    is_custom: bool
+    deadline_count: int
+    checklist_done: int
+    checklist_total: int
+
+
+class ApplicationDetailResponse(BaseModel):
+    id: int
+    university: str
+    department: str
+    url: Optional[str] = None
+    is_custom: bool
+    deadlines: list[DeadlineResponse]
+    checklist: list[ChecklistItemResponse]
+
+
 class DashboardResponse(BaseModel):
     name: Optional[str]
     tier: str
     meetings: list[MeetingResponse]
-    deadlines: list[DeadlineResponse]
-    checklist: list[ChecklistItemResponse]
+    applications: list[ApplicationSummary]

@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.deps import get_active_user, get_db
 from app.exceptions import TierPermissionException
-from app.models.request import ConsultancyRequest
+from app.models.request import ConsultancyRequest, Application
 from app.models.user import User
 from app.schemas.request import RequestCreate, RequestResponse
 from app.services.email import send_request_email
@@ -36,6 +36,17 @@ def create_request(
     db.add(db_request)
     db.commit()
     db.refresh(db_request)
+
+    for selection in body.universities_selected:
+        db.add(Application(
+            user_id=user.id,
+            request_id=db_request.id,
+            university=selection.university,
+            department=selection.department,
+            url=selection.url,
+            is_custom=selection.is_custom,
+        ))
+    db.commit()
 
     send_request_email(user=user, request=db_request)
 

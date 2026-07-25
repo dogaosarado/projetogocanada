@@ -29,18 +29,24 @@ class Deadline(Base):
     __tablename__ = "deadlines"
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    application_id = Column(Integer, ForeignKey("applications.id"), nullable=True)
     label = Column(String, nullable=False)
     due_date = Column(Date, nullable=False)
     user = relationship("User")
+    application = relationship("Application")
 
 
 class ChecklistProgress(Base):
     __tablename__ = "checklist_progress"
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    application_id = Column(Integer, ForeignKey("applications.id"), nullable=True)
     item_key = Column(String, nullable=False)
     completed = Column(Boolean, default=False, nullable=False)
     completed_at = Column(DateTime, nullable=True)
     user = relationship("User")
+    application = relationship("Application")
 
-    __table_args__ = (UniqueConstraint("user_id", "item_key", name="uq_user_checklist_item"),)
+    __table_args__ = (
+        UniqueConstraint("application_id", "item_key", name="uq_application_checklist_item"),
+    )

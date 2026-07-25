@@ -43,3 +43,13 @@ class RequestResponse(BaseModel):
     research_interests: str | None
 
     model_config = {"from_attributes": True}
+
+
+class ApplicationResponse(BaseModel):
+    id: int
+    university: str
+    department: str
+    url: str | None = None
+    is_custom: bool
+
+    model_config = {"from_attributes": True}

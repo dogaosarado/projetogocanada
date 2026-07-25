@@ -5,6 +5,7 @@ import httpx
 import os
 from dotenv import load_dotenv
 from state.user import get_token
+from services.api import add_deadline_to_application, get_application_admin_detail
 
 load_dotenv()
 API_URL = os.getenv("API_URL", "http://localhost:8000")
@@ -37,20 +38,6 @@ def add_meeting(token: str, user_id: int, title: str, scheduled_at: str, notes: 
         return None
 
 
-def add_deadline(token: str, user_id: int, label: str, due_date: str) -> dict | None:
-    try:
-        response = httpx.post(
-            f"{API_URL}/admin/users/{user_id}/deadlines",
-            json={"label": label, "due_date": due_date},
-            headers={"Authorization": f"bearer {token}"},
-        )
-        if response.status_code == 201:
-            return response.json()
-        return None
-    except Exception:
-        return None
-
-
 def admin_client_page(user_id: int) -> None:
     token = get_token()
     detail = get_client_detail(token, user_id)
@@ -71,7 +58,7 @@ def admin_client_page(user_id: int) -> None:
 
             ui.separator().classes("my-4")
 
-            # reuniões
+            # reuniões (gerais, não vinculadas a uma universidade)
             ui.label("Reuniões").classes("text-lg font-semibold text-stone-700 mb-2")
             for m in detail["meetings"]:
                 with ui.row().classes("w-full justify-between py-1 border-b border-stone-100"):
@@ -107,35 +94,53 @@ def admin_client_page(user_id: int) -> None:
 
             ui.separator().classes("my-4")
 
-            # prazos
-            ui.label("Prazos").classes("text-lg font-semibold text-stone-700 mb-2")
-            for d in detail["deadlines"]:
-                with ui.row().classes("w-full justify-between py-1 border-b border-stone-100"):
-                    ui.label(d["label"])
-                    ui.label(d["due_date"]).classes("text-stone-500 text-sm")
-            if not detail["deadlines"]:
-                ui.label("Nenhum prazo cadastrado.").classes("text-stone-400 text-sm")
+            # candidaturas — prazos agora são por universidade, não por cliente
+            ui.label("Candidaturas e prazos").classes("text-lg font-semibold text-stone-700 mb-2")
+            applications = detail.get("applications", [])
 
-            with ui.row().classes("w-full gap-2 items-end mt-3 flex-wrap"):
-                d_label = ui.input("Descrição").classes("flex-1")
-                d_date = ui.input("Data").props('type=date').classes("flex-1")
-                d_msg = ui.label("").classes("text-sm")
-                d_msg.set_visibility(False)
+            if not applications:
+                ui.label(
+                    "Cliente ainda não preencheu o formulário de universidades."
+                ).classes("text-stone-400 text-sm")
 
-                def handle_add_deadline():
-                    if not d_label.value or not d_date.value:
-                        d_msg.text = "Preencha descrição e data."
-                        d_msg.classes("text-red-500")
-                        d_msg.set_visibility(True)
-                        return
-                    result = add_deadline(token, user_id, d_label.value, d_date.value)
-                    if result:
-                        ui.navigate.to(f"/admin/users/{user_id}")
+            for a in applications:
+                with ui.card().classes("w-full p-4 bg-stone-50 rounded-xl mb-3"):
+                    ui.label(f"{a['university']} — {a['department']}").classes(
+                        "font-medium text-stone-800"
+                    )
+
+                    app_detail = get_application_admin_detail(token, a["id"])
+                    existing_deadlines = app_detail.get("deadlines", []) if app_detail else []
+
+                    if existing_deadlines:
+                        with ui.column().classes("w-full gap-1 mt-2"):
+                            for d in existing_deadlines:
+                                with ui.row().classes("w-full justify-between py-1 border-b border-stone-100"):
+                                    ui.label(d["label"]).classes("text-stone-700 text-sm")
+                                    ui.label(d["due_date"]).classes("text-stone-500 text-sm")
                     else:
-                        d_msg.text = "Erro ao adicionar prazo."
-                        d_msg.classes("text-red-500")
-                        d_msg.set_visibility(True)
+                        ui.label("Nenhum prazo cadastrado ainda.").classes("text-stone-400 text-sm mt-2")
 
-                ui.button("Adicionar", on_click=handle_add_deadline).classes(
-                    "bg-amber-600 text-white rounded-xl px-4 py-2"
-                )
+                    with ui.row().classes("w-full gap-2 items-end mt-2 flex-wrap"):
+                        d_label = ui.input("Descrição do prazo").classes("flex-1")
+                        d_date = ui.input("Data").props('type=date').classes("flex-1")
+                        d_msg = ui.label("").classes("text-sm")
+                        d_msg.set_visibility(False)
+
+                        def handle_add_deadline(app_id=a["id"], label=d_label, date=d_date, msg=d_msg):
+                            if not label.value or not date.value:
+                                msg.text = "Preencha descrição e data."
+                                msg.classes("text-red-500")
+                                msg.set_visibility(True)
+                                return
+                            result = add_deadline_to_application(token, app_id, label.value, date.value)
+                            if result:
+                                ui.navigate.to(f"/admin/users/{user_id}")
+                            else:
+                                msg.text = "Erro ao adicionar prazo."
+                                msg.classes("text-red-500")
+                                msg.set_visibility(True)
+
+                        ui.button("Adicionar prazo", on_click=handle_add_deadline).classes(
+                            "bg-amber-600 text-white rounded-xl px-4 py-2"
+                        )

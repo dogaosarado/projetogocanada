@@ -10,6 +10,8 @@ from pages.interest import interest_page
 from pages.dashboard import dashboard_page
 from pages.blog import blog_list_page, blog_post_page
 from pages.admin_client import admin_client_page
+from pages.admin_blog import admin_blog_page
+from pages.application_detail import application_detail_page
 import os
 
 print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
@@ -70,6 +72,14 @@ def blog_post(slug: str):
 @ui.page("/admin/users/{user_id}")
 def admin_client(user_id: int):
     admin_client_page(user_id)
+
+@ui.page("/admin/blog")
+def admin_blog():
+    admin_blog_page()
+
+@ui.page("/painel/candidatura/{application_id}")
+def painel_candidatura(application_id: int):
+    application_detail_page(application_id)
 
 ui.run(
     title="GoCanada",
