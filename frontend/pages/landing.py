@@ -1,7 +1,16 @@
 # pages/landing.py
 
 from nicegui import ui
-from services.api import create_lead
+from services.api import create_lead, get_posts
+import re
+
+
+def _excerpt(html: str, max_len: int = 110) -> str:
+    text = re.sub(r"<[^>]+>", " ", html or "")
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) > max_len:
+        return text[:max_len].rsplit(" ", 1)[0] + "…"
+    return text
 
 
 TIERS = [
@@ -53,9 +62,14 @@ def landing_page() -> None:
         # header
         with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
             ui.label("GoCanada").classes("text-2xl font-bold text-amber-700")
-            ui.button("Entrar", on_click=lambda: ui.navigate.to("/login")).classes(
-                "bg-amber-600 text-white rounded-xl px-5 py-2 hover:bg-amber-700"
-            )
+            with ui.row().classes("gap-3 items-center"):
+                ui.button("Quem somos", on_click=lambda: ui.navigate.to("/quem-somos")).props(
+                    "flat color=amber"
+                )
+                ui.button("Blog", on_click=lambda: ui.navigate.to("/blog")).props("flat color=amber")
+                ui.button("Entrar", on_click=lambda: ui.navigate.to("/login")).classes(
+                    "bg-amber-600 text-white rounded-xl px-5 py-2 hover:bg-amber-700"
+                )
 
         # hero
         with ui.column().classes("w-full items-center py-20 px-4 text-center"):
@@ -162,32 +176,23 @@ def landing_page() -> None:
                     "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
                 )
 
-        # novidades
-        with ui.column().classes("w-full items-center py-16 px-4"):
-            ui.label("Novidades").classes("text-3xl font-bold text-stone-800 mb-8 text-center")
-            with ui.row().classes("gap-6 flex-wrap justify-center max-w-4xl"):
-                novidades = [
-                    {
-                        "titulo": "Como escolher seu orientador no Canadá",
-                        "desc": "Entenda o papel do supervisor na pós-graduação canadense e como identificar o perfil certo para sua pesquisa.",
-                        "data": "Jun 2026",
-                    },
-                    {
-                        "titulo": "Prazos de candidatura 2025-2026",
-                        "desc": "Um guia atualizado com os principais deadlines das universidades canadenses para o próximo ciclo.",
-                        "data": "Mai 2026",
-                    },
-                    {
-                        "titulo": "Bolsas disponíveis para brasileiros",
-                        "desc": "Conheça as principais fontes de financiamento para estudantes brasileiros no Canadá.",
-                        "data": "Abr 2026",
-                    },
-                ]
-                for n in novidades:
-                    with ui.card().classes("w-72 p-6 rounded-2xl shadow-sm bg-white"):
-                        ui.label(n["data"]).classes("text-xs text-amber-600 font-medium mb-1")
-                        ui.label(n["titulo"]).classes("text-stone-800 font-semibold mb-2")
-                        ui.label(n["desc"]).classes("text-stone-500 text-sm")
+        # novidades — 3 posts mais recentes do blog
+        posts = get_posts()[:3]
+        if posts:
+            with ui.column().classes("w-full items-center py-16 px-4"):
+                ui.label("Novidades").classes("text-3xl font-bold text-stone-800 mb-8 text-center")
+                with ui.row().classes("gap-6 flex-wrap justify-center max-w-4xl"):
+                    for post in posts:
+                        data_fmt = post["created_at"][:10] if post.get("created_at") else ""
+                        with ui.card().classes(
+                            "w-72 p-6 rounded-2xl shadow-sm bg-white cursor-pointer hover:shadow-md transition-all"
+                        ).on("click", lambda slug=post["slug"]: ui.navigate.to(f"/blog/{slug}")):
+                            ui.label(data_fmt).classes("text-xs text-amber-600 font-medium mb-1")
+                            ui.label(post["title"]).classes("text-stone-800 font-semibold mb-2")
+                            ui.label(_excerpt(post.get("body_html", ""))).classes(
+                                "text-stone-500 text-sm mb-2"
+                            )
+                            ui.button("Ler mais →").props("flat color=amber").classes("px-0")
 
         # footer
         with ui.row().classes("w-full px-8 py-6 bg-stone-800 justify-center"):

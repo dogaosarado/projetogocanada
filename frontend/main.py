@@ -12,6 +12,7 @@ from pages.blog import blog_list_page, blog_post_page
 from pages.admin_client import admin_client_page
 from pages.admin_blog import admin_blog_page
 from pages.application_detail import application_detail_page
+from pages.about import about_page
 import os
 
 print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
@@ -80,6 +81,10 @@ def admin_blog():
 @ui.page("/painel/candidatura/{application_id}")
 def painel_candidatura(application_id: int):
     application_detail_page(application_id)
+
+@ui.page("/quem-somos")
+def quem_somos():
+    about_page()
 
 ui.run(
     title="GoCanada",
