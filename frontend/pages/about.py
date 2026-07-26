@@ -38,6 +38,16 @@ def about_page() -> None:
                     "entregamos por candidatura."
                 ).classes("text-stone-600 text-lg")
 
+        with ui.column().classes("w-full items-center py-20 px-4"):
+            with ui.column().classes("w-full max-w-2xl gap-6"):
+                ui.label("Consultor").classes("text-4xl font-bold text-stone-800 mb-2")
+
+                ui.label(
+                    "Gustavo Denani é candidato de Ph.D em Antropologia pela Universidade de Ottawa."
+                    "Morou em Ottawa e em Montreal durante 2021 e 2024, com experiência em processos"
+                    "seletivos e editais de bolsa. "
+                ).classes("text-stone-600 text-lg")
+
                 ui.button(
                     "Ver planos", on_click=lambda: ui.navigate.to("/#planos")
                 ).classes("bg-amber-600 text-white rounded-xl px-6 py-2 hover:bg-amber-700 w-fit mt-4")
