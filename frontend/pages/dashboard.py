@@ -37,10 +37,11 @@ def dashboard_page() -> None:
                         "text-xl font-bold text-amber-700"
                     )
                     with ui.row().classes("gap-2"):
-                        ui.button(
-                            "Preencher formulário de universidades",
-                            on_click=lambda: ui.navigate.to("/formulario"),
-                        ).classes("bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700")
+                        if not data.get("applications"):
+                            ui.button(
+                                "Preencher formulário de universidades",
+                                on_click=lambda: ui.navigate.to("/formulario"),
+                            ).classes("bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700")
                         ui.button(
                             "Alterar senha",
                             on_click=lambda: open_password_dialog(token),

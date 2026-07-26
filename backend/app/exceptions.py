@@ -32,3 +32,15 @@ class TierPermissionException(HTTPException):
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Seu plano não permite essa seleção.",
         )
+
+
+class DuplicateRequestException(HTTPException):
+    def __init__(self):
+        super().__init__(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=(
+                "Você já enviou seu formulário de universidades. "
+                "Para alterar suas escolhas, entre em contato com a equipe GoCanadaBR "
+                "pelo contato@gocanadabr.com.br."
+            ),
+        )

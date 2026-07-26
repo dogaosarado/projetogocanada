@@ -49,7 +49,7 @@ def get_universities(token: str) -> list | None:
         return None
 
 
-def submit_request(token: str, payload: dict) -> dict | None:
+def submit_request(token: str, payload: dict) -> tuple[dict | None, str | None]:
     try:
         response = httpx.post(
             f"{API_URL}/requests",
@@ -57,10 +57,27 @@ def submit_request(token: str, payload: dict) -> dict | None:
             headers={"Authorization": f"bearer {token}"},
         )
         if response.status_code == 201:
-            return response.json()
-        return None
+            return response.json(), None
+        try:
+            detail = response.json().get("detail", "Erro ao enviar. Tente novamente.")
+        except Exception:
+            detail = "Erro ao enviar. Tente novamente."
+        return None, detail
     except Exception:
-        return None
+        return None, "Erro de conexão. Tente novamente."
+
+
+def get_request_status(token: str) -> bool:
+    try:
+        response = httpx.get(
+            f"{API_URL}/requests/me/status",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return response.json().get("has_submitted", False)
+        return False
+    except Exception:
+        return False
 
 def create_lead(name: str, email: str, tier: str) -> dict | None:
     try:

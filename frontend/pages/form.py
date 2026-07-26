@@ -2,7 +2,7 @@
 
 from nicegui import ui
 from state.user import get_token, get_tier, is_logged_in
-from services.api import get_universities, submit_request
+from services.api import get_universities, submit_request, get_request_status
 from state.user import logout
 from pages.layout import authenticated_header
 
@@ -22,6 +22,21 @@ def form_page() -> None:
     token = get_token()
     tier = get_tier()
     max_universities = TIER_LIMITS.get(tier, 2)
+
+    if get_request_status(token):
+        with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
+            authenticated_header()
+            with ui.card().classes("w-full max-w-2xl p-8 shadow-lg rounded-2xl bg-white text-center"):
+                ui.label("Formulário já enviado").classes("text-2xl font-bold text-amber-700 mb-3")
+                ui.label(
+                    "Você já enviou seu formulário de universidades e programas. "
+                    "Para alterar suas escolhas, entre em contato com a equipe GoCanadaBR "
+                    "pelo contato@gocanadabr.com.br."
+                ).classes("text-stone-600")
+                ui.button("Voltar ao painel", on_click=lambda: ui.navigate.to("/painel")).classes(
+                    "bg-amber-600 text-white rounded-xl px-5 py-2 mt-6 hover:bg-amber-700"
+                )
+        return
 
     universities_data = get_universities(token) or []
     university_map = {u["name"]: u["departments"] for u in universities_data}
@@ -137,11 +152,11 @@ def form_page() -> None:
                     "research_interests": research.value or None,
                 }
 
-                result = submit_request(token, payload)
+                result, error = submit_request(token, payload)
                 if result:
                     ui.navigate.to("/confirmacao")
                 else:
-                    error_label.text = "Erro ao enviar. Tente novamente."
+                    error_label.text = error or "Erro ao enviar. Tente novamente."
                     error_label.set_visibility(True)
 
             ui.button("Enviar pedido", on_click=handle_submit).classes(

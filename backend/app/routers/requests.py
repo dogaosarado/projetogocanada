@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.deps import get_active_user, get_db
-from app.exceptions import TierPermissionException
+from app.exceptions import TierPermissionException, DuplicateRequestException
 from app.models.request import ConsultancyRequest, Application
 from app.models.user import User
 from app.schemas.request import RequestCreate, RequestResponse
@@ -13,12 +13,22 @@ from app.services.email import send_request_email
 router = APIRouter(prefix="/requests", tags=["requests"])
 
 
+@router.get("/me/status")
+def get_request_status(db: Session = Depends(get_db), user: User = Depends(get_active_user)):
+    existing = db.query(ConsultancyRequest).filter(ConsultancyRequest.user_id == user.id).first()
+    return {"has_submitted": existing is not None}
+
+
 @router.post("", response_model=RequestResponse, status_code=201)
 def create_request(
     body: RequestCreate,
     db: Session = Depends(get_db),
     user: User = Depends(get_active_user),
 ):
+    existing = db.query(ConsultancyRequest).filter(ConsultancyRequest.user_id == user.id).first()
+    if existing is not None:
+        raise DuplicateRequestException()
+
     try:
         body.validate_against_tier(user.tier)
     except ValueError:
