@@ -87,7 +87,7 @@ def quem_somos():
     about_page()
 
 ui.run(
-    title="GoCanada",
+    title="GoCanadaBR",
     port=int(os.getenv("PORT", 8080)),
     storage_secret=os.environ["STORAGE_SECRET"],
     favicon="🍁",
