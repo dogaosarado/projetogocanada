@@ -7,7 +7,7 @@ def about_page() -> None:
     with ui.column().classes("w-full min-h-screen bg-stone-50"):
 
         with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
-            ui.label("GoCanada").classes(
+            ui.label("GoCanadaBR").classes(
                 "text-2xl font-bold text-amber-700 cursor-pointer"
             ).on("click", lambda: ui.navigate.to("/"))
             with ui.row().classes("gap-3 items-center"):
