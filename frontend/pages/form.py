@@ -130,8 +130,8 @@ def form_page() -> None:
             ui.separator().classes("my-4")
 
             research = ui.textarea(
-                "Interesses de pesquisa (opcional)",
-                placeholder="Descreva brevemente suas áreas de interesse...",
+                "Currículo lattes (opcional)",
+                placeholder="Se desejar fornecer mais contexto, cole o link de seu lattes.",
             ).classes("w-full")
 
             error_label = ui.label("").classes("text-red-500 text-sm")
