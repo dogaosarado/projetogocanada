@@ -53,7 +53,7 @@ def admin_client_page(user_id: int) -> None:
                 return
 
             ui.label(detail["email"]).classes("text-2xl font-bold text-amber-700")
-            status = "Ativo" if detail["is_active"] else "Inativo"
+            status = "Pago" if detail["is_active"] else "Pendente"
             ui.label(f"{detail['tier'].capitalize()} — {status}").classes("text-stone-500 mb-6")
 
             ui.separator().classes("my-4")

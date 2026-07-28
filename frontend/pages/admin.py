@@ -124,7 +124,7 @@ def admin_page() -> None:
                             with ui.row().classes("w-full justify-between items-center flex-wrap gap-3"):
                                 with ui.column().classes("gap-1"):
                                     ui.label(user["email"]).classes("font-medium text-stone-800")
-                                    status = "Ativo" if user["is_active"] else "Inativo"
+                                    status = "Pago" if user["is_active"] else "Pendente"
                                     status_color = "text-green-600" if user["is_active"] else "text-red-500"
                                     ui.label(f"{user['tier'].capitalize()} — {status}").classes(
                                         f"text-sm {status_color}"
@@ -141,7 +141,7 @@ def admin_page() -> None:
                                     def handle_activate(uid=user["id"], ts=tier_select, msg=activate_msg):
                                         result = activate_user(token, uid, ts.value)
                                         if result:
-                                            msg.text = "Ativado."
+                                            msg.text = "Pagamento confirmado."
                                             msg.set_visibility(True)
                                         else:
                                             msg.text = "Erro."
@@ -156,7 +156,7 @@ def admin_page() -> None:
                                     ui.button("Deletar", on_click=handle_delete).classes(
                                         "bg-red-500 text-white rounded-xl px-4 py-2 hover:bg-red-600"
                                     )
-                                    ui.button("Ativar", on_click=handle_activate).classes(
+                                    ui.button("Confirmar pagamento", on_click=handle_activate).classes(
                                         "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
                                     )
                                     ui.button("Ver detalhes", on_click=lambda uid=user["id"]: ui.navigate.to(f"/admin/users/{uid}")).classes(

@@ -25,9 +25,6 @@ def login(body: LoginRequest, db: Session = Depends(get_db)):
     if user is None or not verify_password(body.password, user.hashed_password):
         raise CredentialsException()
 
-    if not user.is_active:
-        raise CredentialsException()
-
     token = create_access_token(subject=user.email)
     return TokenResponse(access_token=token)
 

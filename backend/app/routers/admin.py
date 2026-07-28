@@ -62,11 +62,14 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
     "html": f"""
     <h2>Olá, {body.name}!</h2>
     <p>Recebemos seu interesse no plano <strong>{body.tier}</strong>.</p>
-    <p>Assim que confirmarmos seu pagamento, sua conta será ativada. Guarde os dados abaixo para o primeiro acesso:</p>
+    <p>Você já pode acessar a plataforma agora mesmo com os dados abaixo:</p>
     <p><strong>Email:</strong> {body.email}<br>
     <strong>Senha temporária:</strong> {temp_password}</p>
-    <p>Depois de ativada, acesse <a href="https://www.gocanadabr.com.br/login">gocanadabr.com.br/login</a>,
-    entre com essa senha e troque por uma de sua preferência no seu painel.</p>
+    <p>Acesse <a href="https://www.gocanadabr.com.br/login">gocanadabr.com.br/login</a>, entre com essa senha
+    e troque por uma de sua preferência no seu painel. Lá você pode conhecer a plataforma e preencher o
+    formulário com as universidades e programas de seu interesse.</p>
+    <p>O relatório é entregue após a confirmação do pagamento do plano escolhido — você receberá as
+    instruções de pagamento em um email de acompanhamento.</p>
     <p>Qualquer dúvida, responda este email.</p>
     <br>
     <p>Equipe GoCanadaBR</p>
@@ -81,7 +84,7 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
         <p><strong>Nome:</strong> {body.name}</p>
         <p><strong>Email:</strong> {body.email}</p>
         <p><strong>Plano:</strong> {body.tier}</p>
-        <p>Acesse o painel admin para ativar a conta após confirmação do pagamento.</p>
+        <p>Acesse o painel admin para confirmar o pagamento assim que ele cair.</p>
         """
     })
 
@@ -221,17 +224,16 @@ def update_user_tier(
     resend.api_key = settings.resend_api_key
 
     resend.Emails.send({
-    "from": "GoCanada <contato@gocanadabr.com.br>",
+    "from": "GoCanadaBR <contato@gocanadabr.com.br>",
     "to": user.email,
-    "subject": "Sua conta GoCanadaBR está ativa!",
+    "subject": "Pagamento confirmado — GoCanadaBR",
     "html": f"""
-    <h2>Sua conta foi ativada!</h2>
-    <p>Seu plano <strong>{user.tier.value}</strong> está ativo.</p>
-    <p>Acesse o link abaixo para fazer login:</p>
+    <h2>Recebemos seu pagamento!</h2>
+    <p>Confirmamos o pagamento do plano <strong>{user.tier.value}</strong>.</p>
+    <p>Nosso consultor já está com seus dados e vai preparar seu relatório em breve.</p>
+    <p>Você pode acompanhar tudo no seu painel:</p>
     <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanadaBR</a></p>
-    <p><strong>Email:</strong> {user.email}</p>
-    <p><strong>Senha:</strong> use a senha que você recebeu no email de cadastro inicial.</p>
-    <p>Caso não encontre, entre em contato respondendo este email.</p>
+    <p>Qualquer dúvida, é só responder este email.</p>
     <br>
     <p>Equipe GoCanadaBR</p>
     """

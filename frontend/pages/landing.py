@@ -54,6 +54,30 @@ TIERS = [
 ]
 
 
+STEPS = [
+    {
+        "image": "/assets/step1.jpg",
+        "title": "1. Escolha o plano e crie sua conta",
+        "desc": "Selecione o plano ideal e cadastre seus dados. Você recebe acesso imediato por email.",
+    },
+    {
+        "image": "/assets/step2.jpg",
+        "title": "2. Conheça a plataforma e peça seu relatório",
+        "desc": "Explore o painel e preencha o formulário com as universidades e programas de seu interesse.",
+    },
+    {
+        "image": "/assets/step3.jpg",
+        "title": "3. Pague o plano escolhido",
+        "desc": "Você recebe as instruções de pagamento por email e confirma o pagamento do plano.",
+    },
+    {
+        "image": "/assets/step4.jpg",
+        "title": "4. Receba seu relatório",
+        "desc": "Com o relatório em mãos, decida se quer seguir com a mentoria personalizada.",
+    },
+]
+
+
 def landing_page() -> None:
     selected_tier = {"value": None}
 
@@ -86,6 +110,18 @@ def landing_page() -> None:
                     "document.getElementById('planos').scrollIntoView({behavior:'smooth'})"
                 ),
             ).classes("bg-amber-600 text-white rounded-xl px-8 py-3 text-lg hover:bg-amber-700")
+
+        # como funciona
+        with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
+            ui.label("Como funciona").classes("text-3xl font-bold text-stone-800 mb-10 text-center")
+            with ui.row().classes("gap-6 flex-wrap justify-center max-w-5xl"):
+                for step in STEPS:
+                    with ui.column().classes("w-56 items-center text-center gap-3"):
+                        ui.image(step["image"]).classes(
+                            "w-full h-36 rounded-2xl object-cover shadow-sm bg-stone-100"
+                        )
+                        ui.label(step["title"]).classes("text-stone-800 font-semibold")
+                        ui.label(step["desc"]).classes("text-stone-500 text-sm")
 
         # tiers
         with ui.column().classes("w-full items-center py-16 px-4 bg-white").props('id="planos"'):

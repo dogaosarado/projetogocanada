@@ -22,8 +22,6 @@ def _get_owned_application(application_id: int, user: User, db: Session) -> Appl
 
 @router.get("/dashboard", response_model=DashboardResponse)
 def get_dashboard(db: Session = Depends(get_db), user: User = Depends(get_current_user)):
-    if not user.is_active:
-        raise HTTPException(403, "Conta ainda não ativada.")
 
     meetings = db.query(Meeting).filter(Meeting.user_id == user.id).order_by(Meeting.scheduled_at).all()
     applications = db.query(Application).filter(Application.user_id == user.id).order_by(Application.created_at).all()
@@ -56,8 +54,6 @@ def get_dashboard(db: Session = Depends(get_db), user: User = Depends(get_curren
 
 @router.get("/applications/{application_id}", response_model=ApplicationDetailResponse)
 def get_application_detail(application_id: int, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
-    if not user.is_active:
-        raise HTTPException(403, "Conta ainda não ativada.")
 
     application = _get_owned_application(application_id, user, db)
 
@@ -86,8 +82,6 @@ def get_application_detail(application_id: int, db: Session = Depends(get_db), u
 def toggle_application_checklist_item(
     application_id: int, item_key: str, db: Session = Depends(get_db), user: User = Depends(get_current_user)
 ):
-    if not user.is_active:
-        raise HTTPException(403, "Conta ainda não ativada.")
 
     application = _get_owned_application(application_id, user, db)
 

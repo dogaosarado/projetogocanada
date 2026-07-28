@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.core.database import SessionLocal
 from app.core.security import decode_access_token
-from app.exceptions import CredentialsException, InactiveUserException
+from app.exceptions import CredentialsException
 from app.models.user import User
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
@@ -36,15 +36,13 @@ def get_current_user(
 
 
 def get_active_user(user: User = Depends(get_current_user)) -> User:
-    if not user.is_active:
-        raise InactiveUserException()
+    # nota: "is_active" agora representa apenas "pagamento confirmado" e não
+    # bloqueia mais o acesso do usuário — conta é utilizável assim que criada.
     return user
 
 
 def get_admin_user(user: User = Depends(get_current_user)) -> User:
-    if not user.is_active:
-        raise InactiveUserException()
-    # por ora admin é qualquer usuário ativo com tier avançado
+    # por ora admin é qualquer usuário com tier avançado
     # depois você pode adicionar um campo is_admin no model
     if user.tier.value != "avancado":
         raise CredentialsException()

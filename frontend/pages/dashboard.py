@@ -1,19 +1,13 @@
 # pages/dashboard.py
 
-# pyrefly: ignore [missing-import]
 from nicegui import ui
-from state.user import get_token, is_logged_in, get_is_active
+from state.user import get_token, is_logged_in
 from services.api import get_dashboard, change_password
 from pages.layout import authenticated_header
-from nicegui import app
 
 def dashboard_page() -> None:
     if not is_logged_in():
         ui.navigate.to("/login")
-        return
-    print(f"DASHBOARD GUARD CHECK — is_active: {get_is_active()}, storage: {app.storage.user}")
-    if not get_is_active():
-        ui.navigate.to("/interesse")  # or wherever makes sense — "aguardando ativação" messaging
         return
     token = get_token()
     data = get_dashboard(token)

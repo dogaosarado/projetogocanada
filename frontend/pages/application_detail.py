@@ -1,7 +1,7 @@
 # pages/application_detail.py
 
 from nicegui import ui
-from state.user import get_token, is_logged_in, get_is_active
+from state.user import get_token, is_logged_in
 from services.api import get_application_detail, toggle_application_checklist_item
 from pages.layout import authenticated_header
 
@@ -9,9 +9,6 @@ from pages.layout import authenticated_header
 def application_detail_page(application_id: int) -> None:
     if not is_logged_in():
         ui.navigate.to("/login")
-        return
-    if not get_is_active():
-        ui.navigate.to("/interesse")
         return
 
     token = get_token()
