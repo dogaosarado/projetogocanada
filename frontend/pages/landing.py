@@ -21,8 +21,7 @@ TIERS = [
         "features": [
             "2 universidades",
             "1 departamento por universidade",
-            "Prazos do processo seletivo",
-            "Proficiência em inglês exigida",
+            "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
         ],
     },
