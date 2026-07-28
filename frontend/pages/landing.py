@@ -56,22 +56,18 @@ TIERS = [
 
 STEPS = [
     {
-        "image": "/assets/step1.jpg",
         "title": "1. Escolha o plano e crie sua conta",
         "desc": "Selecione o plano ideal e cadastre seus dados. Você recebe acesso imediato por email.",
     },
     {
-        "image": "/assets/step2.jpg",
         "title": "2. Conheça a plataforma e peça seu relatório",
         "desc": "Explore o painel e preencha o formulário com as universidades e programas de seu interesse.",
     },
     {
-        "image": "/assets/step3.jpg",
         "title": "3. Pague o plano escolhido",
         "desc": "Você recebe as instruções de pagamento por email e confirma o pagamento do plano.",
     },
     {
-        "image": "/assets/step4.jpg",
         "title": "4. Receba seu relatório",
         "desc": "Com o relatório em mãos, decida se quer seguir com a mentoria personalizada.",
     },
