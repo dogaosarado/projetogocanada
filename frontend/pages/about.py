@@ -1,15 +1,14 @@
 # pages/about.py
 
 from nicegui import ui
+from pages.layout import brand_logo
 
 
 def about_page() -> None:
     with ui.column().classes("w-full min-h-screen bg-stone-50"):
 
         with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
-            ui.label("GoCanadaBR").classes(
-                "text-2xl font-bold text-amber-700 cursor-pointer"
-            ).on("click", lambda: ui.navigate.to("/"))
+            brand_logo()
             with ui.row().classes("gap-3 items-center"):
                 ui.button("Blog", on_click=lambda: ui.navigate.to("/blog")).props("flat color=amber")
                 ui.button("Entrar", on_click=lambda: ui.navigate.to("/login")).classes(

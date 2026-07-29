@@ -9,6 +9,7 @@ from services.api import (
     update_post_admin,
     delete_post_admin,
 )
+from pages.layout import authenticated_header
 
 
 def slugify(title: str) -> str:
@@ -33,6 +34,7 @@ def admin_blog_page() -> None:
     posts = get_all_posts_admin(token)
 
     with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
+        authenticated_header()
         with ui.card().classes("w-full max-w-4xl p-8 shadow-lg rounded-2xl bg-white"):
             with ui.row().classes("w-full justify-between items-center mb-6"):
                 ui.label("Blog — Admin").classes("text-2xl font-bold text-amber-700")

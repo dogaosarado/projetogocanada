@@ -1,6 +1,7 @@
 # pages/landing.py
 
 from nicegui import ui
+from pages.layout import brand_logo
 from services.api import create_lead, get_posts
 import re
 
@@ -84,7 +85,7 @@ def landing_page() -> None:
 
         # header
         with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
-            ui.label("GoCanadaBR").classes("text-2xl font-bold text-amber-700")
+            brand_logo()
             with ui.row().classes("gap-3 items-center"):
                 ui.button("Quem somos", on_click=lambda: ui.navigate.to("/quem-somos")).props(
                     "flat color=amber"

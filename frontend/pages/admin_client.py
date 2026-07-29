@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 from state.user import get_token
 from services.api import add_deadline_to_application, get_application_admin_detail
+from pages.layout import authenticated_header
 
 load_dotenv()
 API_URL = os.getenv("API_URL", "http://localhost:8000")
@@ -43,6 +44,7 @@ def admin_client_page(user_id: int) -> None:
     detail = get_client_detail(token, user_id)
 
     with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
+        authenticated_header()
         with ui.card().classes("w-full max-w-2xl p-8 shadow-lg rounded-2xl bg-white"):
             ui.button("← Voltar", on_click=lambda: ui.navigate.to("/admin")).classes(
                 "bg-stone-200 text-stone-700 rounded-xl px-4 py-2 mb-4"

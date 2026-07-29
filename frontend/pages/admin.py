@@ -8,6 +8,7 @@ import os
 from dotenv import load_dotenv
 from services.api import delete_user, send_payment_link
 from state.user import logout
+from pages.layout import authenticated_header
 
 load_dotenv()
 API_URL = os.getenv("API_URL", "http://localhost:8000")
@@ -68,6 +69,7 @@ def admin_page() -> None:
     users = get_users(token)
 
     with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
+        authenticated_header()
         with ui.card().classes("w-full max-w-4xl p-8 shadow-lg rounded-2xl bg-white"):
             with ui.row().classes("w-full justify-between items-center mb-6"):
                 ui.label("Painel Admin").classes("text-2xl font-bold text-amber-700")
