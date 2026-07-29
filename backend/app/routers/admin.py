@@ -9,7 +9,8 @@ from app.core.security import hash_password
 from app.deps import get_admin_user, get_db
 from app.exceptions import NotFoundException
 from app.models.user import User
-from app.schemas.user import UserResponse, UserTierUpdate
+from app.schemas.user import UserResponse, UserTierUpdate, PaymentLinkSend
+from app.services.email import send_payment_link_email
 from app.schemas.auth import LoginRequest
 from pydantic import EmailStr
 from fastapi import APIRouter, Depends, HTTPException
@@ -200,6 +201,22 @@ def delete_user(
 
     db.delete(user)
     db.commit()
+
+@router.post("/users/{user_id}/send-payment-link", status_code=200)
+def send_payment_link(
+    user_id: int,
+    body: PaymentLinkSend,
+    db: Session = Depends(get_db),
+    _: User = Depends(get_admin_user),
+):
+    user = db.query(User).filter(User.id == user_id).first()
+    if user is None:
+        raise NotFoundException("Usuário")
+
+    send_payment_link_email(user, body.pix_link)
+
+    return {"message": "Link de pagamento enviado."}
+
 
 @router.patch("/users/{user_id}/tier", response_model=UserResponse)
 def update_user_tier(

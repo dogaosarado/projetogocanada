@@ -7,6 +7,10 @@ class UserTierUpdate(BaseModel):
     tier: TierEnum
 
 
+class PaymentLinkSend(BaseModel):
+    pix_link: str
+
+
 class PasswordChange(BaseModel):
     current_password: str
     new_password: str

@@ -1,0 +1,376 @@
+diff --git a/backend/app/deps.py b/backend/app/deps.py
+index 756d312..b83f014 100644
+--- a/backend/app/deps.py
++++ b/backend/app/deps.py
+@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
+ 
+ from app.core.database import SessionLocal
+ from app.core.security import decode_access_token
+-from app.exceptions import CredentialsException, InactiveUserException
++from app.exceptions import CredentialsException
+ from app.models.user import User
+ 
+ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
+@@ -36,15 +36,13 @@ def get_current_user(
+ 
+ 
+ def get_active_user(user: User = Depends(get_current_user)) -> User:
+-    if not user.is_active:
+-        raise InactiveUserException()
++    # nota: "is_active" agora representa apenas "pagamento confirmado" e não
++    # bloqueia mais o acesso do usuário — conta é utilizável assim que criada.
+     return user
+ 
+ 
+ def get_admin_user(user: User = Depends(get_current_user)) -> User:
+-    if not user.is_active:
+-        raise InactiveUserException()
+-    # por ora admin é qualquer usuário ativo com tier avançado
++    # por ora admin é qualquer usuário com tier avançado
+     # depois você pode adicionar um campo is_admin no model
+     if user.tier.value != "avancado":
+         raise CredentialsException()
+diff --git a/backend/app/routers/admin.py b/backend/app/routers/admin.py
+index f9d488c..3063b70 100644
+--- a/backend/app/routers/admin.py
++++ b/backend/app/routers/admin.py
+@@ -62,11 +62,14 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
+     "html": f"""
+     <h2>Olá, {body.name}!</h2>
+     <p>Recebemos seu interesse no plano <strong>{body.tier}</strong>.</p>
+-    <p>Assim que confirmarmos seu pagamento, sua conta será ativada. Guarde os dados abaixo para o primeiro acesso:</p>
++    <p>Você já pode acessar a plataforma agora mesmo com os dados abaixo:</p>
+     <p><strong>Email:</strong> {body.email}<br>
+     <strong>Senha temporária:</strong> {temp_password}</p>
+-    <p>Depois de ativada, acesse <a href="https://www.gocanadabr.com.br/login">gocanadabr.com.br/login</a>,
+-    entre com essa senha e troque por uma de sua preferência no seu painel.</p>
++    <p>Acesse <a href="https://www.gocanadabr.com.br/login">gocanadabr.com.br/login</a>, entre com essa senha
++    e troque por uma de sua preferência no seu painel. Lá você pode conhecer a plataforma e preencher o
++    formulário com as universidades e programas de seu interesse.</p>
++    <p>O relatório é entregue após a confirmação do pagamento do plano escolhido — você receberá as
++    instruções de pagamento em um email de acompanhamento.</p>
+     <p>Qualquer dúvida, responda este email.</p>
+     <br>
+     <p>Equipe GoCanadaBR</p>
+@@ -81,7 +84,7 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
+         <p><strong>Nome:</strong> {body.name}</p>
+         <p><strong>Email:</strong> {body.email}</p>
+         <p><strong>Plano:</strong> {body.tier}</p>
+-        <p>Acesse o painel admin para ativar a conta após confirmação do pagamento.</p>
++        <p>Acesse o painel admin para confirmar o pagamento assim que ele cair.</p>
+         """
+     })
+ 
+@@ -223,15 +226,14 @@ def update_user_tier(
+     resend.Emails.send({
+     "from": "GoCanada <contato@gocanadabr.com.br>",
+     "to": user.email,
+-    "subject": "Sua conta GoCanadaBR está ativa!",
++    "subject": "Pagamento confirmado — GoCanadaBR",
+     "html": f"""
+-    <h2>Sua conta foi ativada!</h2>
+-    <p>Seu plano <strong>{user.tier.value}</strong> está ativo.</p>
+-    <p>Acesse o link abaixo para fazer login:</p>
++    <h2>Recebemos seu pagamento!</h2>
++    <p>Confirmamos o pagamento do plano <strong>{user.tier.value}</strong>.</p>
++    <p>Nosso consultor já está com seus dados e vai preparar seu relatório em breve.</p>
++    <p>Você pode acompanhar tudo no seu painel:</p>
+     <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanadaBR</a></p>
+-    <p><strong>Email:</strong> {user.email}</p>
+-    <p><strong>Senha:</strong> use a senha que você recebeu no email de cadastro inicial.</p>
+-    <p>Caso não encontre, entre em contato respondendo este email.</p>
++    <p>Qualquer dúvida, é só responder este email.</p>
+     <br>
+     <p>Equipe GoCanadaBR</p>
+     """
+diff --git a/backend/app/routers/auth.py b/backend/app/routers/auth.py
+index d18b243..632be9c 100644
+--- a/backend/app/routers/auth.py
++++ b/backend/app/routers/auth.py
+@@ -25,9 +25,6 @@ def login(body: LoginRequest, db: Session = Depends(get_db)):
+     if user is None or not verify_password(body.password, user.hashed_password):
+         raise CredentialsException()
+ 
+-    if not user.is_active:
+-        raise CredentialsException()
+-
+     token = create_access_token(subject=user.email)
+     return TokenResponse(access_token=token)
+ 
+diff --git a/backend/app/routers/dashboard.py b/backend/app/routers/dashboard.py
+index 78ba4d6..1a92f40 100644
+--- a/backend/app/routers/dashboard.py
++++ b/backend/app/routers/dashboard.py
+@@ -22,8 +22,6 @@ def _get_owned_application(application_id: int, user: User, db: Session) -> Appl
+ 
+ @router.get("/dashboard", response_model=DashboardResponse)
+ def get_dashboard(db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+-    if not user.is_active:
+-        raise HTTPException(403, "Conta ainda não ativada.")
+ 
+     meetings = db.query(Meeting).filter(Meeting.user_id == user.id).order_by(Meeting.scheduled_at).all()
+     applications = db.query(Application).filter(Application.user_id == user.id).order_by(Application.created_at).all()
+@@ -56,8 +54,6 @@ def get_dashboard(db: Session = Depends(get_db), user: User = Depends(get_curren
+ 
+ @router.get("/applications/{application_id}", response_model=ApplicationDetailResponse)
+ def get_application_detail(application_id: int, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+-    if not user.is_active:
+-        raise HTTPException(403, "Conta ainda não ativada.")
+ 
+     application = _get_owned_application(application_id, user, db)
+ 
+@@ -86,8 +82,6 @@ def get_application_detail(application_id: int, db: Session = Depends(get_db), u
+ def toggle_application_checklist_item(
+     application_id: int, item_key: str, db: Session = Depends(get_db), user: User = Depends(get_current_user)
+ ):
+-    if not user.is_active:
+-        raise HTTPException(403, "Conta ainda não ativada.")
+ 
+     application = _get_owned_application(application_id, user, db)
+ 
+diff --git a/frontend/pages/admin.py b/frontend/pages/admin.py
+index 1f6040c..acfd634 100644
+--- a/frontend/pages/admin.py
++++ b/frontend/pages/admin.py
+@@ -124,7 +124,7 @@ def admin_page() -> None:
+                             with ui.row().classes("w-full justify-between items-center flex-wrap gap-3"):
+                                 with ui.column().classes("gap-1"):
+                                     ui.label(user["email"]).classes("font-medium text-stone-800")
+-                                    status = "Ativo" if user["is_active"] else "Inativo"
++                                    status = "Pago" if user["is_active"] else "Pendente"
+                                     status_color = "text-green-600" if user["is_active"] else "text-red-500"
+                                     ui.label(f"{user['tier'].capitalize()} — {status}").classes(
+                                         f"text-sm {status_color}"
+@@ -141,7 +141,7 @@ def admin_page() -> None:
+                                     def handle_activate(uid=user["id"], ts=tier_select, msg=activate_msg):
+                                         result = activate_user(token, uid, ts.value)
+                                         if result:
+-                                            msg.text = "Ativado."
++                                            msg.text = "Pagamento confirmado."
+                                             msg.set_visibility(True)
+                                         else:
+                                             msg.text = "Erro."
+@@ -156,7 +156,7 @@ def admin_page() -> None:
+                                     ui.button("Deletar", on_click=handle_delete).classes(
+                                         "bg-red-500 text-white rounded-xl px-4 py-2 hover:bg-red-600"
+                                     )
+-                                    ui.button("Ativar", on_click=handle_activate).classes(
++                                    ui.button("Confirmar pagamento", on_click=handle_activate).classes(
+                                         "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
+                                     )
+                                     ui.button("Ver detalhes", on_click=lambda uid=user["id"]: ui.navigate.to(f"/admin/users/{uid}")).classes(
+diff --git a/frontend/pages/admin_client.py b/frontend/pages/admin_client.py
+index b668542..7474d1a 100644
+--- a/frontend/pages/admin_client.py
++++ b/frontend/pages/admin_client.py
+@@ -53,7 +53,7 @@ def admin_client_page(user_id: int) -> None:
+                 return
+ 
+             ui.label(detail["email"]).classes("text-2xl font-bold text-amber-700")
+-            status = "Ativo" if detail["is_active"] else "Inativo"
++            status = "Pago" if detail["is_active"] else "Pendente"
+             ui.label(f"{detail['tier'].capitalize()} — {status}").classes("text-stone-500 mb-6")
+ 
+             ui.separator().classes("my-4")
+diff --git a/frontend/pages/application_detail.py b/frontend/pages/application_detail.py
+index c0ec15a..329ad8d 100644
+--- a/frontend/pages/application_detail.py
++++ b/frontend/pages/application_detail.py
+@@ -1,7 +1,7 @@
+ # pages/application_detail.py
+ 
+ from nicegui import ui
+-from state.user import get_token, is_logged_in, get_is_active
++from state.user import get_token, is_logged_in
+ from services.api import get_application_detail, toggle_application_checklist_item
+ from pages.layout import authenticated_header
+ 
+@@ -10,9 +10,6 @@ def application_detail_page(application_id: int) -> None:
+     if not is_logged_in():
+         ui.navigate.to("/login")
+         return
+-    if not get_is_active():
+-        ui.navigate.to("/interesse")
+-        return
+ 
+     token = get_token()
+     data = get_application_detail(token, application_id)
+diff --git a/frontend/pages/confirmation.py b/frontend/pages/confirmation.py
+index a2cc52c..275303b 100644
+--- a/frontend/pages/confirmation.py
++++ b/frontend/pages/confirmation.py
+@@ -10,14 +10,17 @@ def confirmation_page() -> None:
+         authenticated_header()
+         with ui.card().classes("w-full max-w-lg p-10 shadow-lg rounded-2xl bg-white text-center"):
+             ui.icon("check_circle", size="4rem").classes("text-amber-600 mb-4")
+-            ui.button("Voltar ao painel", on_click=lambda: ui.navigate.to("/painel")).classes(
+-    "mt-4 bg-stone-200 text-stone-700 rounded-xl px-6 py-2 hover:bg-stone-300"
+-)
+-            ui.label("Pedido enviado!").classes("text-2xl font-bold text-stone-800 mb-2")
++            ui.label("Formulário enviado!").classes("text-2xl font-bold text-stone-800 mb-2")
+             ui.label(
+-                "Recebemos sua solicitação. O consultor irá pesquisar os professores "
+-                "e entrar em contato com você em breve."
+-            ).classes("text-stone-500 mb-6")
++                "Recebemos suas universidades e programas de interesse."
++            ).classes("text-stone-500 mb-4")
++
++            with ui.card().classes("w-full p-4 bg-amber-50 rounded-xl mb-4"):
++                ui.label(
++                    "O relatório é entregue após a confirmação do pagamento do plano "
++                    "escolhido. Você vai receber as instruções de pagamento em um email "
++                    "de acompanhamento."
++                ).classes("text-amber-800 text-sm")
+ 
+             email = get_email()
+             tier = get_tier()
+@@ -25,4 +28,8 @@ def confirmation_page() -> None:
+             if email:
+                 ui.label(f"Email: {email}").classes("text-stone-600 text-sm")
+             if tier:
+-                ui.label(f"Plano: {tier.capitalize()}").classes("text-stone-600 text-sm mb-6")
+\ No newline at end of file
++                ui.label(f"Plano: {tier.capitalize()}").classes("text-stone-600 text-sm mb-6")
++
++            ui.button("Voltar ao painel", on_click=lambda: ui.navigate.to("/painel")).classes(
++                "mt-4 bg-stone-200 text-stone-700 rounded-xl px-6 py-2 hover:bg-stone-300"
++            )
+diff --git a/frontend/pages/dashboard.py b/frontend/pages/dashboard.py
+index 424daac..f11fb7f 100644
+--- a/frontend/pages/dashboard.py
++++ b/frontend/pages/dashboard.py
+@@ -1,20 +1,14 @@
+ # pages/dashboard.py
+ 
+-# pyrefly: ignore [missing-import]
+ from nicegui import ui
+-from state.user import get_token, is_logged_in, get_is_active
++from state.user import get_token, is_logged_in
+ from services.api import get_dashboard, change_password
+ from pages.layout import authenticated_header
+-from nicegui import app
+ 
+ def dashboard_page() -> None:
+     if not is_logged_in():
+         ui.navigate.to("/login")
+         return
+-    print(f"DASHBOARD GUARD CHECK — is_active: {get_is_active()}, storage: {app.storage.user}")
+-    if not get_is_active():
+-        ui.navigate.to("/interesse")  # or wherever makes sense — "aguardando ativação" messaging
+-        return
+     token = get_token()
+     data = get_dashboard(token)
+ 
+diff --git a/frontend/pages/interest.py b/frontend/pages/interest.py
+index bfd1074..1a58ac2 100644
+--- a/frontend/pages/interest.py
++++ b/frontend/pages/interest.py
+@@ -9,15 +9,17 @@ def interest_page() -> None:
+             ui.icon("mail", size="4rem").classes("text-amber-600 mb-4")
+             ui.label("Cadastro recebido!").classes("text-2xl font-bold text-stone-800 mb-2")
+             ui.label(
+-                "Recebemos seu interesse. Em breve você receberá um email com "
+-                "suas credenciais de acesso para preencher o formulário."
++                "Enviamos suas credenciais de acesso por email. Você já pode entrar na "
++                "plataforma, conhecer o painel e preencher o formulário com as universidades "
++                "e programas do seu interesse."
+             ).classes("text-stone-500 mb-6")
+ 
+-            ui.label("Enquanto isso, que tal conhecer mais sobre o processo?").classes(
+-                "text-stone-400 text-sm"
+-            )
++            ui.label(
++                "O relatório é entregue após a confirmação do pagamento do plano escolhido "
++                "— as instruções de pagamento chegam em um email de acompanhamento."
++            ).classes("text-stone-400 text-sm")
+ 
+             ui.button(
+-                "Voltar ao início",
+-                on_click=lambda: ui.navigate.to("/")
+-            ).classes("mt-6 bg-amber-600 text-white rounded-xl px-6 py-2 hover:bg-amber-700")
+\ No newline at end of file
++                "Entrar agora",
++                on_click=lambda: ui.navigate.to("/login")
++            ).classes("mt-6 bg-amber-600 text-white rounded-xl px-6 py-2 hover:bg-amber-700")
+diff --git a/frontend/pages/landing.py b/frontend/pages/landing.py
+index 4d9006a..5f8f7e8 100644
+--- a/frontend/pages/landing.py
++++ b/frontend/pages/landing.py
+@@ -54,6 +54,30 @@ TIERS = [
+ ]
+ 
+ 
++STEPS = [
++    {
++        "image": "/assets/step1.jpg",
++        "title": "1. Escolha o plano e crie sua conta",
++        "desc": "Selecione o plano ideal e cadastre seus dados. Você recebe acesso imediato por email.",
++    },
++    {
++        "image": "/assets/step2.jpg",
++        "title": "2. Conheça a plataforma e peça seu relatório",
++        "desc": "Explore o painel e preencha o formulário com as universidades e programas de seu interesse.",
++    },
++    {
++        "image": "/assets/step3.jpg",
++        "title": "3. Pague o plano escolhido",
++        "desc": "Você recebe as instruções de pagamento por email e confirma o pagamento do plano.",
++    },
++    {
++        "image": "/assets/step4.jpg",
++        "title": "4. Receba seu relatório",
++        "desc": "Com o relatório em mãos, decida se quer seguir com a mentoria personalizada.",
++    },
++]
++
++
+ def landing_page() -> None:
+     selected_tier = {"value": None}
+ 
+@@ -87,6 +111,18 @@ def landing_page() -> None:
+                 ),
+             ).classes("bg-amber-600 text-white rounded-xl px-8 py-3 text-lg hover:bg-amber-700")
+ 
++        # como funciona
++        with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
++            ui.label("Como funciona").classes("text-3xl font-bold text-stone-800 mb-10 text-center")
++            with ui.row().classes("gap-6 flex-wrap justify-center max-w-5xl"):
++                for step in STEPS:
++                    with ui.column().classes("w-56 items-center text-center gap-3"):
++                        ui.image(step["image"]).classes(
++                            "w-full h-36 rounded-2xl object-cover shadow-sm bg-stone-100"
++                        )
++                        ui.label(step["title"]).classes("text-stone-800 font-semibold")
++                        ui.label(step["desc"]).classes("text-stone-500 text-sm")
++
+         # tiers
+         with ui.column().classes("w-full items-center py-16 px-4 bg-white").props('id="planos"'):
+             ui.label("Escolha seu plano").classes("text-3xl font-bold text-stone-800 mb-2 text-center")
+diff --git a/frontend/pages/layout.py b/frontend/pages/layout.py
+index 6dd7f1f..8da68cd 100644
+--- a/frontend/pages/layout.py
++++ b/frontend/pages/layout.py
+@@ -1,5 +1,5 @@
+ from nicegui import ui
+-from state.user import get_name, is_logged_in, logout, get_is_active
++from state.user import get_name, is_logged_in, logout
+ 
+ def authenticated_header() -> None:
+     if not is_logged_in():
+@@ -10,11 +10,10 @@ def authenticated_header() -> None:
+             "text-stone-700 font-medium"
+         )
+         with ui.row().classes("gap-3 items-center"):
+-            if get_is_active():
+-                ui.button("Painel", on_click=lambda: ui.navigate.to("/painel")).props(
+-                    "flat color=amber"
+-                )
++            ui.button("Painel", on_click=lambda: ui.navigate.to("/painel")).props(
++                "flat color=amber"
++            )
+             ui.button(
+                 "Sair",
+                 on_click=lambda: (logout(), ui.navigate.to("/login")),
+-            ).props("flat color=negative")
+\ No newline at end of file
++            ).props("flat color=negative")

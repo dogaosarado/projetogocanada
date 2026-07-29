@@ -1,0 +1,1032 @@
+diff --git a/backend/alembic/versions/7a1c9f3e2b44_add_applications_scope_deadlines_checklist.py b/backend/alembic/versions/7a1c9f3e2b44_add_applications_scope_deadlines_checklist.py
+new file mode 100644
+index 0000000..ed0e9ca
+--- /dev/null
++++ b/backend/alembic/versions/7a1c9f3e2b44_add_applications_scope_deadlines_checklist.py
+@@ -0,0 +1,81 @@
++"""add applications table, scope deadlines/checklist to application
++
++Revision ID: 7a1c9f3e2b44
++Revises: d4c69dc88133
++Create Date: 2026-07-25 00:00:00.000000
++
++"""
++from typing import Sequence, Union
++
++from alembic import op
++import sqlalchemy as sa
++
++
++# revision identifiers, used by Alembic.
++revision: str = '7a1c9f3e2b44'
++down_revision: Union[str, Sequence[str], None] = 'd4c69dc88133'
++branch_labels: Union[str, Sequence[str], None] = None
++depends_on: Union[str, Sequence[str], None] = None
++
++
++def upgrade() -> None:
++    """Upgrade schema."""
++    op.create_table(
++        'applications',
++        sa.Column('id', sa.Integer(), nullable=False),
++        sa.Column('user_id', sa.Integer(), nullable=False),
++        sa.Column('request_id', sa.Integer(), nullable=False),
++        sa.Column('university', sa.String(length=255), nullable=False),
++        sa.Column('department', sa.String(length=255), nullable=False),
++        sa.Column('url', sa.String(length=500), nullable=True),
++        sa.Column('is_custom', sa.Boolean(), nullable=False),
++        sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
++        sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
++        sa.ForeignKeyConstraint(['request_id'], ['requests.id'], ),
++        sa.PrimaryKeyConstraint('id'),
++    )
++    op.create_index(op.f('ix_applications_user_id'), 'applications', ['user_id'], unique=False)
++
++    op.add_column('deadlines', sa.Column('application_id', sa.Integer(), nullable=True))
++    op.create_foreign_key(
++        'fk_deadlines_application_id', 'deadlines', 'applications', ['application_id'], ['id']
++    )
++
++    op.add_column('checklist_progress', sa.Column('application_id', sa.Integer(), nullable=True))
++    op.create_foreign_key(
++        'fk_checklist_progress_application_id', 'checklist_progress', 'applications', ['application_id'], ['id']
++    )
++    op.drop_constraint('uq_user_checklist_item', 'checklist_progress', type_='unique')
++    op.create_unique_constraint(
++        'uq_application_checklist_item', 'checklist_progress', ['application_id', 'item_key']
++    )
++
++    # backfill: um Application por item de universities_selected em cada request existente
++    op.execute("""
++        INSERT INTO applications (user_id, request_id, university, department, url, is_custom, created_at)
++        SELECT r.user_id, r.id,
++               elem->>'university',
++               elem->>'department',
++               elem->>'url',
++               COALESCE((elem->>'is_custom')::boolean, false),
++               r.created_at
++        FROM requests r,
++             jsonb_array_elements(r.universities_selected) elem
++    """)
++    # nota: deadlines e checklist_progress criados ANTES desta migration ficam com
++    # application_id NULL (não há como saber a qual universidade se referiam) —
++    # precisam ser reatribuídos manualmente pelo admin se ainda forem relevantes.
++
++
++def downgrade() -> None:
++    """Downgrade schema."""
++    op.drop_constraint('uq_application_checklist_item', 'checklist_progress', type_='unique')
++    op.create_unique_constraint('uq_user_checklist_item', 'checklist_progress', ['user_id', 'item_key'])
++    op.drop_constraint('fk_checklist_progress_application_id', 'checklist_progress', type_='foreignkey')
++    op.drop_column('checklist_progress', 'application_id')
++
++    op.drop_constraint('fk_deadlines_application_id', 'deadlines', type_='foreignkey')
++    op.drop_column('deadlines', 'application_id')
++
++    op.drop_index(op.f('ix_applications_user_id'), table_name='applications')
++    op.drop_table('applications')
+diff --git a/backend/app/models/__init__.py b/backend/app/models/__init__.py
+index e204a87..635d13e 100644
+--- a/backend/app/models/__init__.py
++++ b/backend/app/models/__init__.py
+@@ -1,6 +1,6 @@
+ # app/models/__init__.py
+ 
+-from app.models.request import ConsultancyRequest
++from app.models.request import ConsultancyRequest, Application
+ from app.models.university import University
+ from app.models.user import User
+ from app.models.content import Post, Meeting, Deadline, ChecklistProgress
+\ No newline at end of file
+diff --git a/backend/app/models/content.py b/backend/app/models/content.py
+index 48b9b88..21279b2 100644
+--- a/backend/app/models/content.py
++++ b/backend/app/models/content.py
+@@ -29,18 +29,24 @@ class Deadline(Base):
+     __tablename__ = "deadlines"
+     id = Column(Integer, primary_key=True)
+     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
++    application_id = Column(Integer, ForeignKey("applications.id"), nullable=True)
+     label = Column(String, nullable=False)
+     due_date = Column(Date, nullable=False)
+     user = relationship("User")
++    application = relationship("Application")
+ 
+ 
+ class ChecklistProgress(Base):
+     __tablename__ = "checklist_progress"
+     id = Column(Integer, primary_key=True)
+     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
++    application_id = Column(Integer, ForeignKey("applications.id"), nullable=True)
+     item_key = Column(String, nullable=False)
+     completed = Column(Boolean, default=False, nullable=False)
+     completed_at = Column(DateTime, nullable=True)
+     user = relationship("User")
++    application = relationship("Application")
+ 
+-    __table_args__ = (UniqueConstraint("user_id", "item_key", name="uq_user_checklist_item"),)
+\ No newline at end of file
++    __table_args__ = (
++        UniqueConstraint("application_id", "item_key", name="uq_application_checklist_item"),
++    )
+\ No newline at end of file
+diff --git a/backend/app/models/request.py b/backend/app/models/request.py
+index 0e11b40..7412667 100644
+--- a/backend/app/models/request.py
++++ b/backend/app/models/request.py
+@@ -1,6 +1,6 @@
+ import enum
+ 
+-from sqlalchemy import DateTime, ForeignKey, String, Text, func
++from sqlalchemy import Boolean, DateTime, ForeignKey, String, Text, func
+ from sqlalchemy.dialects.postgresql import JSONB
+ from sqlalchemy.orm import Mapped, mapped_column
+ 
+@@ -15,6 +15,25 @@ class ConsultancyRequest(Base):
+     tier: Mapped[str] = mapped_column(String(50), nullable=False)
+     universities_selected: Mapped[list] = mapped_column(JSONB, nullable=False)
+     research_interests: Mapped[str | None] = mapped_column(Text, nullable=True)
++    created_at: Mapped[DateTime] = mapped_column(
++        DateTime(timezone=True), server_default=func.now(), nullable=False
++    )
++
++
++class Application(Base):
++    """Uma candidatura individual (uma universidade/programa) derivada de um ConsultancyRequest.
++    Cada item de `universities_selected` vira uma linha aqui, o que permite ter
++    prazos e checklist de documentos por candidatura em vez de por usuário."""
++
++    __tablename__ = "applications"
++
++    id: Mapped[int] = mapped_column(primary_key=True, index=True)
++    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False, index=True)
++    request_id: Mapped[int] = mapped_column(ForeignKey("requests.id"), nullable=False)
++    university: Mapped[str] = mapped_column(String(255), nullable=False)
++    department: Mapped[str] = mapped_column(String(255), nullable=False)
++    url: Mapped[str | None] = mapped_column(String(500), nullable=True)
++    is_custom: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+     created_at: Mapped[DateTime] = mapped_column(
+         DateTime(timezone=True), server_default=func.now(), nullable=False
+     )
+\ No newline at end of file
+diff --git a/backend/app/routers/admin.py b/backend/app/routers/admin.py
+index ff79e51..f9d488c 100644
+--- a/backend/app/routers/admin.py
++++ b/backend/app/routers/admin.py
+@@ -16,7 +16,8 @@ from fastapi import APIRouter, Depends, HTTPException
+ from pydantic import BaseModel, EmailStr
+ from app.models.content import Meeting, Deadline, ChecklistProgress
+ from app.schemas.content import MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
+-from app.models.request import ConsultancyRequest
++from app.models.request import ConsultancyRequest, Application
++from app.schemas.request import ApplicationResponse
+ router = APIRouter(prefix="/admin", tags=["admin"])
+ 
+ 
+@@ -61,7 +62,11 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
+     "html": f"""
+     <h2>Olá, {body.name}!</h2>
+     <p>Recebemos seu interesse no plano <strong>{body.tier}</strong>.</p>
+-    <p>Em breve você receberá um email com suas credenciais de acesso para preencher o formulário de universidades e programas.</p>
++    <p>Assim que confirmarmos seu pagamento, sua conta será ativada. Guarde os dados abaixo para o primeiro acesso:</p>
++    <p><strong>Email:</strong> {body.email}<br>
++    <strong>Senha temporária:</strong> {temp_password}</p>
++    <p>Depois de ativada, acesse <a href="https://www.gocanadabr.com.br/login">gocanadabr.com.br/login</a>,
++    entre com essa senha e troque por uma de sua preferência no seu painel.</p>
+     <p>Qualquer dúvida, responda este email.</p>
+     <br>
+     <p>Equipe GoCanadaBR</p>
+@@ -77,7 +82,6 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
+         <p><strong>Email:</strong> {body.email}</p>
+         <p><strong>Plano:</strong> {body.tier}</p>
+         <p>Acesse o painel admin para ativar a conta após confirmação do pagamento.</p>
+-        <p><strong>Senha temporária:</strong> {temp_password}</p>
+         """
+     })
+ 
+@@ -101,7 +105,7 @@ def get_user_detail(
+         raise NotFoundException("Usuário")
+ 
+     meetings = db.query(Meeting).filter(Meeting.user_id == user_id).order_by(Meeting.scheduled_at).all()
+-    deadlines = db.query(Deadline).filter(Deadline.user_id == user_id).order_by(Deadline.due_date).all()
++    applications = db.query(Application).filter(Application.user_id == user_id).order_by(Application.created_at).all()
+ 
+     return {
+         "id": user.id,
+@@ -110,6 +114,28 @@ def get_user_detail(
+         "tier": user.tier.value,
+         "is_active": user.is_active,
+         "meetings": [MeetingResponse.model_validate(m) for m in meetings],
++        "applications": [ApplicationResponse.model_validate(a) for a in applications],
++    }
++
++
++@router.get("/applications/{application_id}/detail")
++def get_application_admin_detail(
++    application_id: int,
++    db: Session = Depends(get_db),
++    _: User = Depends(get_admin_user),
++):
++    application = db.query(Application).filter(Application.id == application_id).first()
++    if application is None:
++        raise NotFoundException("Candidatura")
++
++    deadlines = db.query(Deadline).filter(Deadline.application_id == application_id).order_by(Deadline.due_date).all()
++
++    return {
++        "id": application.id,
++        "university": application.university,
++        "department": application.department,
++        "url": application.url,
++        "is_custom": application.is_custom,
+         "deadlines": [DeadlineResponse.model_validate(d) for d in deadlines],
+     }
+ 
+@@ -142,9 +168,12 @@ def add_meeting(user_id: int, body: MeetingCreate, db: Session = Depends(get_db)
+     db.refresh(meeting)
+     return meeting
+ 
+-@router.post("/users/{user_id}/deadlines", response_model=DeadlineResponse, status_code=201)
+-def add_deadline(user_id: int, body: DeadlineCreate, db: Session = Depends(get_db), _: User = Depends(get_admin_user)):
+-    deadline = Deadline(user_id=user_id, **body.model_dump())
++@router.post("/applications/{application_id}/deadlines", response_model=DeadlineResponse, status_code=201)
++def add_deadline(application_id: int, body: DeadlineCreate, db: Session = Depends(get_db), _: User = Depends(get_admin_user)):
++    application = db.query(Application).filter(Application.id == application_id).first()
++    if application is None:
++        raise NotFoundException("Candidatura")
++    deadline = Deadline(user_id=application.user_id, application_id=application.id, **body.model_dump())
+     db.add(deadline)
+     db.commit()
+     db.refresh(deadline)
+@@ -160,10 +189,11 @@ def delete_user(
+     if user is None:
+         raise NotFoundException("Usuário")
+ 
+-    db.query(ConsultancyRequest).filter(ConsultancyRequest.user_id == user_id).delete()
+     db.query(Meeting).filter(Meeting.user_id == user_id).delete()
+     db.query(Deadline).filter(Deadline.user_id == user_id).delete()
+     db.query(ChecklistProgress).filter(ChecklistProgress.user_id == user_id).delete()
++    db.query(Application).filter(Application.user_id == user_id).delete()
++    db.query(ConsultancyRequest).filter(ConsultancyRequest.user_id == user_id).delete()
+ 
+     db.delete(user)
+     db.commit()
+diff --git a/backend/app/routers/auth.py b/backend/app/routers/auth.py
+index 802f6ff..d18b243 100644
+--- a/backend/app/routers/auth.py
++++ b/backend/app/routers/auth.py
+@@ -1,14 +1,14 @@
+ # app/routers/auth.py
+ 
+-from fastapi import APIRouter, Depends
++from fastapi import APIRouter, Depends, HTTPException
+ from sqlalchemy.orm import Session
+ 
+-from app.core.security import create_access_token, verify_password
++from app.core.security import create_access_token, verify_password, hash_password
+ from app.deps import get_db
+ from app.exceptions import CredentialsException
+ from app.models.user import User
+ from app.schemas.auth import LoginRequest, TokenResponse
+-from app.schemas.user import UserResponse
++from app.schemas.user import UserResponse, PasswordChange
+ from app.deps import get_active_user
+ 
+ 
+@@ -29,4 +29,20 @@ def login(body: LoginRequest, db: Session = Depends(get_db)):
+         raise CredentialsException()
+ 
+     token = create_access_token(subject=user.email)
+-    return TokenResponse(access_token=token)
+\ No newline at end of file
++    return TokenResponse(access_token=token)
++
++
++@router.post("/change-password")
++def change_password(
++    body: PasswordChange,
++    db: Session = Depends(get_db),
++    user: User = Depends(get_active_user),
++):
++    if not verify_password(body.current_password, user.hashed_password):
++        raise HTTPException(400, "Senha atual incorreta.")
++    if len(body.new_password) < 8:
++        raise HTTPException(400, "A nova senha deve ter ao menos 8 caracteres.")
++
++    user.hashed_password = hash_password(body.new_password)
++    db.commit()
++    return {"message": "Senha atualizada."}
+\ No newline at end of file
+diff --git a/backend/app/routers/dashboard.py b/backend/app/routers/dashboard.py
+index 56d9fbe..78ba4d6 100644
+--- a/backend/app/routers/dashboard.py
++++ b/backend/app/routers/dashboard.py
+@@ -3,52 +3,109 @@ from sqlalchemy.orm import Session
+ 
+ from app.deps import get_db, get_current_user
+ from app.models.content import Meeting, Deadline, ChecklistProgress
++from app.models.request import Application
+ from app.models.user import User
+-from app.schemas.content import DashboardResponse
++from app.schemas.content import DashboardResponse, ApplicationSummary, ApplicationDetailResponse, ChecklistItemResponse
+ from app.core.checklist_items import CHECKLIST_ITEMS
+ 
+ router = APIRouter(prefix="/me", tags=["dashboard"])
+ 
++
++def _get_owned_application(application_id: int, user: User, db: Session) -> Application:
++    application = db.query(Application).filter(
++        Application.id == application_id, Application.user_id == user.id
++    ).first()
++    if application is None:
++        raise HTTPException(404, "Candidatura não encontrada.")
++    return application
++
++
+ @router.get("/dashboard", response_model=DashboardResponse)
+ def get_dashboard(db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+-        if not user.is_active:
+-            raise HTTPException(403, "Conta ainda não ativada.")
+-        else:
+-            meetings = db.query(Meeting).filter(Meeting.user_id == user.id).order_by(Meeting.scheduled_at).all()
+-            deadlines = db.query(Deadline).filter(Deadline.user_id == user.id).order_by(Deadline.due_date).all()
+-            progress = {p.item_key: p.completed for p in db.query(ChecklistProgress).filter(ChecklistProgress.user_id == user.id).all()}
+-
+-            checklist = [
+-                {"key": item["key"], "label": item["label"], "completed": progress.get(item["key"], False)}
+-                for item in CHECKLIST_ITEMS
+-            ]
+-
+-        return {
+-            "name": user.name,
+-            "tier": user.tier.value,
+-            "meetings": meetings,
+-            "deadlines": deadlines,
+-            "checklist": checklist,
+-        }
+-
+-@router.patch("/checklist/{item_key}")
+-def toggle_checklist_item(item_key: str, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+     if not user.is_active:
+         raise HTTPException(403, "Conta ainda não ativada.")
+ 
++    meetings = db.query(Meeting).filter(Meeting.user_id == user.id).order_by(Meeting.scheduled_at).all()
++    applications = db.query(Application).filter(Application.user_id == user.id).order_by(Application.created_at).all()
++
++    total_items = len(CHECKLIST_ITEMS)
++    summaries = []
++    for app_ in applications:
++        deadline_count = db.query(Deadline).filter(Deadline.application_id == app_.id).count()
++        checklist_done = db.query(ChecklistProgress).filter(
++            ChecklistProgress.application_id == app_.id, ChecklistProgress.completed == True
++        ).count()
++        summaries.append(ApplicationSummary(
++            id=app_.id,
++            university=app_.university,
++            department=app_.department,
++            url=app_.url,
++            is_custom=app_.is_custom,
++            deadline_count=deadline_count,
++            checklist_done=checklist_done,
++            checklist_total=total_items,
++        ))
++
++    return {
++        "name": user.name,
++        "tier": user.tier.value,
++        "meetings": meetings,
++        "applications": summaries,
++    }
++
++
++@router.get("/applications/{application_id}", response_model=ApplicationDetailResponse)
++def get_application_detail(application_id: int, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
++    if not user.is_active:
++        raise HTTPException(403, "Conta ainda não ativada.")
++
++    application = _get_owned_application(application_id, user, db)
++
++    deadlines = db.query(Deadline).filter(Deadline.application_id == application.id).order_by(Deadline.due_date).all()
++    progress = {
++        p.item_key: p.completed
++        for p in db.query(ChecklistProgress).filter(ChecklistProgress.application_id == application.id).all()
++    }
++    checklist = [
++        ChecklistItemResponse(key=item["key"], label=item["label"], completed=progress.get(item["key"], False))
++        for item in CHECKLIST_ITEMS
++    ]
++
++    return ApplicationDetailResponse(
++        id=application.id,
++        university=application.university,
++        department=application.department,
++        url=application.url,
++        is_custom=application.is_custom,
++        deadlines=deadlines,
++        checklist=checklist,
++    )
++
++
++@router.patch("/applications/{application_id}/checklist/{item_key}")
++def toggle_application_checklist_item(
++    application_id: int, item_key: str, db: Session = Depends(get_db), user: User = Depends(get_current_user)
++):
++    if not user.is_active:
++        raise HTTPException(403, "Conta ainda não ativada.")
++
++    application = _get_owned_application(application_id, user, db)
++
+     valid_keys = {i["key"] for i in CHECKLIST_ITEMS}
+     if item_key not in valid_keys:
+         raise HTTPException(404, "Item inválido.")
+ 
+     entry = db.query(ChecklistProgress).filter(
+-        ChecklistProgress.user_id == user.id, ChecklistProgress.item_key == item_key
++        ChecklistProgress.application_id == application.id, ChecklistProgress.item_key == item_key
+     ).first()
+ 
+     if entry:
+         entry.completed = not entry.completed
+     else:
+-        entry = ChecklistProgress(user_id=user.id, item_key=item_key, completed=True)
++        entry = ChecklistProgress(
++            user_id=user.id, application_id=application.id, item_key=item_key, completed=True
++        )
+         db.add(entry)
+ 
+     db.commit()
+-    return {"key": item_key, "completed": entry.completed}
+\ No newline at end of file
++    return {"key": item_key, "completed": entry.completed}
+diff --git a/backend/app/routers/requests.py b/backend/app/routers/requests.py
+index fde51d7..6704964 100644
+--- a/backend/app/routers/requests.py
++++ b/backend/app/routers/requests.py
+@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
+ 
+ from app.deps import get_active_user, get_db
+ from app.exceptions import TierPermissionException
+-from app.models.request import ConsultancyRequest
++from app.models.request import ConsultancyRequest, Application
+ from app.models.user import User
+ from app.schemas.request import RequestCreate, RequestResponse
+ from app.services.email import send_request_email
+@@ -37,6 +37,17 @@ def create_request(
+     db.commit()
+     db.refresh(db_request)
+ 
++    for selection in body.universities_selected:
++        db.add(Application(
++            user_id=user.id,
++            request_id=db_request.id,
++            university=selection.university,
++            department=selection.department,
++            url=selection.url,
++            is_custom=selection.is_custom,
++        ))
++    db.commit()
++
+     send_request_email(user=user, request=db_request)
+ 
+     return db_request
+\ No newline at end of file
+diff --git a/backend/app/schemas/content.py b/backend/app/schemas/content.py
+index 3b39462..118e141 100644
+--- a/backend/app/schemas/content.py
++++ b/backend/app/schemas/content.py
+@@ -52,9 +52,29 @@ class ChecklistItemResponse(BaseModel):
+     completed: bool
+ 
+ 
++class ApplicationSummary(BaseModel):
++    id: int
++    university: str
++    department: str
++    url: Optional[str] = None
++    is_custom: bool
++    deadline_count: int
++    checklist_done: int
++    checklist_total: int
++
++
++class ApplicationDetailResponse(BaseModel):
++    id: int
++    university: str
++    department: str
++    url: Optional[str] = None
++    is_custom: bool
++    deadlines: list[DeadlineResponse]
++    checklist: list[ChecklistItemResponse]
++
++
+ class DashboardResponse(BaseModel):
+     name: Optional[str]
+     tier: str
+     meetings: list[MeetingResponse]
+-    deadlines: list[DeadlineResponse]
+-    checklist: list[ChecklistItemResponse]
+\ No newline at end of file
++    applications: list[ApplicationSummary]
+\ No newline at end of file
+diff --git a/backend/app/schemas/request.py b/backend/app/schemas/request.py
+index 460bd47..e07ac8b 100644
+--- a/backend/app/schemas/request.py
++++ b/backend/app/schemas/request.py
+@@ -42,4 +42,14 @@ class RequestResponse(BaseModel):
+     universities_selected: list[UniversitySelection]
+     research_interests: str | None
+ 
++    model_config = {"from_attributes": True}
++
++
++class ApplicationResponse(BaseModel):
++    id: int
++    university: str
++    department: str
++    url: str | None = None
++    is_custom: bool
++
+     model_config = {"from_attributes": True}
+\ No newline at end of file
+diff --git a/backend/app/schemas/user.py b/backend/app/schemas/user.py
+index ba265fa..48371d9 100644
+--- a/backend/app/schemas/user.py
++++ b/backend/app/schemas/user.py
+@@ -7,6 +7,11 @@ class UserTierUpdate(BaseModel):
+     tier: TierEnum
+ 
+ 
++class PasswordChange(BaseModel):
++    current_password: str
++    new_password: str
++
++
+ class UserResponse(BaseModel):
+     id: int
+     email: EmailStr
+diff --git a/frontend/main.py b/frontend/main.py
+index 825348d..3377673 100644
+--- a/frontend/main.py
++++ b/frontend/main.py
+@@ -11,6 +11,7 @@ from pages.dashboard import dashboard_page
+ from pages.blog import blog_list_page, blog_post_page
+ from pages.admin_client import admin_client_page
+ from pages.admin_blog import admin_blog_page
++from pages.application_detail import application_detail_page
+ import os
+ 
+ print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
+@@ -76,6 +77,10 @@ def admin_client(user_id: int):
+ def admin_blog():
+     admin_blog_page()
+ 
++@ui.page("/painel/candidatura/{application_id}")
++def painel_candidatura(application_id: int):
++    application_detail_page(application_id)
++
+ ui.run(
+     title="GoCanada",
+     port=int(os.getenv("PORT", 8080)),
+diff --git a/frontend/pages/admin_client.py b/frontend/pages/admin_client.py
+index e06e1ca..b668542 100644
+--- a/frontend/pages/admin_client.py
++++ b/frontend/pages/admin_client.py
+@@ -5,6 +5,7 @@ import httpx
+ import os
+ from dotenv import load_dotenv
+ from state.user import get_token
++from services.api import add_deadline_to_application, get_application_admin_detail
+ 
+ load_dotenv()
+ API_URL = os.getenv("API_URL", "http://localhost:8000")
+@@ -37,20 +38,6 @@ def add_meeting(token: str, user_id: int, title: str, scheduled_at: str, notes:
+         return None
+ 
+ 
+-def add_deadline(token: str, user_id: int, label: str, due_date: str) -> dict | None:
+-    try:
+-        response = httpx.post(
+-            f"{API_URL}/admin/users/{user_id}/deadlines",
+-            json={"label": label, "due_date": due_date},
+-            headers={"Authorization": f"bearer {token}"},
+-        )
+-        if response.status_code == 201:
+-            return response.json()
+-        return None
+-    except Exception:
+-        return None
+-
+-
+ def admin_client_page(user_id: int) -> None:
+     token = get_token()
+     detail = get_client_detail(token, user_id)
+@@ -71,7 +58,7 @@ def admin_client_page(user_id: int) -> None:
+ 
+             ui.separator().classes("my-4")
+ 
+-            # reuniões
++            # reuniões (gerais, não vinculadas a uma universidade)
+             ui.label("Reuniões").classes("text-lg font-semibold text-stone-700 mb-2")
+             for m in detail["meetings"]:
+                 with ui.row().classes("w-full justify-between py-1 border-b border-stone-100"):
+@@ -107,35 +94,53 @@ def admin_client_page(user_id: int) -> None:
+ 
+             ui.separator().classes("my-4")
+ 
+-            # prazos
+-            ui.label("Prazos").classes("text-lg font-semibold text-stone-700 mb-2")
+-            for d in detail["deadlines"]:
+-                with ui.row().classes("w-full justify-between py-1 border-b border-stone-100"):
+-                    ui.label(d["label"])
+-                    ui.label(d["due_date"]).classes("text-stone-500 text-sm")
+-            if not detail["deadlines"]:
+-                ui.label("Nenhum prazo cadastrado.").classes("text-stone-400 text-sm")
+-
+-            with ui.row().classes("w-full gap-2 items-end mt-3 flex-wrap"):
+-                d_label = ui.input("Descrição").classes("flex-1")
+-                d_date = ui.input("Data").props('type=date').classes("flex-1")
+-                d_msg = ui.label("").classes("text-sm")
+-                d_msg.set_visibility(False)
+-
+-                def handle_add_deadline():
+-                    if not d_label.value or not d_date.value:
+-                        d_msg.text = "Preencha descrição e data."
+-                        d_msg.classes("text-red-500")
+-                        d_msg.set_visibility(True)
+-                        return
+-                    result = add_deadline(token, user_id, d_label.value, d_date.value)
+-                    if result:
+-                        ui.navigate.to(f"/admin/users/{user_id}")
++            # candidaturas — prazos agora são por universidade, não por cliente
++            ui.label("Candidaturas e prazos").classes("text-lg font-semibold text-stone-700 mb-2")
++            applications = detail.get("applications", [])
++
++            if not applications:
++                ui.label(
++                    "Cliente ainda não preencheu o formulário de universidades."
++                ).classes("text-stone-400 text-sm")
++
++            for a in applications:
++                with ui.card().classes("w-full p-4 bg-stone-50 rounded-xl mb-3"):
++                    ui.label(f"{a['university']} — {a['department']}").classes(
++                        "font-medium text-stone-800"
++                    )
++
++                    app_detail = get_application_admin_detail(token, a["id"])
++                    existing_deadlines = app_detail.get("deadlines", []) if app_detail else []
++
++                    if existing_deadlines:
++                        with ui.column().classes("w-full gap-1 mt-2"):
++                            for d in existing_deadlines:
++                                with ui.row().classes("w-full justify-between py-1 border-b border-stone-100"):
++                                    ui.label(d["label"]).classes("text-stone-700 text-sm")
++                                    ui.label(d["due_date"]).classes("text-stone-500 text-sm")
+                     else:
+-                        d_msg.text = "Erro ao adicionar prazo."
+-                        d_msg.classes("text-red-500")
+-                        d_msg.set_visibility(True)
+-
+-                ui.button("Adicionar", on_click=handle_add_deadline).classes(
+-                    "bg-amber-600 text-white rounded-xl px-4 py-2"
+-                )
+\ No newline at end of file
++                        ui.label("Nenhum prazo cadastrado ainda.").classes("text-stone-400 text-sm mt-2")
++
++                    with ui.row().classes("w-full gap-2 items-end mt-2 flex-wrap"):
++                        d_label = ui.input("Descrição do prazo").classes("flex-1")
++                        d_date = ui.input("Data").props('type=date').classes("flex-1")
++                        d_msg = ui.label("").classes("text-sm")
++                        d_msg.set_visibility(False)
++
++                        def handle_add_deadline(app_id=a["id"], label=d_label, date=d_date, msg=d_msg):
++                            if not label.value or not date.value:
++                                msg.text = "Preencha descrição e data."
++                                msg.classes("text-red-500")
++                                msg.set_visibility(True)
++                                return
++                            result = add_deadline_to_application(token, app_id, label.value, date.value)
++                            if result:
++                                ui.navigate.to(f"/admin/users/{user_id}")
++                            else:
++                                msg.text = "Erro ao adicionar prazo."
++                                msg.classes("text-red-500")
++                                msg.set_visibility(True)
++
++                        ui.button("Adicionar prazo", on_click=handle_add_deadline).classes(
++                            "bg-amber-600 text-white rounded-xl px-4 py-2"
++                        )
+diff --git a/frontend/pages/application_detail.py b/frontend/pages/application_detail.py
+new file mode 100644
+index 0000000..c0ec15a
+--- /dev/null
++++ b/frontend/pages/application_detail.py
+@@ -0,0 +1,69 @@
++# pages/application_detail.py
++
++from nicegui import ui
++from state.user import get_token, is_logged_in, get_is_active
++from services.api import get_application_detail, toggle_application_checklist_item
++from pages.layout import authenticated_header
++
++
++def application_detail_page(application_id: int) -> None:
++    if not is_logged_in():
++        ui.navigate.to("/login")
++        return
++    if not get_is_active():
++        ui.navigate.to("/interesse")
++        return
++
++    token = get_token()
++    data = get_application_detail(token, application_id)
++
++    with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-8 px-4"):
++        authenticated_header()
++
++        with ui.column().classes("w-full max-w-2xl gap-6 mt-4"):
++            ui.button("← Voltar ao painel", on_click=lambda: ui.navigate.to("/painel")).classes(
++                "bg-stone-200 text-stone-700 rounded-xl px-4 py-2 self-start"
++            )
++
++            if not data:
++                with ui.card().classes("w-full p-8 text-center"):
++                    ui.label("Candidatura não encontrada.").classes("text-red-500")
++                return
++
++            # cabeçalho da candidatura
++            with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
++                if data.get("is_custom"):
++                    ui.label("Personalizada").classes("text-xs text-amber-600 font-semibold uppercase mb-1")
++                ui.label(data["university"]).classes("text-2xl font-bold text-stone-800")
++                ui.label(data["department"]).classes("text-stone-500 mb-2")
++                if data.get("url"):
++                    ui.link("Ver página do programa", data["url"], new_tab=True).classes("text-amber-700 text-sm")
++
++            # prazos
++            with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
++                ui.label("Prazos desta candidatura").classes("text-lg font-bold text-stone-800 mb-3")
++                deadlines = data.get("deadlines", [])
++                if not deadlines:
++                    ui.label("Nenhum prazo cadastrado ainda.").classes("text-stone-400 text-sm")
++                for d in deadlines:
++                    with ui.row().classes("w-full justify-between items-center py-2 border-b border-stone-100"):
++                        ui.label(d["label"]).classes("text-stone-700")
++                        ui.label(d["due_date"]).classes("text-amber-700 font-medium text-sm")
++
++            # checklist
++            with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
++                ui.label("Checklist de documentos").classes("text-lg font-bold text-stone-800 mb-3")
++                checklist = data.get("checklist", [])
++
++                def make_toggle_handler(item_key, checkbox):
++                    def handler(e):
++                        result = toggle_application_checklist_item(token, application_id, item_key)
++                        if result is None:
++                            checkbox.value = not e.value  # revert on failure
++                            ui.notify("Erro ao atualizar item.", color="negative")
++                    return handler
++
++                for item in checklist:
++                    with ui.row().classes("w-full items-center py-1"):
++                        cb = ui.checkbox(item["label"], value=item["completed"])
++                        cb.on_value_change(make_toggle_handler(item["key"], cb))
+diff --git a/frontend/pages/dashboard.py b/frontend/pages/dashboard.py
+index 1e09ad9..8d576b1 100644
+--- a/frontend/pages/dashboard.py
++++ b/frontend/pages/dashboard.py
+@@ -3,7 +3,7 @@
+ # pyrefly: ignore [missing-import]
+ from nicegui import ui
+ from state.user import get_token, is_logged_in, get_is_active
+-from services.api import get_dashboard, toggle_checklist_item
++from services.api import get_dashboard, change_password
+ from pages.layout import authenticated_header
+ from nicegui import app
+ 
+@@ -28,19 +28,25 @@ def dashboard_page() -> None:
+                 )
+             return
+ 
+-        with ui.column().classes("w-full max-w-2xl gap-6 mt-4"):
++        with ui.column().classes("w-full max-w-3xl gap-6 mt-4"):
+ 
+-            # plano
++            # plano + conta
+             with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
+-                ui.label(f"Plano {data['tier'].capitalize()}").classes(
+-                    "text-xl font-bold text-amber-700"
+-                )
+-                ui.button(
+-                    "Preencher formulário de universidades",
+-                    on_click=lambda: ui.navigate.to("/formulario"),
+-                ).classes("mt-3 bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700")
++                with ui.row().classes("w-full justify-between items-center flex-wrap gap-3"):
++                    ui.label(f"Plano {data['tier'].capitalize()}").classes(
++                        "text-xl font-bold text-amber-700"
++                    )
++                    with ui.row().classes("gap-2"):
++                        ui.button(
++                            "Preencher formulário de universidades",
++                            on_click=lambda: ui.navigate.to("/formulario"),
++                        ).classes("bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700")
++                        ui.button(
++                            "Alterar senha",
++                            on_click=lambda: open_password_dialog(token),
++                        ).classes("bg-stone-200 text-stone-700 rounded-xl px-4 py-2")
+ 
+-            # reuniões
++            # reuniões (gerais, não vinculadas a uma universidade específica)
+             with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
+                 ui.label("Reuniões com o consultor").classes("text-lg font-bold text-stone-800 mb-3")
+                 meetings = data.get("meetings", [])
+@@ -56,31 +62,69 @@ def dashboard_page() -> None:
+                             "text-amber-700 font-medium text-sm"
+                         )
+ 
+-            # prazos
++            # candidaturas — uma "caixa" por universidade/programa
+             with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
+-                ui.label("Prazos de candidatura").classes("text-lg font-bold text-stone-800 mb-3")
+-                deadlines = data.get("deadlines", [])
+-                if not deadlines:
+-                    ui.label("Nenhum prazo cadastrado ainda.").classes("text-stone-400 text-sm")
+-                for d in deadlines:
+-                    with ui.row().classes("w-full justify-between items-center py-2 border-b border-stone-100"):
+-                        ui.label(d["label"]).classes("text-stone-700")
+-                        ui.label(d["due_date"]).classes("text-amber-700 font-medium text-sm")
++                ui.label("Suas candidaturas").classes("text-lg font-bold text-stone-800 mb-4")
++                applications = data.get("applications", [])
+ 
+-            # checklist
+-            with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
+-                ui.label("Checklist de documentos").classes("text-lg font-bold text-stone-800 mb-3")
+-                checklist = data.get("checklist", [])
++                if not applications:
++                    ui.label(
++                        "Nenhuma candidatura ainda — preencha o formulário de universidades acima."
++                    ).classes("text-stone-400 text-sm")
++                else:
++                    with ui.grid(columns="repeat(auto-fill, minmax(220px, 1fr))").classes("w-full gap-4"):
++                        for a in applications:
++                            done = a["checklist_done"]
++                            total = a["checklist_total"]
++                            with ui.card().classes(
++                                "p-5 rounded-2xl bg-stone-50 hover:bg-amber-50 hover:shadow-md "
++                                "cursor-pointer transition-all border border-stone-100"
++                            ).on("click", lambda app_id=a["id"]: ui.navigate.to(f"/painel/candidatura/{app_id}")):
++                                if a.get("is_custom"):
++                                    ui.label("Personalizada").classes(
++                                        "text-xs text-amber-600 font-semibold uppercase mb-1"
++                                    )
++                                ui.label(a["university"]).classes("text-stone-800 font-bold text-lg")
++                                ui.label(a["department"]).classes("text-stone-500 text-sm mb-3")
++                                with ui.row().classes("w-full justify-between items-center text-xs"):
++                                    ui.label(f"{a['deadline_count']} prazo(s)").classes("text-stone-400")
++                                    ui.label(f"{done}/{total} documentos").classes(
++                                        "text-amber-700 font-medium"
++                                    )
++
++
++def open_password_dialog(token: str) -> None:
++    with ui.dialog() as dialog, ui.card().classes("p-6 gap-3 rounded-2xl"):
++        ui.label("Alterar senha").classes("text-lg font-bold text-stone-800")
++        current = ui.input("Senha atual", password=True).classes("w-full")
++        new = ui.input("Nova senha", password=True).classes("w-full")
++        confirm = ui.input("Confirmar nova senha", password=True).classes("w-full")
++        msg = ui.label("").classes("text-sm")
++        msg.set_visibility(False)
+ 
+-                def make_toggle_handler(item_key, checkbox):
+-                    def handler(e):
+-                        result = toggle_checklist_item(token, item_key)
+-                        if result is None:
+-                            checkbox.value = not e.value  # revert on failure
+-                            ui.notify("Erro ao atualizar item.", color="negative")
+-                    return handler
++        def handle_submit():
++            if not current.value or not new.value:
++                msg.text = "Preencha todos os campos."
++                msg.classes(replace="text-sm text-red-500")
++                msg.set_visibility(True)
++                return
++            if new.value != confirm.value:
++                msg.text = "As senhas novas não coincidem."
++                msg.classes(replace="text-sm text-red-500")
++                msg.set_visibility(True)
++                return
++            ok, text = change_password(token, current.value, new.value)
++            if ok:
++                ui.notify("Senha alterada com sucesso.", color="positive")
++                dialog.close()
++            else:
++                msg.text = text
++                msg.classes(replace="text-sm text-red-500")
++                msg.set_visibility(True)
+ 
+-                for item in checklist:
+-                    with ui.row().classes("w-full items-center py-1"):
+-                        cb = ui.checkbox(item["label"], value=item["completed"])
+-                        cb.on_value_change(make_toggle_handler(item["key"], cb))
+\ No newline at end of file
++        with ui.row().classes("gap-2 justify-end w-full mt-2"):
++            ui.button("Cancelar", on_click=dialog.close).classes("bg-stone-200 text-stone-700 rounded-xl px-4 py-2")
++            ui.button("Salvar", on_click=handle_submit).classes(
++                "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
++            )
++    dialog.open()
+diff --git a/frontend/services/api.py b/frontend/services/api.py
+index 9ab2e54..48d8904 100644
+--- a/frontend/services/api.py
++++ b/frontend/services/api.py
+@@ -101,19 +101,53 @@ def get_dashboard(token: str) -> dict | None:
+         return None
+ 
+ 
+-def toggle_checklist_item(token: str, item_key: str) -> dict | None:
++def get_application_detail(token: str, application_id: int) -> dict | None:
++    try:
++        response = httpx.get(
++            f"{API_URL}/me/applications/{application_id}",
++            headers={"Authorization": f"bearer {token}"},
++        )
++        if response.status_code == 200:
++            return response.json()
++        return None
++    except Exception as e:
++        print(f"get_application_detail EXCEPTION: {type(e).__name__}: {e}")
++        return None
++
++
++def toggle_application_checklist_item(token: str, application_id: int, item_key: str) -> dict | None:
+     try:
+         response = httpx.patch(
+-            f"{API_URL}/me/checklist/{item_key}",
++            f"{API_URL}/me/applications/{application_id}/checklist/{item_key}",
+             headers={"Authorization": f"bearer {token}"},
+         )
+         if response.status_code == 200:
+             return response.json()
+         return None
+     except Exception as e:
+-        print(f"toggle_checklist_item EXCEPTION: {type(e).__name__}: {e}")
++        print(f"toggle_application_checklist_item EXCEPTION: {type(e).__name__}: {e}")
+         return None
+ 
++
++def change_password(token: str, current_password: str, new_password: str) -> tuple[bool, str]:
++    try:
++        response = httpx.post(
++            f"{API_URL}/auth/change-password",
++            json={"current_password": current_password, "new_password": new_password},
++            headers={"Authorization": f"bearer {token}"},
++        )
++        if response.status_code == 200:
++            return True, response.json().get("message", "Senha atualizada.")
++        try:
++            detail = response.json().get("detail", "Erro ao trocar senha.")
++        except Exception:
++            detail = "Erro ao trocar senha."
++        return False, detail
++    except Exception as e:
++        print(f"change_password EXCEPTION: {type(e).__name__}: {e}")
++        return False, "Erro de conexão."
++
++
+ def get_posts() -> list:
+     try:
+         response = httpx.get(f"{API_URL}/blog")
+@@ -185,4 +219,31 @@ def delete_post_admin(token: str, post_id: int) -> bool:
+         )
+         return response.status_code == 204
+     except Exception:
+-        return False
+\ No newline at end of file
++        return False
++
++
++def get_application_admin_detail(token: str, application_id: int) -> dict | None:
++    try:
++        response = httpx.get(
++            f"{API_URL}/admin/applications/{application_id}/detail",
++            headers={"Authorization": f"bearer {token}"},
++        )
++        if response.status_code == 200:
++            return response.json()
++        return None
++    except Exception:
++        return None
++
++
++def add_deadline_to_application(token: str, application_id: int, label: str, due_date: str) -> dict | None:
++    try:
++        response = httpx.post(
++            f"{API_URL}/admin/applications/{application_id}/deadlines",
++            json={"label": label, "due_date": due_date},
++            headers={"Authorization": f"bearer {token}"},
++        )
++        if response.status_code == 201:
++            return response.json()
++        return None
++    except Exception:
++        return None
+\ No newline at end of file

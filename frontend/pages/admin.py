@@ -6,7 +6,7 @@ from services.api import get_me
 import httpx
 import os
 from dotenv import load_dotenv
-from services.api import delete_user
+from services.api import delete_user, send_payment_link
 from state.user import logout
 
 load_dotenv()
@@ -162,6 +162,31 @@ def admin_page() -> None:
                                     ui.button("Ver detalhes", on_click=lambda uid=user["id"]: ui.navigate.to(f"/admin/users/{uid}")).classes(
     "bg-stone-600 text-white rounded-xl px-4 py-2 hover:bg-stone-700"
 )
+
+                            with ui.row().classes("w-full gap-2 items-center mt-2"):
+                                pix_input = ui.input("Link do Pix").classes("flex-1")
+                                pix_msg = ui.label("").classes("text-sm")
+                                pix_msg.set_visibility(False)
+
+                                def handle_send_pix(uid=user["id"], link=pix_input, msg=pix_msg):
+                                    if not link.value:
+                                        msg.text = "Cole o link antes de enviar."
+                                        msg.classes(replace="text-sm text-red-500")
+                                        msg.set_visibility(True)
+                                        return
+                                    ok = send_payment_link(token, uid, link.value)
+                                    if ok:
+                                        msg.text = "Cobrança enviada."
+                                        msg.classes(replace="text-sm text-green-600")
+                                        link.value = ""
+                                    else:
+                                        msg.text = "Erro ao enviar."
+                                        msg.classes(replace="text-sm text-red-500")
+                                    msg.set_visibility(True)
+
+                                ui.button("Enviar cobrança", on_click=handle_send_pix).classes(
+                                    "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
+                                )
 
 def add_logout_button():
     ui.button('Logoff', on_click=lambda: (logout(), ui.navigate.to('/login'))).props('flat color=negative')

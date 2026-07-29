@@ -104,6 +104,18 @@ def delete_user(token: str, user_id: int) -> bool:
     except Exception:
         return False
 
+def send_payment_link(token: str, user_id: int, pix_link: str) -> bool:
+    try:
+        response = httpx.post(
+            f"{API_URL}/admin/users/{user_id}/send-payment-link",
+            json={"pix_link": pix_link},
+            headers={"Authorization": f"bearer {token}"},
+        )
+        return response.status_code == 200
+    except Exception:
+        return False
+
+
 def get_dashboard(token: str) -> dict | None:
     try:
         response = httpx.get(

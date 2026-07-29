@@ -48,6 +48,42 @@ def _build_email_body(user: User, request: ConsultancyRequest) -> str:
     """
 
 
+TIER_LABELS = {
+    "basico": "Básico",
+    "intermediario": "Intermediário",
+    "avancado": "Avançado",
+}
+
+TIER_PRICES = {
+    "basico": "R$ 250",
+    "intermediario": "R$ 400",
+    "avancado": "R$ 800",
+}
+
+
+def send_payment_link_email(user: User, pix_link: str) -> None:
+    tier_value = user.tier.value if hasattr(user.tier, "value") else user.tier
+    tier_label = TIER_LABELS.get(tier_value, tier_value)
+    price = TIER_PRICES.get(tier_value, "")
+
+    resend.Emails.send({
+        "from": "GoCanadaBR <contato@gocanadabr.com.br>",
+        "to": user.email,
+        "subject": f"Pagamento — Plano {tier_label} — GoCanadaBR",
+        "html": f"""
+        <h2>Olá!</h2>
+        <p>Segue o link para pagamento via Pix referente ao seu plano
+        <strong>{tier_label}</strong> ({price}).</p>
+        <p><a href="{pix_link}">{pix_link}</a></p>
+        <p>Assim que o pagamento for identificado, confirmamos no sistema e seu
+        relatório entra em preparação.</p>
+        <p>Qualquer dúvida, é só responder este email.</p>
+        <br>
+        <p>Equipe GoCanadaBR</p>
+        """,
+    })
+
+
 def send_request_email(user: User, request: ConsultancyRequest) -> None:
     body = _build_email_body(user, request)
 
