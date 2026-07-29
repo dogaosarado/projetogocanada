@@ -8,7 +8,7 @@ from state.user import set_user
 def login_page() -> None:
     with ui.column().classes("w-full min-h-screen items-center justify-center bg-stone-50"):
         with ui.card().classes("w-96 p-8 shadow-lg rounded-2xl bg-white"):
-            ui.label("GoCanada").classes("text-3xl font-bold text-amber-700 mb-1")
+            ui.label("GoCanadaBR").classes("text-3xl font-bold text-amber-700 mb-1")
             ui.label("Acesse sua conta").classes("text-stone-500 mb-6")
 
             email = ui.input("Email").classes("w-full")
