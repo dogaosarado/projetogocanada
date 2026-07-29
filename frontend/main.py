@@ -17,6 +17,8 @@ import os
 
 print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
 
+app.add_static_files("/assets", os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets"))
+
 ui.add_head_html('''
 <style>
 .q-menu,
