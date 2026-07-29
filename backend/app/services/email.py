@@ -76,7 +76,7 @@ def send_payment_link_email(user: User, pix_link: str) -> None:
         <strong>{tier_label}</strong> ({price}).</p>
         <p><a href="{pix_link}">{pix_link}</a></p>
         <p>Assim que o pagamento for identificado, confirmamos no sistema e seu
-        relatório entra em preparação.</p>
+        relatório entra em preparação. Ele será enviado em até 48 horas após o recebimento do pagamento.</p>
         <p>Qualquer dúvida, é só responder este email.</p>
         <br>
         <p>Equipe GoCanadaBR</p>
