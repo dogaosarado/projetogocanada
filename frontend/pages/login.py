@@ -28,7 +28,14 @@ def login_page() -> None:
                         user = get_me(token)
                         print(f"USER FROM API: {user}")
                         if user:
-                            set_user(token=token, email=user["email"], tier=user["tier"], name=user.get("name"), is_active=user.get("is_active", False))
+                            set_user(
+                                token=token,
+                                email=user["email"],
+                                tier=user["tier"],
+                                name=user.get("name"),
+                                is_active=user.get("is_active", False),
+                                is_admin=user.get("is_admin", False),
+                            )
                             print(f"STORAGE AFTER SET: {app.storage.user}")
                             ui.navigate.to("/painel")
                         else:

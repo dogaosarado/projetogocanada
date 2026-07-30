@@ -14,41 +14,97 @@ def _excerpt(html: str, max_len: int = 110) -> str:
     return text
 
 
+# ---------------------------------------------------------------------------
+# Relatórios (serviço avulso — antigo produto único, agora com tier gratuito)
+# ---------------------------------------------------------------------------
 TIERS = [
     {
+        "name": "Grátis",
+        "price": "R$ 0",
+        "tier_key": "relatorio_gratis",
+        "features": [
+            "1 universidade",
+            "1 departamento",
+            "Tuition e valor da bolsa",
+        ],
+    },
+    {
         "name": "Básico",
-        "price": "R$ 250",
-        "tier_key": "basico",
+        "price": "R$ 150",
+        "tier_key": "relatorio_basico",
         "features": [
             "2 universidades",
             "1 departamento por universidade",
             "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
+            "Levantamento dos grupos de pesquisa do departamento",
         ],
     },
     {
         "name": "Intermediário",
-        "price": "R$ 400",
-        "tier_key": "intermediario",
+        "price": "R$ 250",
+        "tier_key": "relatorio_intermediario",
         "features": [
             "3 universidades",
             "1 departamento por universidade",
-            "Tudo do plano Básico",
-            "Ficha de 1 professor por departamento",
-            "Artigos, orientações e temas de pesquisa",
+            "Dossiê para o processo seletivo",
+            "Tuition e valor da bolsa",
+            "Levantamento dos grupos de pesquisa dos departamentos",
         ],
         "highlight": True,
     },
     {
         "name": "Avançado",
-        "price": "R$ 800",
-        "tier_key": "avancado",
+        "price": "R$ 400",
+        "tier_key": "relatorio_avancado",
         "features": [
             "4 universidades",
             "1 departamento por universidade",
+            "Dossiê para o processo seletivo",
+            "Tuition e valor da bolsa",
+            "Levantamento dos grupos de pesquisa do departamento",
+            "20% de desconto na mentoria",
+        ],
+    },
+]
+
+
+# ---------------------------------------------------------------------------
+# Mentoria (produto novo, independente do relatório)
+# ---------------------------------------------------------------------------
+MENTORSHIP_TIERS = [
+    {
+        "name": "Básico",
+        "price": "R$ 1.500",
+        "tier_key": "mentoria_basico",
+        "features": [
+            "8 encontros",
+            "Agendados conforme sua disponibilidade",
+            # TODO: preencher com o escopo real de cada encontro
+            "Acompanhamento do processo de aplicação",
+        ],
+    },
+    {
+        "name": "Intermediário",
+        "price": "R$ 2.000",
+        "tier_key": "mentoria_intermediario",
+        "features": [
+            "10 encontros",
+            "Agendados conforme sua disponibilidade",
+            "Tudo do plano Básico",
+            # TODO: preencher com o diferencial deste tier
+        ],
+        "highlight": True,
+    },
+    {
+        "name": "Avançado",
+        "price": "R$ 3.000",
+        "tier_key": "mentoria_avancado",
+        "features": [
+            "12 encontros",
+            "Agendados conforme sua disponibilidade",
             "Tudo do plano Intermediário",
-            "Ficha de 2 professores por departamento",
-            "Desconto em consultoria personalizada",
+            # TODO: preencher com o diferencial deste tier
         ],
     },
 ]
@@ -78,6 +134,51 @@ STEPS = [
 ]
 
 
+def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> None:
+    """Renders a row of pricing cards. Shared by relatórios and mentoria sections."""
+    with ui.row().classes("gap-6 flex-wrap justify-center"):
+        for tier in tiers:
+            highlight = tier.get("highlight", False)
+            card_classes = (
+                "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 border-2 border-amber-500 bg-amber-50"
+                if highlight
+                else "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 bg-stone-50"
+            )
+            with ui.card().classes(card_classes):
+                if highlight:
+                    ui.label("Mais popular").classes(
+                        "text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full self-start"
+                    )
+                ui.label(tier["name"]).classes("text-xl font-bold text-stone-800")
+                ui.label(tier["price"]).classes("text-3xl font-bold text-amber-700")
+
+                ui.separator()
+
+                for feature in tier["features"]:
+                    ui.html(
+                        f'<div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:4px;">'
+                        f'<span style="color:#d97706; flex-shrink:0; margin-top:2px;">✓</span>'
+                        f'<span style="color:#57534e; font-size:0.875rem; line-height:1.4;">{feature}</span></div>'
+                    )
+
+                ui.space()
+
+                def make_handler(t=tier["tier_key"]):
+                    def handler():
+                        select_ref["value"] = t
+                        if select_ref.get("widget"):
+                            select_ref["widget"].value = t
+                        ui.run_javascript(
+                            f"document.getElementById('{scroll_target_id}').scrollIntoView({{behavior:'smooth'}})"
+                        )
+                    return handler
+
+                ui.button(
+                    "Quero este plano",
+                    on_click=make_handler(),
+                ).classes("w-full mt-2 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700")
+
+
 def landing_page() -> None:
     selected_tier = {"value": None}
 
@@ -87,6 +188,9 @@ def landing_page() -> None:
         with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
             brand_logo()
             with ui.row().classes("gap-3 items-center"):
+                ui.button("Mentoria", on_click=lambda: ui.navigate.to("/mentoria")).props(
+                    "flat color=amber"
+                )
                 ui.button("Quem somos", on_click=lambda: ui.navigate.to("/quem-somos")).props(
                     "flat color=amber"
                 )
@@ -123,21 +227,27 @@ def landing_page() -> None:
                         ui.label(step["title"]).classes("text-stone-800 font-semibold")
                         ui.label(step["desc"]).classes("text-stone-500 text-sm")
 
-        # tiers
-        with ui.column().classes("w-full items-center py-16 px-4 bg-white").props('id="planos"'):
-            ui.label("Escolha seu plano").classes("text-3xl font-bold text-stone-800 mb-2 text-center")
+        # ---------------------------------------------------------------
+        # MENTORIA — acima da seção de relatórios, mesmo padrão visual.
+        # Os cards linkam para a página dedicada /mentoria em vez de um
+        # formulário inline, já que o formulário de inscrição vive lá.
+        # ---------------------------------------------------------------
+        with ui.column().classes("w-full items-center py-16 px-4 bg-amber-50/40"):
+            ui.label("Mentoria personalizada").classes(
+                "text-3xl font-bold text-stone-800 mb-2 text-center"
+            )
             ui.label(
-                "Selecione o plano ideal e preencha seus dados para começar."
-            ).classes("text-stone-500 mb-10 text-center")
+                "Acompanhamento individual, com encontros agendados conforme sua "
+                "disponibilidade, do planejamento à submissão."
+            ).classes("text-stone-500 mb-10 text-center max-w-xl")
 
             with ui.row().classes("gap-6 flex-wrap justify-center"):
-                tier_select_ref = {"widget": None}
-                for tier in TIERS:
+                for tier in MENTORSHIP_TIERS:
                     highlight = tier.get("highlight", False)
                     card_classes = (
-                        "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 border-2 border-amber-500 bg-amber-50"
+                        "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 border-2 border-amber-500 bg-white"
                         if highlight
-                        else "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 bg-stone-50"
+                        else "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 bg-white"
                     )
                     with ui.card().classes(card_classes):
                         if highlight:
@@ -150,24 +260,31 @@ def landing_page() -> None:
                         ui.separator()
 
                         for feature in tier["features"]:
-                            ui.html(f'<div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:4px;"><span style="color:#d97706; flex-shrink:0; margin-top:2px;">✓</span><span style="color:#57534e; font-size:0.875rem; line-height:1.4;">{feature}</span></div>')
+                            ui.html(
+                                f'<div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:4px;">'
+                                f'<span style="color:#d97706; flex-shrink:0; margin-top:2px;">✓</span>'
+                                f'<span style="color:#57534e; font-size:0.875rem; line-height:1.4;">{feature}</span></div>'
+                            )
 
                         ui.space()
 
-                        def make_handler(t=tier["tier_key"]):
-                            def handler():
-                                selected_tier["value"] = t
-                                if tier_select_ref["widget"]:
-                                    tier_select_ref["widget"].value = t
-                                ui.run_javascript(
-                                    "document.getElementById('cadastro').scrollIntoView({behavior:'smooth'})"
-                                )
-                            return handler
-
                         ui.button(
-                            "Quero este plano",
-                            on_click=make_handler(),
+                            "Saiba mais",
+                            on_click=lambda t=tier["tier_key"]: ui.navigate.to(f"/mentoria?tier={t}"),
                         ).classes("w-full mt-2 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700")
+
+        # tiers (relatórios)
+        with ui.column().classes("w-full items-center py-16 px-4 bg-white").props('id="planos"'):
+            ui.label("Escolha seu plano de relatório").classes(
+                "text-3xl font-bold text-stone-800 mb-2 text-center"
+            )
+            ui.label(
+                "Selecione o plano ideal e preencha seus dados para começar."
+            ).classes("text-stone-500 mb-10 text-center")
+
+            tier_select_ref = {"widget": None, "value": None}
+            _tier_cards(TIERS, "cadastro", tier_select_ref)
+            selected_tier = tier_select_ref
 
         # formulário de interesse
         with ui.column().classes("w-full items-center py-16 px-4").props('id="cadastro"'):
@@ -181,9 +298,14 @@ def landing_page() -> None:
                 email_input = ui.input("Email").classes("w-full mt-3")
 
                 tier_select = ui.select(
-                    {"basico": "Básico — R$ 250", "intermediario": "Intermediário — R$ 400", "avancado": "Avançado — R$ 800"},
+                    {
+                        "relatorio_gratis": "Grátis",
+                        "relatorio_basico": "Básico — R$ 150",
+                        "relatorio_intermediario": "Intermediário — R$ 250",
+                        "relatorio_avancado": "Avançado — R$ 400",
+                    },
                     label="Plano",
-                    value="basico",
+                    value="relatorio_gratis",
                 ).classes("w-full mt-3")
                 tier_select_ref["widget"] = tier_select
 

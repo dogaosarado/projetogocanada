@@ -1,7 +1,7 @@
 # pages/admin.py
 
 from nicegui import ui
-from state.user import get_token, get_tier, is_logged_in
+from state.user import get_token, get_is_admin, is_logged_in  # get_is_admin: NOVO, ver aviso no chat
 from services.api import get_me
 import httpx
 import os
@@ -12,6 +12,20 @@ from pages.layout import authenticated_header
 
 load_dotenv()
 API_URL = os.getenv("API_URL", "http://localhost:8000")
+
+# Rótulos e agrupamento pra exibir os dois produtos sem confundir o admin
+REPORT_TIER_OPTIONS = {
+    "relatorio_gratis": "Relatório — Grátis",
+    "relatorio_basico": "Relatório — Básico",
+    "relatorio_intermediario": "Relatório — Intermediário",
+    "relatorio_avancado": "Relatório — Avançado",
+}
+MENTORSHIP_TIER_OPTIONS = {
+    "mentoria_basico": "Mentoria — Básico",
+    "mentoria_intermediario": "Mentoria — Intermediário",
+    "mentoria_avancado": "Mentoria — Avançado",
+}
+ALL_TIER_OPTIONS = {**REPORT_TIER_OPTIONS, **MENTORSHIP_TIER_OPTIONS}
 
 
 def get_users(token: str) -> list:
@@ -60,9 +74,14 @@ def admin_page() -> None:
         return
 
     token = get_token()
-    tier = get_tier()
 
-    if tier != "avancado":
+    # ANTES: `if tier != "avancado": ui.navigate.to("/")`. Isso quebra
+    # sozinho com o rename do enum, e já era furado antes disso — qualquer
+    # cliente pagante do plano avançado do relatório caía direto no painel
+    # admin. Troquei pra um campo explícito. Ver aviso no chat: isso só
+    # funciona se state/user.py expuser get_is_admin() lendo o campo
+    # is_admin que agora vem em UserResponse/auth/me.
+    if not get_is_admin():
         ui.navigate.to("/")
         return
 
@@ -87,10 +106,10 @@ def admin_page() -> None:
                 new_email = ui.input("Email").classes("flex-1")
                 new_password = ui.input("Senha", password=True).classes("flex-1")
                 new_tier = ui.select(
-                    {"basico": "Básico", "intermediario": "Intermediário", "avancado": "Avançado"},
+                    ALL_TIER_OPTIONS,
                     label="Plano",
-                    value="basico",
-                ).classes("w-40")
+                    value="relatorio_basico",
+                ).classes("w-56")
                 create_msg = ui.label("").classes("text-sm")
                 create_msg.set_visibility(False)
 
@@ -128,15 +147,16 @@ def admin_page() -> None:
                                     ui.label(user["email"]).classes("font-medium text-stone-800")
                                     status = "Pago" if user["is_active"] else "Pendente"
                                     status_color = "text-green-600" if user["is_active"] else "text-red-500"
-                                    ui.label(f"{user['tier'].capitalize()} — {status}").classes(
+                                    tier_label = ALL_TIER_OPTIONS.get(user["tier"], user["tier"])
+                                    ui.label(f"{tier_label} — {status}").classes(
                                         f"text-sm {status_color}"
                                     )
 
                                 with ui.row().classes("gap-2 items-center"):
                                     tier_select = ui.select(
-                                        {"basico": "Básico", "intermediario": "Intermediário", "avancado": "Avançado"},
+                                        ALL_TIER_OPTIONS,
                                         value=user["tier"],
-                                    ).classes("w-36")
+                                    ).classes("w-56")
                                     activate_msg = ui.label("").classes("text-sm text-green-600")
                                     activate_msg.set_visibility(False)
 

@@ -2,6 +2,7 @@
 
 from nicegui import app, ui
 from pages.landing import landing_page
+from pages.mentoria import mentoria_page
 from pages.login import login_page
 from pages.form import form_page
 from pages.confirmation import confirmation_page
@@ -44,6 +45,11 @@ def admin():
 @ui.page("/")
 def index():
     landing_page()
+
+
+@ui.page("/mentoria")
+def mentoria():
+    mentoria_page()
 
 
 @ui.page("/login")
