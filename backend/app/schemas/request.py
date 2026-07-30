@@ -4,9 +4,10 @@ from app.models.user import TierEnum
 
 
 TIER_LIMITS = {
-    TierEnum.basico:        {"universities": 2},
-    TierEnum.intermediario: {"universities": 3},
-    TierEnum.avancado:      {"universities": 4},
+    TierEnum.relatorio_gratis:        {"universities": 1},
+    TierEnum.relatorio_basico:        {"universities": 2},
+    TierEnum.relatorio_intermediario: {"universities": 3},
+    TierEnum.relatorio_avancado:      {"universities": 4},
 }
 
 
@@ -29,7 +30,14 @@ class RequestCreate(BaseModel):
         return v
 
     def validate_against_tier(self, tier: TierEnum) -> None:
-        limits = TIER_LIMITS[tier]
+        limits = TIER_LIMITS.get(tier)
+        if limits is None:
+            # planos de mentoria (mentoria_*) não têm formulário de
+            # universidades — se isso disparar, é o endpoint errado sendo
+            # chamado pro tier errado, não um tier novo que falta cadastrar.
+            raise ValueError(
+                "Este plano não usa seleção de universidades."
+            )
         if len(self.universities_selected) > limits["universities"]:
             raise ValueError(
                 f"Seu plano permite no máximo {limits['universities']} universidade(s)."
