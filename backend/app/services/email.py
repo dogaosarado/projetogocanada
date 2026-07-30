@@ -49,22 +49,41 @@ def _build_email_body(user: User, request: ConsultancyRequest) -> str:
 
 
 TIER_LABELS = {
-    "basico": "Básico",
-    "intermediario": "Intermediário",
-    "avancado": "Avançado",
+    "relatorio_gratis": "Grátis",
+    "relatorio_basico": "Básico",
+    "relatorio_intermediario": "Intermediário",
+    "relatorio_avancado": "Avançado",
 }
 
 TIER_PRICES = {
-    "basico": "R$ 250",
-    "intermediario": "R$ 400",
-    "avancado": "R$ 800",
+    "relatorio_gratis": "R$ 0",
+    "relatorio_basico": "R$ 150",
+    "relatorio_intermediario": "R$ 250",
+    "relatorio_avancado": "R$ 400",
+}
+
+# Mentoria é produto separado do relatório — mesmos nomes de tier ("basico"
+# etc.), preços muito diferentes. Se send_payment_link_email() for reaproveitada
+# pra cobrar mentoria, ela vai pegar o preço errado daqui. Ver aviso no chat.
+MENTORSHIP_TIER_LABELS = {
+    "mentoria_basico": "Básico",
+    "mentoria_intermediario": "Intermediário",
+    "mentoria_avancado": "Avançado",
+}
+
+MENTORSHIP_TIER_PRICES = {
+    "mentoria_basico": "R$ 1.500",
+    "mentoria_intermediario": "R$ 2.000",
+    "mentoria_avancado": "R$ 3.000",
 }
 
 
 def send_payment_link_email(user: User, pix_link: str) -> None:
     tier_value = user.tier.value if hasattr(user.tier, "value") else user.tier
-    tier_label = TIER_LABELS.get(tier_value, tier_value)
-    price = TIER_PRICES.get(tier_value, "")
+    all_labels = {**TIER_LABELS, **MENTORSHIP_TIER_LABELS}
+    all_prices = {**TIER_PRICES, **MENTORSHIP_TIER_PRICES}
+    tier_label = all_labels.get(tier_value, tier_value)
+    price = all_prices.get(tier_value, "")
 
     resend.Emails.send({
         "from": "GoCanadaBR <contato@gocanadabr.com.br>",

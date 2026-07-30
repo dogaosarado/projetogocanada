@@ -21,6 +21,7 @@ class UserResponse(BaseModel):
     email: EmailStr
     tier: TierEnum
     is_active: bool
+    is_admin: bool
     name: Optional[str] = None
     created_at: datetime
 

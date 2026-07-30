@@ -42,8 +42,6 @@ def get_active_user(user: User = Depends(get_current_user)) -> User:
 
 
 def get_admin_user(user: User = Depends(get_current_user)) -> User:
-    # por ora admin é qualquer usuário com tier avançado
-    # depois você pode adicionar um campo is_admin no model
-    if user.tier.value != "avancado":
+    if not user.is_admin:
         raise CredentialsException()
     return user

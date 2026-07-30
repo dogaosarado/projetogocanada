@@ -41,13 +41,19 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=409, detail="Email já cadastrado.")
 
     temp_password = secrets.token_urlsafe(12)
+    tier_value = TierEnum(body.tier)
+
+    # Tier grátis do relatório não espera pagamento — ativa na hora.
+    # Todo o resto (relatório pago ou qualquer plano de mentoria) segue
+    # o fluxo manual de confirmação de Pix no /admin.
+    is_free = tier_value == TierEnum.relatorio_gratis
 
     db_user = User(
         email=body.email,
         name=body.name,
         hashed_password=hash_password(temp_password),
-        tier=TierEnum(body.tier),
-        is_active=False,
+        tier=tier_value,
+        is_active=is_free,
     )
     db.add(db_user)
     db.commit()
@@ -56,6 +62,19 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
     import resend
     from app.core.config import settings
     resend.api_key = settings.resend_api_key
+
+    if is_free:
+        payment_note = (
+            "<p>Seu plano é gratuito — nenhum pagamento é necessário. "
+            "Assim que você preencher o formulário de universidades, seu relatório "
+            "entra em preparação.</p>"
+        )
+    else:
+        payment_note = (
+            "<p>O relatório é entregue após a confirmação do pagamento do plano escolhido — "
+            "você receberá as instruções de pagamento em um email de acompanhamento.</p>"
+        )
+
     resend.Emails.send({
     "from": "GoCanadaBR <contato@gocanadabr.com.br>",
     "to": body.email,
@@ -69,8 +88,7 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
     <p>Acesse <a href="https://www.gocanadabr.com.br/login">gocanadabr.com.br/login</a>, entre com essa senha
     e troque por uma de sua preferência no seu painel. Lá você pode conhecer a plataforma e preencher o
     formulário com as universidades e programas de seu interesse.</p>
-    <p>O relatório é entregue após a confirmação do pagamento do plano escolhido — você receberá as
-    instruções de pagamento em um email de acompanhamento.</p>
+    {payment_note}
     <p>Qualquer dúvida, responda este email.</p>
     <br>
     <p>Equipe GoCanadaBR</p>
@@ -85,7 +103,7 @@ def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
         <p><strong>Nome:</strong> {body.name}</p>
         <p><strong>Email:</strong> {body.email}</p>
         <p><strong>Plano:</strong> {body.tier}</p>
-        <p>Acesse o painel admin para confirmar o pagamento assim que ele cair.</p>
+        {"<p>Plano gratuito — já ativado automaticamente, nenhuma ação necessária.</p>" if is_free else "<p>Acesse o painel admin para confirmar o pagamento assim que ele cair.</p>"}
         """
     })
 
