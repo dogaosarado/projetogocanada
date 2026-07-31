@@ -7,7 +7,49 @@
 from nicegui import ui
 from pages.layout import brand_logo
 from services.api import create_lead
-from pages.landing import MENTORSHIP_TIERS
+
+
+# ---------------------------------------------------------------------------
+# Mentoria (produto independente do relatório) — vivia em landing.py antes
+# do rename pra relatorio.py; movido pra cá porque relatorio.py não deve
+# saber nada sobre o produto mentoria.
+# ---------------------------------------------------------------------------
+MENTORSHIP_TIERS = [
+    {
+        "name": "Básico",
+        "price": "R$ 1.500",
+        "tier_key": "mentoria_basico",
+        "features": [
+            "10 encontros",
+            "Agendados conforme sua disponibilidade",
+            # TODO: preencher com o escopo real de cada encontro
+            "Acompanhamento em dois processos de aplicação",
+        ],
+    },
+    {
+        "name": "Intermediário",
+        "price": "R$ 2.000",
+        "tier_key": "mentoria_intermediario",
+        "features": [
+            "12 encontros",
+            "Agendados conforme sua disponibilidade",
+            "Acompanhamento em três processos de aplicação",
+            # TODO: preencher com o diferencial deste tier
+        ],
+        "highlight": True,
+    },
+    {
+        "name": "Avançado",
+        "price": "R$ 3.000",
+        "tier_key": "mentoria_avancado",
+        "features": [
+            "14 encontros",
+            "Agendados conforme sua disponibilidade",
+            "Acompanhamento em quatro processos de aplicação",
+            # TODO: preencher com o diferencial deste tier
+        ],
+    },
+]
 
 
 def mentoria_page() -> None:
@@ -26,6 +68,9 @@ def mentoria_page() -> None:
                     "flat color=amber"
                 )
                 ui.button("Blog", on_click=lambda: ui.navigate.to("/blog")).props("flat color=amber")
+                ui.button("Contato", on_click=lambda: ui.navigate.to("/contato")).props(
+                    "flat color=amber"
+                )
                 ui.button("Entrar", on_click=lambda: ui.navigate.to("/login")).classes(
                     "bg-amber-600 text-white rounded-xl px-5 py-2 hover:bg-amber-700"
                 )

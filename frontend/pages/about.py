@@ -11,6 +11,9 @@ def about_page() -> None:
             brand_logo()
             with ui.row().classes("gap-3 items-center"):
                 ui.button("Blog", on_click=lambda: ui.navigate.to("/blog")).props("flat color=amber")
+                ui.button("Contato", on_click=lambda: ui.navigate.to("/contato")).props(
+                    "flat color=amber"
+                )
                 ui.button("Entrar", on_click=lambda: ui.navigate.to("/login")).classes(
                     "bg-amber-600 text-white rounded-xl px-5 py-2 hover:bg-amber-700"
                 )
@@ -51,6 +54,18 @@ def about_page() -> None:
                     "Morou em Ottawa e em Montreal durante 2021 e 2024, com experiência em processos "
                     "seletivos e editais de bolsa. "
                 ).classes("text-stone-600 text-lg")
+
+                with ui.row().classes("gap-4"):
+                    ui.link(
+                        "LinkedIn",
+                        "https://www.linkedin.com/in/gustavo-denani-894978262/",
+                        new_tab=True,
+                    ).classes("text-amber-600 font-medium hover:text-amber-700")
+                    ui.link(
+                        "Currículo Lattes",
+                        "https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4247833Y7",
+                        new_tab=True,
+                    ).classes("text-amber-600 font-medium hover:text-amber-700")
 
                 ui.button(
                     "Ver planos", on_click=lambda: ui.navigate.to("/#planos")

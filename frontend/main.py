@@ -1,8 +1,9 @@
 # main.py
 
 from nicegui import app, ui
-from pages.landing import landing_page
+from pages.relatorio import relatorio_page
 from pages.mentoria import mentoria_page
+from pages.contact import contact_page
 from pages.login import login_page
 from pages.form import form_page
 from pages.confirmation import confirmation_page
@@ -49,7 +50,12 @@ def index():
 
 @ui.page("/relatorio")
 def relatorio():
-    landing_page()
+    relatorio_page()
+
+
+@ui.page("/contato")
+def contato():
+    contact_page()
 
 
 @ui.page("/mentoria")
