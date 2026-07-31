@@ -44,12 +44,18 @@ def admin():
 
 @ui.page("/")
 def index():
+    mentoria_page()
+
+
+@ui.page("/relatorio")
+def relatorio():
     landing_page()
 
 
 @ui.page("/mentoria")
-def mentoria():
-    mentoria_page()
+def mentoria_redirect():
+    # rota antiga — mantida só pra não quebrar link/bookmark/SEO já existente
+    ui.navigate.to("/")
 
 
 @ui.page("/login")

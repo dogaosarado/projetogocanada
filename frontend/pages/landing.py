@@ -188,7 +188,7 @@ def landing_page() -> None:
         with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
             brand_logo()
             with ui.row().classes("gap-3 items-center"):
-                ui.button("Mentoria", on_click=lambda: ui.navigate.to("/mentoria")).props(
+                ui.button("Mentoria", on_click=lambda: ui.navigate.to("/")).props(
                     "flat color=amber"
                 )
                 ui.button("Quem somos", on_click=lambda: ui.navigate.to("/quem-somos")).props(
@@ -228,9 +228,9 @@ def landing_page() -> None:
                         ui.label(step["desc"]).classes("text-stone-500 text-sm")
 
         # ---------------------------------------------------------------
-        # MENTORIA — acima da seção de relatórios, mesmo padrão visual.
-        # Os cards linkam para a página dedicada /mentoria em vez de um
-        # formulário inline, já que o formulário de inscrição vive lá.
+        # MENTORIA — teaser dentro da página de relatório (agora secundária).
+        # Os cards linkam pra home (/), que é a página dedicada de mentoria
+        # e onde vive o formulário de inscrição.
         # ---------------------------------------------------------------
         with ui.column().classes("w-full items-center py-16 px-4 bg-amber-50/40"):
             ui.label("Mentoria personalizada").classes(
@@ -270,7 +270,7 @@ def landing_page() -> None:
 
                         ui.button(
                             "Saiba mais",
-                            on_click=lambda t=tier["tier_key"]: ui.navigate.to(f"/mentoria?tier={t}"),
+                            on_click=lambda t=tier["tier_key"]: ui.navigate.to(f"/?tier={t}"),
                         ).classes("w-full mt-2 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700")
 
         # tiers (relatórios)

@@ -19,7 +19,7 @@ def mentoria_page() -> None:
         with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
             brand_logo()
             with ui.row().classes("gap-3 items-center"):
-                ui.button("Relatórios", on_click=lambda: ui.navigate.to("/#planos")).props(
+                ui.button("Relatórios", on_click=lambda: ui.navigate.to("/relatorio")).props(
                     "flat color=amber"
                 )
                 ui.button("Quem somos", on_click=lambda: ui.navigate.to("/quem-somos")).props(
