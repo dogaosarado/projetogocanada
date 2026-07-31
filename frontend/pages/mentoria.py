@@ -54,11 +54,11 @@ def mentoria_page() -> None:
                 ui.label("O que é a mentoria").classes("text-3xl font-bold text-stone-800 mb-2")
                 # TODO: texto real
                 ui.label(
-                    "[São reuniões preparatórias para a candidatura. Com elas, você entende o processo seletivo de pós-graduação "
+                    "A mentoria é composta de reuniões preparatórias para a candidatura. Com elas, você entende o processo seletivo de pós-graduação "
                     "no Canadá em detalhe — editais, prazos, critérios de avaliação, documentação exigida por universidade e "
                     "departamento. A mentoria desmistifica etapas que costumam travar o candidato (carta de motivação, currículo "
                     "acadêmico, contato com potenciais orientadores) e ajuda a organizar ideias e documentos de forma estruturada. "
-                    "O objetivo é candidatura inteligente: decisões embasadas em cima do seu perfil real e seus objetivos acadêmicos.]"
+                    "O objetivo é candidatura inteligente: decisões embasadas em cima do seu perfil real e seus objetivos acadêmicos."
                 ).classes("text-stone-600 leading-relaxed")
 
         # subtítulo 2 — para quem é
@@ -67,9 +67,9 @@ def mentoria_page() -> None:
                 ui.label("Para quem é").classes("text-3xl font-bold text-stone-800 mb-2")
                 ui.html(
                     "<ul style='color:#57534e; line-height:1.6; padding-left:1.2rem;'>"
-                    "<li>[Para quem decidiu fazer uma pós no Canadá]</li>"
-                    "<li>[Para quem quer realmente entender o processo seletivo]</li>"
-                    "<li>[Para quem quer tomar as melhores decisões durante a aplicação]</li>"
+                    "<li>Para quem decidiu fazer uma pós no Canadá</li>"
+                    "<li>Para quem quer realmente entender o processo seletivo</li>"
+                    "<li>Para quem quer tomar as melhores decisões durante a aplicação</li>"
                     "</ul>"
                 )
 
@@ -79,11 +79,11 @@ def mentoria_page() -> None:
                 ui.label("Como funciona").classes("text-3xl font-bold text-stone-800 mb-2")
                 ui.html(
                     "<ol style='color:#57534e; line-height:1.6; padding-left:1.2rem;'>"
-                    "<li>[Os encontros são focados nos seguintes objetivos:]</li>"
-                    "<li>[1- Apresentação da dinâmica de aplicação e alinhamento com a candidatura;]</li>"
-                    "<li>[2- Preparação documental e textual;]</li>"
-                    "<li>[3- Identificação de potenciais departamentos e supervisores;]</li>"
-                    "<li>[4- Estratégias de contato e engajamento.]</li>"
+                    "<li>Os encontros são focados nos seguintes objetivos:</li>"
+                    "<li>1- Apresentação da dinâmica de aplicação e alinhamento com a candidatura;</li>"
+                    "<li>2- Preparação documental e textual;</li>"
+                    "<li>3- Identificação de potenciais departamentos e supervisores;</li>"
+                    "<li>4- Estratégias de contato e engajamento.</li>"
                     "</ol>"
                 )
 
