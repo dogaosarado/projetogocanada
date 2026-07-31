@@ -58,7 +58,7 @@ def mentoria_page() -> None:
                     "no Canadá em detalhe — editais, prazos, critérios de avaliação, documentação exigida por universidade e "
                     "departamento. A mentoria desmistifica etapas que costumam travar o candidato (carta de motivação, currículo "
                     "acadêmico, contato com potenciais orientadores) e ajuda a organizar ideias e documentos de forma estruturada. "
-                    "O objetivo é candidatura inteligente: decisões embasadas em cima do seu perfil real e seus objetivos acadêmicos."
+                    "O objetivo é fazer a candidatura de forma inteligente, com decisões embasadas em cima do seu perfil e objetivos acadêmicos."
                 ).classes("text-stone-600 leading-relaxed")
 
         # subtítulo 2 — para quem é
