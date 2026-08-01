@@ -1,7 +1,6 @@
 # pages/mentoria_signup.py
 
-from copy import error
-from sqlalchemy.engine.result import result
+
 from nicegui import ui
 from pages.layout import brand_logo
 from services.api import get_universities_public, mentoria_signup
