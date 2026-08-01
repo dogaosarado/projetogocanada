@@ -91,7 +91,7 @@ def send_mentoria_client_email(user: User, temp_password: str) -> None:
         <p>Você já pode acessar a plataforma com os dados abaixo:</p>
         <p><strong>Email:</strong> {user.email}<br>
         <strong>Senha temporária:</strong> {temp_password}</p>
-        <p>No primeiro acesso você será obrigado a trocar essa senha por uma de sua escolha.</p>
+        <p>No primeiro acesso você deve trocar essa senha por uma de sua escolha.</p>
         <p>As instruções de pagamento chegam em um email de acompanhamento.</p>
         <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanadaBR</a></p>
         <br>
@@ -115,8 +115,8 @@ def send_payment_link_email(user: User, pix_link: str) -> None:
         <p>Segue o link para pagamento via Pix referente ao seu plano
         <strong>{tier_label}</strong> ({price}).</p>
         <p><a href="{pix_link}">{pix_link}</a></p>
-        <p>Assim que o pagamento for identificado, confirmamos no sistema e seu
-        relatório entra em preparação. Ele será enviado em até 48 horas após o recebimento do pagamento.</p>
+        <p>Assim que o pagamento for identificado, confirmamos no sistema e entraremos
+        em contato para o primeiro encontro.</p>
         <p>Qualquer dúvida, é só responder este email.</p>
         <br>
         <p>Equipe GoCanadaBR</p>
