@@ -123,7 +123,6 @@ def mentoria_page() -> None:
         # o que é
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
             with ui.column().classes("max-w-3xl gap-4"):
-                ui.label("01").classes("font-mono text-sm text-[#A6402F]")
                 ui.label("O que é a mentoria").classes(
                     "font-display text-3xl font-semibold text-[#16233D] mb-1"
                 )
@@ -143,7 +142,6 @@ def mentoria_page() -> None:
         # para quem é
         with ui.column().classes("w-full items-center py-16 px-4"):
             with ui.column().classes("max-w-3xl gap-4"):
-                ui.label("02").classes("font-mono text-sm text-[#A6402F]")
                 ui.label("Para quem é").classes(
                     "font-display text-3xl font-semibold text-[#16233D] mb-1"
                 )
@@ -159,7 +157,6 @@ def mentoria_page() -> None:
         # como funciona — numeração real (sequência de fato)
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
             with ui.column().classes("max-w-3xl gap-6 w-full"):
-                ui.label("03").classes("font-mono text-sm text-[#A6402F]")
                 ui.label("Como funciona").classes(
                     "font-display text-3xl font-semibold text-[#16233D] mb-1"
                 )
@@ -179,7 +176,6 @@ def mentoria_page() -> None:
         # prova social — estrutura pronta, conteúdo real pendente
         with ui.column().classes("w-full items-center py-16 px-4"):
             with ui.column().classes("max-w-3xl gap-4 w-full"):
-                ui.label("04").classes("font-mono text-sm text-[#A6402F]")
                 ui.label("Quem já passou por aqui").classes(
                     "font-display text-3xl font-semibold text-[#16233D] mb-4"
                 )
@@ -200,7 +196,6 @@ def mentoria_page() -> None:
         with ui.column().classes(
             "w-full items-center py-16 px-4 bg-[#16233D]"
         ).props('id="planos-mentoria"'):
-            ui.label("05").classes("font-mono text-sm text-[#A6402F] self-center")
             ui.label("Escolha seu plano de mentoria").classes(
                 "font-display text-3xl font-semibold text-[#F5F0E6] mb-2 text-center"
             )
@@ -265,23 +260,5 @@ def mentoria_page() -> None:
                             "w-full mt-2 bg-[#16233D] text-[#F5F0E6] rounded-none "
                             "py-2 font-mono text-xs tracking-wide hover:bg-[#0f182b]"
                         )
-
-        # CTA final
-        with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
-            ui.label("Pronto para começar?").classes(
-                "font-display text-3xl font-semibold text-[#16233D] mb-2 text-center"
-            )
-            ui.label("O cadastro leva menos de 2 minutos.").classes(
-                "text-[#4B5563] mb-8 text-center font-mono text-sm"
-            )
-
-            def go_to_signup():
-                tier = selected_tier["value"] or "mentoria_basico"
-                ui.navigate.to(f"/mentoria/cadastro?tier={tier}")
-
-            ui.button("Quero começar", on_click=go_to_signup).classes(
-                "bg-[#A6402F] text-[#F5F0E6] rounded-none px-10 py-3 text-lg "
-                "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
-            )
 
         site_footer()
