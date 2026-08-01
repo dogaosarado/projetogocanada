@@ -6,9 +6,11 @@
 #
 # Oferece SÓ o relatório. Mentoria não aparece aqui — quem quer mentoria
 # já está em "/" antes de chegar nesta página.
+#
+# Paleta/fontes/header/footer vêm de pages/layout.py.
 
 from nicegui import ui
-from pages.layout import brand_logo
+from pages.layout import design_tokens, site_header, site_footer
 from services.api import create_lead, get_posts
 import re
 
@@ -27,7 +29,7 @@ def _excerpt(html: str, max_len: int = 110) -> str:
 TIERS = [
     {
         "name": "Grátis",
-        "price": "R$ 0",
+        "price": "0",
         "tier_key": "relatorio_gratis",
         "features": [
             "1 universidade",
@@ -37,7 +39,7 @@ TIERS = [
     },
     {
         "name": "Básico",
-        "price": "R$ 150",
+        "price": "150",
         "tier_key": "relatorio_basico",
         "features": [
             "2 universidades",
@@ -49,7 +51,7 @@ TIERS = [
     },
     {
         "name": "Intermediário",
-        "price": "R$ 250",
+        "price": "250",
         "tier_key": "relatorio_intermediario",
         "features": [
             "3 universidades",
@@ -62,7 +64,7 @@ TIERS = [
     },
     {
         "name": "Avançado",
-        "price": "R$ 400",
+        "price": "400",
         "tier_key": "relatorio_avancado",
         "features": [
             "4 universidades",
@@ -106,26 +108,36 @@ def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> N
         for tier in tiers:
             highlight = tier.get("highlight", False)
             card_classes = (
-                "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 border-2 border-amber-500 bg-amber-50"
+                "w-72 p-6 rounded-none flex flex-col gap-3 bg-[#F5F0E6] "
+                "border-2 border-[#A6402F]"
                 if highlight
-                else "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 bg-stone-50"
+                else "w-72 p-6 rounded-none flex flex-col gap-3 bg-[#F5F0E6]"
             )
             with ui.card().classes(card_classes):
                 if highlight:
-                    ui.label("Mais popular").classes(
-                        "text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full self-start"
+                    ui.label("MAIS POPULAR").classes(
+                        "text-[10px] font-mono tracking-widest text-[#F5F0E6] "
+                        "bg-[#A6402F] px-3 py-1 self-start"
                     )
-                ui.label(tier["name"]).classes("text-xl font-bold text-stone-800")
-                ui.label(tier["price"]).classes("text-3xl font-bold text-amber-700")
+                ui.label(tier["name"]).classes(
+                    "font-display text-xl font-semibold text-[#16233D] mt-1"
+                )
+                with ui.row().classes("items-baseline gap-1"):
+                    ui.label("R$").classes("font-mono text-sm text-[#A6402F]")
+                    ui.label(tier["price"]).classes(
+                        "font-mono text-3xl font-medium text-[#A6402F]"
+                    )
 
-                ui.separator()
+                ui.element("div").classes("h-px w-full bg-[#B8925A55] my-2")
 
                 for feature in tier["features"]:
-                    ui.html(
-                        f'<div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:4px;">'
-                        f'<span style="color:#d97706; flex-shrink:0; margin-top:2px;">✓</span>'
-                        f'<span style="color:#57534e; font-size:0.875rem; line-height:1.4;">{feature}</span></div>'
-                    )
+                    with ui.row().classes("items-start gap-2"):
+                        ui.label("✓").classes(
+                            "text-[#A6402F] font-mono text-sm flex-shrink-0"
+                        )
+                        ui.label(feature).classes(
+                            "text-[#4B5563] text-sm leading-snug"
+                        )
 
                 ui.space()
 
@@ -142,81 +154,84 @@ def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> N
                 ui.button(
                     "Quero este plano",
                     on_click=make_handler(),
-                ).classes("w-full mt-2 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700")
+                ).classes(
+                    "w-full mt-2 bg-[#16233D] text-[#F5F0E6] rounded-none py-2 "
+                    "font-mono text-xs tracking-wide hover:bg-[#0f182b]"
+                )
 
 
 def relatorio_page() -> None:
+    design_tokens()
     selected_tier = {"value": None}
 
-    with ui.column().classes("w-full min-h-screen bg-stone-50"):
+    with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
 
-        # header
-        with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
-            brand_logo()
-            with ui.row().classes("gap-3 items-center"):
-                ui.button("Mentoria", on_click=lambda: ui.navigate.to("/")).props(
-                    "flat color=amber"
-                )
-                ui.button("Quem somos", on_click=lambda: ui.navigate.to("/quem-somos")).props(
-                    "flat color=amber"
-                )
-                ui.button("Blog", on_click=lambda: ui.navigate.to("/blog")).props("flat color=amber")
-                ui.button("Contato", on_click=lambda: ui.navigate.to("/contato")).props(
-                    "flat color=amber"
-                )
-                ui.button("Entrar", on_click=lambda: ui.navigate.to("/login")).classes(
-                    "bg-amber-600 text-white rounded-xl px-5 py-2 hover:bg-amber-700"
-                )
+        site_header("relatorio")
 
         # hero
         with ui.column().classes("w-full items-center py-20 px-4 text-center"):
             ui.label("Sua pós-graduação no Canadá").classes(
-                "text-4xl font-bold text-stone-800 mb-4"
+                "font-display text-4xl font-semibold text-[#16233D] mb-4"
             )
             ui.label(
                 "Pesquisa especializada sobre universidades, programas e professores "
                 "para que você possa focar no que importa: sua candidatura."
-            ).classes("text-stone-500 text-lg max-w-xl mb-10")
+            ).classes("text-[#4B5563] text-lg max-w-xl mb-10")
             ui.button(
                 "Ver planos",
                 on_click=lambda: ui.run_javascript(
                     "document.getElementById('planos').scrollIntoView({behavior:'smooth'})"
                 ),
-            ).classes("bg-amber-600 text-white rounded-xl px-8 py-3 text-lg hover:bg-amber-700")
+            ).classes(
+                "bg-[#A6402F] text-[#F5F0E6] rounded-none px-8 py-3 text-lg "
+                "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
+            )
 
         # como funciona
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
-            ui.label("Como funciona").classes("text-3xl font-bold text-stone-800 mb-10 text-center")
+            ui.label("Como funciona").classes(
+                "font-display text-3xl font-semibold text-[#16233D] mb-10 text-center"
+            )
             with ui.row().classes("gap-6 flex-wrap justify-center max-w-5xl"):
                 for step in STEPS:
                     with ui.column().classes("w-56 items-center text-center gap-3"):
                         ui.image(step["image"]).classes(
-                            "w-full h-36 rounded-2xl object-cover shadow-sm bg-stone-100"
+                            "w-full h-36 rounded-none object-cover shadow-sm bg-[#F5F0E6]"
                         )
-                        ui.label(step["title"]).classes("text-stone-800 font-semibold")
-                        ui.label(step["desc"]).classes("text-stone-500 text-sm")
+                        ui.label(step["title"]).classes(
+                            "text-[#16233D] font-semibold"
+                        )
+                        ui.label(step["desc"]).classes("text-[#4B5563] text-sm")
 
         # tiers (relatórios)
-        with ui.column().classes("w-full items-center py-16 px-4 bg-white").props('id="planos"'):
+        with ui.column().classes(
+            "w-full items-center py-16 px-4 bg-white"
+        ).props('id="planos"'):
             ui.label("Escolha seu plano de relatório").classes(
-                "text-3xl font-bold text-stone-800 mb-2 text-center"
+                "font-display text-3xl font-semibold text-[#16233D] mb-2 text-center"
             )
             ui.label(
                 "Selecione o plano ideal e preencha seus dados para começar."
-            ).classes("text-stone-500 mb-10 text-center")
+            ).classes("text-[#4B5563] mb-10 text-center font-mono text-sm")
 
             tier_select_ref = {"widget": None, "value": None}
             _tier_cards(TIERS, "cadastro", tier_select_ref)
             selected_tier = tier_select_ref
 
         # formulário de interesse
-        with ui.column().classes("w-full items-center py-16 px-4").props('id="cadastro"'):
-            ui.label("Comece agora").classes("text-3xl font-bold text-stone-800 mb-2 text-center")
+        with ui.column().classes(
+            "w-full items-center py-16 px-4"
+        ).props('id="cadastro"'):
+            ui.label("Comece agora").classes(
+                "font-display text-3xl font-semibold text-[#16233D] mb-2 text-center"
+            )
             ui.label(
                 "Preencha seus dados e entraremos em contato com suas credenciais de acesso."
-            ).classes("text-stone-500 mb-8 text-center")
+            ).classes("text-[#4B5563] mb-8 text-center")
 
-            with ui.card().classes("w-full max-w-md p-8 shadow-lg rounded-2xl bg-white"):
+            with ui.card().classes(
+                "w-full max-w-md p-8 rounded-none shadow-md bg-white"
+            ):
                 name_input = ui.input("Nome completo").classes("w-full")
                 email_input = ui.input("Email").classes("w-full mt-3")
 
@@ -254,27 +269,38 @@ def relatorio_page() -> None:
                         error_msg.set_visibility(True)
 
                 ui.button("Enviar", on_click=handle_interest).classes(
-                    "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
+                    "w-full mt-6 bg-[#A6402F] text-[#F5F0E6] rounded-none py-2 "
+                    "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
                 )
 
         # novidades — 3 posts mais recentes do blog
         posts = get_posts()[:3]
         if posts:
             with ui.column().classes("w-full items-center py-16 px-4"):
-                ui.label("Novidades").classes("text-3xl font-bold text-stone-800 mb-8 text-center")
+                ui.label("Novidades").classes(
+                    "font-display text-3xl font-semibold text-[#16233D] mb-8 text-center"
+                )
                 with ui.row().classes("gap-6 flex-wrap justify-center max-w-4xl"):
                     for post in posts:
                         data_fmt = post["created_at"][:10] if post.get("created_at") else ""
                         with ui.card().classes(
-                            "w-72 p-6 rounded-2xl shadow-sm bg-white cursor-pointer hover:shadow-md transition-all"
-                        ).on("click", lambda slug=post["slug"]: ui.navigate.to(f"/blog/{slug}")):
-                            ui.label(data_fmt).classes("text-xs text-amber-600 font-medium mb-1")
-                            ui.label(post["title"]).classes("text-stone-800 font-semibold mb-2")
-                            ui.label(_excerpt(post.get("body_html", ""))).classes(
-                                "text-stone-500 text-sm mb-2"
+                            "w-72 p-6 rounded-none shadow-sm bg-white cursor-pointer "
+                            "hover:shadow-md transition-all"
+                        ).on(
+                            "click",
+                            lambda slug=post["slug"]: ui.navigate.to(f"/blog/{slug}"),
+                        ):
+                            ui.label(data_fmt).classes(
+                                "text-xs text-[#A6402F] font-mono mb-1"
                             )
-                            ui.button("Ler mais →").props("flat color=amber").classes("px-0")
+                            ui.label(post["title"]).classes(
+                                "text-[#16233D] font-semibold mb-2"
+                            )
+                            ui.label(_excerpt(post.get("body_html", ""))).classes(
+                                "text-[#4B5563] text-sm mb-2"
+                            )
+                            ui.button("Ler mais →").props("flat").classes(
+                                "text-[#A6402F] font-mono text-xs px-0"
+                            )
 
-        # footer
-        with ui.row().classes("w-full px-8 py-6 bg-stone-800 justify-center"):
-            ui.label("© 2026 GoCanada — Todos os direitos reservados").classes("text-stone-400 text-sm")
+        site_footer()

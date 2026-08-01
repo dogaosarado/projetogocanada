@@ -1,207 +1,287 @@
 # pages/mentoria.py
 #
 # Página dedicada à mentoria (produto independente do relatório).
-# Conteúdo abaixo é placeholder — subtítulos, texto e bullets marcados com
-# TODO são pra você reescrever com a proposta de valor real de cada etapa.
+# Paleta/fontes/header/footer agora vêm de pages/layout.py — não redeclare
+# tokens aqui. Se quiser mudar cor ou fonte do site, mexe em layout.py, não
+# nesta página.
+#
+# Pendências de conteúdo (procure "PLACEHOLDER" na renderização):
+#   - Foto/bio curta do Gustavo no hero
+#   - 2-3 depoimentos ou casos de sucesso reais (seção de prova social)
+#   - Diferencial específico de cada tier (3 pendentes, um por tier)
 
 from nicegui import ui
-from pages.layout import brand_logo
-from services.api import create_lead
+from pages.layout import design_tokens, site_header, site_footer
 
-
-# ---------------------------------------------------------------------------
-# Mentoria (produto independente do relatório) — vivia em landing.py antes
-# do rename pra relatorio.py; movido pra cá porque relatorio.py não deve
-# saber nada sobre o produto mentoria.
-# ---------------------------------------------------------------------------
 MENTORSHIP_TIERS = [
     {
         "name": "Básico",
-        "price": "R$ 1.500",
+        "price": "1.500",
         "tier_key": "mentoria_basico",
         "features": [
             "10 encontros",
             "Agendados conforme sua disponibilidade",
-            # TODO: preencher com o escopo real de cada encontro
             "Acompanhamento em dois processos de aplicação",
         ],
     },
     {
         "name": "Intermediário",
-        "price": "R$ 2.000",
+        "price": "2.000",
         "tier_key": "mentoria_intermediario",
         "features": [
             "12 encontros",
             "Agendados conforme sua disponibilidade",
             "Acompanhamento em três processos de aplicação",
-            # TODO: preencher com o diferencial deste tier
         ],
         "highlight": True,
     },
     {
         "name": "Avançado",
-        "price": "R$ 3.000",
+        "price": "3.000",
         "tier_key": "mentoria_avancado",
         "features": [
             "14 encontros",
             "Agendados conforme sua disponibilidade",
             "Acompanhamento em quatro processos de aplicação",
-            # TODO: preencher com o diferencial deste tier
         ],
     },
 ]
 
+PROCESS_STEPS = [
+    (
+        "Apresentação da dinâmica",
+        "Como funciona o processo seletivo de pós-graduação no Canadá e "
+        "alinhamento da estratégia com o seu perfil e objetivos.",
+    ),
+    (
+        "Preparação documental e textual",
+        "Carta de motivação, currículo acadêmico e demais documentos "
+        "exigidos, revisados e estruturados etapa por etapa.",
+    ),
+    (
+        "Identificação de departamentos e supervisores",
+        "Mapeamento de programas e potenciais orientadores compatíveis "
+        "com sua linha de pesquisa.",
+    ),
+    (
+        "Estratégias de contato e engajamento",
+        "Como abordar supervisores e departamentos de forma que gere "
+        "resposta, não silêncio.",
+    ),
+]
+
 
 def mentoria_page() -> None:
+    design_tokens()
     selected_tier = {"value": None}
 
-    with ui.column().classes("w-full min-h-screen bg-stone-50"):
+    with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
 
-        # header — mesmo padrão da landing
-        with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
-            brand_logo()
-            with ui.row().classes("gap-3 items-center"):
-                ui.button("Relatórios", on_click=lambda: ui.navigate.to("/relatorio")).props(
-                    "flat color=amber"
-                )
-                ui.button("Quem somos", on_click=lambda: ui.navigate.to("/quem-somos")).props(
-                    "flat color=amber"
-                )
-                ui.button("Blog", on_click=lambda: ui.navigate.to("/blog")).props("flat color=amber")
-                ui.button("Contato", on_click=lambda: ui.navigate.to("/contato")).props(
-                    "flat color=amber"
-                )
-                ui.button("Entrar", on_click=lambda: ui.navigate.to("/login")).classes(
-                    "bg-amber-600 text-white rounded-xl px-5 py-2 hover:bg-amber-700"
-                )
+        site_header("mentoria")
 
-        # hero
-        with ui.column().classes("w-full items-center py-20 px-4 text-center"):
-            ui.label("Mentoria para sua pós-graduação no Canadá").classes(
-                "text-4xl font-bold text-stone-800 mb-4"
-            )
-            # TODO: reescrever — proposta de valor específica da mentoria,
-            # diferenciando do relatório avulso.
-            ui.label(
-                "Acompanhamento individual do início ao fim do processo de aplicação, "
-                "com encontros marcados de acordo com a sua agenda."
-            ).classes("text-stone-500 text-lg max-w-xl mb-10")
-            ui.button(
-                "Ver planos",
-                on_click=lambda: ui.run_javascript(
-                    "document.getElementById('planos-mentoria').scrollIntoView({behavior:'smooth'})"
-                ),
-            ).classes("bg-amber-600 text-white rounded-xl px-8 py-3 text-lg hover:bg-amber-700")
+        # hero — dossiê de aplicação, elemento de assinatura da página
+        with ui.column().classes("w-full items-center py-20 px-4"):
+            with ui.row().classes(
+                "max-w-4xl w-full bg-white border hairline rounded-none shadow-sm "
+                "p-10 gap-8 items-start flex-wrap"
+            ):
+                with ui.column().classes("gap-1 min-w-[64px]"):
+                    ui.label("GC").classes("seal")
+                with ui.column().classes("flex-1 min-w-[280px] gap-4"):
+                    ui.label("Dossiê de candidatura — Canadá").classes(
+                        "font-mono text-xs tracking-widest text-[#A6402F] uppercase"
+                    )
+                    ui.label("Mentoria para sua pós-graduação").classes(
+                        "font-display text-4xl font-semibold text-[#16233D] leading-tight"
+                    )
+                    ui.label(
+                        "Acompanhamento individual, de ponta a ponta, no processo de "
+                        "aplicação — decisões embasadas no seu perfil, não em achismo "
+                        "de fórum de imigração."
+                    ).classes("text-[#4B5563] text-base leading-relaxed max-w-lg")
+                    ui.button(
+                        "Ver planos",
+                        on_click=lambda: ui.run_javascript(
+                            "document.getElementById('planos-mentoria')"
+                            ".scrollIntoView({behavior:'smooth'})"
+                        ),
+                    ).classes(
+                        "bg-[#A6402F] text-[#F5F0E6] rounded-none px-7 py-2.5 mt-2 "
+                        "font-mono text-xs tracking-wide hover:bg-[#8a3327] self-start"
+                    )
+                with ui.column().classes(
+                    "w-40 h-40 border hairline border-dashed items-center "
+                    "justify-center bg-[#F5F0E6] flex-shrink-0"
+                ):
+                    ui.label("FOTO").classes(
+                        "font-mono text-xs text-[#4B5563]/60 tracking-widest"
+                    )
+                    ui.label("PLACEHOLDER").classes(
+                        "font-mono text-[10px] text-[#4B5563]/40 tracking-widest"
+                    )
 
-        # subtítulo 1 — o que é
+        # o que é
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
             with ui.column().classes("max-w-3xl gap-4"):
-                ui.label("O que é a mentoria").classes("text-3xl font-bold text-stone-800 mb-2")
-                # TODO: texto real
+                ui.label("01").classes("font-mono text-sm text-[#A6402F]")
+                ui.label("O que é a mentoria").classes(
+                    "font-display text-3xl font-semibold text-[#16233D] mb-1"
+                )
                 ui.label(
-                    "A mentoria é composta de reuniões preparatórias para a candidatura. Com elas, você entende o processo seletivo de pós-graduação "
-                    "no Canadá em detalhe — editais, prazos, critérios de avaliação, documentação exigida por universidade e "
-                    "departamento. A mentoria desmistifica etapas que costumam travar o candidato (carta de motivação, currículo "
-                    "acadêmico, contato com potenciais orientadores) e ajuda a organizar ideias e documentos de forma estruturada. "
-                    "O objetivo é fazer a candidatura de forma inteligente, com decisões embasadas em cima do seu perfil e objetivos acadêmicos."
-                ).classes("text-stone-600 leading-relaxed")
+                    "A mentoria é composta de reuniões preparatórias para a candidatura. "
+                    "Com elas, você entende o processo seletivo de pós-graduação no "
+                    "Canadá em detalhe — editais, prazos, critérios de avaliação, "
+                    "documentação exigida por universidade e departamento. A mentoria "
+                    "desmistifica etapas que costumam travar o candidato (carta de "
+                    "motivação, currículo acadêmico, contato com potenciais "
+                    "orientadores) e ajuda a organizar ideias e documentos de forma "
+                    "estruturada. O objetivo é fazer a candidatura de forma "
+                    "inteligente, com decisões embasadas em cima do seu perfil e "
+                    "objetivos acadêmicos."
+                ).classes("text-[#4B5563] leading-relaxed")
 
-        # subtítulo 2 — para quem é
+        # para quem é
         with ui.column().classes("w-full items-center py-16 px-4"):
             with ui.column().classes("max-w-3xl gap-4"):
-                ui.label("Para quem é").classes("text-3xl font-bold text-stone-800 mb-2")
-                ui.html(
-                    "<ul style='color:#57534e; line-height:1.6; padding-left:1.2rem;'>"
-                    "<li>Para quem decidiu fazer uma pós no Canadá</li>"
-                    "<li>Para quem quer realmente entender o processo seletivo</li>"
-                    "<li>Para quem quer tomar as melhores decisões durante a aplicação</li>"
-                    "</ul>"
+                ui.label("02").classes("font-mono text-sm text-[#A6402F]")
+                ui.label("Para quem é").classes(
+                    "font-display text-3xl font-semibold text-[#16233D] mb-1"
                 )
+                for item in [
+                    "Para quem decidiu fazer uma pós no Canadá",
+                    "Para quem quer realmente entender o processo seletivo",
+                    "Para quem quer tomar as melhores decisões durante a aplicação",
+                ]:
+                    with ui.row().classes("items-start gap-3"):
+                        ui.label("—").classes("text-[#A6402F] font-mono")
+                        ui.label(item).classes("text-[#4B5563] leading-relaxed")
 
-        # subtítulo 3 — como funciona (etapas)
+        # como funciona — numeração real (sequência de fato)
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
-            with ui.column().classes("max-w-3xl gap-4"):
-                ui.label("Como funciona").classes("text-3xl font-bold text-stone-800 mb-2")
-                ui.html(
-                    "<ol style='color:#57534e; line-height:1.6; padding-left:1.2rem;'>"
-                    "<li>Os encontros são focados nos seguintes objetivos:</li>"
-                    "<li>1- Apresentação da dinâmica de aplicação e alinhamento com a candidatura;</li>"
-                    "<li>2- Preparação documental e textual;</li>"
-                    "<li>3- Identificação de potenciais departamentos e supervisores;</li>"
-                    "<li>4- Estratégias de contato e engajamento.</li>"
-                    "</ol>"
+            with ui.column().classes("max-w-3xl gap-6 w-full"):
+                ui.label("03").classes("font-mono text-sm text-[#A6402F]")
+                ui.label("Como funciona").classes(
+                    "font-display text-3xl font-semibold text-[#16233D] mb-1"
                 )
+                for i, (title, desc) in enumerate(PROCESS_STEPS, start=1):
+                    with ui.row().classes(
+                        "gap-4 items-start py-4 border-b hairline last:border-b-0"
+                    ):
+                        ui.label(f"{i:02d}").classes(
+                            "font-mono text-lg text-[#A6402F] w-10 flex-shrink-0"
+                        )
+                        with ui.column().classes("gap-1"):
+                            ui.label(title).classes("text-[#16233D] font-semibold")
+                            ui.label(desc).classes(
+                                "text-[#4B5563] text-sm leading-relaxed"
+                            )
+
+        # prova social — estrutura pronta, conteúdo real pendente
+        with ui.column().classes("w-full items-center py-16 px-4"):
+            with ui.column().classes("max-w-3xl gap-4 w-full"):
+                ui.label("04").classes("font-mono text-sm text-[#A6402F]")
+                ui.label("Quem já passou por aqui").classes(
+                    "font-display text-3xl font-semibold text-[#16233D] mb-4"
+                )
+                with ui.row().classes("gap-4 flex-wrap"):
+                    for _ in range(3):
+                        with ui.column().classes(
+                            "w-56 h-40 border hairline border-dashed p-4 "
+                            "items-center justify-center bg-white"
+                        ):
+                            ui.label("DEPOIMENTO").classes(
+                                "font-mono text-xs text-[#4B5563]/60 tracking-widest"
+                            )
+                            ui.label("PLACEHOLDER").classes(
+                                "font-mono text-[10px] text-[#4B5563]/40 tracking-widest"
+                            )
 
         # planos
-        with ui.column().classes("w-full items-center py-16 px-4 bg-amber-50/40").props(
-            'id="planos-mentoria"'
-        ):
+        with ui.column().classes(
+            "w-full items-center py-16 px-4 bg-[#16233D]"
+        ).props('id="planos-mentoria"'):
+            ui.label("05").classes("font-mono text-sm text-[#A6402F] self-center")
             ui.label("Escolha seu plano de mentoria").classes(
-                "text-3xl font-bold text-stone-800 mb-2 text-center"
+                "font-display text-3xl font-semibold text-[#F5F0E6] mb-2 text-center"
             )
             ui.label(
-                "Todos os planos incluem encontros agendados conforme sua disponibilidade."
-            ).classes("text-stone-500 mb-10 text-center")
+                "Todos os planos incluem encontros agendados conforme sua "
+                "disponibilidade."
+            ).classes("text-[#F5F0E6]/60 mb-10 text-center font-mono text-sm")
 
             with ui.row().classes("gap-6 flex-wrap justify-center"):
-                tier_select_ref = {"widget": None}
                 for tier in MENTORSHIP_TIERS:
                     highlight = tier.get("highlight", False)
                     card_classes = (
-                        "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 border-2 border-amber-500 bg-white"
+                        "w-72 p-6 rounded-none flex flex-col gap-3 bg-[#F5F0E6] "
+                        "border-2 border-[#A6402F]"
                         if highlight
-                        else "w-72 p-6 rounded-2xl shadow-md flex flex-col gap-3 bg-white"
+                        else "w-72 p-6 rounded-none flex flex-col gap-3 bg-[#F5F0E6]"
                     )
                     with ui.card().classes(card_classes):
                         if highlight:
-                            ui.label("Mais popular").classes(
-                                "text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full self-start"
+                            ui.label("MAIS PROCURADO").classes(
+                                "text-[10px] font-mono tracking-widest text-[#F5F0E6] "
+                                "bg-[#A6402F] px-3 py-1 self-start"
                             )
-                        ui.label(tier["name"]).classes("text-xl font-bold text-stone-800")
-                        ui.label(tier["price"]).classes("text-3xl font-bold text-amber-700")
+                        ui.label(tier["name"]).classes(
+                            "font-display text-xl font-semibold text-[#16233D] mt-1"
+                        )
+                        with ui.row().classes("items-baseline gap-1"):
+                            ui.label("R$").classes("font-mono text-sm text-[#A6402F]")
+                            ui.label(tier["price"]).classes(
+                                "font-mono text-3xl font-medium text-[#A6402F]"
+                            )
 
-                        ui.separator()
+                        ui.element("div").classes("h-px w-full bg-[#B8925A55] my-2")
 
                         for feature in tier["features"]:
-                            ui.html(
-                                f'<div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:4px;">'
-                                f'<span style="color:#d97706; flex-shrink:0; margin-top:2px;">✓</span>'
-                                f'<span style="color:#57534e; font-size:0.875rem; line-height:1.4;">{feature}</span></div>'
+                            with ui.row().classes("items-start gap-2"):
+                                ui.label("✓").classes(
+                                    "text-[#A6402F] font-mono text-sm flex-shrink-0"
+                                )
+                                ui.label(feature).classes(
+                                    "text-[#4B5563] text-sm leading-snug"
+                                )
+                        with ui.row().classes("items-start gap-2"):
+                            ui.label("+").classes(
+                                "text-[#4B5563]/40 font-mono text-sm flex-shrink-0"
+                            )
+                            ui.label("[diferencial deste tier a definir]").classes(
+                                "text-[#4B5563]/40 text-xs italic leading-snug"
                             )
 
                         ui.space()
 
                         def make_handler(t=tier["tier_key"]):
                             def handler():
-                                selected_tier["value"] = t
-                                if tier_select_ref["widget"]:
-                                    tier_select_ref["widget"].value = t
-                                ui.run_javascript(
-                                    "document.getElementById('cadastro-mentoria').scrollIntoView({behavior:'smooth'})"
-                                )
+                                ui.navigate.to(f"/mentoria/cadastro?tier={t}")
                             return handler
 
                         ui.button(
                             "Quero este plano",
                             on_click=make_handler(),
-                        ).classes("w-full mt-2 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700")
+                        ).classes(
+                            "w-full mt-2 bg-[#16233D] text-[#F5F0E6] rounded-none "
+                            "py-2 font-mono text-xs tracking-wide hover:bg-[#0f182b]"
+                        )
 
-# CTA final — substitui o form inline. Tier já vem selecionado
-        # pelo card clicado acima; default pro básico se ninguém clicou nada.
-        with ui.column().classes("w-full items-center py-16 px-4"):
-            ui.label("Pronto para começar?").classes("text-3xl font-bold text-stone-800 mb-2 text-center")
-            ui.label(
-                "O cadastro leva menos de 2 minutos."
-            ).classes("text-stone-500 mb-8 text-center")
+        # CTA final
+        with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
+            ui.label("Pronto para começar?").classes(
+                "font-display text-3xl font-semibold text-[#16233D] mb-2 text-center"
+            )
+            ui.label("O cadastro leva menos de 2 minutos.").classes(
+                "text-[#4B5563] mb-8 text-center font-mono text-sm"
+            )
 
             def go_to_signup():
                 tier = selected_tier["value"] or "mentoria_basico"
                 ui.navigate.to(f"/mentoria/cadastro?tier={tier}")
 
             ui.button("Quero começar", on_click=go_to_signup).classes(
-                "bg-amber-600 text-white rounded-xl px-10 py-3 text-lg hover:bg-amber-700"
+                "bg-[#A6402F] text-[#F5F0E6] rounded-none px-10 py-3 text-lg "
+                "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
             )
 
-        # footer
-        with ui.row().classes("w-full px-8 py-6 bg-stone-800 justify-center"):
-            ui.label("© 2026 GoCanada — Todos os direitos reservados").classes("text-stone-400 text-sm")
+        site_footer()

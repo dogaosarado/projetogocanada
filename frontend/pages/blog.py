@@ -1,50 +1,84 @@
 # pages/blog.py
+#
+# Antes desta sessão, esta página não tinha nav (só o logo) nem footer —
+# única página do site nessa condição. Agora usa o mesmo header/footer
+# compartilhados das demais.
 
 from nicegui import ui
-from pages.layout import brand_logo
+from pages.layout import design_tokens, site_header, site_footer
 from services.api import get_posts, get_post
 
 
 def blog_list_page() -> None:
+    design_tokens()
     posts = get_posts()
 
-    with ui.column().classes("w-full min-h-screen bg-stone-50"):
-        with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-between items-center"):
-            brand_logo()
+    with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
+        site_header("blog")
 
-        with ui.column().classes("w-full items-center py-12 px-4"):
-            with ui.row().classes("w-full max-w-3xl justify-between items-center mb-8"):
-                ui.label("Blog GoCanadaBR").classes("text-3xl font-bold text-amber-700")
-                ui.button("Voltar", on_click=lambda: ui.navigate.to("/")).classes(
-                    "bg-stone-200 text-stone-700 rounded-xl px-4 py-2"
+        with ui.column().classes("w-full items-center py-16 px-4 flex-grow"):
+            with ui.row().classes(
+                "w-full max-w-3xl justify-between items-center mb-8"
+            ):
+                ui.label("Blog GoCanadaBR").classes(
+                    "font-display text-3xl font-semibold text-[#16233D]"
                 )
 
             if not posts:
-                ui.label("Nenhum post publicado ainda.").classes("text-stone-400")
+                ui.label("Nenhum post publicado ainda.").classes(
+                    "text-[#4B5563]/50 font-mono text-sm"
+                )
 
             with ui.column().classes("w-full max-w-3xl gap-4"):
                 for post in posts:
-                    with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white cursor-pointer hover:shadow-md") \
-                            .on("click", lambda p=post: ui.navigate.to(f"/blog/{p['slug']}")):
-                        ui.label(post["title"]).classes("text-xl font-bold text-stone-800")
-                        ui.label(post["created_at"][:10]).classes("text-stone-400 text-sm")
+                    with ui.card().classes(
+                        "w-full p-6 rounded-none shadow-sm bg-white cursor-pointer "
+                        "hover:shadow-md"
+                    ).on(
+                        "click",
+                        lambda p=post: ui.navigate.to(f"/blog/{p['slug']}"),
+                    ):
+                        ui.label(post["title"]).classes(
+                            "text-[#16233D] font-semibold text-xl"
+                        )
+                        ui.label(post["created_at"][:10]).classes(
+                            "text-[#4B5563]/50 text-sm font-mono"
+                        )
+
+        site_footer()
 
 
 def blog_post_page(slug: str) -> None:
+    design_tokens()
     post = get_post(slug)
 
-    with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
-        with ui.column().classes("w-full max-w-2xl"):
-            ui.button("← Voltar ao blog", on_click=lambda: ui.navigate.to("/blog")).classes(
-                "bg-stone-200 text-stone-700 rounded-xl px-4 py-2 mb-6 self-start"
-            )
+    with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
+        site_header("blog")
 
-            if not post:
-                with ui.card().classes("w-full p-8 text-center"):
-                    ui.label("Post não encontrado.").classes("text-red-500")
-                return
+        with ui.column().classes("w-full items-center py-16 px-4 flex-grow"):
+            with ui.column().classes("w-full max-w-2xl"):
+                ui.button(
+                    "← Voltar ao blog", on_click=lambda: ui.navigate.to("/blog")
+                ).classes(
+                    "bg-[#16233D] text-[#F5F0E6] rounded-none px-4 py-2 mb-6 "
+                    "font-mono text-xs tracking-wide self-start"
+                )
 
-            with ui.card().classes("w-full p-8 rounded-2xl shadow-sm bg-white"):
-                ui.label(post["title"]).classes("text-3xl font-bold text-stone-800 mb-2")
-                ui.label(post["created_at"][:10]).classes("text-stone-400 text-sm mb-6")
-                ui.html(post["body_html"])
+                if not post:
+                    with ui.card().classes("w-full p-8 rounded-none text-center"):
+                        ui.label("Post não encontrado.").classes(
+                            "text-[#A6402F] font-mono"
+                        )
+                else:
+                    with ui.card().classes(
+                        "w-full p-8 rounded-none shadow-sm bg-white"
+                    ):
+                        ui.label(post["title"]).classes(
+                            "font-display text-3xl font-semibold text-[#16233D] mb-2"
+                        )
+                        ui.label(post["created_at"][:10]).classes(
+                            "text-[#4B5563]/50 text-sm font-mono mb-6"
+                        )
+                        ui.html(post["body_html"])
+
+        site_footer()
