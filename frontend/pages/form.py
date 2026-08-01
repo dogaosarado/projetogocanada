@@ -3,7 +3,7 @@
 from nicegui import ui
 from state.user import get_token, get_tier, is_logged_in, must_change_password
 from services.api import get_universities, submit_request, get_request_status
-from pages.layout import authenticated_header
+from pages.layout import design_tokens, authenticated_header
 
 
 TIER_LIMITS = {
@@ -15,6 +15,7 @@ TIER_LIMITS = {
 
 
 def form_page() -> None:
+    design_tokens()
     if not is_logged_in():
         ui.navigate.to("/login")
         return
@@ -27,17 +28,24 @@ def form_page() -> None:
     max_universities = TIER_LIMITS.get(tier, 2)
 
     if get_request_status(token):
-        with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
+        with ui.column().classes(
+            "w-full min-h-screen bg-[#F5F0E6] font-body items-center py-12 px-4"
+        ):
             authenticated_header()
-            with ui.card().classes("w-full max-w-2xl p-8 shadow-lg rounded-2xl bg-white text-center"):
-                ui.label("Formulário já enviado").classes("text-2xl font-bold text-amber-700 mb-3")
+            with ui.card().classes(
+                "w-full max-w-2xl p-8 shadow-md rounded-none bg-white border hairline text-center"
+            ):
+                ui.label("Formulário já enviado").classes(
+                    "font-display text-2xl font-semibold text-[#A6402F] mb-3"
+                )
                 ui.label(
                     "Você já enviou seu formulário de universidades e programas. "
                     "Para alterar suas escolhas, entre em contato com a equipe GoCanadaBR "
                     "pelo contato@gocanadabr.com.br."
-                ).classes("text-stone-600")
+                ).classes("text-[#4B5563]")
                 ui.button("Voltar ao painel", on_click=lambda: ui.navigate.to("/painel")).classes(
-                    "bg-amber-600 text-white rounded-xl px-5 py-2 mt-6 hover:bg-amber-700"
+                    "bg-[#A6402F] text-[#F5F0E6] rounded-none px-5 py-2 mt-6 "
+                    "font-mono text-xs tracking-wide hover:bg-[#8a3327]"
                 )
         return
 
@@ -47,13 +55,19 @@ def form_page() -> None:
 
     selections = []
 
-    with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
+    with ui.column().classes(
+        "w-full min-h-screen bg-[#F5F0E6] font-body items-center py-12 px-4"
+    ):
         authenticated_header()
-        with ui.card().classes("w-full max-w-2xl p-8 shadow-lg rounded-2xl bg-white"):
-            ui.label("GoCanadaBR").classes("text-2xl font-bold text-amber-700 mb-1")
+        with ui.card().classes(
+            "w-full max-w-2xl p-8 shadow-md rounded-none bg-white border hairline"
+        ):
+            ui.label("GoCanadaBR").classes(
+                "font-display text-2xl font-semibold text-[#A6402F] mb-1"
+            )
             ui.label(
                 f"Plano {tier.capitalize()} — selecione até {max_universities} universidade(s)"
-            ).classes("text-stone-500 mb-6")
+            ).classes("text-[#4B5563] mb-6 font-mono text-sm")
 
             with ui.column().classes("w-full gap-6"):
                 for i in range(max_universities):
@@ -65,9 +79,11 @@ def form_page() -> None:
                     }
                     selections.append(selected)
 
-                    with ui.card().classes("w-full p-4 bg-stone-50 rounded-xl"):
+                    with ui.card().classes(
+                        "w-full p-4 bg-[#F5F0E6] rounded-none border hairline"
+                    ):
                         ui.label(f"Universidade {i + 1}").classes(
-                            "text-stone-600 font-medium mb-3"
+                            "text-[#16233D] font-mono text-xs tracking-wide mb-3"
                         )
 
                         univ_select_container = ui.column().classes("w-full")
@@ -130,7 +146,7 @@ def form_page() -> None:
                         dept_select.on_value_change(make_dept_handler(selected, custom_input))
                         custom_input.on_value_change(make_custom_handler(selected))
 
-            ui.separator().classes("my-4")
+            ui.element("div").classes("h-px w-full bg-[#B8925A55] my-4")
 
             research = ui.textarea(
                 "Currículo lattes (opcional)",
@@ -163,5 +179,6 @@ def form_page() -> None:
                     error_label.set_visibility(True)
 
             ui.button("Enviar pedido", on_click=handle_submit).classes(
-                "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
+                "w-full mt-6 bg-[#A6402F] text-[#F5F0E6] rounded-none py-2 "
+                "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
             )

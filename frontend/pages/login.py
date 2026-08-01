@@ -3,18 +3,27 @@
 from nicegui import ui, app
 from services.api import login, get_me
 from state.user import set_user
-from pages.layout import brand_logo
+from pages.layout import design_tokens, brand_logo
 
 
 def login_page() -> None:
-    with ui.column().classes("w-full min-h-screen bg-stone-50"):
-        with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-start items-center"):
+    design_tokens()
+    with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
+        with ui.row().classes(
+            "w-full px-8 py-5 bg-[#16233D] justify-start items-center"
+        ):
             brand_logo()
 
         with ui.column().classes("w-full items-center justify-center flex-1 px-4 py-16"):
-            with ui.card().classes("w-96 p-8 shadow-lg rounded-2xl bg-white"):
-                ui.label("GoCanadaBR").classes("text-3xl font-bold text-amber-700 mb-1")
-                ui.label("Acesse sua conta").classes("text-stone-500 mb-6")
+            with ui.card().classes(
+                "w-96 p-8 shadow-md rounded-none bg-white border hairline"
+            ):
+                ui.label("GoCanadaBR").classes(
+                    "font-display text-3xl font-semibold text-[#A6402F] mb-1"
+                )
+                ui.label("Acesse sua conta").classes(
+                    "text-[#4B5563] mb-6 font-mono text-sm"
+                )
 
                 email = ui.input("Email").classes("w-full")
                 password = ui.input("Senha", password=True, password_toggle_button=True).classes("w-full mt-2")
@@ -48,5 +57,6 @@ def login_page() -> None:
                         error_msg.set_visibility(True)
 
                 ui.button("Entrar", on_click=handle_login).classes(
-                    "w-full mt-4 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
+                    "w-full mt-4 bg-[#A6402F] text-[#F5F0E6] rounded-none py-2 "
+                    "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
                 )

@@ -3,10 +3,11 @@
 from nicegui import ui
 from state.user import get_token, is_logged_in
 from services.api import get_dashboard, change_password
-from pages.layout import authenticated_header
+from pages.layout import design_tokens, authenticated_header
 from state.user import must_change_password as must_change_password_state
 
 def dashboard_page() -> None:
+    design_tokens()
     if not is_logged_in():
         ui.navigate.to("/login")
         return
@@ -16,11 +17,11 @@ def dashboard_page() -> None:
     token = get_token()
     data = get_dashboard(token)
 
-    with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-8 px-4"):
+    with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body items-center py-8 px-4"):
         authenticated_header()
 
         if not data:
-            with ui.card().classes("w-full max-w-2xl p-8 mt-6 text-center"):
+            with ui.card().classes("w-full max-w-2xl p-8 mt-6 rounded-none border hairline text-center"):
                 ui.label("Erro ao carregar seu painel. Tente novamente mais tarde.").classes(
                     "text-red-500"
                 )
@@ -29,72 +30,90 @@ def dashboard_page() -> None:
         with ui.column().classes("w-full max-w-3xl gap-6 mt-4"):
 
             # plano + conta
-            with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
+            with ui.card().classes("w-full p-6 rounded-none shadow-sm bg-white border hairline"):
                 with ui.row().classes("w-full justify-between items-center flex-wrap gap-3"):
                     ui.label(f"Plano {data['tier'].capitalize()}").classes(
-                        "text-xl font-bold text-amber-700"
+                        "font-display text-xl font-semibold text-[#A6402F]"
                     )
                     with ui.row().classes("gap-2"):
                         if not data.get("applications"):
                             ui.button(
                                 "Preencher formulário de universidades",
                                 on_click=lambda: ui.navigate.to("/formulario"),
-                            ).classes("bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700")
+                            ).classes(
+                                "bg-[#A6402F] text-[#F5F0E6] rounded-none px-4 py-2 "
+                                "font-mono text-xs tracking-wide hover:bg-[#8a3327]"
+                            )
                         ui.button(
                             "Alterar senha",
                             on_click=lambda: open_password_dialog(token),
-                        ).classes("bg-stone-200 text-stone-700 rounded-xl px-4 py-2")
+                        ).classes(
+                            "bg-white border border-[#16233D]/20 text-[#16233D] rounded-none "
+                            "px-4 py-2 font-mono text-xs tracking-wide hover:bg-[#F5F0E6]"
+                        )
 
             # reuniões (gerais, não vinculadas a uma universidade específica)
-            with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
-                ui.label("Reuniões com o consultor").classes("text-lg font-bold text-stone-800 mb-3")
+            with ui.card().classes("w-full p-6 rounded-none shadow-sm bg-white border hairline"):
+                ui.label("Reuniões com o consultor").classes(
+                    "font-display text-lg font-semibold text-[#16233D] mb-3"
+                )
                 meetings = data.get("meetings", [])
                 if not meetings:
-                    ui.label("Nenhuma reunião agendada ainda.").classes("text-stone-400 text-sm")
+                    ui.label("Nenhuma reunião agendada ainda.").classes(
+                        "text-[#4B5563]/50 text-sm font-mono"
+                    )
                 for m in meetings:
-                    with ui.row().classes("w-full justify-between items-center py-2 border-b border-stone-100"):
+                    with ui.row().classes(
+                        "w-full justify-between items-center py-2 border-b hairline"
+                    ):
                         with ui.column().classes("gap-0"):
-                            ui.label(m["title"]).classes("text-stone-700 font-medium")
+                            ui.label(m["title"]).classes("text-[#16233D] font-medium")
                             if m.get("notes"):
-                                ui.label(m["notes"]).classes("text-stone-400 text-sm")
+                                ui.label(m["notes"]).classes("text-[#4B5563]/60 text-sm")
                         ui.label(m["scheduled_at"].replace("T", " ")[:16]).classes(
-                            "text-amber-700 font-medium text-sm"
+                            "text-[#A6402F] font-mono text-sm"
                         )
 
             # candidaturas — uma "caixa" por universidade/programa
-            with ui.card().classes("w-full p-6 rounded-2xl shadow-sm bg-white"):
-                ui.label("Suas candidaturas").classes("text-lg font-bold text-stone-800 mb-4")
+            with ui.card().classes("w-full p-6 rounded-none shadow-sm bg-white border hairline"):
+                ui.label("Suas candidaturas").classes(
+                    "font-display text-lg font-semibold text-[#16233D] mb-4"
+                )
                 applications = data.get("applications", [])
 
                 if not applications:
                     ui.label(
                         "Nenhuma candidatura ainda — preencha o formulário de universidades acima."
-                    ).classes("text-stone-400 text-sm")
+                    ).classes("text-[#4B5563]/50 text-sm font-mono")
                 else:
                     with ui.grid(columns="repeat(auto-fill, minmax(220px, 1fr))").classes("w-full gap-4"):
                         for a in applications:
                             done = a["checklist_done"]
                             total = a["checklist_total"]
                             with ui.card().classes(
-                                "p-5 rounded-2xl bg-stone-50 hover:bg-amber-50 hover:shadow-md "
-                                "cursor-pointer transition-all border border-stone-100"
+                                "p-5 rounded-none bg-[#F5F0E6] hover:bg-white hover:shadow-md "
+                                "cursor-pointer transition-all border hairline"
                             ).on("click", lambda app_id=a["id"]: ui.navigate.to(f"/painel/candidatura/{app_id}")):
                                 if a.get("is_custom"):
                                     ui.label("Personalizada").classes(
-                                        "text-xs text-amber-600 font-semibold uppercase mb-1"
+                                        "font-mono text-[10px] text-[#A6402F] tracking-widest uppercase mb-1"
                                     )
-                                ui.label(a["university"]).classes("text-stone-800 font-bold text-lg")
-                                ui.label(a["department"]).classes("text-stone-500 text-sm mb-3")
+                                ui.label(a["university"]).classes(
+                                    "font-display text-[#16233D] font-semibold text-lg"
+                                )
+                                ui.label(a["department"]).classes("text-[#4B5563] text-sm mb-3")
                                 with ui.row().classes("w-full justify-between items-center text-xs"):
-                                    ui.label(f"{a['deadline_count']} prazo(s)").classes("text-stone-400")
+                                    ui.label(f"{a['deadline_count']} prazo(s)").classes(
+                                        "font-mono text-[#4B5563]/50"
+                                    )
                                     ui.label(f"{done}/{total} documentos").classes(
-                                        "text-amber-700 font-medium"
+                                        "font-mono text-[#A6402F]"
                                     )
 
 
 def open_password_dialog(token: str) -> None:
-    with ui.dialog() as dialog, ui.card().classes("p-6 gap-3 rounded-2xl"):
-        ui.label("Alterar senha").classes("text-lg font-bold text-stone-800")
+    with ui.dialog() as dialog, ui.card().classes("p-6 gap-3 rounded-none border hairline"):
+        ui.label("Alterar senha").classes("font-display text-lg font-semibold text-[#16233D]")
         current = ui.input("Senha atual", password=True).classes("w-full")
         new = ui.input("Nova senha", password=True).classes("w-full")
         confirm = ui.input("Confirmar nova senha", password=True).classes("w-full")
@@ -122,8 +141,12 @@ def open_password_dialog(token: str) -> None:
                 msg.set_visibility(True)
 
         with ui.row().classes("gap-2 justify-end w-full mt-2"):
-            ui.button("Cancelar", on_click=dialog.close).classes("bg-stone-200 text-stone-700 rounded-xl px-4 py-2")
+            ui.button("Cancelar", on_click=dialog.close).classes(
+                "bg-white border border-[#16233D]/20 text-[#16233D] rounded-none px-4 py-2 "
+                "font-mono text-xs tracking-wide hover:bg-[#F5F0E6]"
+            )
             ui.button("Salvar", on_click=handle_submit).classes(
-                "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
+                "bg-[#A6402F] text-[#F5F0E6] rounded-none px-4 py-2 font-mono text-xs "
+                "tracking-wide hover:bg-[#8a3327]"
             )
     dialog.open()

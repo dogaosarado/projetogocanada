@@ -3,10 +3,11 @@
 from nicegui import ui
 from state.user import get_token, is_logged_in, must_change_password, clear_must_change_password
 from services.api import change_password
-from pages.layout import brand_logo
+from pages.layout import design_tokens, brand_logo
 
 
 def change_password_forced_page() -> None:
+    design_tokens()
     if not is_logged_in():
         ui.navigate.to("/login")
         return
@@ -16,16 +17,22 @@ def change_password_forced_page() -> None:
 
     token = get_token()
 
-    with ui.column().classes("w-full min-h-screen bg-stone-50"):
-        with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-start items-center"):
+    with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
+        with ui.row().classes(
+            "w-full px-8 py-5 bg-[#16233D] justify-start items-center"
+        ):
             brand_logo()
 
         with ui.column().classes("w-full items-center justify-center flex-1 px-4 py-16"):
-            with ui.card().classes("w-96 p-8 shadow-lg rounded-2xl bg-white"):
-                ui.label("Defina sua senha").classes("text-2xl font-bold text-amber-700 mb-1")
+            with ui.card().classes(
+                "w-96 p-8 shadow-md rounded-none bg-white border hairline"
+            ):
+                ui.label("Defina sua senha").classes(
+                    "font-display text-2xl font-semibold text-[#A6402F] mb-1"
+                )
                 ui.label(
                     "Por segurança, troque a senha temporária recebida por email antes de continuar."
-                ).classes("text-stone-500 mb-6 text-sm")
+                ).classes("text-[#4B5563] mb-6 text-sm")
 
                 current = ui.input("Senha temporária", password=True).classes("w-full")
                 new = ui.input("Nova senha", password=True).classes("w-full mt-3")
@@ -51,5 +58,6 @@ def change_password_forced_page() -> None:
                         error_msg.set_visibility(True)
 
                 ui.button("Confirmar", on_click=handle_submit).classes(
-                    "w-full mt-4 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
+                    "w-full mt-4 bg-[#A6402F] text-[#F5F0E6] rounded-none py-2 "
+                    "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
                 )

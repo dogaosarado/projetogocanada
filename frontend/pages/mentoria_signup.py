@@ -2,7 +2,7 @@
 
 
 from nicegui import ui
-from pages.layout import brand_logo
+from pages.layout import design_tokens, brand_logo
 from services.api import get_universities_public, mentoria_signup
 
 MENTORSHIP_UNIVERSITY_LIMITS = {
@@ -19,6 +19,7 @@ TIER_LABELS = {
 
 
 def mentoria_signup_page(tier: str = "mentoria_basico") -> None:
+    design_tokens()
     if tier not in MENTORSHIP_UNIVERSITY_LIMITS:
         tier = "mentoria_basico"
 
@@ -29,31 +30,41 @@ def mentoria_signup_page(tier: str = "mentoria_basico") -> None:
 
     selections = []
 
-    with ui.column().classes("w-full min-h-screen bg-stone-50"):
-        with ui.row().classes("w-full px-8 py-5 bg-white shadow-sm justify-start items-center"):
+    with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
+        with ui.row().classes(
+            "w-full px-8 py-5 bg-[#16233D] justify-start items-center"
+        ):
             brand_logo()
 
         with ui.column().classes("w-full items-center py-12 px-4"):
-            with ui.card().classes("w-full max-w-2xl p-8 shadow-lg rounded-2xl bg-white"):
-                ui.label("Cadastro — Mentoria").classes("text-2xl font-bold text-amber-700 mb-1")
-                ui.label(f"Plano {TIER_LABELS.get(tier, tier)}").classes("text-stone-500 mb-6")
+            with ui.card().classes(
+                "w-full max-w-2xl p-8 shadow-md rounded-none bg-white border hairline"
+            ):
+                ui.label("Cadastro — Mentoria").classes(
+                    "font-display text-2xl font-semibold text-[#A6402F] mb-1"
+                )
+                ui.label(f"Plano {TIER_LABELS.get(tier, tier)}").classes(
+                    "text-[#4B5563] mb-6 font-mono text-sm"
+                )
 
                 name_input = ui.input("Nome completo").classes("w-full")
                 email_input = ui.input("Email").classes("w-full mt-3")
 
-                ui.separator().classes("my-4")
+                ui.element("div").classes("h-px w-full bg-[#B8925A55] my-4")
                 ui.label(
                     f"Universidades e programas de interesse (até {max_universities}) — "
                     "isso não é o serviço de relatório, é só pra darmos contexto na mentoria."
-                ).classes("text-stone-500 text-sm mb-3")
+                ).classes("text-[#4B5563] text-sm mb-3")
 
                 for i in range(max_universities):
                     selected = {"university": None, "department": None, "url": None, "is_custom": False}
                     selections.append(selected)
 
-                    with ui.card().classes("w-full p-4 bg-stone-50 rounded-xl mb-3"):
+                    with ui.card().classes(
+                        "w-full p-4 bg-[#F5F0E6] rounded-none border hairline mb-3"
+                    ):
                         ui.label(f"Universidade {i + 1}" + (" (opcional)" if i > 0 else "")).classes(
-                            "text-stone-600 font-medium mb-3"
+                            "text-[#16233D] font-mono text-xs tracking-wide mb-3"
                         )
 
                         dept_select = ui.select(options={}, label="Programa de pós-graduação").classes("w-full mt-3")
@@ -104,7 +115,7 @@ def mentoria_signup_page(tier: str = "mentoria_basico") -> None:
                         dept_select.on_value_change(make_dept_handler(selected))
                         custom_input.on_value_change(make_custom_handler(selected))
 
-                ui.separator().classes("my-4")
+                ui.element("div").classes("h-px w-full bg-[#B8925A55] my-4")
                 lattes_input = ui.textarea(
                     "Currículo lattes (opcional)",
                     placeholder="Se desejar fornecer mais contexto, cole o link de seu lattes.",
@@ -143,5 +154,6 @@ def mentoria_signup_page(tier: str = "mentoria_basico") -> None:
                         error_msg.set_visibility(True)
 
                 ui.button("Enviar cadastro", on_click=handle_submit).classes(
-                    "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
+                    "w-full mt-6 bg-[#A6402F] text-[#F5F0E6] rounded-none py-2 "
+                    "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
                 )
