@@ -51,9 +51,12 @@ def about_page() -> None:
                     )
 
                 ui.label(
-                    "Gustavo Denani é candidato de Ph.D em Antropologia pela Universidade de "
-                    "Ottawa. Morou em Ottawa e em Montreal durante 2021 e 2024, com experiência "
-                    "em processos seletivos e editais de bolsa."
+                    "Olá! Meu nome é Gustavo Denani e sou candidato de Ph.D em Antropologia pela Universidade de "
+                    "Ottawa. Morei em Ottawa e em Montreal durante 2021 e 2024, durante o doutorado adquiri experiência "
+                    "em processos seletivos e editais de bolsa. Passei pelo processo de seleção sozinho, e apesar de ter "
+                    "sido bem sucedido, hoje entendo os erros que cometi nessa etapa e as decisões que eu teria tomado "
+                    "caso eu tivesse experiência. É dessa experiência que consigo fazer do seu objetivo um projeto "
+                    "não somente possível, mas de modo inteligente e com confiança."
                 ).classes("text-[#4B5563] text-lg leading-relaxed")
 
                 with ui.row().classes("gap-6"):
