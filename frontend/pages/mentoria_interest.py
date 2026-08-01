@@ -23,7 +23,7 @@ def mentoria_interest_page() -> None:
 
                 steps = [
                     "Confira seu email — enviamos uma senha temporária de acesso.",
-                    "Entre na plataforma com essa senha; você será obrigado a trocá-la no primeiro acesso.",
+                    "Entre na plataforma com essa senha; é necessário trocá-la no primeiro acesso.",
                     "Seu painel já estará com as universidades e programas que você escolheu no cadastro.",
                     "As instruções de pagamento chegam em um email de acompanhamento — a mentoria começa após a confirmação.",
                 ]
