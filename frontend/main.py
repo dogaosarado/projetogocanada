@@ -15,6 +15,9 @@ from pages.admin_client import admin_client_page
 from pages.admin_blog import admin_blog_page
 from pages.application_detail import application_detail_page
 from pages.about import about_page
+from pages.mentoria_signup import mentoria_signup_page
+from pages.change_password_forced import change_password_forced_page
+from pages.mentoria_interest import mentoria_interest_page
 import os
 
 print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
@@ -105,6 +108,18 @@ def painel_candidatura(application_id: int):
 @ui.page("/quem-somos")
 def quem_somos():
     about_page()
+
+@ui.page("/mentoria/interesse")
+def mentoria_interesse():
+    mentoria_interest_page()
+
+@ui.page("/mentoria/cadastro")
+def mentoria_cadastro(tier: str = "mentoria_basico"):
+    mentoria_signup_page(tier)
+
+@ui.page("/trocar-senha")
+def trocar_senha():
+    change_password_forced_page()
 
 ui.run(
     title="GoCanadaBR",

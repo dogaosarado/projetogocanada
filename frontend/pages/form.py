@@ -1,22 +1,25 @@
 # pages/form.py
 
 from nicegui import ui
-from state.user import get_token, get_tier, is_logged_in
+from state.user import get_token, get_tier, is_logged_in, must_change_password
 from services.api import get_universities, submit_request, get_request_status
-from state.user import logout
 from pages.layout import authenticated_header
 
 
 TIER_LIMITS = {
-    "basico": 2,
-    "intermediario": 3,
-    "avancado": 4,
+    "relatorio_gratis": 1,
+    "relatorio_basico": 2,
+    "relatorio_intermediario": 3,
+    "relatorio_avancado": 4,
 }
 
 
 def form_page() -> None:
     if not is_logged_in():
         ui.navigate.to("/login")
+        return
+    if must_change_password():
+        ui.navigate.to("/trocar-senha")
         return
 
     token = get_token()

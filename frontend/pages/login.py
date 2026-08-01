@@ -26,7 +26,6 @@ def login_page() -> None:
                     if result:
                         token = result["access_token"]
                         user = get_me(token)
-                        print(f"USER FROM API: {user}")
                         if user:
                             set_user(
                                 token=token,
@@ -35,9 +34,12 @@ def login_page() -> None:
                                 name=user.get("name"),
                                 is_active=user.get("is_active", False),
                                 is_admin=user.get("is_admin", False),
+                                must_change_password=user.get("must_change_password", False),
                             )
-                            print(f"STORAGE AFTER SET: {app.storage.user}")
-                            ui.navigate.to("/painel")
+                            if user.get("must_change_password"):
+                                ui.navigate.to("/trocar-senha")
+                            else:
+                                ui.navigate.to("/painel")
                         else:
                             error_msg.text = "Erro ao buscar dados do usuário."
                             error_msg.set_visibility(True)

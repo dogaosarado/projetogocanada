@@ -10,6 +10,7 @@ def set_user(
     name: str | None = None,
     is_active: bool = False,
     is_admin: bool = False,
+    must_change_password: bool = False,
 ) -> None:
     app.storage.user["token"] = token
     app.storage.user["email"] = email
@@ -17,6 +18,7 @@ def set_user(
     app.storage.user["name"] = name
     app.storage.user["is_active"] = is_active
     app.storage.user["is_admin"] = is_admin
+    app.storage.user["must_change_password"] = must_change_password
 
 def get_name() -> str | None:
     return app.storage.user.get("name")
@@ -39,5 +41,11 @@ def get_is_active() -> bool:
 def get_is_admin() -> bool:
     return bool(app.storage.user.get("is_admin"))
 
+def must_change_password() -> bool:
+    return bool(app.storage.user.get("must_change_password"))
+
+def clear_must_change_password() -> None:
+    app.storage.user["must_change_password"] = False
+    
 def logout() -> None:
     app.storage.user.clear()

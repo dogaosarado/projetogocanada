@@ -4,10 +4,14 @@ from nicegui import ui
 from state.user import get_token, is_logged_in
 from services.api import get_dashboard, change_password
 from pages.layout import authenticated_header
+from state.user import must_change_password as must_change_password_state
 
 def dashboard_page() -> None:
     if not is_logged_in():
         ui.navigate.to("/login")
+        return
+    if must_change_password_state():
+        ui.navigate.to("/trocar-senha")
         return
     token = get_token()
     data = get_dashboard(token)

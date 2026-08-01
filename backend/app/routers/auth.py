@@ -41,5 +41,6 @@ def change_password(
         raise HTTPException(400, "A nova senha deve ter ao menos 8 caracteres.")
 
     user.hashed_password = hash_password(body.new_password)
+    user.must_change_password = False
     db.commit()
     return {"message": "Senha atualizada."}

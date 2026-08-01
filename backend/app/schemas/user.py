@@ -22,6 +22,7 @@ class UserResponse(BaseModel):
     tier: TierEnum
     is_active: bool
     is_admin: bool
+    must_change_password: bool
     name: Optional[str] = None
     created_at: datetime
 

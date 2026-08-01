@@ -35,6 +35,30 @@ def login(email: str, password: str) -> dict | None:
     except Exception:
         return None
 
+def get_universities_public() -> list | None:
+    """Catálogo público, sem token — usado no cadastro de mentoria,
+    antes de existir conta. Requer que /universities no backend não exija auth."""
+    try:
+        response = httpx.get(f"{API_URL}/universities")
+        if response.status_code == 200:
+            return response.json()
+        return None
+    except Exception:
+        return None
+
+
+def mentoria_signup(payload: dict) -> tuple[dict | None, str | None]:
+    try:
+        response = httpx.post(f"{API_URL}/mentoria/signup", json=payload, timeout=15)
+        if response.status_code == 201:
+            return response.json(), None
+        try:
+            detail = response.json().get("detail", "Erro ao cadastrar. Tente novamente.")
+        except Exception:
+            detail = "Erro ao cadastrar. Tente novamente."
+        return None, detail
+    except Exception:
+        return None, "Erro de conexão. Tente novamente."
 
 def get_universities(token: str) -> list | None:
     try:

@@ -186,56 +186,21 @@ def mentoria_page() -> None:
                             on_click=make_handler(),
                         ).classes("w-full mt-2 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700")
 
-        # formulário de interesse
-        with ui.column().classes("w-full items-center py-16 px-4").props('id="cadastro-mentoria"'):
-            ui.label("Comece agora").classes("text-3xl font-bold text-stone-800 mb-2 text-center")
+# CTA final — substitui o form inline. Tier já vem selecionado
+        # pelo card clicado acima; default pro básico se ninguém clicou nada.
+        with ui.column().classes("w-full items-center py-16 px-4"):
+            ui.label("Pronto para começar?").classes("text-3xl font-bold text-stone-800 mb-2 text-center")
             ui.label(
-                "Preencha seus dados e entraremos em contato para agendar o primeiro encontro."
+                "O cadastro leva menos de 2 minutos."
             ).classes("text-stone-500 mb-8 text-center")
 
-            with ui.card().classes("w-full max-w-md p-8 shadow-lg rounded-2xl bg-white"):
-                name_input = ui.input("Nome completo").classes("w-full")
-                email_input = ui.input("Email").classes("w-full mt-3")
+            def go_to_signup():
+                tier = selected_tier["value"] or "mentoria_basico"
+                ui.navigate.to(f"/mentoria/cadastro?tier={tier}")
 
-                tier_select = ui.select(
-                    {
-                        "mentoria_basico": "Básico — R$ 1.500 (8 encontros)",
-                        "mentoria_intermediario": "Intermediário — R$ 2.000 (10 encontros)",
-                        "mentoria_avancado": "Avançado — R$ 3.000 (12 encontros)",
-                    },
-                    label="Plano",
-                    value="mentoria_basico",
-                ).classes("w-full mt-3")
-                tier_select_ref["widget"] = tier_select
-
-                error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
-                error_msg.set_visibility(False)
-
-                def handle_interest():
-                    if not name_input.value.strip():
-                        error_msg.text = "Informe seu nome."
-                        error_msg.set_visibility(True)
-                        return
-                    if not email_input.value.strip():
-                        error_msg.text = "Informe seu email."
-                        error_msg.set_visibility(True)
-                        return
-
-                    tier_val = selected_tier["value"] or tier_select.value
-                    # NOTA: create_lead() envia tier_val direto pro backend.
-                    # Os valores "mentoria_*" só fazem sentido se o backend
-                    # souber diferenciar lead de mentoria de lead de relatório.
-                    # Ver aviso no final da resposta sobre isso.
-                    result = create_lead(name_input.value, email_input.value, tier_val)
-                    if result:
-                        ui.navigate.to("/interesse")
-                    else:
-                        error_msg.text = "Erro ao cadastrar. Tente novamente."
-                        error_msg.set_visibility(True)
-
-                ui.button("Enviar", on_click=handle_interest).classes(
-                    "w-full mt-6 bg-amber-600 text-white rounded-xl py-2 hover:bg-amber-700"
-                )
+            ui.button("Quero começar", on_click=go_to_signup).classes(
+                "bg-amber-600 text-white rounded-xl px-10 py-3 text-lg hover:bg-amber-700"
+            )
 
         # footer
         with ui.row().classes("w-full px-8 py-6 bg-stone-800 justify-center"):

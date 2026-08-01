@@ -77,6 +77,27 @@ MENTORSHIP_TIER_PRICES = {
     "mentoria_avancado": "R$ 3.000",
 }
 
+def send_mentoria_client_email(user: User, temp_password: str) -> None:
+    tier_value = user.tier.value if hasattr(user.tier, "value") else user.tier
+    tier_label = MENTORSHIP_TIER_LABELS.get(tier_value, tier_value)
+
+    resend.Emails.send({
+        "from": "GoCanadaBR <contato@gocanadabr.com.br>",
+        "to": user.email,
+        "subject": "Cadastro de mentoria recebido — GoCanadaBR",
+        "html": f"""
+        <h2>Olá, {user.name}!</h2>
+        <p>Seu cadastro no plano de mentoria <strong>{tier_label}</strong> foi recebido.</p>
+        <p>Você já pode acessar a plataforma com os dados abaixo:</p>
+        <p><strong>Email:</strong> {user.email}<br>
+        <strong>Senha temporária:</strong> {temp_password}</p>
+        <p>No primeiro acesso você será obrigado a trocar essa senha por uma de sua escolha.</p>
+        <p>As instruções de pagamento chegam em um email de acompanhamento.</p>
+        <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanadaBR</a></p>
+        <br>
+        <p>Equipe GoCanadaBR</p>
+        """,
+    })
 
 def send_payment_link_email(user: User, pix_link: str) -> None:
     tier_value = user.tier.value if hasattr(user.tier, "value") else user.tier
