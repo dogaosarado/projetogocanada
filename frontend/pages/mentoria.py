@@ -173,25 +173,6 @@ def mentoria_page() -> None:
                                 "text-[#4B5563] text-sm leading-relaxed"
                             )
 
-        # prova social — estrutura pronta, conteúdo real pendente
-        with ui.column().classes("w-full items-center py-16 px-4"):
-            with ui.column().classes("max-w-3xl gap-4 w-full"):
-                ui.label("Quem já passou por aqui").classes(
-                    "font-display text-3xl font-semibold text-[#16233D] mb-4"
-                )
-                with ui.row().classes("gap-4 flex-wrap"):
-                    for _ in range(3):
-                        with ui.column().classes(
-                            "w-56 h-40 border hairline border-dashed p-4 "
-                            "items-center justify-center bg-white"
-                        ):
-                            ui.label("DEPOIMENTO").classes(
-                                "font-mono text-xs text-[#4B5563]/60 tracking-widest"
-                            )
-                            ui.label("PLACEHOLDER").classes(
-                                "font-mono text-[10px] text-[#4B5563]/40 tracking-widest"
-                            )
-
         # planos
         with ui.column().classes(
             "w-full items-center py-16 px-4 bg-[#16233D]"
