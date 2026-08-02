@@ -31,10 +31,10 @@ def login_page() -> None:
                 error_msg.set_visibility(False)
 
                 def handle_login():
-                    result = login(email.value, password.value)
+                    result, error = login(email.value, password.value)
                     if result:
                         token = result["access_token"]
-                        user = get_me(token)
+                        user, user_error = get_me(token)
                         if user:
                             set_user(
                                 token=token,
@@ -50,10 +50,10 @@ def login_page() -> None:
                             else:
                                 ui.navigate.to("/painel")
                         else:
-                            error_msg.text = "Erro ao buscar dados do usuário."
+                            error_msg.text = user_error or "Erro ao buscar dados do usuário."
                             error_msg.set_visibility(True)
                     else:
-                        error_msg.text = "Email ou senha incorretos."
+                        error_msg.text = error or "Email ou senha incorretos."
                         error_msg.set_visibility(True)
 
                 ui.button("Entrar", on_click=handle_login).classes(

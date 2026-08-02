@@ -11,28 +11,32 @@ print(f"API_URL carregado: {API_URL}")
 
 API_URL = os.getenv("API_URL", "http://localhost:8000")
 
-def get_me(token: str) -> dict | None:
+def get_me(token: str) -> tuple[dict | None, str | None]:
     try:
         response = httpx.get(
             f"{API_URL}/auth/me",
             headers={"Authorization": f"bearer {token}"},
+            timeout=30,
         )
         if response.status_code == 200:
-            return response.json()
-        return None
-    except Exception:
-        return None
+            return response.json(), None
+        return None, "Erro ao buscar dados do usuário."
+    except Exception as e:
+        print(f"get_me EXCEPTION: {type(e).__name__}: {e}")
+        return None, "Erro de conexão. Tente novamente em instantes."
 
 def login(email: str, password: str) -> dict | None:
     try:
         response = httpx.post(
             f"{API_URL}/auth/login",
             json={"email": email, "password": password},
+            timeout=30,
         )
         if response.status_code == 200:
             return response.json()
         return None
-    except Exception:
+    except Exception as e:
+        print(f"login EXCEPTION: {type(e).__name__}: {e}")
         return None
 
 def get_universities_public() -> list | None:
