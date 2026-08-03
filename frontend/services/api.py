@@ -34,7 +34,9 @@ def login(email: str, password: str) -> tuple[dict | None, str | None]:
         )
         if response.status_code == 200:
             return response.json(), None
-        return None, "Email ou senha incorretos."
+        if response.status_code in (401, 403):
+            return None, "Email ou senha incorretos."
+        return None, f"Erro no servidor (status {response.status_code}). Tente novamente em instantes."
     except Exception as e:
         print(f"login EXCEPTION: {type(e).__name__}: {e}")
         return None, "Erro de conexão. Tente novamente em instantes."
