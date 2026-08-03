@@ -25,7 +25,7 @@ def get_me(token: str) -> tuple[dict | None, str | None]:
         print(f"get_me EXCEPTION: {type(e).__name__}: {e}")
         return None, "Erro de conexão. Tente novamente em instantes."
 
-def login(email: str, password: str) -> dict | None:
+def login(email: str, password: str) -> tuple[dict | None, str | None]:
     try:
         response = httpx.post(
             f"{API_URL}/auth/login",
@@ -33,11 +33,11 @@ def login(email: str, password: str) -> dict | None:
             timeout=30,
         )
         if response.status_code == 200:
-            return response.json()
-        return None
+            return response.json(), None
+        return None, "Email ou senha incorretos."
     except Exception as e:
         print(f"login EXCEPTION: {type(e).__name__}: {e}")
-        return None
+        return None, "Erro de conexão. Tente novamente em instantes."
 
 def get_universities_public() -> list | None:
     """Catálogo público, sem token — usado no cadastro de mentoria,
