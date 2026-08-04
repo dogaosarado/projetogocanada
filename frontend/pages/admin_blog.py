@@ -1,8 +1,9 @@
 # pages/admin_blog.py
 
+from state.user import get_is_admin
 import re
 from nicegui import ui
-from state.user import get_token, get_is_admin, is_logged_in
+from state.user import get_token, get_tier, is_logged_in
 from services.api import (
     get_all_posts_admin,
     create_post_admin,
@@ -25,6 +26,7 @@ def admin_blog_page() -> None:
         return
 
     token = get_token()
+    tier = get_tier()
 
     if not get_is_admin():
         ui.navigate.to("/")
