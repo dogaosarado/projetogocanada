@@ -1,9 +1,9 @@
 # pages/admin_blog.py
 
-from state.user import get_is_admin
 import re
+import markdown as md
 from nicegui import ui
-from state.user import get_token, get_tier, is_logged_in
+from state.user import get_token, get_is_admin, is_logged_in
 from services.api import (
     get_all_posts_admin,
     create_post_admin,
@@ -20,13 +20,16 @@ def slugify(title: str) -> str:
     return slug
 
 
+def markdown_to_html(text: str) -> str:
+    return md.markdown(text, extensions=["extra", "sane_lists"])
+
+
 def admin_blog_page() -> None:
     if not is_logged_in():
         ui.navigate.to("/login")
         return
 
     token = get_token()
-    tier = get_tier()
 
     if not get_is_admin():
         ui.navigate.to("/")
@@ -48,7 +51,7 @@ def admin_blog_page() -> None:
             with ui.column().classes("w-full gap-3"):
                 new_title = ui.input("Título").classes("w-full")
                 new_slug = ui.input("Slug (URL)").classes("w-full")
-                new_body = ui.textarea("Conteúdo (HTML)").classes("w-full").props("rows=8")
+                new_body = ui.textarea("Conteúdo (Markdown)").classes("w-full").props("rows=8")
                 new_published = ui.checkbox("Publicar imediatamente", value=False)
                 create_msg = ui.label("").classes("text-sm")
                 create_msg.set_visibility(False)
@@ -66,7 +69,11 @@ def admin_blog_page() -> None:
                         create_msg.set_visibility(True)
                         return
                     result = create_post_admin(
-                        token, new_title.value, new_slug.value, new_body.value, new_published.value
+                        token,
+                        new_title.value,
+                        new_slug.value,
+                        markdown_to_html(new_body.value),
+                        new_published.value,
                     )
                     if result:
                         ui.navigate.to("/admin/blog")
@@ -95,7 +102,10 @@ def admin_blog_page() -> None:
                             with ui.column().classes("w-full gap-3 py-3"):
                                 edit_title = ui.input("Título", value=post["title"]).classes("w-full")
                                 edit_body = (
-                                    ui.textarea("Conteúdo (HTML)", value=post["body_html"])
+                                    ui.textarea(
+                                        "Conteúdo (HTML já convertido — editar aqui é editar HTML, não Markdown)",
+                                        value=post["body_html"],
+                                    )
                                     .classes("w-full")
                                     .props("rows=8")
                                 )
