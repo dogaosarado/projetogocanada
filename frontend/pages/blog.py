@@ -79,6 +79,7 @@ def blog_post_page(slug: str) -> None:
                         ui.label(post["created_at"][:10]).classes(
                             "text-[#4B5563]/50 text-sm font-mono mb-6"
                         )
-                        ui.html(post["body_html"])
+                        with ui.element("div").classes("blog-content w-full"):
+                            ui.html(post["body_html"])
 
         site_footer()

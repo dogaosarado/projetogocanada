@@ -55,6 +55,38 @@ def design_tokens() -> None:
                 font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem;
                 flex-shrink: 0;
             }
+            /* Conteúdo de post de blog renderizado via ui.html() a partir de
+               Markdown convertido — sem isso, h2/p/a saem no default cru do
+               browser: título gigante, parágrafos colados, link sem cor. */
+            .blog-content p {
+                margin-bottom: 1.25rem;
+                line-height: 1.7;
+                color: #16233D;
+            }
+            .blog-content h2 {
+                font-family: 'Fraunces', serif;
+                font-size: 1.35rem;
+                font-weight: 600;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+                color: #16233D;
+            }
+            .blog-content h3 {
+                font-family: 'Fraunces', serif;
+                font-size: 1.15rem;
+                font-weight: 600;
+                margin-top: 1.5rem;
+                margin-bottom: 0.5rem;
+                color: #16233D;
+            }
+            .blog-content a {
+                color: #A6402F;
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+            .blog-content a:hover {
+                color: #8a3327;
+            }
         </style>
         """
     )
