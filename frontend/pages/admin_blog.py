@@ -1,7 +1,7 @@
 # pages/admin_blog.py
 
 import re
-import markdown as md
+import markdown2
 from nicegui import ui
 from state.user import get_token, get_is_admin, is_logged_in
 from services.api import (
@@ -21,7 +21,7 @@ def slugify(title: str) -> str:
 
 
 def markdown_to_html(text: str) -> str:
-    return md.markdown(text, extensions=["extra", "sane_lists"])
+    return markdown2.markdown(text, extras=["fenced-code-blocks", "tables", "cuddled-lists"])
 
 
 def admin_blog_page() -> None:
