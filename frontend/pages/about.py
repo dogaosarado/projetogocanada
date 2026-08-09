@@ -21,15 +21,15 @@ def about_page() -> None:
                 )
 
                 ui.label(
-                    "A GoCanadaBR nasceu para ajudar estudantes brasileiros a planejar sua "
-                    "pós-graduação no Canadá com informação de qualidade, no lugar de achismo "
-                    "e planilha genérica de fórum."
+                    "A GoCanadaBR nasceu para ajudar estudantes brasileiros a fazerem sua "
+                    "pós-graduação no Canadá. Com informação e estratégia, construímos "
+                    "uma candidatura competitiva, tornando compreensível cada etapa da aplicação."
                 ).classes("text-[#4B5563] text-lg leading-relaxed")
 
                 ui.label(
                     "Fazemos o levantamento detalhado de universidades, programas, professores "
                     "e prazos, para que você possa investir seu tempo na candidatura em si — "
-                    "não em garimpar informação espalhada em dezenas de sites em inglês."
+                    "não em garimpar informação espalhada em dezenas de sites."
                 ).classes("text-[#4B5563] text-lg leading-relaxed")
 
                 ui.label(
