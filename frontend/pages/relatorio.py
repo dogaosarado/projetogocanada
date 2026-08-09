@@ -118,6 +118,8 @@ STEPS = [
         "image": "/assets/step4.jpg",
         "title": "4. Receba seu relatório",
         "desc": "Com o relatório em mãos, decida se quer seguir com a mentoria personalizada.",
+        "link_text": "Exemplo do relatório avançado.",
+        "link_url": "/assets/relatorio_avancado.html",
     },
 ]
 
@@ -247,6 +249,14 @@ def relatorio_page() -> None:
                             "text-[#16233D] font-semibold"
                         )
                         ui.label(step["desc"]).classes("text-[#4B5563] text-sm")
+                        if step.get("link_text") and step.get("link_url"):
+                            ui.link(
+                                step["link_text"],
+                                step["link_url"],
+                                new_tab=True,
+                            ).classes(
+                                "text-[#A6402F] text-sm font-mono underline"
+                            )
 
         # tiers (relatórios)
         with ui.column().classes(
