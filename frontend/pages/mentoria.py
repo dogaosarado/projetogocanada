@@ -6,9 +6,12 @@
 # nesta página.
 #
 # Pendências de conteúdo (procure "PLACEHOLDER" na renderização):
-#   - Foto/bio curta do Gustavo no hero
+#   - Foto do Gustavo: src aponta pra "/assets/gushero.jpg" — assumindo que
+#     o mount estático segue o mesmo padrão usado em about.py pro
+#     "gustavo.jpg" (frontend/assets/, servido em /assets). Se o mount real
+#     for outro (ex: /static/), corrigir o path abaixo. Coloque o arquivo
+#     físico gushero.jpg em frontend/assets/ antes de considerar isso pronto.
 #   - 2-3 depoimentos ou casos de sucesso reais (seção de prova social)
-#   - Diferencial específico de cada tier (3 pendentes, um por tier)
 
 from nicegui import ui
 from pages.layout import design_tokens, site_header, site_footer
@@ -16,33 +19,43 @@ from pages.layout import design_tokens, site_header, site_footer
 MENTORSHIP_TIERS = [
     {
         "name": "Básico",
-        "price": "1.500",
+        "price": "2.000",
         "tier_key": "mentoria_basico",
         "features": [
             "10 encontros",
-            "Agendados conforme sua disponibilidade",
-            "Acompanhamento em dois processos de aplicação",
+            "Acompanhamento em 1 processo de aplicação",
+            "Auxílio para a composição do currículo",
+            "Auxílio para a escrita do statement of purpose",
+            "Análise do departamento",
+            "Análise de 1 professor",
         ],
     },
     {
         "name": "Intermediário",
-        "price": "2.000",
+        "price": "2.250",
         "tier_key": "mentoria_intermediario",
         "features": [
             "12 encontros",
-            "Agendados conforme sua disponibilidade",
-            "Acompanhamento em três processos de aplicação",
+            "Acompanhamento em dois processos de aplicação",
+            "Auxílio para a composição do currículo",
+            "Auxílio para a escrita do statement of purpose",
+            "Auxílio para a escrita do projeto",
+            "Análise do departamento",
+            "Análise de 1 professor",
         ],
         "highlight": True,
     },
     {
         "name": "Avançado",
-        "price": "3.000",
+        "price": "2.500",
         "tier_key": "mentoria_avancado",
         "features": [
             "14 encontros",
-            "Agendados conforme sua disponibilidade",
-            "Acompanhamento em quatro processos de aplicação",
+            "Acompanhamento em três processos de aplicação",
+            "Auxílio para a composição do currículo",
+            "Auxílio para a escrita do statement of purpose",
+            "Análise do departamento",
+            "Análise de 1 professor",
         ],
     },
 ]
@@ -102,6 +115,30 @@ def mentoria_page() -> None:
                     "bg-[#A6402F] text-[#F5F0E6] rounded-none px-7 py-2.5 mt-2 "
                     "font-mono text-xs tracking-wide hover:bg-[#8a3327]"
                 )
+
+        # bio do mentor
+        with ui.column().classes("w-full items-center py-16 px-4"):
+            with ui.row().classes(
+                "max-w-3xl w-full gap-8 items-center flex-wrap justify-center"
+            ):
+                ui.image("/assets/gstvhero.jpg").classes(
+                    "w-40 h-40 rounded-full object-cover border hairline flex-shrink-0"
+                )
+                with ui.column().classes("gap-2 max-w-md"):
+                    ui.label("Quem te acompanha").classes(
+                        "font-mono text-xs tracking-widest text-[#A6402F]"
+                    )
+                    ui.label(
+                        "Gustavo Denani é candidato a Ph.D. em Antropologia pela "
+                        "Universidade de Ottawa. Morou em Ottawa e Montreal entre "
+                        "2021 e 2024, período em que adquiriu experiência prática "
+                        "em processos seletivos e editais de bolsa. Passou pelo "
+                        "processo de seleção sozinho e, apesar do resultado "
+                        "positivo, hoje reconhece os erros cometidos e as decisões "
+                        "que teria tomado com a experiência que tem agora. É dessa "
+                        "vivência que nasce a mentoria: tornar sua candidatura não "
+                        "apenas possível, mas inteligente e segura."
+                    ).classes("text-[#4B5563] text-sm leading-relaxed")
 
         # o que é
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
@@ -196,20 +233,13 @@ def mentoria_page() -> None:
                         ui.element("div").classes("h-px w-full bg-[#B8925A55] my-2")
 
                         for feature in tier["features"]:
-                            with ui.row().classes("items-start gap-2"):
+                            with ui.row().classes("items-center gap-2 flex-nowrap"):
                                 ui.label("✓").classes(
-                                    "text-[#A6402F] font-mono text-sm flex-shrink-0"
+                                    "text-[#A6402F] font-mono text-xs flex-shrink-0"
                                 )
                                 ui.label(feature).classes(
-                                    "text-[#4B5563] text-sm leading-snug"
+                                    "text-[#4B5563] text-xs leading-snug"
                                 )
-                        with ui.row().classes("items-start gap-2"):
-                            ui.label("+").classes(
-                                "text-[#4B5563]/40 font-mono text-sm flex-shrink-0"
-                            )
-                            ui.label("[diferencial deste tier a definir]").classes(
-                                "text-[#4B5563]/40 text-xs italic leading-snug"
-                            )
 
                         ui.space()
 
