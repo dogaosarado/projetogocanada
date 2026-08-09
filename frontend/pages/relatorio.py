@@ -34,6 +34,7 @@ TIERS = [
         "features": [
             "1 universidade",
             "1 departamento",
+            "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
         ],
     },
@@ -47,6 +48,7 @@ TIERS = [
             "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
             "Levantamento dos grupos de pesquisa do departamento",
+            "1 professor por departamento",
         ],
     },
     {
@@ -59,6 +61,7 @@ TIERS = [
             "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
             "Levantamento dos grupos de pesquisa dos departamentos",
+            "1 professor por departamento",
         ],
         "highlight": True,
     },
@@ -71,7 +74,8 @@ TIERS = [
             "1 departamento por universidade",
             "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
-            "Levantamento dos grupos de pesquisa do departamento",
+            "Levantamento dos grupos de pesquisa dos departamentos",
+            "2 professores por departamento",
             "20% de desconto na mentoria",
         ],
     },
@@ -88,7 +92,7 @@ WHAT_IS_HIGHLIGHTS = [
         "desc": "As informações são checadas e organizadas num único documento, sem versões contraditórias ou desatualizadas.",
     },
     {
-        "title": "Seu tempo em outra coisa",
+        "title": "Seu tempo em outras tarefas",
         "desc": "Enquanto o relatório resolve o levantamento, você foca no que exige a sua atenção: carta de motivação, contato com professores, documentação.",
     },
 ]
@@ -124,10 +128,10 @@ def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> N
         for tier in tiers:
             highlight = tier.get("highlight", False)
             card_classes = (
-                "w-72 p-6 rounded-none flex flex-col gap-3 bg-[#F5F0E6] "
+                "w-80 p-6 rounded-none flex flex-col gap-3 bg-[#F5F0E6] "
                 "border-2 border-[#A6402F]"
                 if highlight
-                else "w-72 p-6 rounded-none flex flex-col gap-3 bg-[#F5F0E6]"
+                else "w-80 p-6 rounded-none flex flex-col gap-3 bg-[#F5F0E6]"
             )
             with ui.card().classes(card_classes):
                 if highlight:
@@ -147,12 +151,12 @@ def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> N
                 ui.element("div").classes("h-px w-full bg-[#B8925A55] my-2")
 
                 for feature in tier["features"]:
-                    with ui.row().classes("items-start gap-2"):
+                    with ui.row().classes("items-start gap-2 flex-nowrap"):
                         ui.label("✓").classes(
                             "text-[#A6402F] font-mono text-sm flex-shrink-0"
                         )
                         ui.label(feature).classes(
-                            "text-[#4B5563] text-sm leading-snug"
+                            "text-[#4B5563] text-sm leading-snug flex-1"
                         )
 
                 ui.space()
@@ -213,7 +217,7 @@ def relatorio_page() -> None:
                 "prazos de seleção, requisitos, valores de tuition, bolsas disponíveis e os "
                 "professores cujas linhas de pesquisa fazem sentido para você. Tudo levantado "
                 "em fontes oficiais, curado e organizado — para que a decisão de onde aplicar "
-                "não dependa de garimpar dezenas de páginas em inglês."
+                "não dependa de garimpar dezenas de páginas."
             ).classes("text-[#4B5563] text-base max-w-2xl mb-10 text-center")
 
             with ui.row().classes("gap-6 flex-wrap justify-center max-w-5xl"):
