@@ -78,6 +78,22 @@ TIERS = [
 ]
 
 
+WHAT_IS_HIGHLIGHTS = [
+    {
+        "title": "Fontes oficiais",
+        "desc": "Dados coletados direto dos sites das universidades, departamentos e programas — não de agregadores ou blogs.",
+    },
+    {
+        "title": "Curadoria e organização",
+        "desc": "As informações são checadas e organizadas num único documento, sem versões contraditórias ou desatualizadas.",
+    },
+    {
+        "title": "Seu tempo em outra coisa",
+        "desc": "Enquanto o relatório resolve o levantamento, você foca no que exige a sua atenção: carta de motivação, contato com professores, documentação.",
+    },
+]
+
+
 STEPS = [
     {
         "image": "/assets/step1.jpg",
@@ -186,6 +202,31 @@ def relatorio_page() -> None:
                 "bg-[#A6402F] text-[#F5F0E6] rounded-none px-8 py-3 text-lg "
                 "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
             )
+
+        # o que é
+        with ui.column().classes("w-full items-center py-16 px-4"):
+            ui.label("O que é o relatório").classes(
+                "font-display text-3xl font-semibold text-[#16233D] mb-4 text-center"
+            )
+            ui.label(
+                "Um levantamento completo sobre as universidades e programas do seu interesse: "
+                "prazos de seleção, requisitos, valores de tuition, bolsas disponíveis e os "
+                "professores cujas linhas de pesquisa fazem sentido para você. Tudo levantado "
+                "em fontes oficiais, curado e organizado — para que a decisão de onde aplicar "
+                "não dependa de garimpar dezenas de páginas em inglês."
+            ).classes("text-[#4B5563] text-base max-w-2xl mb-10 text-center")
+
+            with ui.row().classes("gap-6 flex-wrap justify-center max-w-5xl"):
+                for item in WHAT_IS_HIGHLIGHTS:
+                    with ui.column().classes(
+                        "w-64 gap-2 p-6 bg-white border border-[#B8925A55] rounded-none"
+                    ):
+                        ui.label(item["title"]).classes(
+                            "font-mono text-xs tracking-widest text-[#A6402F] uppercase"
+                        )
+                        ui.label(item["desc"]).classes(
+                            "text-[#4B5563] text-sm leading-snug"
+                        )
 
         # como funciona
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
