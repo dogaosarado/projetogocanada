@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoCanada — Relatório Tier Avançado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1A2744;--red:#C41E3A;--warm-gray:#F7F6F3;--mid-gray:#8A8A8A;--border:#E2E0DA;--text:#1A1A1A;--text-muted:#5A5A5A}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--text);line-height:1.6}
+.page{max-width:760px;margin:0 auto;padding:2.5rem 3rem}
+
+.cover{border-bottom:3px solid var(--navy);padding:2.5rem 0 2rem;margin-bottom:2.5rem;position:relative;display:flex;flex-direction:column;gap:1.5rem}
+.cover::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)}
+.cover-top{padding-left:1.2rem}
+.brand{font-size:11px;font-weight:600;letter-spacing:.15em;color:var(--red);text-transform:uppercase;margin-bottom:2rem}
+.tier-badge{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:1rem}
+.tier-dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.univ-name{font-family:'Playfair Display',serif;font-size:36px;font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:.4rem}
+.univ-location{font-size:14px;color:var(--text-muted);margin-bottom:1.2rem}
+.map-placeholder{width:100%;height:170px;background:var(--warm-gray);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mid-gray);border:1px solid var(--border);text-align:center;line-height:1.8}
+.cover-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-left:1.2rem}
+.meta-block{background:var(--warm-gray);padding:.75rem 1rem;border-radius:6px}
+.meta-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid-gray);margin-bottom:2px}
+.meta-value{font-size:13px;font-weight:500;color:var(--navy)}
+.meta-value a{color:var(--navy);text-decoration:underline;text-underline-offset:2px}
+
+.section-wrapper{position:relative;padding-left:1.2rem}
+.section-wrapper::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)}
+.course-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.course-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.course-link{font-size:13px;margin-bottom:1.25rem}
+.course-link a{color:var(--navy);text-underline-offset:2px}
+
+.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.data-card{background:var(--warm-gray);border-radius:6px;padding:.75rem 1rem}
+.data-card.full{grid-column:1/-1}
+.dc-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid-gray);margin-bottom:6px}
+.dc-value{font-size:13px;color:var(--text);line-height:1.6}
+
+.schedule{width:100%;border-collapse:collapse;font-size:13px}
+.schedule th{text-align:left;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mid-gray);padding:0 0 6px;border-bottom:1px solid var(--border)}
+.schedule td{padding:6px 0;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.schedule tr:last-child td{border:none}
+
+.scholarship-item{padding:7px 0;border-bottom:1px solid var(--border);font-size:13px}
+.scholarship-item:last-child{border:none}
+.sc-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:3px}
+.sc-tag.guaranteed{background:#EAF3DE;color:#3B6D11}
+.sc-tag.possible{background:#FAEEDA;color:#854F0B}
+.sc-name{font-weight:500;color:var(--navy);margin-bottom:1px}
+.sc-desc{color:var(--text-muted);font-size:12px}
+
+.prof-block{border-top:2px dashed var(--border);margin-top:12px;padding-top:12px}
+.prof-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.prof-avatar{width:38px;height:38px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;color:#185FA5;flex-shrink:0}
+.prof-name{font-weight:600;font-size:14px;color:var(--navy)}
+.prof-title{font-size:12px;color:var(--text-muted)}
+.prof-rows{font-size:12px}
+.prof-row{display:flex;gap:8px;padding:4px 0;border-bottom:1px solid var(--border)}
+.prof-row:last-child{border:none}
+.prof-key{color:var(--text-muted);min-width:110px;flex-shrink:0}
+.prof-val{color:var(--text);line-height:1.5}
+
+.notes-block{border-left:3px solid var(--border);padding-left:.75rem}
+.notes-text{font-size:13px;color:var(--text-muted);line-height:1.7}
+
+.univ-section{margin-bottom:3rem}
+.section-divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+
+.report-footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--mid-gray)}
+.footer-brand{font-family:'Playfair Display',serif;font-size:14px;color:var(--navy);margin-bottom:2px}
+
+@media print{
+  .page{padding:1.5rem 2rem}
+  .cover{page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="univ-section">
+  <div class="cover">
+    <div class="cover-top">
+      <div class="brand">GoCanada &middot; Relatório de Pós-Graduação</div>
+      <div class="tier-badge"><span class="tier-dot"></span>Tier Avançado</div>
+      <div class="univ-name">University of British Columbia</div>
+      <div class="univ-location">Vancouver, BC</div>
+      <div class="map-placeholder">Print do Google Maps<br><small style="color:#bbb">inserir manualmente</small></div>
+    </div>
+    <div class="cover-meta">
+      <div class="meta-block">
+        <div class="meta-label">Endereço físico</div>
+        <div class="meta-value">2329 West Mall, Vancouver, BC V6T 1Z4</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Site oficial</div>
+        <div class="meta-value"><a href="https://www.ubc.ca" target="_blank">www.ubc.ca</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrapper">
+    <div class="course-label">Graduate Course</div>
+    <div class="course-name">MSc in Computer Science</div>
+    <div class="course-link"><a href="https://www.cs.ubc.ca/graduate/msc" target="_blank">www.cs.ubc.ca/graduate/msc</a></div>
+    <div class="data-grid">
+      <div class="data-card full">
+        <div class="dc-label">Cronograma de seleção</div>
+        <table class="schedule">
+          <thead><tr><th>Etapa</th><th style="text-align:right">Data</th></tr></thead>
+          <tbody><tr><td>Abertura das inscrições</td><td style="text-align:right;font-weight:500;color:var(--navy)">1 set. 2025</td></tr>
+<tr><td>Prazo final</td><td style="text-align:right;font-weight:500;color:var(--navy)">15 dez. 2025</td></tr>
+<tr><td>Resultado</td><td style="text-align:right;font-weight:500;color:var(--navy)">Mar. 2026</td></tr>
+<tr><td>Início</td><td style="text-align:right;font-weight:500;color:var(--navy)">Set. 2026</td></tr></tbody>
+        </table>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">GPA mínimo</div>
+        <div class="dc-value" style="font-weight:500;color:var(--navy)">3.0 / 4.0 (mínimo)</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">Proficiência em inglês</div>
+        <div class="dc-value" style="font-size:12px;color:var(--navy);font-weight:500">IELTS 6.5 · TOEFL 90</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Tuition</div>
+        <div class="dc-value" style="font-weight:500;color:var(--navy)">CAD 9.690 / ano (dom.) · CAD 18.000 / ano (int.)</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Bolsas</div>
+        <div class="scholarship-item">
+  <span class="sc-tag guaranteed">Garantida no ingresso</span>
+  <div class="sc-name">UBC Graduate Award</div>
+  <div class="sc-desc">CAD 3.500 / ano · concedida no ingresso a todos os alunos de MSc</div>
+</div><div class="scholarship-item">
+  <span class="sc-tag possible">Possível durante o curso</span>
+  <div class="sc-name">NSERC Canada Graduate Scholarship</div>
+  <div class="sc-desc">CAD 17.500 / ano · candidatura externa, prazo em dezembro</div>
+</div><div class="scholarship-item">
+  <span class="sc-tag possible">Possível durante o curso</span>
+  <div class="sc-name">Faculty of Science Award</div>
+  <div class="sc-desc">CAD 5.000 · seleção interna por desempenho</div>
+</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Laboratórios e grupos de pesquisa</div>
+        <div class="dc-value">UBC Systopia (distributed systems), DLS Lab (machine learning systems), BioInformatics Group</div>
+      </div>
+      <div class="data-card full">
+  <div class="dc-label">Professores do departamento</div>
+  <div class="prof-block">
+  <div class="prof-header">
+    <div class="prof-avatar">AF</div>
+    <div><div class="prof-name">Dr. Anne Fields</div><div class="prof-title">Associate Professor</div></div>
+  </div>
+  <div class="prof-rows">
+    <div class="prof-row"><span class="prof-key">Área de pesquisa</span><span class="prof-val">Machine Learning & Distributed Systems</span></div>
+    <div class="prof-row"><span class="prof-key">Artigos recentes</span><span class="prof-val">Fields et al. (2024) — Scalable Federated Learning; Fields & Kim (2023) — Edge Inference Protocols</span></div>
+    <div class="prof-row"><span class="prof-key">Orientações recentes</span><span class="prof-val">3 MSc concluídos (2022–2024) · 1 PhD em andamento</span></div>
+    <div class="prof-row"><span class="prof-key">Grupos de pesquisa</span><span class="prof-val">DLS Lab, UBC Systopia</span></div>
+  </div>
+</div><div class="prof-block">
+  <div class="prof-header">
+    <div class="prof-avatar">RO</div>
+    <div><div class="prof-name">Dr. Raj Oberoi</div><div class="prof-title">Assistant Professor</div></div>
+  </div>
+  <div class="prof-rows">
+    <div class="prof-row"><span class="prof-key">Área de pesquisa</span><span class="prof-val">Computer Vision & Robotics</span></div>
+    <div class="prof-row"><span class="prof-key">Artigos recentes</span><span class="prof-val">Oberoi et al. (2024) — Real-time Object Segmentation; Oberoi (2023) — Sim-to-Real Transfer</span></div>
+    <div class="prof-row"><span class="prof-key">Orientações recentes</span><span class="prof-val">2 MSc concluídos (2023–2024) · aceitando novos orientandos</span></div>
+    <div class="prof-row"><span class="prof-key">Grupos de pesquisa</span><span class="prof-val">UBC Robotics Lab</span></div>
+  </div>
+</div>
+</div>
+      <div class="data-card full notes-block" style="background:none;border-radius:0;padding-left:.75rem">
+        <div class="dc-label" style="margin-bottom:4px">Outras informações</div>
+        <div class="notes-text">O MSc em CS tem duração de 2 anos e exige um supervisor antes da admissão. Recomenda-se contactar professores com pelo menos 8 meses de antecedência.</div>
+      </div>
+    </div>
+  </div>
+  <hr class="section-divider">
+</div><div class="univ-section">
+  <div class="cover">
+    <div class="cover-top">
+      <div class="brand">GoCanada &middot; Relatório de Pós-Graduação</div>
+      <div class="tier-badge"><span class="tier-dot"></span>Tier Avançado</div>
+      <div class="univ-name">University of Toronto</div>
+      <div class="univ-location">Toronto, ON</div>
+      <div class="map-placeholder">Print do Google Maps<br><small style="color:#bbb">inserir manualmente</small></div>
+    </div>
+    <div class="cover-meta">
+      <div class="meta-block">
+        <div class="meta-label">Endereço físico</div>
+        <div class="meta-value">27 King's College Cir, Toronto, ON M5S 1A1</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Site oficial</div>
+        <div class="meta-value"><a href="https://www.utoronto.ca" target="_blank">www.utoronto.ca</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrapper">
+    <div class="course-label">Graduate Course</div>
+    <div class="course-name">MA in Sociology</div>
+    <div class="course-link"><a href="https://sociology.utoronto.ca/graduate" target="_blank">sociology.utoronto.ca/graduate</a></div>
+    <div class="data-grid">
+      <div class="data-card full">
+        <div class="dc-label">Cronograma de seleção</div>
+        <table class="schedule">
+          <thead><tr><th>Etapa</th><th style="text-align:right">Data</th></tr></thead>
+          <tbody><tr><td>Abertura das inscrições</td><td style="text-align:right;font-weight:500;color:var(--navy)">1 out. 2025</td></tr>
+<tr><td>Prazo final</td><td style="text-align:right;font-weight:500;color:var(--navy)">1 dez. 2025</td></tr>
+<tr><td>Resultado</td><td style="text-align:right;font-weight:500;color:var(--navy)">Fev. 2026</td></tr>
+<tr><td>Início</td><td style="text-align:right;font-weight:500;color:var(--navy)">Set. 2026</td></tr></tbody>
+        </table>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">GPA mínimo</div>
+        <div class="dc-value" style="font-weight:500;color:var(--navy)">3.3 / 4.0 (equiv. B+)</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">Proficiência em inglês</div>
+        <div class="dc-value" style="font-size:12px;color:var(--navy);font-weight:500">IELTS 7.0 · TOEFL 100</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Tuition</div>
+        <div class="dc-value" style="font-weight:500;color:var(--navy)">CAD 7.820 / ano (dom.) · CAD 24.490 / ano (int.)</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Bolsas</div>
+        <div class="scholarship-item">
+  <span class="sc-tag guaranteed">Garantida no ingresso</span>
+  <div class="sc-name">SGS Fellowship</div>
+  <div class="sc-desc">CAD 5.000 garantidos a todos os alunos de MA admitidos</div>
+</div><div class="scholarship-item">
+  <span class="sc-tag possible">Possível durante o curso</span>
+  <div class="sc-name">SSHRC Joseph-Armand Bombardier</div>
+  <div class="sc-desc">CAD 17.500 / ano · candidatura via departamento até novembro</div>
+</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Laboratórios e grupos de pesquisa</div>
+        <div class="dc-value">Toronto Lab for Social Inequality, Urban Studies Research Group</div>
+      </div>
+      <div class="data-card full">
+  <div class="dc-label">Professores do departamento</div>
+  <div class="prof-block">
+  <div class="prof-header">
+    <div class="prof-avatar">MC</div>
+    <div><div class="prof-name">Dr. Maria Chen</div><div class="prof-title">Professor</div></div>
+  </div>
+  <div class="prof-rows">
+    <div class="prof-row"><span class="prof-key">Área de pesquisa</span><span class="prof-val">Urban Inequality & Housing Policy</span></div>
+    <div class="prof-row"><span class="prof-key">Artigos recentes</span><span class="prof-val">Chen (2024) — Displacement in Global Cities; Chen & Park (2023) — Rental Market Stratification</span></div>
+    <div class="prof-row"><span class="prof-key">Orientações recentes</span><span class="prof-val">4 MA concluídos · 2 PhDs em andamento</span></div>
+    <div class="prof-row"><span class="prof-key">Grupos de pesquisa</span><span class="prof-val">Toronto Lab for Social Inequality</span></div>
+  </div>
+</div><div class="prof-block">
+  <div class="prof-header">
+    <div class="prof-avatar">JW</div>
+    <div><div class="prof-name">Dr. James Walsh</div><div class="prof-title">Associate Professor</div></div>
+  </div>
+  <div class="prof-rows">
+    <div class="prof-row"><span class="prof-key">Área de pesquisa</span><span class="prof-val">Race, Immigration & Labour Markets</span></div>
+    <div class="prof-row"><span class="prof-key">Artigos recentes</span><span class="prof-val">Walsh et al. (2024) — Precarious Work & Migrant Labour; Walsh (2022) — Ethnic Enclaves Revisited</span></div>
+    <div class="prof-row"><span class="prof-key">Orientações recentes</span><span class="prof-val">3 MA concluídos (2022–2024) · aceitando novos orientandos</span></div>
+    <div class="prof-row"><span class="prof-key">Grupos de pesquisa</span><span class="prof-val">Urban Studies Research Group</span></div>
+  </div>
+</div>
+</div>
+      <div class="data-card full notes-block" style="background:none;border-radius:0;padding-left:.75rem">
+        <div class="dc-label" style="margin-bottom:4px">Outras informações</div>
+        <div class="notes-text">Programa de 1 ano com opção de extensão para PhD direto. Orientadores alocados no primeiro semestre conforme disponibilidade.</div>
+      </div>
+    </div>
+  </div>
+  <hr class="section-divider">
+</div><div class="univ-section">
+  <div class="cover">
+    <div class="cover-top">
+      <div class="brand">GoCanada &middot; Relatório de Pós-Graduação</div>
+      <div class="tier-badge"><span class="tier-dot"></span>Tier Avançado</div>
+      <div class="univ-name">McGill University</div>
+      <div class="univ-location">Montréal, QC</div>
+      <div class="map-placeholder">Print do Google Maps<br><small style="color:#bbb">inserir manualmente</small></div>
+    </div>
+    <div class="cover-meta">
+      <div class="meta-block">
+        <div class="meta-label">Endereço físico</div>
+        <div class="meta-value">845 Sherbrooke St W, Montréal, QC H3A 0G4</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Site oficial</div>
+        <div class="meta-value"><a href="https://www.mcgill.ca" target="_blank">www.mcgill.ca</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrapper">
+    <div class="course-label">Graduate Course</div>
+    <div class="course-name">MSc in Economics</div>
+    <div class="course-link"><a href="https://www.mcgill.ca/economics/graduate" target="_blank">www.mcgill.ca/economics/graduate</a></div>
+    <div class="data-grid">
+      <div class="data-card full">
+        <div class="dc-label">Cronograma de seleção</div>
+        <table class="schedule">
+          <thead><tr><th>Etapa</th><th style="text-align:right">Data</th></tr></thead>
+          <tbody><tr><td>Abertura das inscrições</td><td style="text-align:right;font-weight:500;color:var(--navy)">15 set. 2025</td></tr>
+<tr><td>Prazo final</td><td style="text-align:right;font-weight:500;color:var(--navy)">15 jan. 2026</td></tr>
+<tr><td>Resultado</td><td style="text-align:right;font-weight:500;color:var(--navy)">Mar. 2026</td></tr>
+<tr><td>Início</td><td style="text-align:right;font-weight:500;color:var(--navy)">Set. 2026</td></tr></tbody>
+        </table>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">GPA mínimo</div>
+        <div class="dc-value" style="font-weight:500;color:var(--navy)">3.2 / 4.0 (recomendado: 3.5+)</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">Proficiência em inglês</div>
+        <div class="dc-value" style="font-size:12px;color:var(--navy);font-weight:500">IELTS 6.5 · TOEFL 86</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Tuition</div>
+        <div class="dc-value" style="font-weight:500;color:var(--navy)">CAD 8.150 / ano (dom.) · CAD 20.370 / ano (int.)</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Bolsas</div>
+        <div class="scholarship-item">
+  <span class="sc-tag guaranteed">Garantida no ingresso</span>
+  <div class="sc-name">McGill Entrance Fellowship</div>
+  <div class="sc-desc">CAD 4.000 · concedido no 1º ano a candidatos com média acima de 3.7</div>
+</div><div class="scholarship-item">
+  <span class="sc-tag possible">Possível durante o curso</span>
+  <div class="sc-name">Bank of Canada Governor's Award</div>
+  <div class="sc-desc">CAD 10.000 · aberto a programas de economia no Québec</div>
+</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Laboratórios e grupos de pesquisa</div>
+        <div class="dc-value">Econometrics Research Group, Behavioural Economics Lab</div>
+      </div>
+      <div class="data-card full">
+  <div class="dc-label">Professores do departamento</div>
+  <div class="prof-block">
+  <div class="prof-header">
+    <div class="prof-avatar">LP</div>
+    <div><div class="prof-name">Dr. Lena Preuss</div><div class="prof-title">Associate Professor</div></div>
+  </div>
+  <div class="prof-rows">
+    <div class="prof-row"><span class="prof-key">Área de pesquisa</span><span class="prof-val">Behavioural Economics & Public Policy</span></div>
+    <div class="prof-row"><span class="prof-key">Artigos recentes</span><span class="prof-val">Preuss & Roy (2024) — Nudges in Tax Compliance; Preuss (2023) — Choice Architecture in Healthcare</span></div>
+    <div class="prof-row"><span class="prof-key">Orientações recentes</span><span class="prof-val">2 MSc concluídos · 1 PhD em andamento</span></div>
+    <div class="prof-row"><span class="prof-key">Grupos de pesquisa</span><span class="prof-val">Behavioural Economics Lab</span></div>
+  </div>
+</div><div class="prof-block">
+  <div class="prof-header">
+    <div class="prof-avatar">ST</div>
+    <div><div class="prof-name">Dr. Samuel Touré</div><div class="prof-title">Assistant Professor</div></div>
+  </div>
+  <div class="prof-rows">
+    <div class="prof-row"><span class="prof-key">Área de pesquisa</span><span class="prof-val">Econometrics & Labour Economics</span></div>
+    <div class="prof-row"><span class="prof-key">Artigos recentes</span><span class="prof-val">Touré et al. (2024) — Wage Decomposition Methods; Touré (2023) — Immigrant Earnings Gaps no Québec</span></div>
+    <div class="prof-row"><span class="prof-key">Orientações recentes</span><span class="prof-val">Novo no departamento (2023) · aceitando orientandos</span></div>
+    <div class="prof-row"><span class="prof-key">Grupos de pesquisa</span><span class="prof-val">Econometrics Research Group</span></div>
+  </div>
+</div>
+</div>
+      <div class="data-card full notes-block" style="background:none;border-radius:0;padding-left:.75rem">
+        <div class="dc-label" style="margin-bottom:4px">Outras informações</div>
+        <div class="notes-text">Programa de 2 anos em Montréal — cidade bilíngue, custo de vida significativamente menor que Toronto ou Vancouver.</div>
+      </div>
+    </div>
+  </div>
+  <hr class="section-divider">
+</div><div class="univ-section">
+  <div class="cover">
+    <div class="cover-top">
+      <div class="brand">GoCanada &middot; Relatório de Pós-Graduação</div>
+      <div class="tier-badge"><span class="tier-dot"></span>Tier Avançado</div>
+      <div class="univ-name">University of Alberta</div>
+      <div class="univ-location">Edmonton, AB</div>
+      <div class="map-placeholder">Print do Google Maps<br><small style="color:#bbb">inserir manualmente</small></div>
+    </div>
+    <div class="cover-meta">
+      <div class="meta-block">
+        <div class="meta-label">Endereço físico</div>
+        <div class="meta-value">116 St & 85 Ave, Edmonton, AB T6G 2R3</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Site oficial</div>
+        <div class="meta-value"><a href="https://www.ualberta.ca" target="_blank">www.ualberta.ca</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrapper">
+    <div class="course-label">Graduate Course</div>
+    <div class="course-name">MSc in Computing Science</div>
+    <div class="course-link"><a href="https://www.ualberta.ca/computing-science/graduate-studies" target="_blank">www.ualberta.ca/computing-science/graduate-studies</a></div>
+    <div class="data-grid">
+      <div class="data-card full">
+        <div class="dc-label">Cronograma de seleção</div>
+        <table class="schedule">
+          <thead><tr><th>Etapa</th><th style="text-align:right">Data</th></tr></thead>
+          <tbody><tr><td>Abertura das inscrições</td><td style="text-align:right;font-weight:500;color:var(--navy)">1 out. 2025</td></tr>
+<tr><td>Prazo final</td><td style="text-align:right;font-weight:500;color:var(--navy)">1 dez. 2025</td></tr>
+<tr><td>Resultado</td><td style="text-align:right;font-weight:500;color:var(--navy)">Fev. 2026</td></tr>
+<tr><td>Início</td><td style="text-align:right;font-weight:500;color:var(--navy)">Set. 2026</td></tr></tbody>
+        </table>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">GPA mínimo</div>
+        <div class="dc-value" style="font-weight:500;color:var(--navy)">3.0 / 4.0 (mínimo)</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">Proficiência em inglês</div>
+        <div class="dc-value" style="font-size:12px;color:var(--navy);font-weight:500">IELTS 6.5 · TOEFL 90</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Tuition</div>
+        <div class="dc-value" style="font-weight:500;color:var(--navy)">CAD 6.130 / ano (dom.) · CAD 14.550 / ano (int.)</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Bolsas</div>
+        <div class="scholarship-item">
+  <span class="sc-tag guaranteed">Garantida no ingresso</span>
+  <div class="sc-name">Alberta Graduate Excellence Scholarship</div>
+  <div class="sc-desc">CAD 3.000 · candidatura automática no ingresso</div>
+</div><div class="scholarship-item">
+  <span class="sc-tag possible">Possível durante o curso</span>
+  <div class="sc-name">NSERC CGS-M</div>
+  <div class="sc-desc">CAD 17.500 / ano · candidatura via supervisor</div>
+</div>
+      </div>
+      <div class="data-card full">
+        <div class="dc-label">Laboratórios e grupos de pesquisa</div>
+        <div class="dc-value">Alberta Machine Intelligence Institute (Amii), Reinforcement Learning & AI Lab (RLAI)</div>
+      </div>
+      <div class="data-card full">
+  <div class="dc-label">Professores do departamento</div>
+  <div class="prof-block">
+  <div class="prof-header">
+    <div class="prof-avatar">BK</div>
+    <div><div class="prof-name">Dr. Boris Kovalev</div><div class="prof-title">Professor</div></div>
+  </div>
+  <div class="prof-rows">
+    <div class="prof-row"><span class="prof-key">Área de pesquisa</span><span class="prof-val">Reinforcement Learning & Robotics</span></div>
+    <div class="prof-row"><span class="prof-key">Artigos recentes</span><span class="prof-val">Kovalev et al. (2024) — Model-based RL for Manipulation; Kovalev (2023) — Reward Shaping Revisited</span></div>
+    <div class="prof-row"><span class="prof-key">Orientações recentes</span><span class="prof-val">5 MSc concluídos · 2 PhDs em andamento</span></div>
+    <div class="prof-row"><span class="prof-key">Grupos de pesquisa</span><span class="prof-val">RLAI Lab, Amii</span></div>
+  </div>
+</div><div class="prof-block">
+  <div class="prof-header">
+    <div class="prof-avatar">YN</div>
+    <div><div class="prof-name">Dr. Yuki Nakamura</div><div class="prof-title">Associate Professor</div></div>
+  </div>
+  <div class="prof-rows">
+    <div class="prof-row"><span class="prof-key">Área de pesquisa</span><span class="prof-val">Deep Learning & Computer Vision</span></div>
+    <div class="prof-row"><span class="prof-key">Artigos recentes</span><span class="prof-val">Nakamura & Chen (2024) — Self-supervised Visual Representations; Nakamura (2023) — Efficient Transformers</span></div>
+    <div class="prof-row"><span class="prof-key">Orientações recentes</span><span class="prof-val">3 MSc concluídos (2023–2024) · aceitando orientandos</span></div>
+    <div class="prof-row"><span class="prof-key">Grupos de pesquisa</span><span class="prof-val">Amii</span></div>
+  </div>
+</div>
+</div>
+      <div class="data-card full notes-block" style="background:none;border-radius:0;padding-left:.75rem">
+        <div class="dc-label" style="margin-bottom:4px">Outras informações</div>
+        <div class="notes-text">Edmonton tem custo de vida menor que Vancouver e Toronto. A UAlberta é um dos principais centros de RL do mundo, com tradição de orientadores como Sutton & Barto.</div>
+      </div>
+    </div>
+  </div>
+  
+</div><div class="report-footer">
+  <div>
+    <div class="footer-brand">GoCanada</div>
+    <div>Relatório &middot; Ana Costa &middot; Junho 2025</div>
+  </div>
+  <div style="text-align:right">Tier Avançado<br>Uso exclusivo do cliente</div>
+</div>
+</div>
+</body>
+</html>
