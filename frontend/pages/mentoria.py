@@ -116,30 +116,6 @@ def mentoria_page() -> None:
                     "font-mono text-xs tracking-wide hover:bg-[#8a3327]"
                 )
 
-        # bio do mentor
-        with ui.column().classes("w-full items-center py-16 px-4"):
-            with ui.row().classes(
-                "max-w-3xl w-full gap-8 items-center flex-wrap justify-center"
-            ):
-                ui.image("/assets/gstvhero.jpg").classes(
-                    "w-40 h-40 rounded-full object-cover border hairline flex-shrink-0"
-                )
-                with ui.column().classes("gap-2 max-w-md"):
-                    ui.label("Quem te acompanha").classes(
-                        "font-mono text-xs tracking-widest text-[#A6402F]"
-                    )
-                    ui.label(
-                        "Gustavo Denani é candidato a Ph.D. em Antropologia pela "
-                        "Universidade de Ottawa. Morou em Ottawa e Montreal entre "
-                        "2021 e 2024, período em que adquiriu experiência prática "
-                        "em processos seletivos e editais de bolsa. Passou pelo "
-                        "processo de seleção sozinho e, apesar do resultado "
-                        "positivo, hoje reconhece os erros cometidos e as decisões "
-                        "que teria tomado com a experiência que tem agora. É dessa "
-                        "vivência que nasce a mentoria: tornar sua candidatura não "
-                        "apenas possível, mas inteligente e segura."
-                    ).classes("text-[#4B5563] text-sm leading-relaxed")
-
         # o que é
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
             with ui.column().classes("max-w-3xl gap-4"):
@@ -173,6 +149,29 @@ def mentoria_page() -> None:
                     with ui.row().classes("items-start gap-3"):
                         ui.label("—").classes("text-[#A6402F] font-mono")
                         ui.label(item).classes("text-[#4B5563] leading-relaxed")
+ # bio do mentor
+        with ui.column().classes("w-full items-center py-16 px-4"):
+            with ui.row().classes(
+                "max-w-3xl w-full gap-8 items-center flex-wrap justify-center"
+            ):
+                ui.image("/assets/gstvhero.jpg").classes(
+                    "w-40 h-40 rounded-full object-cover border hairline flex-shrink-0"
+                )
+                with ui.column().classes("gap-2 max-w-md"):
+                    ui.label("Consultor principal").classes(
+                        "font-mono text-xs tracking-widest text-[#A6402F]"
+                    )
+                    ui.label(
+                        "Gustavo Denani é candidato a Ph.D. em Antropologia pela "
+                        "Universidade de Ottawa. Morou em Ottawa e Montreal entre "
+                        "2021 e 2024, período em que adquiriu experiência prática "
+                        "em processos seletivos e editais de bolsa. Passou pelo "
+                        "processo de seleção sozinho e, apesar do resultado "
+                        "positivo, hoje reconhece os erros cometidos e as decisões "
+                        "que teria tomado com a experiência que tem agora. É dessa "
+                        "vivência que nasce a mentoria: tornar sua candidatura não "
+                        "apenas possível, mas inteligente e segura."
+                    ).classes("text-[#4B5563] text-sm leading-relaxed")
 
         # como funciona — numeração real (sequência de fato)
         with ui.column().classes("w-full items-center py-16 px-4 bg-white"):
