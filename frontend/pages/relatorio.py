@@ -250,13 +250,15 @@ def relatorio_page() -> None:
                         )
                         ui.label(step["desc"]).classes("text-[#4B5563] text-sm")
                         if step.get("link_text") and step.get("link_url"):
-                            ui.link(
-                                step["link_text"],
-                                step["link_url"],
-                                new_tab=True,
-                            ).classes(
-                                "text-[#A6402F] text-sm font-mono underline"
-                            )
+                            with ui.row().classes("w-full justify-center"):
+                                ui.link(
+                                    text=step["link_text"],
+                                    target=step["link_url"],
+                                    new_tab=True,
+                                ).classes(
+                                    "text-[#A6402F] text-sm font-mono underline "
+                                    "hover:text-[#8a3327]"
+                                )
 
         # tiers (relatórios)
         with ui.column().classes(
