@@ -143,8 +143,30 @@ def send_request_email(user: User, request: ConsultancyRequest) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Relatório (fluxo SEM banco — cliente nunca vira User nem Lead persistido)
+# Relatório
 # ---------------------------------------------------------------------------
+
+def send_relatorio_client_email(user: User, temp_password: str) -> None:
+    tier_value = user.tier.value if hasattr(user.tier, "value") else user.tier
+    tier_label = TIER_LABELS.get(tier_value, tier_value)
+
+    resend.Emails.send({
+        "from": "GoCanadaBR <contato@gocanadabr.com.br>",
+        "to": user.email,
+        "subject": "Cadastro de relatório recebido — GoCanadaBR",
+        "html": f"""
+        <h2>Olá, {user.name}!</h2>
+        <p>Seu cadastro no plano de relatório <strong>{tier_label}</strong> foi recebido.</p>
+        <p>Você já pode acessar a plataforma com os dados abaixo:</p>
+        <p><strong>Email:</strong> {user.email}<br>
+        <strong>Senha temporária:</strong> {temp_password}</p>
+        <p>No primeiro acesso você deve trocar essa senha por uma de sua escolha.</p>
+        <p>As instruções de pagamento chegam em um email de acompanhamento.</p>
+        <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanadaBR</a></p>
+        <br>
+        <p>Equipe GoCanadaBR</p>
+        """,
+    })
 
 def send_relatorio_interest_pending_payment_email(name: str, email: str, tier: str) -> None:
     """1º email pro cliente: confirma o pedido e avisa que o pagamento

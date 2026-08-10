@@ -109,6 +109,19 @@ def get_request_status(token: str) -> bool:
     except Exception:
         return False
 
+def relatorio_signup(payload: dict) -> tuple[dict | None, str | None]:
+    try:
+        response = httpx.post(f"{API_URL}/relatorio/signup", json=payload, timeout=15)
+        if response.status_code == 201:
+            return response.json(), None
+        try:
+            detail = response.json().get("detail", "Erro ao cadastrar. Tente novamente.")
+        except Exception:
+            detail = "Erro ao cadastrar. Tente novamente."
+        return None, detail
+    except Exception as e:
+        print(f"relatorio_signup EXCEPTION: {type(e).__name__}: {e}")
+        return None, "Erro de conexão. Tente novamente."
 
 def submit_relatorio_interest(payload: dict) -> tuple[dict | None, str | None]:
     """Pedido de relatório — SEM criar conta e SEM banco de dados no backend.

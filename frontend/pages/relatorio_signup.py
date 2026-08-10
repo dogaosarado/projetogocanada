@@ -146,9 +146,10 @@ def relatorio_signup_page(tier: str = "relatorio_gratis") -> None:
                         "universities_selected": filled,
                         "lattes_url": lattes_input.value.strip() or None,
                     }
-                    result, error = submit_relatorio_interest(payload)
+                    from services.api import relatorio_signup
+                    result, error = relatorio_signup(payload)
                     if result:
-                        ui.navigate.to("/relatorio/interesse")
+                        ui.navigate.to("/login")
                     else:
                         error_msg.text = error or "Erro ao enviar pedido. Tente novamente."
                         error_msg.set_visibility(True)
