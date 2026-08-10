@@ -1,78 +1,80 @@
 # app/routers/admin.py
 
-from app.models.user import TierEnum
-from app.models import user
-import resend
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
+
 from app.core.security import hash_password
 from app.deps import get_admin_user, get_db
 from app.exceptions import NotFoundException
-from app.models.user import User
-from app.schemas.user import UserResponse, UserTierUpdate, PaymentLinkSend
-from app.services.email import send_payment_link_email
-from app.schemas.auth import LoginRequest
-from pydantic import EmailStr
-from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel, EmailStr
 from app.models.content import Meeting, Deadline, ChecklistProgress
-from app.schemas.content import MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
 from app.models.request import ConsultancyRequest, Application
+from app.models.user import User
+from app.schemas.auth import LoginRequest
+from app.schemas.content import MeetingCreate, MeetingResponse, DeadlineCreate, DeadlineResponse
 from app.schemas.request import ApplicationResponse
+from app.schemas.user import UserResponse, UserTierUpdate, PaymentLinkSend
+from app.services.email import (
+    send_payment_link_email,
+    send_relatorio_payment_link_email,
+    send_relatorio_report_incoming_email,
+)
+
 router = APIRouter(prefix="/admin", tags=["admin"])
 
 
 class UserCreate(LoginRequest):
     tier: str
 
-class LeadCreate(BaseModel):
+
+# ---------------------------------------------------------------------------
+# Relatório — gatilhos manuais do admin, SEM banco por trás. Não existe
+# "lead" persistido pra buscar por id: o admin lê o email de notificação
+# (enviado por app/routers/relatorio.py) e digita name/email/tier/pix_link
+# aqui na hora de mandar o link de pagamento e, depois, na hora de confirmar.
+# ---------------------------------------------------------------------------
+
+class RelatorioPaymentLinkSend(BaseModel):
     name: str
     email: EmailStr
     tier: str
+    pix_link: str
 
-@router.post("/leads", status_code=201)
-def create_lead(body: LeadCreate):
-    from app.core.config import settings
-    import resend
 
-    resend.api_key = settings.resend_api_key
+class RelatorioPaymentConfirm(BaseModel):
+    name: str
+    email: EmailStr
 
-    try:
-        resend.Emails.send({
-            "from": "GoCanadaBR <contato@gocanadabr.com.br>",
-            "to": body.email,
-            "subject": "Recebemos seu pedido — GoCanadaBR",
-            "html": f"""
-            <h2>Olá, {body.name}!</h2>
-            <p>Recebemos seu pedido para o plano <strong>{body.tier}</strong>.</p>
-            <p>Entraremos em contato em breve.</p>
-            <br>
-            <p>Equipe GoCanadaBR</p>
-            """,
-        })
 
-        resend.Emails.send({
-            "from": "GoCanadaBR <contato@gocanadabr.com.br>",
-            "to": settings.consultant_email,
-            "subject": f"[GoCanadaBR] Novo pedido — {body.name} ({body.tier})",
-            "html": f"""
-            <h2>Novo pedido — relatório</h2>
-            <p><strong>Nome:</strong> {body.name}</p>
-            <p><strong>Email:</strong> {body.email}</p>
-            <p><strong>Plano:</strong> {body.tier}</p>
-            """,
-        })
-    except Exception as e:
-        print(f"pedido email send failed: {e}")
-        raise HTTPException(status_code=502, detail="Erro ao enviar pedido. Tente novamente.")
+@router.post("/relatorio/send-payment-link", status_code=200)
+def send_relatorio_payment_link(
+    body: RelatorioPaymentLinkSend,
+    _: User = Depends(get_admin_user),
+):
+    send_relatorio_payment_link_email(body.name, body.email, body.tier, body.pix_link)
+    return {"message": "Link de pagamento enviado."}
 
-    return {"message": "Pedido enviado. Entraremos em contato em breve."}
+
+@router.post("/relatorio/confirm-payment", status_code=200)
+def confirm_relatorio_payment(
+    body: RelatorioPaymentConfirm,
+    _: User = Depends(get_admin_user),
+):
+    send_relatorio_report_incoming_email(body.name, body.email)
+    return {"message": "Confirmação enviada ao cliente."}
+
+
+# ---------------------------------------------------------------------------
+# Mentoria / usuários com conta — sem mudança de comportamento
+# ---------------------------------------------------------------------------
+
 @router.get("/users", response_model=list[UserResponse])
 def list_users(
     db: Session = Depends(get_db),
     _: User = Depends(get_admin_user),
 ):
     return db.query(User).order_by(User.created_at.desc()).all()
+
 
 @router.get("/users/{user_id}/detail")
 def get_user_detail(
@@ -119,6 +121,7 @@ def get_application_admin_detail(
         "deadlines": [DeadlineResponse.model_validate(d) for d in deadlines],
     }
 
+
 @router.post("/users", response_model=UserResponse, status_code=201)
 def create_user(
     body: UserCreate,
@@ -140,6 +143,7 @@ def create_user(
 
     return db_user
 
+
 @router.post("/users/{user_id}/meetings", response_model=MeetingResponse, status_code=201)
 def add_meeting(user_id: int, body: MeetingCreate, db: Session = Depends(get_db), _: User = Depends(get_admin_user)):
     meeting = Meeting(user_id=user_id, **body.model_dump())
@@ -147,6 +151,7 @@ def add_meeting(user_id: int, body: MeetingCreate, db: Session = Depends(get_db)
     db.commit()
     db.refresh(meeting)
     return meeting
+
 
 @router.post("/applications/{application_id}/deadlines", response_model=DeadlineResponse, status_code=201)
 def add_deadline(application_id: int, body: DeadlineCreate, db: Session = Depends(get_db), _: User = Depends(get_admin_user)):
@@ -158,6 +163,7 @@ def add_deadline(application_id: int, body: DeadlineCreate, db: Session = Depend
     db.commit()
     db.refresh(deadline)
     return deadline
+
 
 @router.delete("/users/{user_id}", status_code=204)
 def delete_user(
@@ -177,6 +183,7 @@ def delete_user(
 
     db.delete(user)
     db.commit()
+
 
 @router.post("/users/{user_id}/send-payment-link", status_code=200)
 def send_payment_link(
@@ -217,19 +224,19 @@ def update_user_tier(
     resend.api_key = settings.resend_api_key
 
     resend.Emails.send({
-    "from": "GoCanadaBR <contato@gocanadabr.com.br>",
-    "to": user.email,
-    "subject": "Pagamento confirmado — GoCanadaBR",
-    "html": f"""
-    <h2>Recebemos seu pagamento!</h2>
-    <p>Confirmamos o pagamento do plano <strong>{user.tier.value}</strong>.</p>
-    <p>Nosso consultor já está com seus dados e vai preparar seu relatório em breve.</p>
-    <p>Você pode acompanhar tudo no seu painel:</p>
-    <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanadaBR</a></p>
-    <p>Qualquer dúvida, é só responder este email.</p>
-    <br>
-    <p>Equipe GoCanadaBR</p>
-    """
-})
+        "from": "GoCanadaBR <contato@gocanadabr.com.br>",
+        "to": user.email,
+        "subject": "Pagamento confirmado — GoCanadaBR",
+        "html": f"""
+        <h2>Recebemos seu pagamento!</h2>
+        <p>Confirmamos o pagamento do plano <strong>{user.tier.value}</strong>.</p>
+        <p>Nosso consultor já está com seus dados e vai preparar seu relatório em breve.</p>
+        <p>Você pode acompanhar tudo no seu painel:</p>
+        <p><a href="https://www.gocanadabr.com.br/login">Acessar GoCanadaBR</a></p>
+        <p>Qualquer dúvida, é só responder este email.</p>
+        <br>
+        <p>Equipe GoCanadaBR</p>
+        """,
+    })
 
     return user

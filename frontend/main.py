@@ -8,6 +8,7 @@ from pages.login import login_page
 from pages.form import form_page
 from pages.confirmation import confirmation_page
 from pages.admin import admin_page
+from pages.admin_relatorio import admin_relatorio_page
 from pages.interest import interest_page
 from pages.dashboard import dashboard_page
 from pages.blog import blog_list_page, blog_post_page
@@ -16,6 +17,8 @@ from pages.admin_blog import admin_blog_page
 from pages.application_detail import application_detail_page
 from pages.about import about_page
 from pages.mentoria_signup import mentoria_signup_page
+from pages.relatorio_signup import relatorio_signup_page
+from pages.relatorio_interest import relatorio_interest_page
 from pages.change_password_forced import change_password_forced_page
 from pages.mentoria_interest import mentoria_interest_page
 import os
@@ -45,6 +48,10 @@ def interesse():
 @ui.page("/admin")
 def admin():
     admin_page()
+
+@ui.page("/admin/relatorio")
+def admin_relatorio():
+    admin_relatorio_page()
 
 @ui.page("/")
 def index():
@@ -116,6 +123,14 @@ def mentoria_interesse():
 @ui.page("/mentoria/cadastro")
 def mentoria_cadastro(tier: str = "mentoria_basico"):
     mentoria_signup_page(tier)
+
+@ui.page("/relatorio/interesse")
+def relatorio_interesse():
+    relatorio_interest_page()
+
+@ui.page("/relatorio/cadastro")
+def relatorio_cadastro(tier: str = "relatorio_gratis"):
+    relatorio_signup_page(tier)
 
 @ui.page("/trocar-senha")
 def trocar_senha():

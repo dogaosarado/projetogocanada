@@ -9,7 +9,6 @@ load_dotenv()
 API_URL = os.getenv("API_URL", "http://localhost:8000")
 print(f"API_URL carregado: {API_URL}")
 
-API_URL = os.getenv("API_URL", "http://localhost:8000")
 
 def get_me(token: str) -> tuple[dict | None, str | None]:
     try:
@@ -42,8 +41,9 @@ def login(email: str, password: str) -> tuple[dict | None, str | None]:
         return None, "Erro de conexão. Tente novamente em instantes."
 
 def get_universities_public() -> list | None:
-    """Catálogo público, sem token — usado no cadastro de mentoria,
-    antes de existir conta. Requer que /universities no backend não exija auth."""
+    """Catálogo público, sem token — usado no cadastro de mentoria e no pedido
+    de relatório, antes de existir conta. Requer que /universities no backend
+    não exija auth."""
     try:
         response = httpx.get(f"{API_URL}/universities")
         if response.status_code == 200:
@@ -109,20 +109,67 @@ def get_request_status(token: str) -> bool:
     except Exception:
         return False
 
-def create_lead(name: str, email: str, tier: str) -> dict | None:
+
+def submit_relatorio_interest(payload: dict) -> tuple[dict | None, str | None]:
+    """Pedido de relatório — SEM criar conta e SEM banco de dados no backend.
+    Dispara o email 'pagamento pendente' pro cliente e o email de notificação
+    (com links de departamento) pro consultor. Renomeado de create_lead():
+    não existe mais um 'Lead' persistido em lugar nenhum."""
+    try:
+        response = httpx.post(f"{API_URL}/relatorio/interesse", json=payload, timeout=15)
+        if response.status_code == 201:
+            return response.json(), None
+        try:
+            detail = response.json().get("detail", "Erro ao enviar pedido. Tente novamente.")
+        except Exception:
+            detail = "Erro ao enviar pedido. Tente novamente."
+        return None, detail
+    except Exception as e:
+        print(f"submit_relatorio_interest EXCEPTION: {type(e).__name__}: {e}")
+        return None, "Erro de conexão. Tente novamente."
+
+
+def send_relatorio_payment_link(token: str, name: str, email: str, tier: str, pix_link: str) -> tuple[bool, str | None]:
+    """Gatilho manual do admin — sem user_id, porque não existe conta por
+    trás de um pedido de relatório."""
     try:
         response = httpx.post(
-            f"{API_URL}/admin/leads",
-            json={"name": name, "email": email, "tier": tier},
-            timeout=15,
+            f"{API_URL}/admin/relatorio/send-payment-link",
+            json={"name": name, "email": email, "tier": tier, "pix_link": pix_link},
+            headers={"Authorization": f"bearer {token}"},
         )
-        print(f"create_lead status={response.status_code} body={response.text}")
-        if response.status_code == 201:
-            return response.json()
-        return None
+        if response.status_code == 200:
+            return True, None
+        try:
+            detail = response.json().get("detail", "Erro ao enviar link de pagamento.")
+        except Exception:
+            detail = "Erro ao enviar link de pagamento."
+        return False, detail
     except Exception as e:
-        print(f"create_lead EXCEPTION: {type(e).__name__}: {e}")
-        return None
+        print(f"send_relatorio_payment_link EXCEPTION: {type(e).__name__}: {e}")
+        return False, "Erro de conexão."
+
+
+def confirm_relatorio_payment(token: str, name: str, email: str) -> tuple[bool, str | None]:
+    """Gatilho manual do admin, depois de confirmar o Pix na conta — avisa
+    o cliente que o relatório chega em até 48h."""
+    try:
+        response = httpx.post(
+            f"{API_URL}/admin/relatorio/confirm-payment",
+            json={"name": name, "email": email},
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return True, None
+        try:
+            detail = response.json().get("detail", "Erro ao enviar confirmação.")
+        except Exception:
+            detail = "Erro ao enviar confirmação."
+        return False, detail
+    except Exception as e:
+        print(f"confirm_relatorio_payment EXCEPTION: {type(e).__name__}: {e}")
+        return False, "Erro de conexão."
+
 
 def delete_user(token: str, user_id: int) -> bool:
     try:
