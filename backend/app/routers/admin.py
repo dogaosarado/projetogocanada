@@ -31,45 +31,42 @@ class LeadCreate(BaseModel):
     tier: str
 
 @router.post("/leads", status_code=201)
-def create_lead(body: LeadCreate, db: Session = Depends(get_db)):
-    from app.models.lead import Lead
+def create_lead(body: LeadCreate):
     from app.core.config import settings
     import resend
 
-    lead = Lead(name=body.name, email=body.email, tier=body.tier)
-    db.add(lead)
-    db.commit()
-    db.refresh(lead)
-
     resend.api_key = settings.resend_api_key
 
-    resend.Emails.send({
-        "from": "GoCanadaBR <contato@gocanadabr.com.br>",
-        "to": body.email,
-        "subject": "Recebemos seu interesse — GoCanadaBR",
-        "html": f"""
-        <h2>Olá, {body.name}!</h2>
-        <p>Recebemos seu interesse no plano <strong>{body.tier}</strong>.</p>
-        <p>Entraremos em contato em breve.</p>
-        <br>
-        <p>Equipe GoCanadaBR</p>
-        """,
-    })
+    try:
+        resend.Emails.send({
+            "from": "GoCanadaBR <contato@gocanadabr.com.br>",
+            "to": body.email,
+            "subject": "Recebemos seu pedido — GoCanadaBR",
+            "html": f"""
+            <h2>Olá, {body.name}!</h2>
+            <p>Recebemos seu pedido para o plano <strong>{body.tier}</strong>.</p>
+            <p>Entraremos em contato em breve.</p>
+            <br>
+            <p>Equipe GoCanadaBR</p>
+            """,
+        })
 
-    resend.Emails.send({
-        "from": "GoCanadaBR <contato@gocanadabr.com.br>",
-        "to": settings.consultant_email,
-        "subject": f"[GoCanadaBR] Novo interesse — {body.name} ({body.tier})",
-        "html": f"""
-        <h2>Novo interesse — relatório</h2>
-        <p><strong>Nome:</strong> {body.name}</p>
-        <p><strong>Email:</strong> {body.email}</p>
-        <p><strong>Plano:</strong> {body.tier}</p>
-        """,
-    })
+        resend.Emails.send({
+            "from": "GoCanadaBR <contato@gocanadabr.com.br>",
+            "to": settings.consultant_email,
+            "subject": f"[GoCanadaBR] Novo pedido — {body.name} ({body.tier})",
+            "html": f"""
+            <h2>Novo pedido — relatório</h2>
+            <p><strong>Nome:</strong> {body.name}</p>
+            <p><strong>Email:</strong> {body.email}</p>
+            <p><strong>Plano:</strong> {body.tier}</p>
+            """,
+        })
+    except Exception as e:
+        print(f"pedido email send failed: {e}")
+        raise HTTPException(status_code=502, detail="Erro ao enviar pedido. Tente novamente.")
 
-    return {"message": "Cadastro realizado. Entraremos em contato em breve."}
-
+    return {"message": "Pedido enviado. Entraremos em contato em breve."}
 @router.get("/users", response_model=list[UserResponse])
 def list_users(
     db: Session = Depends(get_db),
