@@ -1,13 +1,13 @@
 ﻿# pages/relatorio.py
 #
-# P├ígina do produto "relat├│rio" (avulso). Renomeado de landing.py ΓÇö o nome
-# antigo n├úo fazia sentido: essa p├ígina nunca foi a home, ├⌐ a home
-# (mentoria.py, rota "/") que enviava tr├ífego pra c├í via bot├úo "Relat├│rios".
+# Página do produto "relatório" (avulso). Renomeado de landing.py ΓÇö o nome
+# antigo nãúo fazia sentido: essa página nunca foi a home, ã⌐ a home
+# (mentoria.py, rota "/") que enviava tráfego pra cá via botãúo "Relatórios".
 #
-# Oferece S├ô o relat├│rio. Mentoria n├úo aparece aqui ΓÇö quem quer mentoria
-# j├í est├í em "/" antes de chegar nesta p├ígina.
+# Oferece Sãô o relatório. Mentoria nãúo aparece aqui ΓÇö quem quer mentoria
+# já está em "/" antes de chegar nesta página.
 #
-# Paleta/fontes/header/footer v├¬m de pages/layout.py.
+# Paleta/fontes/header/footer vêm de pages/layout.py.
 
 from nicegui import ui
 from pages.layout import design_tokens, site_header, site_footer
@@ -24,11 +24,11 @@ def _excerpt(html: str, max_len: int = 110) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Relat├│rios (servi├ºo avulso ΓÇö tier gratuito + 3 pagos)
+# Relatórios (serviço avulso ΓÇö tier gratuito + 3 pagos)
 # ---------------------------------------------------------------------------
 TIERS = [
     {
-        "name": "Gr├ítis",
+        "name": "Grátis",
         "price": "0",
         "tier_key": "relatorio_gratis",
         "features": [
@@ -38,38 +38,38 @@ TIERS = [
         ],
     },
     {
-        "name": "B├ísico",
+        "name": "Básico",
         "price": "150",
         "tier_key": "relatorio_basico",
         "features": [
             "2 universidades",
             "1 departamento por universidade",
-            "Dossi├¬ para o processo seletivo",
+            "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
             "Levantamento dos grupos de pesquisa do departamento",
         ],
     },
     {
-        "name": "Intermedi├írio",
+        "name": "Intermediário",
         "price": "250",
         "tier_key": "relatorio_intermediario",
         "features": [
             "3 universidades",
             "1 departamento por universidade",
-            "Dossi├¬ para o processo seletivo",
+            "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
             "Levantamento dos grupos de pesquisa dos departamentos",
         ],
         "highlight": True,
     },
     {
-        "name": "Avan├ºado",
+        "name": "Avançado",
         "price": "400",
         "tier_key": "relatorio_avancado",
         "features": [
             "4 universidades",
             "1 departamento por universidade",
-            "Dossi├¬ para o processo seletivo",
+            "Dossiê para o processo seletivo",
             "Tuition e valor da bolsa",
             "Levantamento dos grupos de pesquisa do departamento",
             "20% de desconto na mentoria",
@@ -82,22 +82,22 @@ STEPS = [
     {
         "image": "/assets/step1.jpg",
         "title": "1. Escolha o plano e crie sua conta",
-        "desc": "Selecione o plano ideal e cadastre seus dados. Voc├¬ recebe acesso imediato por email.",
+        "desc": "Selecione o plano ideal e cadastre seus dados. Você recebe acesso imediato por email.",
     },
     {
         "image": "/assets/step2.jpg",
-        "title": "2. Conhe├ºa a plataforma e pe├ºa seu relat├│rio",
-        "desc": "Explore o painel e preencha o formul├írio com as universidades e programas de seu interesse.",
+        "title": "2. Conheça a plataforma e peça seu relatório",
+        "desc": "Explore o painel e preencha o formulário com as universidades e programas de seu interesse.",
     },
     {
         "image": "/assets/step3.jpg",
         "title": "3. Pague o plano escolhido",
-        "desc": "Voc├¬ recebe as instru├º├╡es de pagamento por email e confirma o pagamento do plano.",
+        "desc": "Você recebe as instruções de pagamento por email e confirma o pagamento do plano.",
     },
     {
         "image": "/assets/step4.jpg",
-        "title": "4. Receba seu relat├│rio",
-        "desc": "Com o relat├│rio em m├úos, decida se quer seguir com a mentoria personalizada.",
+        "title": "4. Receba seu relatório",
+        "desc": "Com o relatório em mãúos, decida se quer seguir com a mentoria personalizada.",
     },
 ]
 
@@ -177,12 +177,12 @@ def relatorio_page() -> None:
 
         # hero
         with ui.column().classes("w-full items-center py-20 px-4 text-center"):
-            ui.label("Sua p├│s-gradua├º├úo no Canad├í").classes(
+            ui.label("Sua pós-graduação no Canadá").classes(
                 "font-display text-4xl font-semibold text-[#16233D] mb-4"
             )
             ui.label(
                 "Pesquisa especializada sobre universidades, programas e professores "
-                "para que voc├¬ possa focar no que importa: sua candidatura."
+                "para que você possa focar no que importa: sua candidatura."
             ).classes("text-[#4B5563] text-lg max-w-xl mb-10")
             ui.button(
                 "Ver planos",
@@ -210,22 +210,22 @@ def relatorio_page() -> None:
                         )
                         ui.label(step["desc"]).classes("text-[#4B5563] text-sm")
 
-        # tiers (relat├│rios)
+        # tiers (relatórios)
         with ui.column().classes(
             "w-full items-center py-16 px-4 bg-white"
         ).props('id="planos"'):
-            ui.label("Escolha seu plano de relat├│rio").classes(
+            ui.label("Escolha seu plano de relatório").classes(
                 "font-display text-3xl font-semibold text-[#16233D] mb-2 text-center"
             )
             ui.label(
-                "Selecione o plano ideal e preencha seus dados para come├ºar."
+                "Selecione o plano ideal e preencha seus dados para começar."
             ).classes("text-[#4B5563] mb-10 text-center font-mono text-sm")
 
             tier_select_ref = {"widget": None, "value": None}
             _tier_cards(TIERS, "cadastro", tier_select_ref)
             selected_tier = tier_select_ref
 
-        # formul├írio de interesse
+        # formulário de interesse
         with ui.column().classes(
             "w-full items-center py-16 px-4"
         ).props('id="cadastro"'):
@@ -301,10 +301,10 @@ def relatorio_page() -> None:
 
                 tier_select = ui.select(
                     {
-                        "relatorio_gratis": "Gr├ítis",
-                        "relatorio_basico": "B├ísico ΓÇö R$ 150",
-                        "relatorio_intermediario": "Intermedi├írio ΓÇö R$ 250",
-                        "relatorio_avancado": "Avan├ºado ΓÇö R$ 400",
+                        "relatorio_gratis": "Grátis",
+                        "relatorio_basico": "Básico R$ 150",
+                        "relatorio_intermediario": "Intermediário R$ 250",
+                        "relatorio_avancado": "Avançado R$ 400",
                     },
                     label="Plano",
                     value="relatorio_gratis",
