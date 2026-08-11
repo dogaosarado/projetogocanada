@@ -146,6 +146,11 @@ def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> N
                         select_ref["value"] = t
                         if select_ref.get("widget"):
                             select_ref["widget"].value = t
+                        # setar .value no widget não garante disparo de on_change em todo
+                        # client do NiceGUI de forma consistente — chama o resize direto
+                        # em vez de depender do evento.
+                        if select_ref.get("on_select"):
+                            select_ref["on_select"](t)
                         ui.run_javascript(
                             f"document.getElementById('{scroll_target_id}').scrollIntoView({{behavior:'smooth'}})"
                         )
@@ -167,7 +172,16 @@ def relatorio_page() -> None:
     universities_data = get_universities_public() or []
     university_map = {u["name"]: u["departments"] for u in universities_data}
     university_names = sorted(university_map.keys())
-    lead_selection = {"university": None, "department": None, "url": None, "is_custom": False}
+
+    TIER_MAX_UNIVS = {t["tier_key"]: int(t["features"][0].split()[0]) for t in TIERS}
+    # {"relatorio_gratis": 1, "relatorio_basico": 2, "relatorio_intermediario": 3, "relatorio_avancado": 4}
+    # ^ deriva do número no primeiro "feature" de cada tier. Se a ordem/formato de
+    # TIERS[i]["features"][0] mudar (ex: deixar de começar com o número), isso quebra
+    # silenciosamente — considerar tornar isso explícito em TIERS em vez de parsear string.
+
+    selections: list[dict] = [
+        {"university": None, "department": None, "url": None, "is_custom": False}
+    ]
 
     with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
 
@@ -240,62 +254,109 @@ def relatorio_page() -> None:
                 name_input = ui.input("Nome completo").classes("w-full")
                 email_input = ui.input("Email").classes("w-full mt-3")
 
-                ui.label("Universidade e programa de interesse").classes(
-                    "text-[#4B5563] text-sm mt-4 mb-2"
-                )
-                dept_select = ui.select(options={}, label="Programa de pós-graduação").classes("w-full mt-3")
-                dept_select.set_visibility(False)
-                custom_input = ui.input(
-                    placeholder="Não encontrou o departamento desejado? Escreva aqui."
-                ).classes("w-full mt-3")
-                custom_input.set_visibility(False)
-
-                def handle_univ_change(e):
-                    lead_selection["university"] = e.value
-                    lead_selection["department"] = None
-                    lead_selection["url"] = None
-                    lead_selection["is_custom"] = False
-                    depts = university_map.get(e.value, [])
-                    dept_select.options = {d["name"]: d["name"] for d in depts}
-                    dept_select.value = None
-                    dept_select.set_visibility(True)
-                    custom_input.set_visibility(True)
-                    dept_select.update()
-
-                def handle_dept_change(e):
-                    if not e.value:
-                        return
-                    lead_selection["is_custom"] = False
-                    lead_selection["department"] = e.value
-                    depts = university_map.get(lead_selection.get("university"), [])
-                    match = next((d for d in depts if d["name"] == e.value), None)
-                    lead_selection["url"] = match["url"] if match else None
-
-                def handle_custom_change(e):
-                    if e.value.strip():
-                        lead_selection["department"] = e.value.strip()
-                        lead_selection["url"] = None
-                        lead_selection["is_custom"] = True
-
-                ui.select(
-                    options=university_names,
-                    label="Universidade",
-                    on_change=handle_univ_change,
-                ).classes("w-full")
-                dept_select.on_value_change(handle_dept_change)
-                custom_input.on_value_change(handle_custom_change)
-
                 tier_select = ui.select(
                     {
-                        "relatorio_gratis": "Grátis",
-                        "relatorio_basico": "Básico — R$ 150",
-                        "relatorio_intermediario": "Intermediário — R$ 250",
-                        "relatorio_avancado": "Avançado — R$ 400",
+                        "relatorio_gratis": "Grátis — 1 universidade",
+                        "relatorio_basico": "Básico — R$ 150 — 2 universidades",
+                        "relatorio_intermediario": "Intermediário — R$ 250 — 3 universidades",
+                        "relatorio_avancado": "Avançado — R$ 400 — 4 universidades",
                     },
                     label="Plano",
                     value="relatorio_gratis",
                 ).classes("w-full mt-3")
                 tier_select_ref["widget"] = tier_select
+
+                ui.label("Universidade e programa de interesse").classes(
+                    "text-[#4B5563] text-sm mt-4 mb-2"
+                )
+                ui.label(
+                    "O número de campos abaixo muda de acordo com o plano selecionado acima."
+                ).classes("text-[#4B5563] text-xs mb-2 italic")
+
+                # Ordem de criação = ordem de renderização no NiceGUI: universidade
+                # SEMPRE vem antes do departamento dentro de cada slot, e o número de
+                # slots é resolvido a partir do plano (TIER_MAX_UNIVS), não fixo em 1.
+                @ui.refreshable
+                def university_pickers():
+                    for i, sel in enumerate(selections):
+                        with ui.column().classes("w-full gap-0 mt-3"):
+                            if len(selections) > 1:
+                                ui.label(f"Universidade {i + 1}").classes(
+                                    "text-[#4B5563] text-xs font-mono"
+                                )
+
+                            def make_univ_handler(idx=i):
+                                def handler(e):
+                                    selections[idx]["university"] = e.value
+                                    selections[idx]["department"] = None
+                                    selections[idx]["url"] = None
+                                    selections[idx]["is_custom"] = False
+                                    university_pickers.refresh()
+                                return handler
+
+                            ui.select(
+                                options=university_names,
+                                label="Universidade",
+                                value=sel["university"],
+                                on_change=make_univ_handler(),
+                            ).classes("w-full")
+
+                            if sel["university"]:
+                                depts = university_map.get(sel["university"], [])
+
+                                def make_dept_handler(idx=i):
+                                    def handler(e):
+                                        if not e.value:
+                                            return
+                                        selections[idx]["is_custom"] = False
+                                        selections[idx]["department"] = e.value
+                                        d = university_map.get(
+                                            selections[idx]["university"], []
+                                        )
+                                        match = next(
+                                            (x for x in d if x["name"] == e.value), None
+                                        )
+                                        selections[idx]["url"] = (
+                                            match["url"] if match else None
+                                        )
+                                    return handler
+
+                                ui.select(
+                                    options={d["name"]: d["name"] for d in depts},
+                                    label="Programa de pós-graduação",
+                                    value=None if sel["is_custom"] else sel["department"],
+                                    on_change=make_dept_handler(),
+                                ).classes("w-full mt-2")
+
+                                def make_custom_handler(idx=i):
+                                    def handler(e):
+                                        if e.value.strip():
+                                            selections[idx]["department"] = e.value.strip()
+                                            selections[idx]["url"] = None
+                                            selections[idx]["is_custom"] = True
+                                    return handler
+
+                                ui.input(
+                                    placeholder="Não encontrou o departamento desejado? Escreva aqui.",
+                                    value=sel["department"] if sel["is_custom"] else "",
+                                    on_change=make_custom_handler(),
+                                ).classes("w-full mt-2")
+
+                university_pickers()
+
+                def resize_universities(tier_key: str):
+                    n = TIER_MAX_UNIVS.get(tier_key, 1)
+                    if len(selections) < n:
+                        selections.extend(
+                            {"university": None, "department": None, "url": None, "is_custom": False}
+                            for _ in range(n - len(selections))
+                        )
+                    elif len(selections) > n:
+                        del selections[n:]
+                    university_pickers.refresh()
+
+                tier_select_ref["on_select"] = resize_universities
+                tier_select.on_value_change(lambda e: resize_universities(e.value))
 
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
                 error_msg.set_visibility(False)
@@ -309,8 +370,13 @@ def relatorio_page() -> None:
                         error_msg.text = "Informe seu email."
                         error_msg.set_visibility(True)
                         return
-                    if not lead_selection.get("university") or not lead_selection.get("department"):
-                        error_msg.text = "Selecione uma universidade e um departamento."
+                    if not all(s.get("university") and s.get("department") for s in selections):
+                        n = len(selections)
+                        error_msg.text = (
+                            "Selecione universidade e departamento em todos os campos."
+                            if n > 1
+                            else "Selecione uma universidade e um departamento."
+                        )
                         error_msg.set_visibility(True)
                         return
 
@@ -319,7 +385,7 @@ def relatorio_page() -> None:
                         "name": name_input.value,
                         "email": email_input.value,
                         "tier": tier_val,
-                        "universities_selected": [lead_selection],
+                        "universities_selected": selections,
                         "lattes_url": None,
                     }
                     result, error = submit_relatorio_interest(payload)
@@ -328,6 +394,14 @@ def relatorio_page() -> None:
                     else:
                         error_msg.text = error or "Erro ao cadastrar. Tente novamente."
                         error_msg.set_visibility(True)
+
+                ui.button(
+                    "Enviar pedido",
+                    on_click=handle_interest,
+                ).classes(
+                    "w-full mt-4 bg-[#A6402F] text-[#F5F0E6] rounded-none py-3 "
+                    "font-mono text-sm tracking-wide hover:bg-[#8a3327]"
+                )
 
         # novidades — 3 posts mais recentes do blog
         posts = get_posts()[:3]
