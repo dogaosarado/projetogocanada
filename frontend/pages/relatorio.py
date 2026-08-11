@@ -1,10 +1,10 @@
-﻿# pages/relatorio.py
+# pages/relatorio.py
 #
-# Página do produto "relatório" (avulso). Renomeado de landing.py ΓÇö o nome
-# antigo nãúo fazia sentido: essa página nunca foi a home, ã⌐ a home
-# (mentoria.py, rota "/") que enviava tráfego pra cá via botãúo "Relatórios".
+# Página do produto "relatório" (avulso). Renomeado de landing.py — o nome
+# antigo não fazia sentido: essa página nunca foi a home, é a home
+# (mentoria.py, rota "/") que enviava tráfego pra cá via botão "Relatórios".
 #
-# Oferece Sãô o relatório. Mentoria nãúo aparece aqui ΓÇö quem quer mentoria
+# Oferece só o relatório. Mentoria não aparece aqui — quem quer mentoria
 # já está em "/" antes de chegar nesta página.
 #
 # Paleta/fontes/header/footer vêm de pages/layout.py.
@@ -19,12 +19,12 @@ def _excerpt(html: str, max_len: int = 110) -> str:
     text = re.sub(r"<[^>]+>", " ", html or "")
     text = re.sub(r"\s+", " ", text).strip()
     if len(text) > max_len:
-        return text[:max_len].rsplit(" ", 1)[0] + "ΓÇª"
+        return text[:max_len].rsplit(" ", 1)[0] + "…"
     return text
 
 
 # ---------------------------------------------------------------------------
-# Relatórios (serviço avulso ΓÇö tier gratuito + 3 pagos)
+# Relatórios (serviço avulso — tier gratuito + 3 pagos)
 # ---------------------------------------------------------------------------
 TIERS = [
     {
@@ -97,7 +97,7 @@ STEPS = [
     {
         "image": "/assets/step4.jpg",
         "title": "4. Receba seu relatório",
-        "desc": "Com o relatório em mãúos, decida se quer seguir com a mentoria personalizada.",
+        "desc": "Com o relatório em mãos, decida se quer seguir com a mentoria personalizada.",
     },
 ]
 
@@ -132,7 +132,7 @@ def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> N
 
                 for feature in tier["features"]:
                     with ui.row().classes("items-start gap-2"):
-                        ui.label("Γ£ô").classes(
+                        ui.label("✓").classes(
                             "text-[#A6402F] font-mono text-sm flex-shrink-0"
                         )
                         ui.label(feature).classes(
@@ -161,8 +161,6 @@ def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> N
 
 
 def relatorio_page() -> None:
-    design_tokens()
-    selected_tier = {"value": None}
     design_tokens()
     selected_tier = {"value": None}
 
@@ -299,18 +297,6 @@ def relatorio_page() -> None:
                 ).classes("w-full mt-3")
                 tier_select_ref["widget"] = tier_select
 
-                tier_select = ui.select(
-                    {
-                        "relatorio_gratis": "Grátis",
-                        "relatorio_basico": "Básico R$ 150",
-                        "relatorio_intermediario": "Intermediário R$ 250",
-                        "relatorio_avancado": "Avançado R$ 400",
-                    },
-                    label="Plano",
-                    value="relatorio_gratis",
-                ).classes("w-full mt-3")
-                tier_select_ref["widget"] = tier_select
-
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
                 error_msg.set_visibility(False)
 
@@ -343,7 +329,7 @@ def relatorio_page() -> None:
                         error_msg.text = error or "Erro ao cadastrar. Tente novamente."
                         error_msg.set_visibility(True)
 
-        # novidades ΓÇö 3 posts mais recentes do blog
+        # novidades — 3 posts mais recentes do blog
         posts = get_posts()[:3]
         if posts:
             with ui.column().classes("w-full items-center py-16 px-4"):
@@ -369,7 +355,7 @@ def relatorio_page() -> None:
                             ui.label(_excerpt(post.get("body_html", ""))).classes(
                                 "text-[#4B5563] text-sm mb-2"
                             )
-                            ui.button("Ler mais ΓåÆ").props("flat").classes(
+                            ui.button("Ler mais →").props("flat").classes(
                                 "text-[#A6402F] font-mono text-xs px-0"
                             )
 
