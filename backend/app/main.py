@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import admin, auth, requests, universities, blog, dashboard, mentoria, relatorio_signup
+from app.routers import admin, auth, requests, universities, blog, dashboard, mentoria, relatorio_signup, relatorio
 
 
 app = FastAPI(
@@ -25,6 +25,7 @@ app.include_router(blog.router)
 app.include_router(dashboard.router)
 app.include_router(mentoria.router)
 app.include_router(relatorio_signup.router)
+app.include_router(relatorio.router)
 
 @app.get("/health")
 def health():

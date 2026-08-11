@@ -366,3 +366,56 @@ def add_deadline_to_application(token: str, application_id: int, label: str, due
         return None
     except Exception:
         return None
+
+def adicionar_servico_relatorio(token: str, payload: dict) -> tuple[dict | None, str | None]:
+    try:
+        response = httpx.post(
+            f"{API_URL}/relatorio/adicionar-servico",
+            json=payload,
+            headers={"Authorization": f"bearer {token}"},
+            timeout=15,
+        )
+        if response.status_code == 201:
+            return response.json(), None
+        try:
+            detail = response.json().get("detail", "Erro ao adicionar serviço. Tente novamente.")
+        except Exception:
+            detail = "Erro ao adicionar serviço. Tente novamente."
+        return None, detail
+    except Exception as e:
+        print(f"adicionar_servico_relatorio EXCEPTION: {type(e).__name__}: {e}")
+        return None, "Erro de conexão. Tente novamente."
+
+
+def adicionar_servico_mentoria(token: str, payload: dict) -> tuple[dict | None, str | None]:
+    try:
+        response = httpx.post(
+            f"{API_URL}/mentoria/adicionar-servico",
+            json=payload,
+            headers={"Authorization": f"bearer {token}"},
+            timeout=15,
+        )
+        if response.status_code == 201:
+            return response.json(), None
+        try:
+            detail = response.json().get("detail", "Erro ao adicionar serviço. Tente novamente.")
+        except Exception:
+            detail = "Erro ao adicionar serviço. Tente novamente."
+        return None, detail
+    except Exception as e:
+        print(f"adicionar_servico_mentoria EXCEPTION: {type(e).__name__}: {e}")
+        return None, "Erro de conexão. Tente novamente."
+
+
+def get_meus_servicos(token: str) -> list | None:
+    try:
+        response = httpx.get(
+            f"{API_URL}/relatorio/meus-servicos",
+            headers={"Authorization": f"bearer {token}"},
+        )
+        if response.status_code == 200:
+            return response.json().get("servicos", [])
+        return None
+    except Exception as e:
+        print(f"get_meus_servicos EXCEPTION: {type(e).__name__}: {e}")
+        return None

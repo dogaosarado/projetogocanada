@@ -21,6 +21,8 @@ from pages.relatorio_signup import relatorio_signup_page
 from pages.relatorio_interest import relatorio_interest_page
 from pages.change_password_forced import change_password_forced_page
 from pages.mentoria_interest import mentoria_interest_page
+from pages.mentoria_adicionar import mentoria_adicionar_page
+from pages.relatorio_adicionar import relatorio_adicionar_page
 import os
 
 print(f"DEBUG API_URL: {os.getenv('API_URL', 'NAO DEFINIDO')}")
@@ -136,9 +138,17 @@ def relatorio_cadastro(tier: str = "relatorio_gratis"):
 def trocar_senha():
     change_password_forced_page()
 
+@ui.page("/relatorio/adicionar")
+def relatorio_adicionar(tier: str = "relatorio_gratis"):
+    relatorio_adicionar_page(tier)
+
+@ui.page("/mentoria/adicionar")
+def mentoria_adicionar(tier: str = "mentoria_basico"):
+    mentoria_adicionar_page(tier)
+
 ui.run(
     title="GoCanadaBR",
-    port=int(os.getenv("PORT", 8080)),
+    port=int(os.getenv("PORT", 8081)),
     storage_secret=os.environ["STORAGE_SECRET"],
     favicon="🍁",
     dark=False,

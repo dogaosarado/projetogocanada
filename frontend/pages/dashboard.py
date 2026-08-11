@@ -2,10 +2,9 @@
 
 from nicegui import ui
 from state.user import get_token, is_logged_in
-from services.api import get_dashboard, change_password
+from services.api import get_dashboard, change_password, get_meus_servicos
 from pages.layout import design_tokens, authenticated_header
 from state.user import must_change_password as must_change_password_state
-
 def dashboard_page() -> None:
     design_tokens()
     if not is_logged_in():
@@ -51,6 +50,35 @@ def dashboard_page() -> None:
                             "bg-white border border-[#16233D]/20 text-[#16233D] rounded-none "
                             "px-4 py-2 font-mono text-xs tracking-wide hover:bg-[#F5F0E6]"
                         )
+            # serviços contratados — relatório / mentoria, independente de data['tier']
+            servicos = get_meus_servicos(token) or []
+            faltando = {"relatorio", "mentoria"} - set(servicos)
+
+            if faltando:
+                with ui.card().classes("w-full p-6 rounded-none shadow-sm bg-white border hairline"):
+                    ui.label("Outros serviços").classes(
+                        "font-display text-lg font-semibold text-[#16233D] mb-3"
+                    )
+                    ui.label("Você ainda não tem os seguintes serviços:").classes(
+                        "text-[#4B5563]/60 text-sm font-mono mb-3"
+                    )
+                    with ui.row().classes("gap-2"):
+                        if "relatorio" in faltando:
+                            ui.button(
+                                "Contratar Relatório",
+                                on_click=lambda: ui.navigate.to("/relatorio/adicionar"),
+                            ).classes(
+                                "bg-[#A6402F] text-[#F5F0E6] rounded-none px-4 py-2 "
+                                "font-mono text-xs tracking-wide hover:bg-[#8a3327]"
+                            )
+                        if "mentoria" in faltando:
+                            ui.button(
+                                "Contratar Mentoria",
+                                on_click=lambda: ui.navigate.to("/mentoria/adicionar"),
+                            ).classes(
+                                "bg-[#A6402F] text-[#F5F0E6] rounded-none px-4 py-2 "
+                                "font-mono text-xs tracking-wide hover:bg-[#8a3327]"
+                            )
 
             # reuniões (gerais, não vinculadas a uma universidade específica)
             with ui.card().classes("w-full p-6 rounded-none shadow-sm bg-white border hairline"):
