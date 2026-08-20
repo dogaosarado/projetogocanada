@@ -2,7 +2,7 @@
 
 from nicegui import ui
 from pages.layout import design_tokens, authenticated_header
-from services.api import get_universities_public, adicionar_servico_relatorio
+from frontend.services.api import get_universities_public, adicionar_servico_relatorio
 from state.user import get_token, is_logged_in
 
 REPORT_UNIVERSITY_LIMITS = {

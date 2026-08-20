@@ -3,7 +3,7 @@
 
 from nicegui import ui
 from pages.layout import design_tokens, brand_logo
-from services.api import get_universities_public, mentoria_signup
+from frontend.services.api import get_universities_public, mentoria_signup
 
 MENTORSHIP_UNIVERSITY_LIMITS = {
     "mentoria_basico": 2,

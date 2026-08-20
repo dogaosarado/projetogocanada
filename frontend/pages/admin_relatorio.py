@@ -8,7 +8,7 @@
 from nicegui import ui
 from pages.layout import design_tokens, brand_logo
 from state.user import get_token
-from services.api import send_relatorio_payment_link, confirm_relatorio_payment
+from frontend.services.api import send_relatorio_payment_link, confirm_relatorio_payment
 
 TIER_OPTIONS = {
     "relatorio_gratis": "Grátis — R$ 0",

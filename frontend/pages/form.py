@@ -2,7 +2,7 @@
 
 from nicegui import ui
 from state.user import get_token, get_tier, is_logged_in, must_change_password
-from services.api import get_universities, submit_request, get_request_status
+from frontend.services.api import get_universities, submit_request, get_request_status
 from pages.layout import design_tokens, authenticated_header
 
 

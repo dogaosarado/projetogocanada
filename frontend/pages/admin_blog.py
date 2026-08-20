@@ -4,7 +4,7 @@ import re
 import markdown2
 from nicegui import ui
 from state.user import get_token, get_is_admin, is_logged_in
-from services.api import (
+from frontend.services.api import (
     get_all_posts_admin,
     create_post_admin,
     update_post_admin,

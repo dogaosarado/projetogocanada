@@ -6,7 +6,7 @@
 
 from nicegui import ui
 from pages.layout import design_tokens, site_header, site_footer
-from services.api import get_posts, get_post
+from frontend.services.api import get_posts, get_post
 
 
 def blog_list_page() -> None:

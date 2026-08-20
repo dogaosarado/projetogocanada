@@ -2,11 +2,11 @@
 
 from nicegui import ui
 from state.user import get_token, get_is_admin, is_logged_in  # get_is_admin: NOVO, ver aviso no chat
-from services.api import get_me
+from frontend.services.api import get_me
 import httpx
 import os
 from dotenv import load_dotenv
-from services.api import delete_user, send_payment_link
+from frontend.services.api import delete_user, send_payment_link
 from state.user import logout
 from pages.layout import authenticated_header
 

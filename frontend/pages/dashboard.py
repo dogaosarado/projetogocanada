@@ -2,7 +2,7 @@
 
 from nicegui import ui
 from state.user import get_token, is_logged_in
-from services.api import get_dashboard, change_password, get_meus_servicos
+from frontend.services.api import get_dashboard, change_password, get_meus_servicos
 from pages.layout import design_tokens, authenticated_header
 from state.user import must_change_password as must_change_password_state
 def dashboard_page() -> None:

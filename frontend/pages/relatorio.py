@@ -1,4 +1,4 @@
-# pages/relatorio.py
+﻿# pages/relatorio.py
 #
 # Página do produto "relatório" (avulso). Renomeado de landing.py — o nome
 # antigo não fazia sentido: essa página nunca foi a home, é a home
@@ -11,7 +11,7 @@
 
 from nicegui import ui
 from pages.layout import design_tokens, site_header, site_footer
-from services.api import submit_relatorio_interest, get_posts, get_universities_public
+from frontend.services.api import submit_relatorio_interest, get_posts, get_universities_public
 import re
 
 

@@ -2,7 +2,7 @@
 
 from nicegui import ui
 from pages.layout import design_tokens, brand_logo
-from services.api import get_universities_public, submit_relatorio_interest
+from frontend.services.api import get_universities_public, submit_relatorio_interest
 
 REPORT_UNIVERSITY_LIMITS = {
     "relatorio_gratis": 1,
@@ -146,7 +146,7 @@ def relatorio_signup_page(tier: str = "relatorio_gratis") -> None:
                         "universities_selected": filled,
                         "lattes_url": lattes_input.value.strip() or None,
                     }
-                    from services.api import relatorio_signup
+                    from frontend.services.api import relatorio_signup
                     result, error = relatorio_signup(payload)
                     if result:
                         ui.navigate.to("/login")

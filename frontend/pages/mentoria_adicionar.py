@@ -2,7 +2,7 @@
 
 from nicegui import ui
 from pages.layout import design_tokens, authenticated_header
-from services.api import get_universities_public, adicionar_servico_mentoria
+from frontend.services.api import get_universities_public, adicionar_servico_mentoria
 from state.user import get_token, is_logged_in
 
 MENTORSHIP_UNIVERSITY_LIMITS = {

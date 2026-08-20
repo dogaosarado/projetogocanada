@@ -2,7 +2,7 @@
 
 from nicegui import ui
 from state.user import get_token, is_logged_in
-from services.api import get_application_detail, toggle_application_checklist_item
+from frontend.services.api import get_application_detail, toggle_application_checklist_item
 from pages.layout import design_tokens, authenticated_header
 
 

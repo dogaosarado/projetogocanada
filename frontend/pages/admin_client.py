@@ -5,7 +5,7 @@ import httpx
 import os
 from dotenv import load_dotenv
 from state.user import get_token
-from services.api import add_deadline_to_application, get_application_admin_detail
+from frontend.services.api import add_deadline_to_application, get_application_admin_detail
 from pages.layout import authenticated_header
 
 load_dotenv()

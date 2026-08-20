@@ -2,7 +2,7 @@
 
 from nicegui import ui
 from state.user import get_token, is_logged_in, must_change_password, clear_must_change_password
-from services.api import change_password
+from frontend.services.api import change_password
 from pages.layout import design_tokens, brand_logo
 
 
