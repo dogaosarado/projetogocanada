@@ -96,12 +96,12 @@ def interesse():
     interest_page()
 
 @ui.page("/admin")
-async def admin_page_route():
-    await admin_page()
+def admin_page_route():
+    admin_page()
 
 @ui.page("/admin/relatorio")
-async def admin_relatorio():
-    await admin_relatorio_page()
+def admin_relatorio():
+    admin_relatorio_page()
 
 @ui.page("/")
 def index():
@@ -132,28 +132,28 @@ def confirmacao():
     confirmation_page()
 
 @ui.page("/painel")
-async def painel():
-    await dashboard_page()
+def painel():
+    dashboard_page()
 
 @ui.page("/blog")
-async def blog():
-    await blog_list_page()
+def blog():
+    blog_list_page()
 
 @ui.page("/blog/{slug}")
-async def blog_post(slug: str):
-    await blog_post_page(slug)
+def blog_post(slug: str):
+    blog_post_page(slug)
 
 @ui.page("/admin/users/{user_id}")
-async def admin_client(user_id: int):
-    await admin_client_page(user_id)
+def admin_client(user_id: int):
+    admin_client_page(user_id)
 
 @ui.page("/admin/blog")
-async def admin_blog():
-    await admin_blog_page()
+def admin_blog():
+    admin_blog_page()
 
 @ui.page("/painel/candidatura/{application_id}")
-async def painel_candidatura(application_id: int):
-    await application_detail_page(application_id)
+def painel_candidatura(application_id: int):
+    application_detail_page(application_id)
 
 @ui.page("/quem-somos")
 def quem_somos():
@@ -176,8 +176,8 @@ async def relatorio_cadastro(tier: str = "relatorio_gratis"):
     await relatorio_signup_page(tier)
 
 @ui.page("/trocar-senha")
-async def trocar_senha():
-    await change_password_forced_page()
+def trocar_senha():
+    change_password_forced_page()
 
 @ui.page("/relatorio/adicionar")
 async def relatorio_adicionar(tier: str = "relatorio_gratis"):
