@@ -125,6 +125,7 @@ def mentoria_interesse():
 
 @ui.page("/mentoria/cadastro", title="GoCanadaBR")
 async def mentoria_cadastro(tier: str = "mentoria_basico"):
+    print(f"WRAPPER MENTORIA CADASTRO EXECUTOU — tier={tier}")
     await mentoria_signup_page(tier)
 
 @ui.page("/relatorio/interesse", title="GoCanadaBR")
