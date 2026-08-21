@@ -35,8 +35,6 @@ def admin_blog_page() -> None:
         ui.navigate.to("/")
         return
 
-    posts = get_all_posts_admin(token)
-
     with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
         authenticated_header()
         with ui.card().classes("w-full max-w-4xl p-8 shadow-lg rounded-2xl bg-white"):
@@ -62,13 +60,13 @@ def admin_blog_page() -> None:
 
                 new_title.on("blur", lambda: suggest_slug())
 
-                def handle_create():
+                async def handle_create():
                     if not new_title.value or not new_slug.value or not new_body.value:
                         create_msg.text = "Preencha título, slug e conteúdo."
                         create_msg.classes("text-red-500")
                         create_msg.set_visibility(True)
                         return
-                    result = create_post_admin(
+                    result = await create_post_admin(
                         token,
                         new_title.value,
                         new_slug.value,
@@ -90,52 +88,59 @@ def admin_blog_page() -> None:
 
             # lista de posts
             ui.label("Posts existentes").classes("text-lg font-semibold text-stone-700 mb-4")
+            posts_container = ui.column().classes("w-full gap-4")
 
-            if not posts:
-                ui.label("Nenhum post cadastrado.").classes("text-stone-400")
-            else:
-                with ui.column().classes("w-full gap-4"):
-                    for post in posts:
-                        with ui.expansion(
-                            f"{post['title']}  —  /{post['slug']}  —  {'Publicado' if post['published'] else 'Rascunho'}"
-                        ).classes("w-full bg-stone-50 rounded-xl px-4"):
-                            with ui.column().classes("w-full gap-3 py-3"):
-                                edit_title = ui.input("Título", value=post["title"]).classes("w-full")
-                                edit_body = (
-                                    ui.textarea(
-                                        "Conteúdo (HTML já convertido — editar aqui é editar HTML, não Markdown)",
-                                        value=post["body_html"],
-                                    )
-                                    .classes("w-full")
-                                    .props("rows=8")
+        async def load_posts():
+            posts = await get_all_posts_admin(token)
+
+            with posts_container:
+                if not posts:
+                    ui.label("Nenhum post cadastrado.").classes("text-stone-400")
+                    return
+
+                for post in posts:
+                    with ui.expansion(
+                        f"{post['title']}  —  /{post['slug']}  —  {'Publicado' if post['published'] else 'Rascunho'}"
+                    ).classes("w-full bg-stone-50 rounded-xl px-4"):
+                        with ui.column().classes("w-full gap-3 py-3"):
+                            edit_title = ui.input("Título", value=post["title"]).classes("w-full")
+                            edit_body = (
+                                ui.textarea(
+                                    "Conteúdo (HTML já convertido — editar aqui é editar HTML, não Markdown)",
+                                    value=post["body_html"],
                                 )
-                                edit_published = ui.checkbox("Publicado", value=post["published"])
-                                edit_msg = ui.label("").classes("text-sm")
-                                edit_msg.set_visibility(False)
+                                .classes("w-full")
+                                .props("rows=8")
+                            )
+                            edit_published = ui.checkbox("Publicado", value=post["published"])
+                            edit_msg = ui.label("").classes("text-sm")
+                            edit_msg.set_visibility(False)
 
-                                def handle_update(
-                                    pid=post["id"], t=edit_title, b=edit_body, p=edit_published, msg=edit_msg
-                                ):
-                                    result = update_post_admin(
-                                        token, pid, title=t.value, body_html=b.value, published=p.value
-                                    )
-                                    if result:
-                                        ui.navigate.to("/admin/blog")
-                                    else:
-                                        msg.text = "Erro ao salvar."
-                                        msg.classes("text-red-500")
-                                        msg.set_visibility(True)
+                            async def handle_update(
+                                pid=post["id"], t=edit_title, b=edit_body, p=edit_published, msg=edit_msg
+                            ):
+                                result = await update_post_admin(
+                                    token, pid, title=t.value, body_html=b.value, published=p.value
+                                )
+                                if result:
+                                    ui.navigate.to("/admin/blog")
+                                else:
+                                    msg.text = "Erro ao salvar."
+                                    msg.classes("text-red-500")
+                                    msg.set_visibility(True)
 
-                                def handle_delete(pid=post["id"]):
-                                    if delete_post_admin(token, pid):
-                                        ui.navigate.to("/admin/blog")
-                                    else:
-                                        ui.notify("Erro ao deletar.", color="negative")
+                            async def handle_delete(pid=post["id"]):
+                                if await delete_post_admin(token, pid):
+                                    ui.navigate.to("/admin/blog")
+                                else:
+                                    ui.notify("Erro ao deletar.", color="negative")
 
-                                with ui.row().classes("gap-2"):
-                                    ui.button("Salvar", on_click=handle_update).classes(
-                                        "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
-                                    )
-                                    ui.button("Deletar", on_click=handle_delete).classes(
-                                        "bg-red-500 text-white rounded-xl px-4 py-2 hover:bg-red-600"
-                                    )
+                            with ui.row().classes("gap-2"):
+                                ui.button("Salvar", on_click=handle_update).classes(
+                                    "bg-amber-600 text-white rounded-xl px-4 py-2 hover:bg-amber-700"
+                                )
+                                ui.button("Deletar", on_click=handle_delete).classes(
+                                    "bg-red-500 text-white rounded-xl px-4 py-2 hover:bg-red-600"
+                                )
+
+        ui.timer(0, load_posts, once=True)

@@ -40,7 +40,7 @@ def change_password_forced_page() -> None:
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
                 error_msg.set_visibility(False)
 
-                def handle_submit():
+                async def handle_submit():
                     if not current.value or not new.value:
                         error_msg.text = "Preencha todos os campos."
                         error_msg.set_visibility(True)
@@ -49,7 +49,7 @@ def change_password_forced_page() -> None:
                         error_msg.text = "As senhas novas não coincidem."
                         error_msg.set_visibility(True)
                         return
-                    ok, text = change_password(token, current.value, new.value)
+                    ok, text = await change_password(token, current.value, new.value)
                     if ok:
                         clear_must_change_password()
                         ui.navigate.to("/painel")

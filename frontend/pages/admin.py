@@ -168,8 +168,8 @@ def admin_page() -> None:
                                         else:
                                             msg.text = "Erro."
                                             msg.set_visibility(True)
-                                    def handle_delete(uid=user["id"]):
-                                        result = delete_user(token, uid)
+                                    async def handle_delete(uid=user["id"]):
+                                        result = await delete_user(token, uid)
                                         if result:
                                             ui.navigate.to("/admin")
                                         else:
@@ -190,13 +190,13 @@ def admin_page() -> None:
                                 pix_msg = ui.label("").classes("text-sm")
                                 pix_msg.set_visibility(False)
 
-                                def handle_send_pix(uid=user["id"], link=pix_input, msg=pix_msg):
+                                async def handle_send_pix(uid=user["id"], link=pix_input, msg=pix_msg):
                                     if not link.value:
                                         msg.text = "Cole o link antes de enviar."
                                         msg.classes(replace="text-sm text-red-500")
                                         msg.set_visibility(True)
                                         return
-                                    ok = send_payment_link(token, uid, link.value)
+                                    ok = await send_payment_link(token, uid, link.value)
                                     if ok:
                                         msg.text = "Cobrança enviada."
                                         msg.classes(replace="text-sm text-green-600")

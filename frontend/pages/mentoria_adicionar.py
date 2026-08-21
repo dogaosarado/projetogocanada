@@ -18,7 +18,7 @@ TIER_LABELS = {
 }
 
 
-def mentoria_adicionar_page(tier: str = "mentoria_basico") -> None:
+async def mentoria_adicionar_page(tier: str = "mentoria_basico") -> None:
     design_tokens()
     if not is_logged_in():
         ui.navigate.to("/login")
@@ -29,7 +29,7 @@ def mentoria_adicionar_page(tier: str = "mentoria_basico") -> None:
 
     max_universities = MENTORSHIP_UNIVERSITY_LIMITS[tier]
     token = get_token()
-    universities_data = get_universities_public() or []
+    universities_data = await get_universities_public() or []
     university_map = {u["name"]: u["departments"] for u in universities_data}
     university_names = sorted(university_map.keys())
 
@@ -122,7 +122,7 @@ def mentoria_adicionar_page(tier: str = "mentoria_basico") -> None:
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
                 error_msg.set_visibility(False)
 
-                def handle_submit():
+                async def handle_submit():
                     filled = [s for s in selections if s.get("university") and s.get("department")]
                     if not filled:
                         error_msg.text = "Selecione ao menos uma universidade e um departamento."
@@ -134,7 +134,7 @@ def mentoria_adicionar_page(tier: str = "mentoria_basico") -> None:
                         "universities_selected": filled,
                         "research_interests": lattes_input.value or None,
                     }
-                    result, error = adicionar_servico_mentoria(token, payload)
+                    result, error = await adicionar_servico_mentoria(token, payload)
                     if result:
                         ui.notify("Mentoria adicionada à sua conta.", color="positive")
                         ui.navigate.to("/dashboard")

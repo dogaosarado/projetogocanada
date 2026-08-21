@@ -30,11 +30,11 @@ def login_page() -> None:
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-1")
                 error_msg.set_visibility(False)
 
-                def handle_login():
-                    result, error = login(email.value, password.value)
+                async def handle_login():
+                    result, error = await login(email.value, password.value)
                     if result:
                         token = result["access_token"]
-                        user, user_error = get_me(token)
+                        user, user_error = await get_me(token)
                         if user:
                             set_user(
                                 token=token,

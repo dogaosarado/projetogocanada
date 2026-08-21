@@ -14,7 +14,7 @@ TIER_LIMITS = {
 }
 
 
-def form_page() -> None:
+async def form_page() -> None:
     design_tokens()
     if not is_logged_in():
         ui.navigate.to("/login")
@@ -27,7 +27,7 @@ def form_page() -> None:
     tier = get_tier()
     max_universities = TIER_LIMITS.get(tier, 2)
 
-    if get_request_status(token):
+    if await get_request_status(token):
         with ui.column().classes(
             "w-full min-h-screen bg-[#F5F0E6] font-body items-center py-12 px-4"
         ):
@@ -49,7 +49,7 @@ def form_page() -> None:
                 )
         return
 
-    universities_data = get_universities(token) or []
+    universities_data = await get_universities(token) or []
     university_map = {u["name"]: u["departments"] for u in universities_data}
     university_names = sorted(university_map.keys())
 
@@ -156,7 +156,7 @@ def form_page() -> None:
             error_label = ui.label("").classes("text-red-500 text-sm")
             error_label.set_visibility(False)
 
-            def handle_submit():
+            async def handle_submit():
                 filled = [
                     s for s in selections
                     if s.get("university") and s.get("department")
@@ -171,7 +171,7 @@ def form_page() -> None:
                     "research_interests": research.value or None,
                 }
 
-                result, error = submit_request(token, payload)
+                result, error = await submit_request(token, payload)
                 if result:
                     ui.navigate.to("/confirmacao")
                 else:

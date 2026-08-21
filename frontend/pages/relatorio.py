@@ -165,11 +165,11 @@ def _tier_cards(tiers: list[dict], scroll_target_id: str, select_ref: dict) -> N
                 )
 
 
-def relatorio_page() -> None:
+async def relatorio_page() -> None:
     design_tokens()
     selected_tier = {"value": None}
 
-    universities_data = get_universities_public() or []
+    universities_data = await get_universities_public() or []
     university_map = {u["name"]: u["departments"] for u in universities_data}
     university_names = sorted(university_map.keys())
 
@@ -361,7 +361,7 @@ def relatorio_page() -> None:
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
                 error_msg.set_visibility(False)
 
-                def handle_interest():
+                async def handle_interest():
                     if not name_input.value.strip():
                         error_msg.text = "Informe seu nome."
                         error_msg.set_visibility(True)
@@ -388,7 +388,7 @@ def relatorio_page() -> None:
                         "universities_selected": selections,
                         "lattes_url": None,
                     }
-                    result, error = submit_relatorio_interest(payload)
+                    result, error = await submit_relatorio_interest(payload)
                     if result:
                         ui.navigate.to("/interesse")
                     else:
@@ -404,7 +404,7 @@ def relatorio_page() -> None:
                 )
 
         # novidades — 3 posts mais recentes do blog
-        posts = get_posts()[:3]
+        posts = (await get_posts())[:3]
         if posts:
             with ui.column().classes("w-full items-center py-16 px-4"):
                 ui.label("Novidades").classes(

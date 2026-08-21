@@ -18,13 +18,13 @@ TIER_LABELS = {
 }
 
 
-def mentoria_signup_page(tier: str = "mentoria_basico") -> None:
+async def mentoria_signup_page(tier: str = "mentoria_basico") -> None:
     design_tokens()
     if tier not in MENTORSHIP_UNIVERSITY_LIMITS:
         tier = "mentoria_basico"
 
     max_universities = MENTORSHIP_UNIVERSITY_LIMITS[tier]
-    universities_data = get_universities_public() or []
+    universities_data = await get_universities_public() or []
     university_map = {u["name"]: u["departments"] for u in universities_data}
     university_names = sorted(university_map.keys())
 
@@ -124,7 +124,7 @@ def mentoria_signup_page(tier: str = "mentoria_basico") -> None:
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
                 error_msg.set_visibility(False)
 
-                def handle_submit():
+                async def handle_submit():
                     if not name_input.value.strip():
                         error_msg.text = "Informe seu nome."
                         error_msg.set_visibility(True)
@@ -146,7 +146,7 @@ def mentoria_signup_page(tier: str = "mentoria_basico") -> None:
                         "universities_selected": filled,
                         "research_interests": lattes_input.value or None,
                     }
-                    result, error = mentoria_signup(payload)
+                    result, error = await mentoria_signup(payload)
                     if result:
                         ui.navigate.to("/mentoria/interesse")
                     else:

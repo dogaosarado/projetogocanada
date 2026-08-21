@@ -47,13 +47,13 @@ def admin_relatorio_page() -> None:
                 pl_msg = ui.label("").classes("text-sm mt-3")
                 pl_msg.set_visibility(False)
 
-                def handle_send_payment_link():
+                async def handle_send_payment_link():
                     if not (pl_name.value and pl_email.value and pl_tier.value and pl_pix.value):
                         pl_msg.text = "Preencha todos os campos."
                         pl_msg.classes(replace="text-red-500 text-sm mt-3")
                         pl_msg.set_visibility(True)
                         return
-                    ok, error = send_relatorio_payment_link(
+                    ok, error = await send_relatorio_payment_link(
                         token, pl_name.value, pl_email.value, pl_tier.value, pl_pix.value
                     )
                     if ok:
@@ -87,13 +87,13 @@ def admin_relatorio_page() -> None:
                 cf_msg = ui.label("").classes("text-sm mt-3")
                 cf_msg.set_visibility(False)
 
-                def handle_confirm_payment():
+                async def handle_confirm_payment():
                     if not (cf_name.value and cf_email.value):
                         cf_msg.text = "Preencha nome e email."
                         cf_msg.classes(replace="text-red-500 text-sm mt-3")
                         cf_msg.set_visibility(True)
                         return
-                    ok, error = confirm_relatorio_payment(token, cf_name.value, cf_email.value)
+                    ok, error = await confirm_relatorio_payment(token, cf_name.value, cf_email.value)
                     if ok:
                         cf_msg.text = "Confirmação enviada — cliente avisado do prazo de 48h."
                         cf_msg.classes(replace="text-green-600 text-sm mt-3")

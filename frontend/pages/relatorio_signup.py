@@ -19,13 +19,13 @@ TIER_LABELS = {
 }
 
 
-def relatorio_signup_page(tier: str = "relatorio_gratis") -> None:
+async def relatorio_signup_page(tier: str = "relatorio_gratis") -> None:
     design_tokens()
     if tier not in REPORT_UNIVERSITY_LIMITS:
         tier = "relatorio_gratis"
 
     max_universities = REPORT_UNIVERSITY_LIMITS[tier]
-    universities_data = get_universities_public() or []
+    universities_data = await get_universities_public() or []
     university_map = {u["name"]: u["departments"] for u in universities_data}
     university_names = sorted(university_map.keys())
 
@@ -124,7 +124,7 @@ def relatorio_signup_page(tier: str = "relatorio_gratis") -> None:
                 error_msg = ui.label("").classes("text-red-500 text-sm mt-2")
                 error_msg.set_visibility(False)
 
-                def handle_submit():
+                async def handle_submit():
                     if not name_input.value.strip():
                         error_msg.text = "Informe seu nome."
                         error_msg.set_visibility(True)
@@ -147,7 +147,7 @@ def relatorio_signup_page(tier: str = "relatorio_gratis") -> None:
                         "lattes_url": lattes_input.value.strip() or None,
                     }
                     from frontend.services.api import relatorio_signup
-                    result, error = relatorio_signup(payload)
+                    result, error = await relatorio_signup(payload)
                     if result:
                         ui.navigate.to("/login")
                     else:

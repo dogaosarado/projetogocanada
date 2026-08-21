@@ -11,7 +11,6 @@ from frontend.services.api import get_posts, get_post
 
 def blog_list_page() -> None:
     design_tokens()
-    posts = get_posts()
 
     with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
         site_header("blog")
@@ -24,33 +23,41 @@ def blog_list_page() -> None:
                     "font-display text-3xl font-semibold text-[#16233D]"
                 )
 
-            if not posts:
-                ui.label("Nenhum post publicado ainda.").classes(
-                    "text-[#4B5563]/50 font-mono text-sm"
-                )
-
-            with ui.column().classes("w-full max-w-3xl gap-4"):
-                for post in posts:
-                    with ui.card().classes(
-                        "w-full p-6 rounded-none shadow-sm bg-white cursor-pointer "
-                        "hover:shadow-md"
-                    ).on(
-                        "click",
-                        lambda p=post: ui.navigate.to(f"/blog/{p['slug']}"),
-                    ):
-                        ui.label(post["title"]).classes(
-                            "text-[#16233D] font-semibold text-xl"
-                        )
-                        ui.label(post["created_at"][:10]).classes(
-                            "text-[#4B5563]/50 text-sm font-mono"
-                        )
+            content = ui.column().classes("w-full items-center")
 
         site_footer()
+
+        async def load():
+            posts = await get_posts()
+
+            with content:
+                if not posts:
+                    ui.label("Nenhum post publicado ainda.").classes(
+                        "text-[#4B5563]/50 font-mono text-sm"
+                    )
+                    return
+
+                with ui.column().classes("w-full max-w-3xl gap-4"):
+                    for post in posts:
+                        with ui.card().classes(
+                            "w-full p-6 rounded-none shadow-sm bg-white cursor-pointer "
+                            "hover:shadow-md"
+                        ).on(
+                            "click",
+                            lambda p=post: ui.navigate.to(f"/blog/{p['slug']}"),
+                        ):
+                            ui.label(post["title"]).classes(
+                                "text-[#16233D] font-semibold text-xl"
+                            )
+                            ui.label(post["created_at"][:10]).classes(
+                                "text-[#4B5563]/50 text-sm font-mono"
+                            )
+
+        ui.timer(0, load, once=True)
 
 
 def blog_post_page(slug: str) -> None:
     design_tokens()
-    post = get_post(slug)
 
     with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body"):
         site_header("blog")
@@ -64,6 +71,14 @@ def blog_post_page(slug: str) -> None:
                     "font-mono text-xs tracking-wide self-start"
                 )
 
+                content = ui.column().classes("w-full")
+
+        site_footer()
+
+        async def load():
+            post = await get_post(slug)
+
+            with content:
                 if not post:
                     with ui.card().classes("w-full p-8 rounded-none text-center"):
                         ui.label("Post não encontrado.").classes(
@@ -82,4 +97,4 @@ def blog_post_page(slug: str) -> None:
                         with ui.element("div").classes("blog-content w-full"):
                             ui.html(post["body_html"])
 
-        site_footer()
+        ui.timer(0, load, once=True)
