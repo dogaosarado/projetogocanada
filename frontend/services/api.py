@@ -49,7 +49,8 @@ def get_universities_public() -> list | None:
         if response.status_code == 200:
             return response.json()
         return None
-    except Exception:
+    except Exception as e:
+        print(f"get_universities_public EXCEPTION: {type(e).__name__}: {e}")
         return None
 
 
