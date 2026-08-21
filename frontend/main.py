@@ -49,12 +49,12 @@ def interesse():
     interest_page()
 
 @ui.page("/admin", title="GoCanadaBR")
-def admin():
-    admin_page()
+async def admin():
+    await admin_page()
 
 @ui.page("/admin/relatorio", title="GoCanadaBR")
-def admin_relatorio():
-    admin_relatorio_page()
+async def admin_relatorio():
+    await admin_relatorio_page()
 
 @ui.page("/", title="GoCanadaBR")
 def index():
@@ -62,8 +62,8 @@ def index():
 
 
 @ui.page("/relatorio", title="GoCanadaBR")
-def relatorio():
-    relatorio_page()
+async def relatorio():
+    await relatorio_page()
 
 
 @ui.page("/contato", title="GoCanadaBR")
@@ -83,8 +83,8 @@ def login():
 
 
 @ui.page("/formulario", title="GoCanadaBR")
-def formulario():
-    form_page()
+async def formulario():
+    await form_page()
 
 
 @ui.page("/confirmacao", title="GoCanadaBR")
@@ -92,28 +92,28 @@ def confirmacao():
     confirmation_page()
 
 @ui.page("/painel", title="GoCanadaBR")
-def painel():
-    dashboard_page()
+async def painel():
+    await dashboard_page()
 
 @ui.page("/blog", title="GoCanadaBR")
-def blog():
-    blog_list_page()
+async def blog():
+    await blog_list_page()
 
 @ui.page("/blog/{slug}", title="GoCanadaBR")
-def blog_post(slug: str):
-    blog_post_page(slug)
+async def blog_post(slug: str):
+    await blog_post_page(slug)
 
 @ui.page("/admin/users/{user_id}", title="GoCanadaBR")
-def admin_client(user_id: int):
-    admin_client_page(user_id)
+async def admin_client(user_id: int):
+    await admin_client_page(user_id)
 
 @ui.page("/admin/blog", title="GoCanadaBR")
-def admin_blog():
-    admin_blog_page()
+async def admin_blog():
+    await admin_blog_page()
 
 @ui.page("/painel/candidatura/{application_id}", title="GoCanadaBR")
-def painel_candidatura(application_id: int):
-    application_detail_page(application_id)
+async def painel_candidatura(application_id: int):
+    await application_detail_page(application_id)
 
 @ui.page("/quem-somos", title="GoCanadaBR")
 def quem_somos():
@@ -124,28 +124,28 @@ def mentoria_interesse():
     mentoria_interest_page()
 
 @ui.page("/mentoria/cadastro", title="GoCanadaBR")
-def mentoria_cadastro(tier: str = "mentoria_basico"):
-    mentoria_signup_page(tier)
+async def mentoria_cadastro(tier: str = "mentoria_basico"):
+    await mentoria_signup_page(tier)
 
 @ui.page("/relatorio/interesse", title="GoCanadaBR")
 def relatorio_interesse():
     relatorio_interest_page()
 
 @ui.page("/relatorio/cadastro", title="GoCanadaBR")
-def relatorio_cadastro(tier: str = "relatorio_gratis"):
-    relatorio_signup_page(tier)
+async def relatorio_cadastro(tier: str = "relatorio_gratis"):
+    await relatorio_signup_page(tier)
 
 @ui.page("/trocar-senha", title="GoCanadaBR")
-def trocar_senha():
-    change_password_forced_page()
+async def trocar_senha():
+    await change_password_forced_page()
 
 @ui.page("/relatorio/adicionar", title="GoCanadaBR")
-def relatorio_adicionar(tier: str = "relatorio_gratis"):
-    relatorio_adicionar_page(tier)
+async def relatorio_adicionar(tier: str = "relatorio_gratis"):
+    await relatorio_adicionar_page(tier)
 
 @ui.page("/mentoria/adicionar", title="GoCanadaBR")
-def mentoria_adicionar(tier: str = "mentoria_basico"):
-    mentoria_adicionar_page(tier)
+async def mentoria_adicionar(tier: str = "mentoria_basico"):
+    await mentoria_adicionar_page(tier)
 
 ui.run(
     title="GoCanadaBR",
