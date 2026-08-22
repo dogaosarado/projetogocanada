@@ -5,7 +5,7 @@ from state.user import get_token, is_logged_in
 from frontend.services.api import get_dashboard, change_password, get_meus_servicos
 from pages.layout import design_tokens, authenticated_header
 from state.user import must_change_password as must_change_password_state
-def dashboard_page() -> None:
+async def dashboard_page() -> None:
     design_tokens()
     if not is_logged_in():
         ui.navigate.to("/login")
@@ -14,7 +14,7 @@ def dashboard_page() -> None:
         ui.navigate.to("/trocar-senha")
         return
     token = get_token()
-    data = get_dashboard(token)
+    data = await get_dashboard(token)
 
     with ui.column().classes("w-full min-h-screen bg-[#F5F0E6] font-body items-center py-8 px-4"):
         authenticated_header()
@@ -51,7 +51,7 @@ def dashboard_page() -> None:
                             "px-4 py-2 font-mono text-xs tracking-wide hover:bg-[#F5F0E6]"
                         )
             # serviços contratados — relatório / mentoria, independente de data['tier']
-            servicos = get_meus_servicos(token) or []
+            servicos = await get_meus_servicos(token) or []
             faltando = {"relatorio", "mentoria"} - set(servicos)
 
             if faltando:
@@ -148,7 +148,7 @@ def open_password_dialog(token: str) -> None:
         msg = ui.label("").classes("text-sm")
         msg.set_visibility(False)
 
-        def handle_submit():
+        async def handle_submit():
             if not current.value or not new.value:
                 msg.text = "Preencha todos os campos."
                 msg.classes(replace="text-sm text-red-500")
@@ -159,7 +159,7 @@ def open_password_dialog(token: str) -> None:
                 msg.classes(replace="text-sm text-red-500")
                 msg.set_visibility(True)
                 return
-            ok, text = change_password(token, current.value, new.value)
+            ok, text = await change_password(token, current.value, new.value)
             if ok:
                 ui.notify("Senha alterada com sucesso.", color="positive")
                 dialog.close()

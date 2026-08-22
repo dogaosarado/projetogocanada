@@ -132,8 +132,8 @@ def confirmacao():
     confirmation_page()
 
 @ui.page("/painel")
-def painel():
-    dashboard_page()
+async def painel():
+    await dashboard_page()
 
 @ui.page("/blog")
 def blog():
