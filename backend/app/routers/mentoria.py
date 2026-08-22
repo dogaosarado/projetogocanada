@@ -24,15 +24,15 @@ def mentoria_signup(body: MentoriaSignupCreate, db: Session = Depends(get_db)):
     exists = db.query(User).filter(User.email == body.email).first()
     if exists:
         ja_tem_mentoria = db.query(ConsultancyRequest).filter(
-        ConsultancyRequest.user_id == exists.id,
-        ConsultancyRequest.service_type == "mentoria",
-    ).first()
-    if ja_tem_mentoria:
-        raise HTTPException(status_code=409, detail="Você já tem mentoria contratada.")
-    raise HTTPException(
-        status_code=409,
-        detail="Você já tem conta em outro serviço. Faça login e contrate a mentoria no seu painel.",
-    )
+            ConsultancyRequest.user_id == exists.id,
+            ConsultancyRequest.service_type == "mentoria",
+        ).first()
+        if ja_tem_mentoria:
+            raise HTTPException(status_code=409, detail="Você já tem mentoria contratada.")
+        raise HTTPException(
+            status_code=409,
+            detail="Você já tem conta em outro serviço. Faça login e contrate a mentoria no seu painel.",
+        )
 
     temp_password = secrets.token_urlsafe(12)
 
