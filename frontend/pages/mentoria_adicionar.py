@@ -137,7 +137,7 @@ async def mentoria_adicionar_page(tier: str = "mentoria_basico") -> None:
                     result, error = await adicionar_servico_mentoria(token, payload)
                     if result:
                         ui.notify("Mentoria adicionada à sua conta.", color="positive")
-                        ui.navigate.to("/dashboard")
+                        ui.navigate.to("/painel")
                     else:
                         error_msg.text = error or "Erro ao adicionar serviço. Tente novamente."
                         error_msg.set_visibility(True)

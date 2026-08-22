@@ -138,7 +138,7 @@ async def relatorio_adicionar_page(tier: str = "relatorio_gratis") -> None:
                     result, error = await adicionar_servico_relatorio(token, payload)
                     if result:
                         ui.notify("Relatório adicionado à sua conta.", color="positive")
-                        ui.navigate.to("/dashboard")
+                        ui.navigate.to("/painel")
                     else:
                         error_msg.text = error or "Erro ao adicionar serviço. Tente novamente."
                         error_msg.set_visibility(True)
