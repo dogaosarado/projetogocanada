@@ -80,7 +80,11 @@ def admin_page():
             ui.navigate.to("/")
             return
 
-        users = get_users(token)
+        db = SessionLocal()
+        try:
+            users = get_users(db)
+        finally:
+            db.close()
 
         with ui.column().classes("w-full min-h-screen bg-stone-50 items-center py-12 px-4"):
             authenticated_header()
