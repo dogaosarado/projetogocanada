@@ -60,7 +60,7 @@ def activate_user(token: str, user_id: int, tier: str) -> dict | None:
     except Exception:
         return None
 
-def admin_page(db: Session = Depends(get_db)):
+def admin_page():
     db = SessionLocal()
     try:
         users = get_users(db)
