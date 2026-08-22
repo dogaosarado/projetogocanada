@@ -29,17 +29,13 @@ ALL_TIER_OPTIONS = {**REPORT_TIER_OPTIONS, **MENTORSHIP_TIER_OPTIONS}
 
 
 def get_users(token: str) -> list:
-    try:
-        response = httpx.get(
-            f"{API_URL}/admin/users",
-            headers={"Authorization": f"bearer {token}"},
-        )
-        if response.status_code == 200:
-            return response.json()
-        return []
-    except Exception:
-        return []
-
+    response = httpx.get(
+        f"{API_URL}/admin/users",
+        headers={"Authorization": f"Bearer {token}"},
+    )
+    print(f"[get_users] status={response.status_code} body={response.text[:300]}")
+    response.raise_for_status()
+    return response.json()
 
 def create_user(token: str, email: str, password: str, tier: str) -> dict | None:
     try:
